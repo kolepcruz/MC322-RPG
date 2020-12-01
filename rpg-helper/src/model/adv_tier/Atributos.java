@@ -1,4 +1,4 @@
-package model;
+package model.adv_tier;
 
 public class Atributos {
 
