@@ -43,7 +43,6 @@ public class Atributos {
     public int getStrenght() {
         return strenght;
     }
-
     public void setStrenght(int strenght) {
         this.strenght = strenght;
     }
@@ -51,7 +50,6 @@ public class Atributos {
     public int getModStrenght() {
         return modStrenght;
     }
-
     public void setModStrenght(int modStrenght) {
         this.modStrenght = modStrenght;
     }
@@ -59,7 +57,6 @@ public class Atributos {
     public int getDexterity() {
         return dexterity;
     }
-
     public void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
@@ -67,7 +64,6 @@ public class Atributos {
     public int getModDexterity() {
         return modDexterity;
     }
-
     public void setModDexterity(int modDexterity) {
         this.modDexterity = modDexterity;
     }
@@ -75,7 +71,6 @@ public class Atributos {
     public int getConstitution() {
         return constitution;
     }
-
     public void setConstitution(int constitution) {
         this.constitution = constitution;
     }
@@ -83,7 +78,6 @@ public class Atributos {
     public int getModConstitution() {
         return modConstitution;
     }
-
     public void setModConstitution(int modConstitution) {
         this.modConstitution = modConstitution;
     }
@@ -91,7 +85,6 @@ public class Atributos {
     public int getIntelligence() {
         return intelligence;
     }
-
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
@@ -99,7 +92,6 @@ public class Atributos {
     public int getModIntelligence() {
         return modIntelligence;
     }
-
     public void setModIntelligence(int modIntelligence) {
         this.modIntelligence = modIntelligence;
     }
@@ -107,7 +99,6 @@ public class Atributos {
     public int getWisdom() {
         return wisdom;
     }
-
     public void setWisdom(int wisdom) {
         this.wisdom = wisdom;
     }
@@ -115,7 +106,6 @@ public class Atributos {
     public int getModWisdom() {
         return modWisdom;
     }
-
     public void setModWisdom(int modWisdom) {
         this.modWisdom = modWisdom;
     }
@@ -123,7 +113,6 @@ public class Atributos {
     public int getCharisma() {
         return charisma;
     }
-
     public void setCharisma(int charisma) {
         this.charisma = charisma;
     }
@@ -131,7 +120,6 @@ public class Atributos {
     public int getModCharisma() {
         return modCharisma;
     }
-
     public void setModCharisma(int modCharisma) {
         this.modCharisma = modCharisma;
     }
