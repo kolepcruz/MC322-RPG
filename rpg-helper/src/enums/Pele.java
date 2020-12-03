@@ -8,4 +8,7 @@ public enum Pele {
     INDÍGENA(),
     VERMELHO(),
     AZUL();
+
+    Pele() {
+    }
 }
