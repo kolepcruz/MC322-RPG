@@ -1,22 +1,24 @@
-package model.mage;
-
-import model.adv_tier.Adventurer;
-import model.adv_tier.Atributos;
-import model.adv_tier.Combate;
-import model.adv_tier.Inventory;
-
-public class Mage extends Adventurer {
-
-    private int mana;
-
-    public Mage(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
-        super(atributos, combate, lvl, expPoints, inventory);
-    }
+public class Mage {
+    private int mana=10;
+    private int contMana=10;
 
     public Mage() {
+        this.contMana = 10;
+    }
+
+    public int getContMana() {
+        return contMana;
+    }
+
+    public void setContMana(int contMana) {
+        this.contMana = contMana;
     }
 
     public int getMana() {
         return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 }
