@@ -1,23 +1,24 @@
-package model.barbarian;
-
-import model.adv_tier.Adventurer;
-import model.adv_tier.Atributos;
-import model.adv_tier.Combate;
-import model.adv_tier.Inventory;
-
-public class Barbarian extends Adventurer {
-
-    private int rage;
-
-    public Barbarian(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory, int rage) {
-        super(atributos, combate, lvl, expPoints, inventory);
-        this.rage = rage;
-    }
+public class Barbarian {
+    private int furia=20;
+    private int contFuria;
 
     public Barbarian() {
+        this.contFuria = 20;
     }
 
-    public int getRage() {
-        return rage;
+    public int getFuria() {
+        return furia;
+    }
+
+    public void setFuria(int furia) {
+        this.furia = furia;
+    }
+
+    public int getContFuria() {
+        return contFuria;
+    }
+
+    public void setContFuria(int contFuria) {
+        this.contFuria = contFuria;
     }
 }

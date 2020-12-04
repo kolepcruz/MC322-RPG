@@ -1,15 +1,53 @@
-package model.mage;
-
-import model.adv_tier.Atributos;
-import model.adv_tier.Combate;
-import model.adv_tier.Inventory;
-
-public class FrostMage extends Mage{
-
-    public FrostMage(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
-        super(atributos, combate, lvl, expPoints, inventory);
+public class FrostMage extends Mage {
+    public int raioDeGelo(){
+        if(this.getNivel()==1){
+            int dano=0;
+            for(int i=0;i<3;i++){
+                dano+=Random1.fazRandom(4);
+            }
+            this.setContMana(this.getContMana()-5);
+            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
+        }else{
+            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
+        }
     }
 
-    public FrostMage() {
+    public int tempestadeDeGelo(){
+        if(this.getNivel()==2){
+            int dano=0;
+            for(int i=0;i<4;i++){
+                dano+=Random1.fazRandom(6);
+            }
+            this.setContMana(this.getContMana()-10);
+            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
+        }else{
+            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
+        }
+    }
+
+    public int esferaCongelanteDeOtiluke(){
+        if(this.getNivel()==3){
+            int dano=0;
+            for(int i=0;i<5;i++){
+                dano+=Random1.fazRandom(10);
+            }
+            this.setContMana(this.getContMana()-20);
+            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
+        }else{
+            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
+        }
+    }
+
+    public int coneDeFrio(){
+        if(this.getNivel()==4){
+            int dano=0;
+            for(int i=0;i<8;i++){
+                dano+=Random1.fazRandom(10);
+            }
+            this.setContMana(this.getContMana()-35);
+            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
+        }else{
+            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
+        }
     }
 }
