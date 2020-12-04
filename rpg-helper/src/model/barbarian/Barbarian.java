@@ -20,4 +20,6 @@ public class Barbarian extends Adventurer {
     public int getRage() {
         return rage;
     }
+
+
 }
