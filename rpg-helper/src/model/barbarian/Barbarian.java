@@ -21,5 +21,7 @@ public class Barbarian extends Adventurer {
         return rage;
     }
 
-
+    public void setRage(int rage) {
+        this.rage = rage;
+    }
 }
