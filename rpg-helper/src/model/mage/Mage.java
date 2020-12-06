@@ -11,6 +11,7 @@ public class Mage extends Adventurer {
 
     public Mage(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
         super(atributos, combate, lvl, expPoints, inventory);
+        this.mana = 10;
     }
 
     public Mage() {
@@ -18,5 +19,9 @@ public class Mage extends Adventurer {
 
     public int getMana() {
         return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 }
