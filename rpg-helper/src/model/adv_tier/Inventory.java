@@ -28,7 +28,7 @@ public class Inventory {
         this.pos = pos;
         this.weight = weight;
 
-        weapons = new ArrayList();
+
 
     }
 
