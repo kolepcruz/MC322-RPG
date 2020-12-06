@@ -11,6 +11,7 @@ public class Rogue extends Adventurer {
 
     public Rogue(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
         super(atributos, combate, lvl, expPoints, inventory);
+        this.stamina = 15;
     }
 
     public Rogue() {
@@ -18,5 +19,9 @@ public class Rogue extends Adventurer {
 
     public int getStamina() {
         return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }

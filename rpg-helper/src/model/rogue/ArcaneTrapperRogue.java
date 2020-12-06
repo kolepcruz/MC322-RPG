@@ -3,6 +3,7 @@ package model.rogue;
 import model.adv_tier.Atributos;
 import model.adv_tier.Combate;
 import model.adv_tier.Inventory;
+import utils.RandomUtil;
 
 public class ArcaneTrapperRogue extends Rogue {
 
@@ -12,5 +13,4 @@ public class ArcaneTrapperRogue extends Rogue {
 
     public ArcaneTrapperRogue() {
     }
-
 }
