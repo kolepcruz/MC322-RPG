@@ -13,6 +13,8 @@ public class Inventory {
     private ArrayList<Weapon> weapons;
     private ArrayList<Armor> armor;
     private ArrayList<Consumable> consumables;
+    private Armor armorEquiped;
+    private Weapon weaponEquiped;
     private int pos; // pecas de ouro
     private double weight;
 
@@ -25,6 +27,9 @@ public class Inventory {
         this.consumables = consumables;
         this.pos = pos;
         this.weight = weight;
+
+
+
     }
 
     public Inventory() {
@@ -66,14 +71,30 @@ public class Inventory {
         return pos;
     }
 
-    public double getWeight()
-    {
-        return weight;
+    public Armor getArmorEquiped() {
+        return armorEquiped;
     }
 
-    public void setWeight(double weight)
+    public Weapon getWeaponEquiped() {
+        return weaponEquiped;
+    }
+
+    /**
+     * O atributo weight é calculado somando todos as armaduras e armas que estão no inventario
+     * @return
+     */
+    public double getWeight()
     {
-        this.weight = weight;
+        //todo : IMPORTANTE: O valor inicial de weight é o valor passado como parametro no construtor, este deve ser o peso do personagem
+        //Peso de todas as armaduras
+        for (int i = 0; i < armor.size(); i++){
+            weight += armor.get(i).getPeso();
+        }
+        //Peso de todas as armas
+        for (int i = 0; i < weapons.size(); i++){
+            weight += weapons.get(i).getPeso();
+        }
+        return weight;
     }
 
     //IMPLEMENTACAO DE METODOS
@@ -90,5 +111,53 @@ public class Inventory {
             return true;
         }
         return false;
+    }
+
+    //Equipa armadura
+    public boolean equipArmor(Armor armor_to_equip){
+        if(armor.contains(armor_to_equip)){
+            armorEquiped = armor_to_equip;
+            return true;
+        }
+        else return false;
+    }
+
+    //Equipa arma
+    public boolean equipWeapon(Weapon weapon_to_equip){
+        if(weapons.contains(weapon_to_equip)){
+            weaponEquiped = weapon_to_equip;
+            return true;
+        }
+        else return false;
+    }
+
+    //ToString
+    public String toString(){
+        String out = "-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
+        out += "Armors:\n";
+        for(Armor i : armor){
+            //Se o armor equipado for printado o caracter antes do seu nome será "->"
+            if(i == armorEquiped)
+                out += "-> " + i + "\n";
+            else
+                out += "* " + i + "\n";
+        }
+
+        out += "\nWeapons:\n";
+        for(Weapon i : weapons){
+            if(i == weaponEquiped)
+                //Se o weapon equipado for printado o caracter antes do seu nome será "->"
+                out += "-> " + i + "\n";
+            else
+                out += "* " + i + "\n";
+        }
+
+        out += "\nConsumable:\n";
+        for(Consumable i : consumables){
+            out += "* " + i + "\n";
+        }
+
+        out += "\nPeso total:\n" + getWeight() + " kg";
+        return out;
     }
 }
