@@ -16,30 +16,10 @@ public class TotemicBarbarian extends Barbarian{
 
     public int spiritTotem()
     {
-        if(this.getLvl() == 2)
-        {
-            int damage = 0;
-            for (int i = 0;i<4;i++)
-            {
-                damage += RandomUtil.getRandom(6);
-            }
-            this.setRage(this.getRage() - 10);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,4,6,5);
     }
     public int totemicHarmony()
     {
-        if(this.getLvl() == 3)
-        {
-            int damage = 0;
-            for (int i = 0; i < 5;++i)
-            {
-                damage += RandomUtil.getRandom(10);
-            }
-            this.setRage(this.getRage() - 20);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,5,10,15);
     }
 }

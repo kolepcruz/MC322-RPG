@@ -16,31 +16,11 @@ public class AssassinRogue extends Rogue{
 
     public int assassinate()
     {
-        if(this.getLvl() >= 2)
-        {
-            int damage = 0;
-            for (int i = 0; i<4;++i)
-            {
-                damage+= RandomUtil.getRandom(6);
-            }
-            this.setStamina(this.getStamina()-10);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,4,6,10);
     }
 
     public int fatalBlow()
     {
-        if(this.getLvl() >= 3)
-        {
-            int damage = 0;
-            for (int i = 0; i<5;++i)
-            {
-                damage+= RandomUtil.getRandom(10);
-            }
-            this.setStamina(this.getStamina()-20);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,5,10,20);
     }
 }

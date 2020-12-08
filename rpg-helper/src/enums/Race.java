@@ -1,15 +1,15 @@
 package enums;
 
 public enum Race {
-    ANÃO(0,0,0,0,0,0),
-    ELFO(0,0,0,0,0,0),
-    HALFLING(0,0,0,0,0,0),
-    HUMANO(0,0,0,0,0,0),
-    DRACONATO(0,0,0,0,0,0),
-    GNOMO(0,0,0,0,0,0),
-    MEIO_ELFO(0,0,0,0,0,0),
-    MEIO_ORC(0,0,0,0,0,0),
-    TIEFLING(0,0,0,0,0,0);
+    ANÃO(2,0,2,0,1,0),
+    ELFO(0,2,0,1,1,1),
+    HALFLING(0,2,1,0,0,1),
+    HUMANO(1,1,1,1,1,1),
+    DRACONATO(2,0,0,0,0,1),
+    GNOMO(0,1,1,2,0,0),
+    MEIO_ELFO(0,0,0,1,1,2),
+    MEIO_ORC(2,0,1,0,0,0),
+    TIEFLING(0,0,0,1,0,2);
 
     private final int strenght;
     private final int dexterity;
