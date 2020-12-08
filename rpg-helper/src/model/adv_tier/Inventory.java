@@ -3,7 +3,12 @@ package model.adv_tier;
 import enums.Armor;
 import enums.Consumable;
 import enums.Weapon;
+import model.barbarian.Barbarian;
+import model.mage.FrostMage;
+import model.mage.Mage;
+import model.rogue.Rogue;
 
+import javax.sql.rowset.FilteredRowSet;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -130,6 +135,29 @@ public class Inventory {
         }
         else return false;
     }
+
+    //Usa poção de mana
+    public void useManaPotion(Mage mage){
+        mage.setMana(mage.getMana() + Consumable.POCAO_MANA.getVal());
+        mage.getInventory().getConsumables().remove(Consumable.POCAO_MANA);
+    }
+
+    //Usa poção de stamina
+    public void useStaminaPotion(Rogue rogue){
+        rogue.setStamina(rogue.getStamina() + Consumable.POCAO_STAMINA.getVal());
+        rogue.getInventory().getConsumables().remove(Consumable.POCAO_STAMINA);
+    }
+
+    //Usa poção de adrenalina
+    public void useAdrenalinePotion(Barbarian barbarian){
+        //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
+        barbarian.setRage(barbarian.getRage() + Consumable.POCAO_ADRENALINA.getVal());
+        barbarian.getInventory().getConsumables().remove(Consumable.POCAO_ADRENALINA);
+    }
+
+
+
+
 
     //ToString
     public String toString(){
