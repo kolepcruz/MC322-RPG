@@ -2,14 +2,14 @@ package enums;
 
 public enum Race {
 
-    ANÃO(2,0,2,0,1,0),
-    ELFO(0,2,0,1,1,1),
+    DWARF(2,0,2,0,1,0),
+    ELF(0,2,0,1,1,1),
     HALFLING(0,2,1,0,0,1),
-    HUMANO(1,1,1,1,1,1),
-    DRACONATO(2,0,0,0,0,1),
-    GNOMO(0,1,1,2,0,0),
-    MEIO_ELFO(0,0,0,1,1,2),
-    MEIO_ORC(2,0,1,0,0,0),
+    HUMAN(1,1,1,1,1,1),
+    DRAGONBORN(2,0,0,0,0,1),
+    GNOME(0,1,1,2,0,0),
+    HALF_ELF(0,0,0,1,1,2),
+    HALF_ORC(2,0,1,0,0,0),
     TIEFLING(0,0,0,1,0,2);
 
 

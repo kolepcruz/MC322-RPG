@@ -5,8 +5,8 @@ public enum Armor {
     PADDED(5, 11, 4),
     BEATEN_LEADER(45, 12, 6.5),
 
-    CAMISAO_DE_MALHA(50, 13, 10),
-    MEIA_ARMADURA(750, 15, 20),
+    MAIL_SHIRT(50, 13, 10),
+    HALF_ARMOR(750, 15, 20),
 
     COTA_DE_ANEIS(30, 14, 20),
     COTA_DE_TALAS(200, 17, 30),
