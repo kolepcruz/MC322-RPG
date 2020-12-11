@@ -19,7 +19,7 @@ public class FireMage extends Mage {
         return doDamage(1,3,6,10);
     }
 
-    public int fireball()
+    public int fireBall()
     {
         return doDamage(2,4,10,15);
     }
