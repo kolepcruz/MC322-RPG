@@ -6,9 +6,8 @@ import java.util.ArrayList;
 
 public class MathRPG {
 
-
-    public static double getMod(int num){
-        return Math.floor((num - 10)/2);
+    public static int getMod(int num){
+        return (int)(Math.floor((num - 10)/2));
     }
 
     /**
