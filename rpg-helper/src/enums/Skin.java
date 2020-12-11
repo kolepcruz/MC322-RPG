@@ -5,7 +5,7 @@ public enum Skin {
     BROWN(),
     PARDO(),
     AMARELO(),
-    INDÍGENA(),
+    INDIGENA(),
     RED(),
     BLUE();
 
