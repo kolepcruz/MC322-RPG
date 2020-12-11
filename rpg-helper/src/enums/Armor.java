@@ -14,20 +14,20 @@ public enum Armor {
     SHIELD(10, 2, 3);
 
     private int price;
-    private int armor_class;
+    private int armorClass;
     private double weight;
 
     Armor(int price, int armor_class, double weight){
         this.price = price;
-        this.armor_class = armor_class;
+        this.armorClass = armor_class;
         this.weight = weight;
     }
 
     public int getPrice() {
         return price;
     }
-    public int getArmor_class() {
-        return armor_class;
+    public int getArmorClass() {
+        return armorClass;
     }
     public double getWeight() {
         return weight;
