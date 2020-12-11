@@ -1,17 +1,17 @@
 package enums;
 
 public enum Consumable {
-    POCAO_MANA(10),
-    POCAO_VIDA(10),
-    POCAO_STAMINA(10),
-    POCAO_ADRENALINA(10);
+    MANA_POTION(10),
+    LIFE_POTION(10),
+    STAMINA_POTION(10),
+    ADRENALINE_POTION(10);
 
-    private int num;
-    Consumable(int num){
-        this.num = num;
+    private int val;
+    Consumable(int val){
+        this.val = val;
     }
 
-    public int getNum() {
-        return num;
+    public int getVal() {
+        return val;
     }
 }

@@ -3,7 +3,12 @@ package model.adv_tier;
 import enums.Armor;
 import enums.Consumable;
 import enums.Weapon;
+import model.barbarian.Barbarian;
+import model.mage.FrostMage;
+import model.mage.Mage;
+import model.rogue.Rogue;
 
+import javax.sql.rowset.FilteredRowSet;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -15,17 +20,17 @@ public class Inventory {
     private ArrayList<Consumable> consumables;
     private Armor armorEquiped;
     private Weapon weaponEquiped;
-    private int pos; // pecas de ouro
+    private int gold; // pecas de ouro
     private double weight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armor, ArrayList<Consumable> consumables, int pos,
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armor, ArrayList<Consumable> consumables, int gold,
                      double weight)
     {
         this.weapons = weapons;
         this.armor = armor;
         this.consumables = consumables;
-        this.pos = pos;
+        this.gold = gold;
         this.weight = weight;
 
 
@@ -66,9 +71,9 @@ public class Inventory {
         this.consumables = consumables;
     }
 
-    public int getPos()
+    public int getGold()
     {
-        return pos;
+        return gold;
     }
 
     public Armor getArmorEquiped() {
@@ -88,11 +93,11 @@ public class Inventory {
         //todo : IMPORTANTE: O valor inicial de weight é o valor passado como parametro no construtor, este deve ser o peso do personagem
         //Peso de todas as armaduras
         for (int i = 0; i < armor.size(); i++){
-            weight += armor.get(i).getPeso();
+            weight += armor.get(i).getWeight();
         }
         //Peso de todas as armas
         for (int i = 0; i < weapons.size(); i++){
-            weight += weapons.get(i).getPeso();
+            weight += weapons.get(i).getWeight();
         }
         return weight;
     }
@@ -106,8 +111,8 @@ public class Inventory {
      * @author kolepcruz
      */
     public boolean pay(int value){
-        if(this.pos>=value){
-            this.pos-=value;
+        if(this.gold>=value){
+            this.gold-=value;
             return true;
         }
         return false;
@@ -130,6 +135,29 @@ public class Inventory {
         }
         else return false;
     }
+
+    //Usa poção de mana
+    public void useManaPotion(Mage mage){
+        mage.setMana(mage.getMana() + Consumable.MANA_POTION.getVal());
+        mage.getInventory().getConsumables().remove(Consumable.MANA_POTION);
+    }
+
+    //Usa poção de stamina
+    public void useStaminaPotion(Rogue rogue){
+        rogue.setStamina(rogue.getStamina() + Consumable.STAMINA_POTION.getVal());
+        rogue.getInventory().getConsumables().remove(Consumable.STAMINA_POTION);
+    }
+
+    //Usa poção de adrenalina
+    public void useAdrenalinePotion(Barbarian barbarian){
+        //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
+        barbarian.setRage(barbarian.getRage() + Consumable.ADRENALINE_POTION.getVal());
+        barbarian.getInventory().getConsumables().remove(Consumable.ADRENALINE_POTION);
+    }
+
+
+
+
 
     //ToString
     public String toString(){

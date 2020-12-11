@@ -1,6 +1,6 @@
 package model.adv_tier;
 
-public class Atributos {
+public class Attributes {
 
     private int strenght;
     private int modStrenght;
@@ -20,8 +20,8 @@ public class Atributos {
     private int charisma;
     private int modCharisma;
 
-    public Atributos(int strenght, int modStrenght, int dexterity, int modDexterity, int constitution, int modConstitution,
-                     int intelligence, int modIntelligence, int wisdom, int modWisdom, int charisma, int modCharisma)
+    public Attributes(int strenght, int modStrenght, int dexterity, int modDexterity, int constitution, int modConstitution,
+                      int intelligence, int modIntelligence, int wisdom, int modWisdom, int charisma, int modCharisma)
     {
         this.strenght = strenght;
         this.modStrenght = modStrenght;
@@ -37,7 +37,7 @@ public class Atributos {
         this.modCharisma = modCharisma;
     }
 
-    public Atributos() {
+    public Attributes() {
     }
 
     public int getStrenght() {
