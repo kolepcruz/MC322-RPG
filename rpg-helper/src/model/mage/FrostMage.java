@@ -16,61 +16,21 @@ public class FrostMage extends Mage{
 
     public int iceBeam()
     {
-        if(this.getLvl() >= 1)
-        {
-            int damage = 0;
-            for (int i = 0; i<3;++i)
-            {
-                damage+= RandomUtil.getRandom(4);
-            }
-            this.setMana(this.getMana()-5);
-            return damage;
-        }
-        return 0;
+        return doDamage(1,3,4,5);
     }
 
     public int iceStorm()
     {
-        if(this.getLvl() >= 2)
-        {
-            int damage = 0;
-            for (int i = 0; i<4;++i)
-            {
-                damage+= RandomUtil.getRandom(6);
-            }
-            this.setMana(this.getMana()-10);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,4,6,10);
     }
 
     public int otilukeFreezingSphere()
     {
-        if(this.getLvl() >= 3)
-        {
-            int damage = 0;
-            for (int i = 0; i<5;++i)
-            {
-                damage+= RandomUtil.getRandom(10);
-            }
-            this.setMana(this.getMana()-20);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,5,10,20);
     }
 
     public int frostIcicle()
     {
-        if(this.getLvl() >= 4)
-        {
-            int damage = 0;
-            for (int i = 0; i<8;++i)
-            {
-                damage+= RandomUtil.getRandom(10);
-            }
-            this.setMana(this.getMana()-35);
-            return damage;
-        }
-        return 0;
+        return doDamage(4,8,10,35);
     }
 }

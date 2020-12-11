@@ -16,61 +16,21 @@ public class ArcaneMage extends Mage{
 
     public int arcaneArmor()
     {
-        if(this.getLvl() >= 1 )
-        {
-            int damage = 0;
-            for(int i = 0;i < 4 ;++i)
-            {
-                damage+= RandomUtil.getRandom(4);
-            }
-            this.setMana(this.getMana() - 8);
-            return damage;
-        }
-        return 0;
+        return doDamage(1,4,4,8);
     }
 
     public int magicMissiles()
     {
-        if(this.getLvl() >= 2)
-        {
-            int damage = 0;
-            for (int i = 0; i<6;++i)
-            {
-                damage+=RandomUtil.getRandom(6);
-            }
-            this.setMana(this.getMana()-18);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,6,6,18);
     }
 
     public int prismaticBarrage()
     {
-        if(this.getLvl() >= 3)
-        {
-            int damage = 0;
-            for (int i = 0; i<10;++i)
-            {
-                damage+=RandomUtil.getRandom(10);
-            }
-            this.setMana(this.getMana()-28);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,10,10,28);
     }
 
     public int arcanePortal()
     {
-        if(this.getLvl() >= 4)
-        {
-            int damage = 0;
-            for (int i = 0; i<10;++i)
-            {
-                damage+=RandomUtil.getRandom(6);
-            }
-            this.setMana(this.getMana()-22);
-            return damage;
-        }
-        return 0;
+        return doDamage(4,10,6,22);
     }
 }

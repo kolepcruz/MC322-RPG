@@ -16,61 +16,20 @@ public class FireMage extends Mage {
 
     public int metheorStorm()
     {
-        if(this.getLvl() >= 1)
-        {
-            int damage = 0;
-            for (int i = 0; i<3;++i)
-            {
-                damage+= RandomUtil.getRandom(6);
-            }
-            this.setMana(this.getMana()-10);
-            return damage;
-        }
-        return 0;
+        return doDamage(1,3,6,10);
     }
 
     public int fireball()
     {
-        if(this.getLvl() >= 2)
-        {
-            int damage = 0;
-            for (int i = 0; i<4;++i)
-            {
-                damage+= RandomUtil.getRandom(10);
-            }
-            this.setMana(this.getMana()-15);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,4,10,15);
     }
 
     public int burningBeam()
     {
-        if(this.getLvl() >= 3)
-        {
-            int damage = 0;
-            for (int i = 0; i<5;++i)
-            {
-                damage+= RandomUtil.getRandom(10);
-            }
-            this.setMana(this.getMana()-20);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,5,10,20);
     }
 
-    public int flamingSphere()
-    {
-        if(this.getLvl() >= 4)
-        {
-            int damage = 0;
-            for (int i = 0; i<8;++i)
-            {
-                damage+= RandomUtil.getRandom(6);
-            }
-            this.setMana(this.getMana()-3);
-            return damage;
-        }
-        return 0;
+    public int flamingSphere() {
+        return doDamage(4, 8, 6, 3);
     }
 }

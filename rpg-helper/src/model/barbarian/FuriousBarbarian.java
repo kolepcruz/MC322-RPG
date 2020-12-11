@@ -16,61 +16,22 @@ public class FuriousBarbarian extends Barbarian{
 
     public int retaliation()
     {
-        if(this.getLvl() == 1)
-        {
-            int damage = 0;
-            for(int i = 0;i<8;i++)
-            {
-                damage += RandomUtil.getRandom(10);
-            }
-            this.setRage(this.getRage() - 35);
-            return damage;
-        }
-        return 0;
+        return doDamage(1,8,10,35);
     }
 
     public int frenzy()
     {
-        if(this.getLvl() == 2)
-        {
-            int damage = 0;
-            for(int i = 0;i<4;i++)
-            {
-                damage+=RandomUtil.getRandom(6);
-            }
-            this.setRage(this.getRage() - 10);
-            return damage;
-        }
-        return 0;
+        return doDamage(2,4,6,10);
     }
 
     public int berserker()
     {
-        if(this.getLvl() == 3)
-        {
-            int damage = 0;
-            for(int i = 0;i<5;i++)
-            {
-                damage+=RandomUtil.getRandom(10);
-            }
-            this.setRage(this.getRage() - 20);
-            return damage;
-        }
-        return 0;
+        return doDamage(3,5,10,20);
+
     }
 
     public int intimidatingPresence()
     {
-        if(this.getLvl() == 4)
-        {
-            int damage = 0;
-            for(int i = 0;i<8;i++)
-            {
-                damage += RandomUtil.getRandom(10);
-            }
-            this.setRage(this.getRage() - 35);
-            return damage;
-        }
-        return 0;
+        return doDamage(4,8,10,35);
     }
 }
