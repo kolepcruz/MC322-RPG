@@ -4,11 +4,9 @@ import enums.Armor;
 import enums.Consumable;
 import enums.Weapon;
 import model.barbarian.Barbarian;
-import model.mage.FrostMage;
 import model.mage.Mage;
 import model.rogue.Rogue;
 
-import javax.sql.rowset.FilteredRowSet;
 import java.util.ArrayList;
 
 public class Inventory {
@@ -16,7 +14,7 @@ public class Inventory {
     //todo : equip and get equipments automatically update the current weight of the inventory
 
     private ArrayList<Weapon> weapons;
-    private ArrayList<Armor> armor;
+    private ArrayList<Armor> armors;
     private ArrayList<Consumable> consumables;
     private Armor armorEquiped;
     private Weapon weaponEquiped;
@@ -24,17 +22,14 @@ public class Inventory {
     private double weight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armor, ArrayList<Consumable> consumables, int gold,
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors, ArrayList<Consumable> consumables, int gold,
                      double weight)
     {
         this.weapons = weapons;
-        this.armor = armor;
+        this.armors = armors;
         this.consumables = consumables;
         this.gold = gold;
         this.weight = weight;
-
-
-
     }
 
     public Inventory() {
@@ -45,27 +40,24 @@ public class Inventory {
     {
         return weapons;
     }
-
     public void setWeapons(ArrayList<Weapon> weapons)
     {
         this.weapons = weapons;
     }
 
-    public ArrayList<Armor> getArmor()
+    public ArrayList<Armor> getArmors()
     {
-        return armor;
+        return armors;
     }
-
-    public void setArmor(ArrayList<Armor> armor)
+    public void setArmors(ArrayList<Armor> armors)
     {
-        this.armor = armor;
+        this.armors = armors;
     }
 
     public ArrayList<Consumable> getConsumables()
     {
         return consumables;
     }
-
     public void setConsumables(ArrayList<Consumable> consumables)
     {
         this.consumables = consumables;
@@ -79,7 +71,6 @@ public class Inventory {
     public Armor getArmorEquiped() {
         return armorEquiped;
     }
-
     public Weapon getWeaponEquiped() {
         return weaponEquiped;
     }
@@ -92,8 +83,8 @@ public class Inventory {
     {
         //todo : IMPORTANTE: O valor inicial de weight é o valor passado como parametro no construtor, este deve ser o peso do personagem
         //Peso de todas as armaduras
-        for (int i = 0; i < armor.size(); i++){
-            weight += armor.get(i).getWeight();
+        for (int i = 0; i < armors.size(); i++){
+            weight += armors.get(i).getWeight();
         }
         //Peso de todas as armas
         for (int i = 0; i < weapons.size(); i++){
@@ -120,7 +111,7 @@ public class Inventory {
 
     //Equipa armadura
     public boolean equipArmor(Armor armor_to_equip){
-        if(armor.contains(armor_to_equip)){
+        if(armors.contains(armor_to_equip)){
             armorEquiped = armor_to_equip;
             return true;
         }
@@ -163,7 +154,7 @@ public class Inventory {
     public String toString(){
         String out = "-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
         out += "Armors:\n";
-        for(Armor i : armor){
+        for(Armor i : armors){
             //Se o armor equipado for printado o caracter antes do seu nome será "->"
             if(i == armorEquiped)
                 out += "-> " + i + "\n";
