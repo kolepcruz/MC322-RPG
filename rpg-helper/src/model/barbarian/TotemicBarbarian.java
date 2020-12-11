@@ -14,7 +14,7 @@ public class TotemicBarbarian extends Barbarian{
     public TotemicBarbarian() {
     }
 
-    public int spiritTotem()
+    public int totemicSpirit()
     {
         return doDamage(2,4,6,5);
     }
