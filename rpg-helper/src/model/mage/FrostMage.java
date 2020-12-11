@@ -29,7 +29,7 @@ public class FrostMage extends Mage{
         return doDamage(3,5,10,20);
     }
 
-    public int frostIcicle()
+    public int frostCicle()
     {
         return doDamage(4,8,10,35);
     }
