@@ -2,8 +2,8 @@ package enums;
 
 public enum Armor {
     //ARMADURA(Preco, Classe de Armadura, Peso),
-    ACOLCHOADA(5, 11, 4),
-    COURO_BATIDO(45, 12, 6.5),
+    PADDED(5, 11, 4),
+    BEATEN_LEADER(45, 12, 6.5),
 
     CAMISAO_DE_MALHA(50, 13, 10),
     MEIA_ARMADURA(750, 15, 20),
@@ -11,26 +11,26 @@ public enum Armor {
     COTA_DE_ANEIS(30, 14, 20),
     COTA_DE_TALAS(200, 17, 30),
 
-    ESCUDO(10, 2, 3);
+    SHIELD(10, 2, 3);
 
-    private int preco;
-    private int classe_armadura;
-    private double peso;
+    private int price;
+    private int armor_class;
+    private double weight;
 
-    Armor(int preco, int classe_armadura, double peso){
-        this.preco = preco;
-        this.classe_armadura = classe_armadura;
-        this.peso = peso;
+    Armor(int price, int armor_class, double weight){
+        this.price = price;
+        this.armor_class = armor_class;
+        this.weight = weight;
     }
 
-    public int getPreco() {
-        return preco;
+    public int getPrice() {
+        return price;
     }
-    public int getClasse_armadura() {
-        return classe_armadura;
+    public int getArmor_class() {
+        return armor_class;
     }
-    public double getPeso() {
-        return peso;
+    public double getWeight() {
+        return weight;
     }
 
 }

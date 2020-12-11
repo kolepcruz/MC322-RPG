@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Mage mago = new ArcaneMage();
+        /*Mage mago = new ArcaneMage();
 
         ArrayList<Consumable> consumable_mago = new ArrayList<Consumable>();
         ArrayList<Armor> armor_mago = new ArrayList<Armor>();
@@ -31,6 +31,6 @@ public class Main {
         mago.getInventory().useManaPotion(mago);
 
         System.out.println(inv_mago);
-        System.out.println(mago.getMana());
+        System.out.println(mago.getMana());*/
     }
 }

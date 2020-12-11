@@ -4,24 +4,24 @@ import enums.*;
 
 public class Person {
 
-    private final int altura;
-    private final int peso;
-    private Pele pele;
-    private Cabelo cabelo;
-    private Olhos olhos;
+    private final int height;
+    private final int weight;
+    private Skin skin;
+    private Hair hair;
+    private Eyes eyes;
     private Race race;
-    private Sexo sexo;
+    private Sex sex;
     private final String playerName; //nome do jogador
     private final String name; //nome da personagem
 
-    public Person(int altura, int peso, Cabelo cabelo, Olhos olhos, Race race, Sexo sexo, String playerName, String name)
+    public Person(int height, int weight, Hair hair, Eyes eyes, Race race, Sex sex, String playerName, String name)
     {
-        this.altura = altura;
-        this.peso = peso;
-        this.cabelo = cabelo;
-        this.olhos = olhos;
+        this.height = height;
+        this.weight = weight;
+        this.hair = hair;
+        this.eyes = eyes;
         this.race = race;
-        this.sexo = sexo;
+        this.sex = sex;
         this.playerName = playerName;
         this.name = name;
     }
@@ -44,33 +44,33 @@ public class Person {
 
 
     public int getAltura() {
-        return altura;
+        return height;
     }
     public int getPeso() {
-        return peso;
+        return weight;
     }
 
-    public Pele getPele() {
-        return pele;
+    public Skin getPele() {
+        return skin;
     }
-    public void setPele(Pele pele) {
-        this.pele = pele;
-    }
-
-    public Cabelo getCabelo() {
-        return cabelo;
+    public void setPele(Skin skin) {
+        this.skin = skin;
     }
 
-    public void setCabelo(Cabelo cabelo) {
-        this.cabelo = cabelo;
+    public Hair getCabelo() {
+        return hair;
     }
 
-    public Olhos getOlhos() {
-        return olhos;
+    public void setCabelo(Hair hair) {
+        this.hair = hair;
     }
 
-    public void setOlhos(Olhos olhos) {
-        this.olhos = olhos;
+    public Eyes getOlhos() {
+        return eyes;
+    }
+
+    public void setOlhos(Eyes eyes) {
+        this.eyes = eyes;
     }
 
     public Race getRace() {
@@ -81,12 +81,12 @@ public class Person {
         this.race = race;
     }
 
-    public Sexo getSexo() {
-        return sexo;
+    public Sex getSexo() {
+        return sex;
     }
 
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
+    public void setSexo(Sex sex) {
+        this.sex = sex;
     }
 
     public String getPlayerName() {
