@@ -18,7 +18,7 @@ public class ArcaneTrapperRogue extends Rogue {
         return doDamage(1,6,4,10);
     }
 
-    public int TheEnd(){
+    public int theEnd(){
         return doDamage(4,11,10,30);
     }
 }
