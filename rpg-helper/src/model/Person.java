@@ -32,67 +32,62 @@ public class Person {
 
         out = out + "\tJogador: "+getName()+"\n";
         out = out + "\t\tRace: "+getRace()+"\n";
-        out = out + "\t\tSexo: "+getSexo()+"\n";
-        out = out + "\t\tAltura: "+getAltura()+"\n";
-        out = out + "\t\tPeso: "+getPeso()+"\n";
-        out = out + "\t\tPele: "+getPele()+"\n";
-        out = out + "\t\tOlhos: "+getOlhos()+"\n";
-        out = out + "\t\tCanelo: "+getCabelo()+"\n";
+        out = out + "\t\tSexo: "+ getSex()+"\n";
+        out = out + "\t\tAltura: "+ getHeight()+"\n";
+        out = out + "\t\tPeso: "+ getWeight()+"\n";
+        out = out + "\t\tPele: "+ getSkin()+"\n";
+        out = out + "\t\tOlhos: "+getEyes()+"\n";
+        out = out + "\t\tCanelo: "+getHair()+"\n";
 
         return out;
     }
 
 
-    public int getAltura() {
+    public int getHeight() {
         return height;
     }
-    public int getPeso() {
+    public int getWeight() {
         return weight;
     }
 
-    public Skin getPele() {
+    public Skin getSkin() {
         return skin;
     }
-    public void setPele(Skin skin) {
+    public void setSkin(Skin skin) {
         this.skin = skin;
     }
 
-    public Hair getCabelo() {
+    public Hair getHair() {
         return hair;
     }
-
-    public void setCabelo(Hair hair) {
+    public void setHair(Hair hair) {
         this.hair = hair;
     }
 
-    public Eyes getOlhos() {
+    public Eyes getEyes() {
         return eyes;
     }
-
-    public void setOlhos(Eyes eyes) {
+    public void setEyes(Eyes eyes) {
         this.eyes = eyes;
     }
 
     public Race getRace() {
         return race;
     }
-
     public void setRace(Race race) {
         this.race = race;
     }
 
-    public Sex getSexo() {
+    public Sex getSex() {
         return sex;
     }
-
-    public void setSexo(Sex sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
     public String getPlayerName() {
         return playerName;
     }
-
 
     public String getName() {
         return name;
