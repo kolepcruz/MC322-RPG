@@ -1,14 +1,13 @@
 package model.rogue;
 
-import model.adv_tier.Atributos;
-import model.adv_tier.Combate;
+import model.adv_tier.Attributes;
+import model.adv_tier.Combat;
 import model.adv_tier.Inventory;
-import utils.RandomUtil;
 
 public class ArcaneTrapperRogue extends Rogue {
 
-    public ArcaneTrapperRogue(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
-        super(atributos, combate, lvl, expPoints, inventory);
+    public ArcaneTrapperRogue(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory) {
+        super(attributes, combat, lvl, expPoints, inventory);
     }
 
     public ArcaneTrapperRogue() {

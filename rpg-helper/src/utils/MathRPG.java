@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class MathRPG {
 
 
-    public static double calcModificador(int num){
+    public static double getMod(int num){
         return Math.floor((num - 10)/2);
     }
 
@@ -16,7 +16,7 @@ public class MathRPG {
      *
      * @author Erik Yuji Goto
      */
-    public static void calcXP(int expTotal, ArrayList<Adventurer> aventureiros){
+    public static void getExperience(int expTotal, ArrayList<Adventurer> aventureiros){
        //Terminar quando a classe aventureiro estiver pronta
         for (Adventurer a : aventureiros) {
             a.setExpPoints((int) (a.getExpPoints() + Math.floor(expTotal/aventureiros.size())));

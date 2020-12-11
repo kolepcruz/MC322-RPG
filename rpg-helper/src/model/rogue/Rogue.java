@@ -1,16 +1,16 @@
 package model.rogue;
 
 import model.adv_tier.Adventurer;
-import model.adv_tier.Atributos;
-import model.adv_tier.Combate;
+import model.adv_tier.Attributes;
+import model.adv_tier.Combat;
 import model.adv_tier.Inventory;
 
 public class Rogue extends Adventurer {
 
     private int stamina;
 
-    public Rogue(Atributos atributos, Combate combate, int lvl, int expPoints, Inventory inventory) {
-        super(atributos, combate, lvl, expPoints, inventory);
+    public Rogue(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory) {
+        super(attributes, combat, lvl, expPoints, inventory);
         this.stamina = 15;
     }
 
