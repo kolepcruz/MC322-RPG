@@ -1,7 +1,7 @@
 package enums;
 
 public enum Armor {
-    //ARMADURA(Preco, Classe de Armadura, Peso),
+    //ARMOR(price, armorClass, weight),
     PADDED(5, 11, 4),
     BEATEN_LEADER(45, 12, 6.5),
 
@@ -17,9 +17,9 @@ public enum Armor {
     private int armorClass;
     private double weight;
 
-    Armor(int price, int armor_class, double weight){
+    Armor(int price, int armorClass, double weight){
         this.price = price;
-        this.armorClass = armor_class;
+        this.armorClass = armorClass;
         this.weight = weight;
     }
 
