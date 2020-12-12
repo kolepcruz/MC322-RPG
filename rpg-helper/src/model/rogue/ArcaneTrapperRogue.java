@@ -13,7 +13,7 @@ public class ArcaneTrapperRogue extends Rogue {
     public ArcaneTrapperRogue() {
     }
 
-    public int conjuration(){
+    public int Conjuration(){
         return doDamage(1,6,4,10);
     }
 
