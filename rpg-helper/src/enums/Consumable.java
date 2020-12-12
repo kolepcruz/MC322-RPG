@@ -6,7 +6,8 @@ public enum Consumable {
     STAMINA_POTION(10),
     ADRENALINE_POTION(10);
 
-    private int val;
+    private int val; //The potion value
+
     Consumable(int val){
         this.val = val;
     }
