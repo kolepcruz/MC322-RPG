@@ -13,9 +13,9 @@ public enum Armor {
 
     SHIELD(10, 2, 3);
 
-    private int price;
-    private int armorClass;
-    private double weight;
+    private int price;      //How much the armor costs to buy
+    private int armorClass; //Which class the armor belongs
+    private double weight;  //How much it weights
 
     Armor(int price, int armorClass, double weight){
         this.price = price;
