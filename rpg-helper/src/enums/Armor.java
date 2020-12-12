@@ -8,8 +8,8 @@ public enum Armor {
     MAIL_SHIRT(50, 13, 10),
     HALF_ARMOR(750, 15, 20),
 
-    COTA_DE_ANEIS(30, 14, 20),
-    COTA_DE_TALAS(200, 17, 30),
+    RING_MAIL(30, 14, 20),
+    SPLINT(200, 17, 30),
 
     SHIELD(10, 2, 3);
 
