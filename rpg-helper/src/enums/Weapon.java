@@ -8,12 +8,13 @@ public enum Weapon {
     SWORD_LONG(15, "1d8", 1.5),
     AXE_BIG(30, "1d12", 3.5),
     WAR_HAMMER(15, "1d8", 1),
-    RAPIEIRA(25, "1d8", 1),
-    TRIDENT(5, "1d6", 2);
+    RAPIER(25, "1d8", 2),
+    TRIDENT(5, "1d6", 4);
 
     private int price;
     private String damage;
     private double weight;
+
     Weapon(int price, String damage, double weight){
         this.price = price;
         this.damage = damage;
