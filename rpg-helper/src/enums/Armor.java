@@ -11,7 +11,9 @@ public enum Armor {
     RING_MAIL(30, 14, 20),
     SPLINT(200, 17, 30),
 
-    SHIELD(10, 2, 3);
+    SHIELD(10, 2, 3),
+
+    TEMP(0, 0, 0);
 
     private int price;      //How much the armor costs to buy
     private int armorClass; //Which class the armor belongs

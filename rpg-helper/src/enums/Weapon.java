@@ -9,7 +9,9 @@ public enum Weapon {
     AXE_BIG(30, "1d12", 3.5),
     WAR_HAMMER(15, "1d8", 1),
     RAPIER(25, "1d8", 2),
-    TRIDENT(5, "1d6", 4);
+    TRIDENT(5, "1d6", 4),
+
+    TEMP(0, "0d0", 0);
 
     private int price;
     private String damage;
