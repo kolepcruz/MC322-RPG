@@ -20,29 +20,51 @@ public class Inventory {
     private Weapon weaponEquiped;
     private int gold; // pecas de ouro
     private double weight;
+    private double maxWeight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors, ArrayList<Consumable> consumables, int gold,
-                     double weight)
-    {
-        this.weapons = weapons;
-        this.armors = armors;
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors, ArrayList<Consumable> consumables, int gold, int strenght) {
+        /*É preciso instanciar as listas weapons, e armors com apenas um elemento "TEMP", pois o metodo setArmors/setWeapons
+        precisa de getWeight. E não é possível usar getWeight em listas vazias.*/
+        this.weapons = new ArrayList<Weapon>();
+        this.armors = new ArrayList<Armor>();
+        this.weapons.add(Weapon.TEMP);
+        this.armors.add(Armor.TEMP);
+
+        setArmors(armors);
+        setWeapons(weapons);
+        //Removendo os elementos nulos. Para que as listas fiquem com apenas os equipamentos do construtor
+        this.weapons.remove(Weapon.TEMP);
+        this.armors.remove(Armor.TEMP);
+
         this.consumables = consumables;
         this.gold = gold;
-        this.weight = weight;
-    }
-
-    public Inventory() {
+        maxWeight = strenght * 7.5;
     }
 
     //GETTERS E SETTERS
+
+    public double getMaxWeight() {
+        return maxWeight;
+    }
+
     public ArrayList<Weapon> getWeapons()
     {
         return weapons;
     }
     public void setWeapons(ArrayList<Weapon> weapons)
     {
+        //Guarda os weapons temporariamente em tempWeapon
+        ArrayList tempWeapon = this.weapons;
         this.weapons = weapons;
+
+        //Se o peso, após adicionados as armas for maior que maxWeight, a lista weapons retorna ao seu estado inicial
+        if(getWeight() < maxWeight){
+            System.out.println("\n[Mensagem]Adicionado armas\n");
+            return;
+        }
+        this.weapons = tempWeapon;
+        System.out.println("\n[Aviso]Peso máximo excedido\n");
     }
 
     public ArrayList<Armor> getArmors()
@@ -51,7 +73,44 @@ public class Inventory {
     }
     public void setArmors(ArrayList<Armor> armors)
     {
+        //Guarda os armors temporariamente em tempArmor
+        ArrayList tempArmor = this.armors;
         this.armors = armors;
+
+        //Se o peso, após adicionados as armaduras for maior que maxWeight, a lista armors retorna ao seu estado inicial
+        if(getWeight() < maxWeight){
+            System.out.println("\n[Mensagem]Adicionado armaduras\n");
+            return;
+        }
+        this.armors = tempArmor;
+        System.out.println("\n[Aviso]Peso máximo excedido\n");
+    }
+
+    public void addArmor(Armor armor){
+        //Guarda os armors temporariamente em tempArmor
+        ArrayList tempArmor = this.armors;
+        this.armors.add(armor);
+
+        //Se o peso, após adicionado a armadura for maior que maxWeight, a lista armors retorna ao seu estado inicial
+        if(getWeight() < maxWeight){
+            System.out.println("\n[Mensagem]Adicionado armadura\n");
+            return;
+        }
+        this.armors = tempArmor;
+        System.out.println("\n[Aviso]Peso máximo excedido\n");
+    }
+    public void addWeapon(Weapon weapon){
+        //Guarda as armas temporariamente em tempWeapon
+        ArrayList tempWeapon = this.weapons;
+        this.weapons.add(weapon);
+
+        //Se o peso, após adicionado a arma for maior que maxWeight, a lista weapons retorna ao seu estado inicial
+        if(getWeight() < maxWeight){
+            System.out.println("\n[Mensagem]Adicionado weapon\n");
+            return;
+        }
+        this.weapons = tempWeapon;
+        System.out.println("\n[Aviso]Peso máximo excedido\n");
     }
 
     public ArrayList<Consumable> getConsumables()
@@ -81,7 +140,8 @@ public class Inventory {
      */
     public double getWeight()
     {
-        //todo : IMPORTANTE: O valor inicial de weight é o valor passado como parametro no construtor, este deve ser o peso do personagem
+        weight = 0;
+
         //Peso de todas as armaduras
         for (int i = 0; i < armors.size(); i++){
             weight += armors.get(i).getWeight();
@@ -176,7 +236,7 @@ public class Inventory {
             out += "* " + i + "\n";
         }
 
-        out += "\nPeso total:\n" + getWeight() + " kg";
+        out += "\nPeso:\n" + getWeight() + "/" + getMaxWeight() + " kg";
         return out;
     }
 }
