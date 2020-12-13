@@ -34,4 +34,6 @@ public enum Armor {
     public double getWeight() {
         return weight;
     }
+
+
 }
