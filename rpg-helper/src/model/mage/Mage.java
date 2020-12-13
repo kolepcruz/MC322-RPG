@@ -23,7 +23,6 @@ public class Mage extends Adventurer {
     public int getCountMana() {
         return countMana;
     }
-
     public void setCountMana(int countMana) {
         this.countMana = countMana;
     }
@@ -31,7 +30,6 @@ public class Mage extends Adventurer {
     public int getMana() {
         return mana;
     }
-
     public void setMana(int mana) {
         this.mana = mana;
     }

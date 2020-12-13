@@ -1,5 +1,6 @@
 package model.barbarian;
 
+import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import model.adv_tier.Combat;
@@ -11,8 +12,8 @@ public class Barbarian extends Adventurer {
     private int rage;
     private int countRage;
 
-    public Barbarian(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory, int rage) {
-        super(attributes, combat, lvl, expPoints, inventory);
+    public Barbarian(Attributes attributes, Combat combat, Inventory inventory, Person person, int lvl, int expPoints, int rage) {
+        super(attributes, combat, inventory, person, lvl, expPoints);
         this.rage = rage;
     }
 
@@ -22,7 +23,6 @@ public class Barbarian extends Adventurer {
     public int getCountRage() {
         return countRage;
     }
-
     public void setCountRage(int countRage) {
         this.countRage = countRage;
     }
@@ -30,7 +30,6 @@ public class Barbarian extends Adventurer {
     public int getRage() {
         return rage;
     }
-
     public void setRage(int rage) {
         this.rage = rage;
     }
