@@ -1,5 +1,6 @@
 package model.barbarian;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
@@ -12,12 +13,11 @@ public class Barbarian extends Adventurer {
     private int rage;
     private int countRage;
 
-    public Barbarian(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints, int rage) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints);
-        this.rage = rage;
-    }
-
-    public Barbarian() {
+    public Barbarian(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                     Skin skin, String playerName, String caracterName ) {
+        super(attributes,height,weight,hair,eyes,race,sex,skin,playerName,caracterName);
+        this.rage = 15;
+        this.countRage = 0;
     }
 
     public int getCountRage() {

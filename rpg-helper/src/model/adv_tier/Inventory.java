@@ -23,27 +23,16 @@ public class Inventory {
     private double maxWeight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors, ArrayList<Consumable> consumables, int gold, int strenght) {
-        /*É preciso instanciar as listas weapons, e armors com apenas um elemento "TEMP", pois o metodo setArmors/setWeapons
-        precisa de getWeight. E não é possível usar getWeight em listas vazias.*/
-        this.weapons = new ArrayList<Weapon>();
-        this.armors = new ArrayList<Armor>();
-        this.weapons.add(Weapon.TEMP);
-        this.armors.add(Armor.TEMP);
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors,int gold, int strenght) {
 
-        setArmors(armors);
-        setWeapons(weapons);
-        //Removendo os elementos nulos. Para que as listas fiquem com apenas os equipamentos do construtor
-        this.weapons.remove(Weapon.TEMP);
-        this.armors.remove(Armor.TEMP);
-
-        this.consumables = consumables;
+        this.weapons = weapons;
+        this.armors = armors;
+        this.consumables = new ArrayList<Consumable>();
         this.gold = gold;
         maxWeight = strenght * 7.5;
     }
 
     //GETTERS E SETTERS
-
     public double getMaxWeight() {
         return maxWeight;
     }
@@ -170,21 +159,21 @@ public class Inventory {
     }
 
     //Equipa armadura
-    public boolean equipArmor(Armor armor_to_equip){
-        if(armors.contains(armor_to_equip)){
-            armorEquiped = armor_to_equip;
+    public boolean equipArmor(Armor armorToEquip){
+        if(armors.contains(armorToEquip)){
+            armorEquiped = armorToEquip;
             return true;
         }
-        else return false;
+        return false;
     }
 
     //Equipa arma
-    public boolean equipWeapon(Weapon weapon_to_equip){
-        if(weapons.contains(weapon_to_equip)){
-            weaponEquiped = weapon_to_equip;
+    public boolean equipWeapon(Weapon weaponToEquip){
+        if(weapons.contains(weaponToEquip)){
+            weaponEquiped = weaponToEquip;
             return true;
         }
-        else return false;
+        return false;
     }
 
     //Usa poção de mana

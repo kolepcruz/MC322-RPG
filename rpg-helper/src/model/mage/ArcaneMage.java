@@ -1,5 +1,6 @@
 package model.mage;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Attributes;
 import model.adv_tier.CombatAttributes;
@@ -7,12 +8,13 @@ import model.adv_tier.Inventory;
 
 public class ArcaneMage extends Mage{
 
-    public ArcaneMage(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints);
+    public ArcaneMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                            Skin skin, String playerName, String caracterName ) {
+
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public ArcaneMage() {
-    }
+
 
     public int arcaneArmor()
     {

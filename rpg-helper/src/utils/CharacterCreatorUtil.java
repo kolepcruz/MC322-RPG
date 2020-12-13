@@ -10,9 +10,9 @@ import java.util.jar.Attributes;
 
 public class CharacterCreatorUtil {
 
-    private static Attributes distributeAtPoints(Person person)
+    private static Attributes distributeAttributePoints(Scanner sc)
     {
-        return null;
+        return new Attributes();
     }
 
     /**
@@ -67,8 +67,11 @@ public class CharacterCreatorUtil {
      //   Person person = createPerson(sc);
         NarratorUtil.classIntroduction();
 
+        Attributes attributes;
+
         return null;
     }
+
     private static int chooseCharacterClass(Scanner sc)
     {
         System.out.println("Barbarian ---> 1");

@@ -1,5 +1,6 @@
 package model.rogue;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
@@ -12,13 +13,13 @@ public class Rogue extends Adventurer {
     private int stamina;
     private int countStamina;
 
-    public Rogue(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints);
+    public Rogue(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                     Skin skin, String playerName, String caracterName ) {
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
         this.stamina = 15;
+        this.countStamina = 15;
     }
 
-    public Rogue() {
-    }
 
     public int getCountStamina() {
         return countStamina;

@@ -11,7 +11,7 @@ public enum Weapon {
     RAPIER(25, "1d8", 2),
     TRIDENT(5, "1d6", 4),
 
-    TEMP(0, "0d0", 0);
+    NO_WEAPON(0, "0d0", 0);
 
     private int price;
     private String damage;

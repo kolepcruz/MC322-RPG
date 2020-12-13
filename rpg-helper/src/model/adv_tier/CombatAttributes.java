@@ -1,5 +1,7 @@
 package model.adv_tier;
 
+import enums.Armor;
+
 public class CombatAttributes {
 
     private int armorPoints;
@@ -7,12 +9,12 @@ public class CombatAttributes {
     private int totalHP;
     private int currentHP;
 
-    public CombatAttributes(int armorPoints, int iniciativePoints, int totalHP, int currentHP)
+    public CombatAttributes(Attributes attributes, Armor equippedArmor, int initialValue)
     {
-        this.armorPoints = armorPoints;
-        this.iniciativePoints = iniciativePoints;
-        this.totalHP = totalHP;
-        this.currentHP = currentHP;
+        this.armorPoints = equippedArmor.getArmorClass() + attributes.getModDexterity();
+        this.iniciativePoints = attributes.getModDexterity();
+        this.totalHP = attributes.getModConstitution() + initialValue;
+        this.currentHP = totalHP;
     }
 
     public CombatAttributes() {
@@ -20,7 +22,7 @@ public class CombatAttributes {
 
     @Override
     public String toString() {
-        return "Combat{" +
+        return "CombatAttributes{" +
                 "armorPoints=" + armorPoints +
                 ", iniciativePoints=" + iniciativePoints +
                 ", totalHp=" + totalHP +
