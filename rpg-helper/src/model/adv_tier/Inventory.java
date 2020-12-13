@@ -188,22 +188,33 @@ public class Inventory {
     }
 
     //Usa poção de mana
-    public void useManaPotion(Mage mage){
-        mage.setMana(mage.getMana() + Consumable.MANA_POTION.getVal());
-        mage.getInventory().getConsumables().remove(Consumable.MANA_POTION);
+    public boolean useManaPotion(Adventurer adventurer){
+        if(adventurer instanceof Mage){
+            ((Mage) adventurer).setMana(((Mage) adventurer).getMana() + Consumable.MANA_POTION.getVal());
+            adventurer.getInventory().getConsumables().remove(Consumable.MANA_POTION);
+            return true;
+        }
+        return false;
     }
 
     //Usa poção de stamina
-    public void useStaminaPotion(Rogue rogue){
-        rogue.setStamina(rogue.getStamina() + Consumable.STAMINA_POTION.getVal());
-        rogue.getInventory().getConsumables().remove(Consumable.STAMINA_POTION);
+    public boolean useStaminaPotion(Adventurer adventurer){
+        if(adventurer instanceof Rogue){
+            ((Rogue) adventurer).setStamina(((Rogue) adventurer).getStamina() + Consumable.STAMINA_POTION.getVal());
+            adventurer.getInventory().getConsumables().remove(Consumable.STAMINA_POTION);
+            return true;
+        }
+        return false;
     }
 
     //Usa poção de adrenalina
-    public void useAdrenalinePotion(Barbarian barbarian){
-        //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
-        barbarian.setRage(barbarian.getRage() + Consumable.ADRENALINE_POTION.getVal());
-        barbarian.getInventory().getConsumables().remove(Consumable.ADRENALINE_POTION);
+    public boolean useAdrenalinePotion(Adventurer adventurer){ //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
+        if(adventurer instanceof Barbarian){
+            ((Barbarian) adventurer).setRage(((Barbarian) adventurer).getRage() + Consumable.ADRENALINE_POTION.getVal());
+            adventurer.getInventory().getConsumables().remove(Consumable.ADRENALINE_POTION);
+            return true;
+        }
+        return false;
     }
 
 
