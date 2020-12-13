@@ -1,6 +1,6 @@
 package model.adv_tier;
 
-import utils.MathRPG;
+import utils.MathRPGUtil;
 
 public class Attributes {
 
@@ -25,17 +25,17 @@ public class Attributes {
     public Attributes(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
     {
         this.strenght = strenght;
-        this.modStrenght = MathRPG.getMod(modStrenght);
+        this.modStrenght = MathRPGUtil.getMod(modStrenght);
         this.dexterity = dexterity;
-        this.modDexterity = MathRPG.getMod(modDexterity);
+        this.modDexterity = MathRPGUtil.getMod(modDexterity);
         this.constitution = constitution;
-        this.modConstitution = MathRPG.getMod(modConstitution);
+        this.modConstitution = MathRPGUtil.getMod(modConstitution);
         this.intelligence = intelligence;
-        this.modIntelligence = MathRPG.getMod(modIntelligence);
+        this.modIntelligence = MathRPGUtil.getMod(modIntelligence);
         this.wisdom = wisdom;
-        this.modWisdom = MathRPG.getMod(modWisdom);
+        this.modWisdom = MathRPGUtil.getMod(modWisdom);
         this.charisma = charisma;
-        this.modCharisma = MathRPG.getMod(modCharisma);
+        this.modCharisma = MathRPGUtil.getMod(modCharisma);
     }
 
     public Attributes() {

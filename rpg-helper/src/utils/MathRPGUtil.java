@@ -4,7 +4,7 @@ import model.adv_tier.Adventurer;
 import java.lang.Math;
 import java.util.ArrayList;
 
-public class MathRPG {
+public class MathRPGUtil {
 
     public static int getMod(int num){
         return (int)(Math.floor((num - 10)/2));
