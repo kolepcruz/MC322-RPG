@@ -24,10 +24,11 @@ public class Adventurer {
     public Adventurer() {
     }
 
+
+
     public static int getNumAdventurers() {
         return numAdventurers;
     }
-
     public static void setNumAdventurers(int numAdventurers) {
         Adventurer.numAdventurers = numAdventurers;
     }
@@ -35,7 +36,6 @@ public class Adventurer {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -43,7 +43,6 @@ public class Adventurer {
     public Attributes getAtributos() {
         return attributes;
     }
-
     public void setAtributos(Attributes attributes) {
         this.attributes = attributes;
     }
@@ -51,7 +50,6 @@ public class Adventurer {
     public Combat getCombate() {
         return combat;
     }
-
     public void setCombate(Combat combat) {
         this.combat = combat;
     }
@@ -59,7 +57,6 @@ public class Adventurer {
     public int getLvl() {
         return lvl;
     }
-
     public void setLvl(int lvl) {
         this.lvl = lvl;
     }
@@ -67,7 +64,6 @@ public class Adventurer {
     public int getExpPoints() {
         return expPoints;
     }
-
     public void setExpPoints(int expPoints) {
         this.expPoints = expPoints;
     }
@@ -75,7 +71,6 @@ public class Adventurer {
     public Inventory getInventory() {
         return inventory;
     }
-
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }

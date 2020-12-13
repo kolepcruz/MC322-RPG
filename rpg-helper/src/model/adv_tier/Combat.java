@@ -18,10 +18,19 @@ public class Combat {
     public Combat() {
     }
 
+    @Override
+    public String toString() {
+        return "Combat{" +
+                "armorPoints=" + armorPoints +
+                ", iniciativePoints=" + iniciativePoints +
+                ", totalHp=" + totalHp +
+                ", currentHp=" + currentHp +
+                '}';
+    }
+
     public int getArmorPoints() {
         return armorPoints;
     }
-
     public void setArmorPoints(int armorPoints) {
         this.armorPoints = armorPoints;
     }
@@ -29,7 +38,6 @@ public class Combat {
     public int getIniciativePoints() {
         return iniciativePoints;
     }
-
     public void setIniciativePoints(int iniciativePoints) {
         this.iniciativePoints = iniciativePoints;
     }
@@ -37,7 +45,6 @@ public class Combat {
     public int getTotalHp() {
         return totalHp;
     }
-
     public void setTotalHp(int totalHp) {
         this.totalHp = totalHp;
     }
@@ -45,7 +52,6 @@ public class Combat {
     public int getCurrentHp() {
         return currentHp;
     }
-
     public void setCurrentHp(int currentHp) {
         this.currentHp = currentHp;
     }
