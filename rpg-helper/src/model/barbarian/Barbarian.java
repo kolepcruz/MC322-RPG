@@ -36,7 +36,7 @@ public class Barbarian extends Adventurer {
     }
 
     public int doDamage(int level, int inter, int damageDice, int consumeRage){
-        if(this.getLvl() >= level)
+        if(this.getLevel() >= level && this.getRage() >= consumeRage)
         {
             int damage = 0;
             for(int i = 0;i<inter;i++)

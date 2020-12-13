@@ -1,14 +1,18 @@
 package model.adv_tier;
 
-import utils.MathRPG;
+import utils.MathRPGUtil;
 
 public class Attributes {
+    /*
+    * Class Attributes armazena os atributos de um personagem.
+    *   Cada Atributos possue um modificador utilizado para cálculos de dano.
+    * */
 
-    private int strenght;
-    private int modStrenght;
+    private int strenght;    //Força
+    private int modStrenght; //Modificador de Força
 
-    private int dexterity;
-    private int modDexterity;
+    private int dexterity;    //Destreza
+    private int modDexterity; //Modificador de Destreza
 
     private int constitution;
     private int modConstitution;
@@ -25,20 +29,33 @@ public class Attributes {
     public Attributes(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
     {
         this.strenght = strenght;
-        this.modStrenght = MathRPG.getMod(modStrenght);
         this.dexterity = dexterity;
-        this.modDexterity = MathRPG.getMod(modDexterity);
         this.constitution = constitution;
-        this.modConstitution = MathRPG.getMod(modConstitution);
         this.intelligence = intelligence;
-        this.modIntelligence = MathRPG.getMod(modIntelligence);
         this.wisdom = wisdom;
-        this.modWisdom = MathRPG.getMod(modWisdom);
         this.charisma = charisma;
-        this.modCharisma = MathRPG.getMod(modCharisma);
+
+        this.modStrenght = MathRPGUtil.getMod(modStrenght);
+        this.modDexterity = MathRPGUtil.getMod(modDexterity);
+        this.modConstitution = MathRPGUtil.getMod(modConstitution);
+        this.modIntelligence = MathRPGUtil.getMod(modIntelligence);
+        this.modWisdom = MathRPGUtil.getMod(modWisdom);
+        this.modCharisma = MathRPGUtil.getMod(modCharisma);
     }
 
     public Attributes() {
+    }
+
+    @Override
+    public String toString() {
+        return "[Attributes]" +
+                "strenght=" + strenght +
+                ", dexterity=" + dexterity +
+                ", constitution=" + constitution +
+                ", intelligence=" + intelligence +
+                ", wisdom=" + wisdom +
+                ", charisma=" + charisma +
+                '}';
     }
 
     public int getStrenght() {

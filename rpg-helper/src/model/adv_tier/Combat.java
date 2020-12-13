@@ -4,24 +4,33 @@ public class Combat {
 
     private int armorPoints;
     private int iniciativePoints;
-    private int totalHp;
-    private int currentHp;
+    private int totalHP;
+    private int currentHP;
 
-    public Combat(int armorPoints, int iniciativePoints, int totalHp, int currentHp)
+    public Combat(int armorPoints, int iniciativePoints, int totalHP, int currentHP)
     {
         this.armorPoints = armorPoints;
         this.iniciativePoints = iniciativePoints;
-        this.totalHp = totalHp;
-        this.currentHp = currentHp;
+        this.totalHP = totalHP;
+        this.currentHP = currentHP;
     }
 
     public Combat() {
     }
 
+    @Override
+    public String toString() {
+        return "Combat{" +
+                "armorPoints=" + armorPoints +
+                ", iniciativePoints=" + iniciativePoints +
+                ", totalHp=" + totalHP +
+                ", currentHp=" + currentHP +
+                '}';
+    }
+
     public int getArmorPoints() {
         return armorPoints;
     }
-
     public void setArmorPoints(int armorPoints) {
         this.armorPoints = armorPoints;
     }
@@ -29,24 +38,21 @@ public class Combat {
     public int getIniciativePoints() {
         return iniciativePoints;
     }
-
     public void setIniciativePoints(int iniciativePoints) {
         this.iniciativePoints = iniciativePoints;
     }
 
-    public int getTotalHp() {
-        return totalHp;
+    public int getTotalHP() {
+        return totalHP;
+    }
+    public void setTotalHP(int totalHP) {
+        this.totalHP = totalHP;
     }
 
-    public void setTotalHp(int totalHp) {
-        this.totalHp = totalHp;
+    public int getCurrentHP() {
+        return currentHP;
     }
-
-    public int getCurrentHp() {
-        return currentHp;
-    }
-
-    public void setCurrentHp(int currentHp) {
-        this.currentHp = currentHp;
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
     }
 }
