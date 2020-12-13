@@ -12,8 +12,8 @@ public class Barbarian extends Adventurer {
     private int rage;
     private int countRage;
 
-    public Barbarian(Attributes attributes, Combat combat, Inventory inventory, Person person, int lvl, int expPoints, int rage) {
-        super(attributes, combat, inventory, person, lvl, expPoints);
+    public Barbarian(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints, int rage) {
+        super(attributes, combat, inventory, person, level, expPoints);
         this.rage = rage;
     }
 

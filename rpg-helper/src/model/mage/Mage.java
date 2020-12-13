@@ -12,8 +12,8 @@ public class Mage extends Adventurer {
     private int mana;
     private int countMana;
 
-    public Mage(Attributes attributes, Combat combat, Inventory inventory, Person person, int lvl, int expPoints) {
-        super(attributes, combat, inventory, person, lvl, expPoints);
+    public Mage(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints) {
+        super(attributes, combat, inventory, person, level, expPoints);
         this.mana = 10;
     }
 
