@@ -3,6 +3,7 @@ package model;
 import enums.*;
 
 public class Person {
+    //Class Person armazena as características físicas do persongem a ser criado.
 
     private final int height; //Altura do Personagem
     private final int weight; //Peso do Personagem
