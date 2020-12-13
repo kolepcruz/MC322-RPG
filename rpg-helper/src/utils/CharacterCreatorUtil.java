@@ -60,7 +60,17 @@ public class CharacterCreatorUtil {
 
 
 
+
+
         return null;
+    }
+    private static int chooseCharacterClass(Scanner sc)
+    {
+        System.out.println("Agora vc devera escolher entre as 3 principais Classes do RPG-Helper");
+        System.out.println("Barbarian :\n\tOs barbarians sao famosos pela sua incrivel força e" +
+                " resistencia ao dano fisico");
+
+        return 1;
     }
 
     private static <E extends Enum<E>> int chooseTarget(Class<E> enumClass,Scanner sc){

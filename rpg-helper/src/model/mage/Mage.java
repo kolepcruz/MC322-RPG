@@ -3,7 +3,7 @@ package model.mage;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
-import model.adv_tier.Combat;
+import model.adv_tier.CombatAttributes;
 import model.adv_tier.Inventory;
 import utils.RandomUtil;
 
@@ -12,8 +12,8 @@ public class Mage extends Adventurer {
     private int mana;
     private int countMana;
 
-    public Mage(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints) {
-        super(attributes, combat, inventory, person, level, expPoints);
+    public Mage(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
+        super(attributes, combatAttributes, inventory, person, level, expPoints);
         this.mana = 10;
     }
 

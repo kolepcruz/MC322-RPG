@@ -3,7 +3,7 @@ package model.barbarian;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
-import model.adv_tier.Combat;
+import model.adv_tier.CombatAttributes;
 import model.adv_tier.Inventory;
 import utils.RandomUtil;
 
@@ -12,8 +12,8 @@ public class Barbarian extends Adventurer {
     private int rage;
     private int countRage;
 
-    public Barbarian(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints, int rage) {
-        super(attributes, combat, inventory, person, level, expPoints);
+    public Barbarian(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints, int rage) {
+        super(attributes, combatAttributes, inventory, person, level, expPoints);
         this.rage = rage;
     }
 

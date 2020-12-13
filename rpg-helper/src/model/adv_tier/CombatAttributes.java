@@ -1,13 +1,13 @@
 package model.adv_tier;
 
-public class Combat {
+public class CombatAttributes {
 
     private int armorPoints;
     private int iniciativePoints;
     private int totalHP;
     private int currentHP;
 
-    public Combat(int armorPoints, int iniciativePoints, int totalHP, int currentHP)
+    public CombatAttributes(int armorPoints, int iniciativePoints, int totalHP, int currentHP)
     {
         this.armorPoints = armorPoints;
         this.iniciativePoints = iniciativePoints;
@@ -15,7 +15,7 @@ public class Combat {
         this.currentHP = currentHP;
     }
 
-    public Combat() {
+    public CombatAttributes() {
     }
 
     @Override

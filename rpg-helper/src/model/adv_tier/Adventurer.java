@@ -9,18 +9,18 @@ public class Adventurer {
     private int id;
     private int level;
     private int expPoints;
-    private Combat combat;
+    private CombatAttributes combatAttributes;
     private Person person;
     private Inventory inventory;
     private Attributes attributes;
 
 
-    public Adventurer(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints) {
+    public Adventurer(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
         ++numAdventurers;
         this.id = numAdventurers;
         this.level = level;
         this.expPoints = expPoints;
-        this.combat = combat;
+        this.combatAttributes = combatAttributes;
         this.person = person;
         this.inventory = inventory;
         this.attributes = attributes;
@@ -35,7 +35,7 @@ public class Adventurer {
                 "id=" + id +
                 ", level=" + level +
                 ", expPoints=" + expPoints +
-                ", combat=" + combat +
+                ", combat=" + combatAttributes +
                 ", person=" + person +
                 ", inventory=" + inventory +
                 ", attributes=" + attributes +
@@ -70,11 +70,11 @@ public class Adventurer {
         this.attributes = attributes;
     }
 
-    public Combat getCombate() {
-        return combat;
+    public CombatAttributes getCombate() {
+        return combatAttributes;
     }
-    public void setCombate(Combat combat) {
-        this.combat = combat;
+    public void setCombate(CombatAttributes combatAttributes) {
+        this.combatAttributes = combatAttributes;
     }
 
     public int getLevel() {
