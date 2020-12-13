@@ -3,12 +3,16 @@ package model.adv_tier;
 import utils.MathRPGUtil;
 
 public class Attributes {
+    /*
+    * Class Attributes armazena os atributos de um personagem.
+    *   Cada Atributos possue um modificador utilizado para cálculos de dano.
+    * */
 
-    private int strenght;
-    private int modStrenght;
+    private int strenght;    //Força
+    private int modStrenght; //Modificador de Força
 
-    private int dexterity;
-    private int modDexterity;
+    private int dexterity;    //Destreza
+    private int modDexterity; //Modificador de Destreza
 
     private int constitution;
     private int modConstitution;
