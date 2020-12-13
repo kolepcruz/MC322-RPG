@@ -4,8 +4,8 @@ import enums.*;
 
 public class Person {
 
-    private final int height;
-    private final int weight;
+    private double height;
+    private double weight;
     private Skin skin;
     private Hair hair;
     private Eyes eyes;
@@ -14,8 +14,10 @@ public class Person {
     private final String playerName; //nome do jogador
     private final String name; //nome da personagem
 
-    public Person(int height, int weight, Hair hair, Eyes eyes, Race race, Sex sex, String playerName, String name)
+    public Person(double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                  Skin skin, String playerName, String name)
     {
+        this.skin = skin;
         this.height = height;
         this.weight = weight;
         this.hair = hair;
@@ -28,9 +30,9 @@ public class Person {
 
     @Override
     public String toString() {
-        String out = "[Personagem: "+getPlayerName()+"]\n";
+        String out = "[Jogador: "+getPlayerName()+"]\n";
 
-        out = out + "\tJogador: "+getName()+"\n";
+        out = out + "\tPersonagem: "+getName()+"\n";
         out = out + "\t\tRace: "+getRace()+"\n";
         out = out + "\t\tSexo: "+ getSex()+"\n";
         out = out + "\t\tAltura: "+ getHeight()+"\n";
@@ -43,10 +45,10 @@ public class Person {
     }
 
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

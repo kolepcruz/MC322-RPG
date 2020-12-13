@@ -11,6 +11,7 @@ public class Adventurer {
     private int expPoints;
     private Inventory inventory;
 
+
     public Adventurer(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory) {
         ++numAdventurers;
         this.id = numAdventurers;
