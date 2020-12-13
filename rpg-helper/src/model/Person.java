@@ -3,20 +3,21 @@ package model;
 import enums.*;
 
 public class Person {
-    //Class Person armazena as características físicas do persongem a ser criado.
 
-    private final int height; //Altura do Personagem
-    private final int weight; //Peso do Personagem
-    private Skin skin;        //Pele do Personagem
-    private Hair hair;        //Cabelo do Personagem
-    private Eyes eyes;        //Olhos do Personagem
-    private Race race;        //Raça do Personagem
-    private Sex sex;          //Sexo do Personagem
+    private double height;//Altura do Personagem
+    private double weight;//Peso do Personagem
+    private Skin skin;//Pele do Personagem
+    private Hair hair;//Cabelo do Personagem
+    private Eyes eyes;//Olhos do Personagem
+    private Race race;//Raça do Personagem
+    private Sex sex;//Sexo do Personagem
     private final String playerName; //Nome do Jogador
     private final String caracterName; //Nome do Personagem
 
-    public Person(int height, int weight, Hair hair, Eyes eyes, Race race, Sex sex, String playerName, String caracterName)
+    public Person(double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                  Skin skin, String playerName, String caracterName)
     {
+        this.skin = skin;
         this.height = height;
         this.weight = weight;
         this.hair = hair;
@@ -29,9 +30,9 @@ public class Person {
 
     @Override
     public String toString() {
-        String out = "[Personagem: "+getPlayerName()+"]\n";
+        String out = "[Jogador: "+getPlayerName()+"]\n";
 
-        out = out + "\tJogador: "+ getCaracterName()+"\n";
+        out = out + "\tPersonagem: "+getCaracterName()+"\n";
         out = out + "\t\tRace: "+getRace()+"\n";
         out = out + "\t\tSexo: "+ getSex()+"\n";
         out = out + "\t\tAltura: "+ getHeight()+"\n";
@@ -44,10 +45,10 @@ public class Person {
     }
 
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

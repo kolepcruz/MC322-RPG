@@ -14,8 +14,10 @@ public class Adventurer {
     private Inventory inventory;
     private Attributes attributes;
 
+
     public Adventurer(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints) {
-        this.id = numAdventurers++;
+        ++numAdventurers;
+        this.id = numAdventurers;
         this.level = level;
         this.expPoints = expPoints;
         this.combat = combat;
