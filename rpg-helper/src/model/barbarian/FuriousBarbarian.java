@@ -1,5 +1,6 @@
 package model.barbarian;
 
+import model.Person;
 import model.adv_tier.Attributes;
 import model.adv_tier.Combat;
 import model.adv_tier.Inventory;
@@ -7,8 +8,8 @@ import utils.RandomUtil;
 
 public class FuriousBarbarian extends Barbarian{
 
-    public FuriousBarbarian(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory, int rage) {
-        super(attributes, combat, lvl, expPoints, inventory, rage);
+    public FuriousBarbarian(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints, int rage) {
+        super(attributes, combat, inventory, person, level, expPoints, rage);
     }
 
     public FuriousBarbarian() {
