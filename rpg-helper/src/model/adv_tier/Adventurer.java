@@ -1,35 +1,56 @@
 package model.adv_tier;
 
+import model.Person;
+
 public class Adventurer {
 
     private static int numAdventurers;
 
     private int id;
-    private Attributes attributes;
-    private Combat combat;
-    private int lvl;
+    private int level;
     private int expPoints;
+    private Combat combat;
+    private Person person;
     private Inventory inventory;
+    private Attributes attributes;
 
-    public Adventurer(Attributes attributes, Combat combat, int lvl, int expPoints, Inventory inventory) {
-        ++numAdventurers;
-        this.id = numAdventurers;
-        this.attributes = attributes;
-        this.combat = combat;
-        this.lvl = lvl;
+    public Adventurer(Attributes attributes, Combat combat, Inventory inventory, Person person, int level, int expPoints) {
+        this.id = numAdventurers++;
+        this.level = level;
         this.expPoints = expPoints;
+        this.combat = combat;
+        this.person = person;
         this.inventory = inventory;
+        this.attributes = attributes;
     }
 
     public Adventurer() {
     }
 
+    @Override
+    public String toString() {
+        return "Adventurer{" +
+                "id=" + id +
+                ", level=" + level +
+                ", expPoints=" + expPoints +
+                ", combat=" + combat +
+                ", person=" + person +
+                ", inventory=" + inventory +
+                ", attributes=" + attributes +
+                '}';
+    }
 
+    public Person getPerson() {
+        return person;
+    }
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 
     public static int getNumAdventurers() {
         return numAdventurers;
     }
-    public static void setNumAdventurers(int numAdventurers) {
+    private static void setNumAdventurers(int numAdventurers) {
         Adventurer.numAdventurers = numAdventurers;
     }
 
@@ -54,11 +75,11 @@ public class Adventurer {
         this.combat = combat;
     }
 
-    public int getLvl() {
-        return lvl;
+    public int getLevel() {
+        return level;
     }
-    public void setLvl(int lvl) {
-        this.lvl = lvl;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getExpPoints() {

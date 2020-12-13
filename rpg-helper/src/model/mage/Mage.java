@@ -36,7 +36,7 @@ public class Mage extends Adventurer {
     }
 
     public int doDamage(int level, int inter, int damageDice, int consumeMana){
-        if(this.getLvl() >= level && this.getMana() >= consumeMana)
+        if(this.getLevel() >= level && this.getMana() >= consumeMana)
         {
             int damage = 0;
             for(int i = 0;i<inter;i++)

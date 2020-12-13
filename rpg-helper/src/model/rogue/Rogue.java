@@ -36,7 +36,7 @@ public class Rogue extends Adventurer {
     }
 
     public int doDamage(int level, int inter, int damageDice, int consumeStamina){
-        if(this.getLvl() >= level && this.getStamina() >= consumeStamina)
+        if(this.getLevel() >= level && this.getStamina() >= consumeStamina)
         {
             int damage = 0;
             for(int i = 0;i<inter;i++)
