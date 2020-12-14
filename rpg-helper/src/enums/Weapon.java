@@ -1,7 +1,7 @@
 package enums;
 
 public enum Weapon {
-    //ARMA(Preco, Dano, Peso),
+    //WEAPON(price, damage, weight),
     DAGGER(2, "1d4", 0.5),
     CLUB_BIG(2, "1d8", 5),
     HATCHET(5, "1d6", 1),
