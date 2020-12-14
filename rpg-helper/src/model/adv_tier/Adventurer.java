@@ -20,7 +20,7 @@ public class Adventurer extends Person{
     private Inventory inventory;
     private Attributes attributes;
 
-
+    //instancia cada tipo de aventureiro com seu equipamento normal
     public Adventurer(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                       Skin skin, String playerName, String caracterName)
     {
@@ -64,14 +64,14 @@ public class Adventurer extends Person{
 
     @Override
     public String toString() {
-        return "Adventurer{" +
-                "id=" + id +
-                ", level=" + level +
-                ", expPoints=" + expPoints +
-                ", combat=" + combatAttributes +
-                ", inventory=" + inventory +
-                ", attributes=" + attributes +
-                '}';
+        return "Adventurer :" +
+                "\n id = " + id +
+                "\n level = " + level +
+                "\n expPoints = " + expPoints +
+                "\n" + combatAttributes +
+                "\n" + inventory +
+                "\n "  + attributes +
+                super.toString();
     }
 
     public static int getNumAdventurers() {

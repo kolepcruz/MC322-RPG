@@ -36,12 +36,12 @@ public class Attributes {
         this.wisdom = wisdom;
         this.charisma = charisma;
 
-        this.modStrenght = MathRPGUtil.getMod(modStrenght);
-        this.modDexterity = MathRPGUtil.getMod(modDexterity);
-        this.modConstitution = MathRPGUtil.getMod(modConstitution);
-        this.modIntelligence = MathRPGUtil.getMod(modIntelligence);
-        this.modWisdom = MathRPGUtil.getMod(modWisdom);
-        this.modCharisma = MathRPGUtil.getMod(modCharisma);
+        this.modStrenght = MathRPGUtil.getMod(strenght);
+        this.modDexterity = MathRPGUtil.getMod(dexterity);
+        this.modConstitution = MathRPGUtil.getMod(constitution);
+        this.modIntelligence = MathRPGUtil.getMod(intelligence);
+        this.modWisdom = MathRPGUtil.getMod(wisdom);
+        this.modCharisma = MathRPGUtil.getMod(charisma);
     }
 
     public Attributes() {
@@ -50,13 +50,12 @@ public class Attributes {
     @Override
     public String toString() {
         return "[Attributes]" +
-                "strenght=" + strenght +
-                ", dexterity=" + dexterity +
-                ", constitution=" + constitution +
-                ", intelligence=" + intelligence +
-                ", wisdom=" + wisdom +
-                ", charisma=" + charisma +
-                '}';
+                "\n strenght = " + strenght +
+                "\n dexterity = " + dexterity +
+                "\n constitution = "  + constitution +
+                "\n intelligence = " + intelligence +
+                "\n wisdom = " + wisdom +
+                "\n charisma = " + charisma + "\n";
     }
 
     public int getStrenght() {

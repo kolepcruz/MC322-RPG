@@ -197,13 +197,9 @@ public class Inventory {
         return false;
     }
 
-
-
-
-
     //ToString
     public String toString(){
-        String out = "\n-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
+        String out = "-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
         out += "Armors:\n";
         for(Armor i : armors){
             //Se o armor equipado for printado o caracter antes do seu nome será "->"
@@ -213,7 +209,7 @@ public class Inventory {
                 out += "* " + i + "\n";
         }
 
-        out += "\nWeapons:\n";
+        out += "Weapons:\n";
         for(Weapon i : weapons){
             if(i == weaponEquiped)
                 //Se o weapon equipado for printado o caracter antes do seu nome será "->"
@@ -222,13 +218,13 @@ public class Inventory {
                 out += "* " + i + "\n";
         }
 
-        out += "\nConsumable:\n";
-        for(Consumable i : consumables){
-            out += "* " + i + "\n";
-        }
+//        out += "Consumable:\n";
+//        for(Consumable i : consumables){
+//            out += "* " + i ;
+//        }
 
-        out += "\nPeso:\n" + getWeight() + "/" + getMaxWeight() + " kg";
-        out += "\nGold : \n " + getGold() + "$\n";
+        out += "\nPeso do equipamento:\n" + getWeight() + "/" + getMaxWeight() + " kg";
+        out += "\nGold : \n " + getGold() + "$";
         return out;
     }
 }

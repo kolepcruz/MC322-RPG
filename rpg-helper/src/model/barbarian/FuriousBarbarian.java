@@ -36,4 +36,14 @@ public class FuriousBarbarian extends Barbarian{
     {
         return doDamage(4,8,10,35);
     }
+
+    @Override
+    public String toString() {
+        String out = "FuriousBarbarian";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n retaliation ";
+        out+= "\n frenzy ";
+        out+= "\n berserker ";
+        return out + '\n' + super.toString();
+    }
 }

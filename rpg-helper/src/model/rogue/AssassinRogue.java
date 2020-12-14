@@ -22,4 +22,13 @@ public class AssassinRogue extends Rogue{
     {
         return doDamage(3,5,10,20);
     }
+
+    @Override
+    public String toString() {
+        String out = "AssassinRogue";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n assassinate ";
+        out+= "\n fatalBlow ";
+        return out + '\n' + super.toString();
+    }
 }

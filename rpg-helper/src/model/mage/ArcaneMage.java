@@ -35,4 +35,15 @@ public class ArcaneMage extends Mage{
     {
         return doDamage(4,10,6,22);
     }
+
+    @Override
+    public String toString() {
+        String out = "ArcaneMage";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n arcaneArmor ";
+        out+= "\n magicMissiles ";
+        out+= "\n prismaticBarrage ";
+        out+= "\n arcanePortal ";
+        return out + '\n' + super.toString();
+    }
 }

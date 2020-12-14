@@ -32,15 +32,14 @@ public class Person {
     public String toString() {
         String out = "[Jogador: "+getPlayerName()+"]\n";
 
-        out = out + "\tPersonagem: "+getCaracterName()+"\n";
-        out = out + "\t\tRace: "+getRace()+"\n";
-        out = out + "\t\tSexo: "+ getSex()+"\n";
-        out = out + "\t\tAltura: "+ getHeight()+"\n";
-        out = out + "\t\tPeso: "+ getWeight()+"\n";
-        out = out + "\t\tPele: "+ getSkin()+"\n";
-        out = out + "\t\tOlhos: "+getEyes()+"\n";
-        out = out + "\t\tCanelo: "+getHair()+"\n";
-
+        out = out + " Personagem: "+getCaracterName()+"\n";
+        out = out + " Race: "+getRace()+"\n";
+        out = out + " Sexo: "+ getSex()+"\n";
+        out = out + " Altura: "+ getHeight()+"\n";
+        out = out + " Peso: "+ getWeight()+"\n";
+        out = out + " Pele: "+ getSkin()+"\n";
+        out = out + " Olhos: "+getEyes()+"\n";
+        out = out + " Canelo: "+getHair()+"\n";
         return out;
     }
 
