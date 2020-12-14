@@ -203,7 +203,7 @@ public class Inventory {
 
     //ToString
     public String toString(){
-        String out = "-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
+        String out = "\n-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
         out += "Armors:\n";
         for(Armor i : armors){
             //Se o armor equipado for printado o caracter antes do seu nome será "->"
@@ -228,6 +228,7 @@ public class Inventory {
         }
 
         out += "\nPeso:\n" + getWeight() + "/" + getMaxWeight() + " kg";
+        out += "\nGold : \n " + getGold() + "$\n";
         return out;
     }
 }

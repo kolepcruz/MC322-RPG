@@ -156,6 +156,12 @@ public class CharacterCreatorUtil {
                                         Sex.values()[chosenSex],Skin.values()[chosenSkin],nomePlayer,nomeAdventurer);
     }
 
+
+    /**
+     * Starta a criacao de um personagem
+     * @param sc
+     * @return
+     */
     public static Adventurer startCharacterCreation(Scanner sc)
     {
         System.out.println("Bem vindo na criacao do aventureiro\n" +
