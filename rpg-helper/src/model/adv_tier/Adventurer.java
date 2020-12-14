@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 public class Adventurer extends Person{
 
-    private static int numAdventurers;
+    private static int numAdventurers; //counts how many adventurers are there
 
     private int id;
     private int level;
