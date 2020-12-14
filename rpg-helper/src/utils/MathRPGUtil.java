@@ -12,7 +12,6 @@ public class MathRPGUtil {
 
     /**
      * Alterado metodo em 1/12/20
-     *
      * @author Erik Yuji Goto
      */
     public static void getExperience(int expTotal, ArrayList<Adventurer> aventureiros){
