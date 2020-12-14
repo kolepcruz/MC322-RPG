@@ -3,6 +3,9 @@ package model.adv_tier;
 import enums.Armor;
 
 public class CombatAttributes {
+    /**
+     * Class CombatAttributes armazena as informações para um combat, como ordem de ataque, armadura e vida
+     */
 
     private int armorPoints;
     private int iniciativePoints;

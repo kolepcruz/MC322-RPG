@@ -4,6 +4,9 @@ import enums.*;
 import model.adv_tier.Attributes;
 
 public class ArcaneTrapperRogue extends Rogue {
+    /**
+     * Class ArcaneTrapperRogue é uma subtribo de Rogue, nela possui algumas habilidades com que o Ladino ataca
+     */
 
     public ArcaneTrapperRogue(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                          Skin skin, String playerName, String caracterName ) {

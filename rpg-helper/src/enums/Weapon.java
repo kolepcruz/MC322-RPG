@@ -1,6 +1,9 @@
 package enums;
 
 public enum Weapon {
+    /**
+     * Class Weapon armazena o possivel arsenal dos aventureiros
+     */
     //WEAPON(price, damage, weight),
     DAGGER(2, "1d4", 0.5),
     CLUB_BIG(2, "1d8", 5),
@@ -11,7 +14,7 @@ public enum Weapon {
     RAPIER(25, "1d8", 2),
     TRIDENT(5, "1d6", 4),
 
-    NO_WEAPON(0, "0d0", 0);
+    NO_WEAPON(0, "0d0", 0); // usado para referenciar o aventureiro que não possui arma
 
     private int price;
     private String damage;

@@ -10,6 +10,10 @@ import model.rogue.Rogue;
 import java.util.ArrayList;
 
 public class Inventory {
+    /**
+     * Class Inventory armarzena as informações do inventario do aventureiro
+     * cada variavel é subentendida pelas explicações passadas pelas classes filhas
+     */
 
     private ArrayList<Weapon> weapons;
     private ArrayList<Armor> armors;
@@ -26,7 +30,12 @@ public class Inventory {
         this.armors = armors;
         this.consumables = new ArrayList<Consumable>();
         this.gold = gold;
-        maxWeight = strenght * 7.5;
+        if (strenght>=1){
+            maxWeight = strenght * 7.5;
+        }else if(strenght<=0){
+            maxWeight = 7.5;
+        }
+
     }
 
     //GETTERS E SETTERS

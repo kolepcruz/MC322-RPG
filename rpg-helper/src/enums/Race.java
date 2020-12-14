@@ -1,6 +1,10 @@
 package enums;
 
 public enum Race {
+    /**
+     * Class Race armazena as opções de raças dos aventureiros
+     * cada raça modifica de forma unica os atributos e modificadores
+     */
     //RACE(strenght, dexterity, constitution, intelligence, wisdom, charisma)
     DWARF(2,0,2,0,1,0),
     ELF(0,2,0,1,1,1),

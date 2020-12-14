@@ -4,6 +4,9 @@ import enums.*;
 import model.adv_tier.Attributes;
 
 public class ArcaneMage extends Mage{
+    /**
+     * Class ArcaneMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
+     */
 
     public ArcaneMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                             Skin skin, String playerName, String caracterName ) {
