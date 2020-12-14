@@ -3,10 +3,11 @@ package model.adv_tier;
 import utils.MathRPGUtil;
 
 public class Attributes {
-    /*
+    /**
     * Class Attributes armazena os atributos de um personagem.
     *   Cada Atributos possue um modificador utilizado para cálculos de dano.
-    * */
+    *
+    */
 
     private int strenght;    //Força
     private int modStrenght; //Modificador de Força
@@ -142,6 +143,10 @@ public class Attributes {
         this.modCharisma = modCharisma;
     }
 
+    /**
+     * metodos utilizados para obter o valor total de determinado atributo
+     * @return a soma do valor base + o modificador
+     */
     public int getTotalStrenght(){
         return this.getStrenght() + this.getModStrenght();
     }

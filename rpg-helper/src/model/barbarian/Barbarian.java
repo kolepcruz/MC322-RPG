@@ -34,6 +34,16 @@ public class Barbarian extends Adventurer {
         this.rage = rage;
     }
 
+
+    /**
+     * Este metodo eh usado para dar dano
+     * @param level o level necessario para usar a skill
+     * @param inter a qtd de iteraçoes
+     * @param damageDice o tipo de dado de dano
+     * @param consumeRage quanta rage consome
+     * @return o dano total feito
+     * @author Jonas
+     */
     public int doDamage(int level, int inter, int damageDice, int consumeRage){
         if(this.getLevel() >= level && this.getRage() >= consumeRage)
         {

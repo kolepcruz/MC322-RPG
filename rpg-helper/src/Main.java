@@ -1,3 +1,4 @@
+import model.adv_tier.Adventurer;
 import utils.CharacterCreatorUtil;
 import utils.NarratorUtil;
 
@@ -7,6 +8,7 @@ public class Main {
     public static void main(String[] args){
         NarratorUtil.greetings();
         Scanner scanner = new Scanner(System.in);
-        CharacterCreatorUtil.createAdventurer(scanner);
+        Adventurer a  = CharacterCreatorUtil.startCharacterCreation(scanner);
+        System.out.println(a);
     }
 }

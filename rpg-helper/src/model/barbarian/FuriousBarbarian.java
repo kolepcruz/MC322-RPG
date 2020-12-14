@@ -14,6 +14,8 @@ public class FuriousBarbarian extends Barbarian{
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
+    //todo colocar uma descriçao do que cada metodo faz (mais pelo roleplay,pode ser no comentario bravo memo)
+
     public int retaliation()
     {
         return doDamage(1,8,10,35);

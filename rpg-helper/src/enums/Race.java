@@ -18,15 +18,15 @@ public enum Race {
     private final int constitution;
     private final int intelligence;
     private final int wisdom;
-    private final int carisma;
+    private final int charisma;
 
-    Race(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int carisma) {
+    Race(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         this.strenght = strenght;
         this.dexterity = dexterity;
         this.constitution = constitution;
         this.intelligence = intelligence;
         this.wisdom = wisdom;
-        this.carisma = carisma;
+        this.charisma = charisma;
     }
 
     public int getStrenght() {
@@ -44,7 +44,7 @@ public enum Race {
     public int getWisdom() {
         return wisdom;
     }
-    public int getCarisma() {
-        return carisma;
+    public int getCharisma() {
+        return charisma;
     }
 }

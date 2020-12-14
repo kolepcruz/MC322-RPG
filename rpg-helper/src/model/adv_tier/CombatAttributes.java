@@ -9,6 +9,7 @@ public class CombatAttributes {
     private int totalHP;
     private int currentHP;
 
+
     public CombatAttributes(Attributes attributes, Armor equippedArmor, int initialValue)
     {
         this.armorPoints = equippedArmor.getArmorClass() + attributes.getModDexterity();

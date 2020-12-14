@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    //todo : equip and get equipments automatically update the current weight of the inventory
-
     private ArrayList<Weapon> weapons;
     private ArrayList<Armor> armors;
     private ArrayList<Consumable> consumables;
@@ -24,7 +22,6 @@ public class Inventory {
 
     //CONSTRUTORES
     public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors,int gold, int strenght) {
-
         this.weapons = weapons;
         this.armors = armors;
         this.consumables = new ArrayList<Consumable>();
@@ -75,31 +72,25 @@ public class Inventory {
         System.out.println("\n[Aviso]Peso máximo excedido\n");
     }
 
-    public void addArmor(Armor armor){
-        //Guarda os armors temporariamente em tempArmor
-        ArrayList tempArmor = this.armors;
-        this.armors.add(armor);
-
-        //Se o peso, após adicionado a armadura for maior que maxWeight, a lista armors retorna ao seu estado inicial
-        if(getWeight() < maxWeight){
-            System.out.println("\n[Mensagem]Adicionado armadura\n");
-            return;
+    public boolean addArmor(Armor armor){
+        if(armor.getWeight() + this.getWeight() <= this.getMaxWeight()){
+            this.armors.add(armor);
+            System.out.println("\n[Mensagem]Adicionado armadura\n "  + armor);
+            return true;
         }
-        this.armors = tempArmor;
         System.out.println("\n[Aviso]Peso máximo excedido\n");
+        return false;
     }
-    public void addWeapon(Weapon weapon){
-        //Guarda as armas temporariamente em tempWeapon
-        ArrayList tempWeapon = this.weapons;
-        this.weapons.add(weapon);
 
+    public boolean addWeapon(Weapon weapon){
         //Se o peso, após adicionado a arma for maior que maxWeight, a lista weapons retorna ao seu estado inicial
-        if(getWeight() < maxWeight){
+        if(getWeight() + weapon.getWeight() <= maxWeight){
             System.out.println("\n[Mensagem]Adicionado weapon\n");
-            return;
+            this.weapons.add(weapon);
+            return true;
         }
-        this.weapons = tempWeapon;
         System.out.println("\n[Aviso]Peso máximo excedido\n");
+        return false;
     }
 
     public ArrayList<Consumable> getConsumables()
@@ -125,19 +116,19 @@ public class Inventory {
 
     /**
      * O atributo weight é calculado somando todos as armaduras e armas que estão no inventario
-     * @return
+     * @author Erik
      */
     public double getWeight()
     {
         weight = 0;
 
         //Peso de todas as armaduras
-        for (int i = 0; i < armors.size(); i++){
-            weight += armors.get(i).getWeight();
+        for (Armor armor : armors) {
+            weight += armor.getWeight();
         }
         //Peso de todas as armas
-        for (int i = 0; i < weapons.size(); i++){
-            weight += weapons.get(i).getWeight();
+        for (Weapon weapon : weapons) {
+            weight += weapon.getWeight();
         }
         return weight;
     }
@@ -145,10 +136,10 @@ public class Inventory {
     //IMPLEMENTACAO DE METODOS
 
     /**
-     * This method receives an x amount of pos (gold equivalent) and substracts it from the Invetory
+     * This method receives an x amount of pos (gold equivalent) and subtracts it from the Inventory
      * true if the user can pay, else false
-     * todo -> multiple kinds of currencys in game, and maybe allowing going into debt
-     * @author kolepcruz
+     * todo -> multiple kinds of currencies in game, and maybe allowing going into debt
+     * @author kole
      */
     public boolean pay(int value){
         if(this.gold>=value){
@@ -197,7 +188,7 @@ public class Inventory {
     }
 
     //Usa poção de adrenalina
-    public boolean useAdrenalinePotion(Adventurer adventurer){ //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
+    public boolean useAdrenalinePotion(Adventurer adventurer){
         if(adventurer instanceof Barbarian){
             ((Barbarian) adventurer).setRage(((Barbarian) adventurer).getRage() + Consumable.ADRENALINE_POTION.getVal());
             adventurer.getInventory().getConsumables().remove(Consumable.ADRENALINE_POTION);

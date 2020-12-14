@@ -34,6 +34,16 @@ public class Mage extends Adventurer {
         this.mana = mana;
     }
 
+
+    /**
+     * Este metodo eh usado para dar dano
+     * @param level o level necessario para usar a skill
+     * @param inter a qtd de iteraçoes
+     * @param damageDice o tipo de dado de dano
+     * @param consumeMana quanta mana consome
+     * @return o dano total feito
+     * @author Jonas
+     */
     public int doDamage(int level, int inter, int damageDice, int consumeMana){
         if(this.getLevel() >= level && this.getMana() >= consumeMana)
         {

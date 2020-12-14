@@ -35,6 +35,15 @@ public class Rogue extends Adventurer {
         this.stamina = stamina;
     }
 
+    /**
+     * Este metodo eh usado para dar dano
+     * @param level o level necessario para usar a skill
+     * @param inter a qtd de iteraçoes
+     * @param damageDice o tipo de dado de dano
+     * @param consumeStamina quanta stamina consome
+     * @return o dano total feito
+     * @author Jonas
+     */
     public int doDamage(int level, int inter, int damageDice, int consumeStamina){
         if(this.getLevel() >= level && this.getStamina() >= consumeStamina)
         {
