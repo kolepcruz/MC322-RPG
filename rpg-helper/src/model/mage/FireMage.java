@@ -32,7 +32,7 @@ public class FireMage extends Mage {
     @Override
     public String toString() {
         String out = "FireMage";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n metheorStorm ";
         out+= "\n fireBall ";
         out+= "\n burningBeam ";

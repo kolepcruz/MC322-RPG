@@ -223,7 +223,7 @@ public class Inventory {
 //            out += "* " + i ;
 //        }
 
-        out += "\nPeso do equipamento:\n" + getWeight() + "/" + getMaxWeight() + " kg";
+        out += "Peso do equipamento:\n" + getWeight() + "/" + getMaxWeight() + " kg";
         out += "\nGold : \n " + getGold() + "$";
         return out;
     }

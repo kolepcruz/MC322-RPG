@@ -64,7 +64,7 @@ public class Adventurer extends Person{
 
     @Override
     public String toString() {
-        return "Adventurer :" +
+        return "-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-" +
                 "\n id = " + id +
                 "\n level = " + level +
                 "\n expPoints = " + expPoints +

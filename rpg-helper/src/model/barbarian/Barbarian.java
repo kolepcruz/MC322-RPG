@@ -5,6 +5,11 @@ import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import utils.RandomUtil;
 
+
+/**
+ * metodos doDamage foram implementados nessas main tribe e nao em adventurer devido a que eles consomem recursos
+ * com funcionamentos diferentes entre cada main tribe
+ */
 public class Barbarian extends Adventurer {
 
     private int rage;

@@ -36,7 +36,7 @@ public class ArcaneMage extends Mage{
     @Override
     public String toString() {
         String out = "ArcaneMage";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n arcaneArmor ";
         out+= "\n magicMissiles ";
         out+= "\n prismaticBarrage ";

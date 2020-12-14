@@ -17,6 +17,7 @@ public class MathRPGUtil {
 
     /**
      * Alterado metodo em 1/12/20
+     * divide a experiencia entre o grupo
      * @author Erik Yuji Goto
      */
     public static void getExperience(int expTotal, ArrayList<Adventurer> aventureiros){

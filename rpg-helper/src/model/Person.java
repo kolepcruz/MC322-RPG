@@ -30,7 +30,7 @@ public class Person {
 
     @Override
     public String toString() {
-        String out = "[Jogador: "+getPlayerName()+"]\n";
+        String out = "-=-=-=-=-=-=-=-=-|"+getPlayerName()+"|-=-=-=-=-=-=-=-=-\n";
 
         out = out + " Personagem: "+getCaracterName()+"\n";
         out = out + " Race: "+getRace()+"\n";
@@ -39,7 +39,7 @@ public class Person {
         out = out + " Peso: "+ getWeight()+"\n";
         out = out + " Pele: "+ getSkin()+"\n";
         out = out + " Olhos: "+getEyes()+"\n";
-        out = out + " Canelo: "+getHair()+"\n";
+        out = out + " Cabelo: "+getHair()+"\n";
         return out;
     }
 

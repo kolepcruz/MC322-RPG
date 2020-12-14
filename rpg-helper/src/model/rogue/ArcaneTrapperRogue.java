@@ -21,7 +21,7 @@ public class ArcaneTrapperRogue extends Rogue {
     @Override
     public String toString() {
         String out = "ArcaneTrapperRogue";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n Conjuration ";
         out+= "\n theEnd ";
         return out + '\n' + super.toString();

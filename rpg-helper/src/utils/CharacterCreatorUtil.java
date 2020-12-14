@@ -118,9 +118,13 @@ public class CharacterCreatorUtil {
 
         System.out.println("Insira o peso do seu personagem (kg)");
         double chosenWeight = sc.nextDouble();
+        if(chosenWeight <= 0)
+            System.out.println("Ok, ninguem pode ser magro assim viu :)");
 
         System.out.println("Insira a altura do seu personagem (m)");
         double chosenHeight = sc.nextDouble();
+        if(chosenHeight <= 0)
+            System.out.println("hmmmmm, certeza que essa sera a altura? :P");
 
         Attributes attributes = distributeAttributePoints(Race.values()[chosenRace],sc);
 

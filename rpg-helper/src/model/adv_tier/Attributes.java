@@ -49,7 +49,7 @@ public class Attributes {
 
     @Override
     public String toString() {
-        return "[Attributes]" +
+        return "-=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-" +
                 "\n strenght = " + strenght +
                 "\n dexterity = " + dexterity +
                 "\n constitution = "  + constitution +

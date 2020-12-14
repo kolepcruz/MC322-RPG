@@ -36,7 +36,7 @@ public class FrostMage extends Mage{
     @Override
     public String toString() {
         String out = "FrostMage";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n iceBeam ";
         out+= "\n iceStorm ";
         out+= "\n otilukeFreezingSphere ";

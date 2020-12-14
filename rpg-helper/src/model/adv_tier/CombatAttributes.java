@@ -4,6 +4,10 @@ import enums.Armor;
 
 public class CombatAttributes {
 
+
+    /**
+     * Nesta classe temos os atributos que serao usados principalmente no combate
+     */
     private int armorPoints;
     private int iniciativePoints;
     private int totalHP;
@@ -23,7 +27,7 @@ public class CombatAttributes {
 
     @Override
     public String toString() {
-        return "CombatAttributes :" +
+        return "-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-" +
                 "\n armorPoints = " + armorPoints +
                 "\n iniciativePoints = " + iniciativePoints +
                 "\n totalHp = " + totalHP +

@@ -35,7 +35,7 @@ public class FuriousBarbarian extends Barbarian{
     @Override
     public String toString() {
         String out = "FuriousBarbarian";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n retaliation ";
         out+= "\n frenzy ";
         out+= "\n berserker ";

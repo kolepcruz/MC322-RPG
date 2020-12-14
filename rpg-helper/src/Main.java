@@ -10,10 +10,7 @@ public class Main {
         NarratorUtil.greetings();
         Scanner scanner = new Scanner(System.in);
         Adventurer a  = CharacterCreatorUtil.startCharacterCreation(scanner);
-
-        if(a instanceof FuriousBarbarian)
-            System.out.println(a);
-
         System.out.println(a);
+        scanner.close();
     }
 }

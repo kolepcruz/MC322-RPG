@@ -24,7 +24,7 @@ public class TotemicBarbarian extends Barbarian{
     @Override
     public String toString() {
         String out = "TotemicBarbarian";
-        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
         out+= "\n totemicSpirit ";
         out+= "\n totemicHarmony ";
         return out + '\n' + super.toString();
