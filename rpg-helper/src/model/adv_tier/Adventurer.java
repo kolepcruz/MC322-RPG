@@ -12,7 +12,8 @@ import java.util.Arrays;
 public class Adventurer extends Person{
     /**
      * Class Adventurer armazena as informações do aventureiro
-     * nessa classe contem informarções que vão ser aprimoradas no Projeto 2 e que já são usadas atualmente para criação do aventureiro
+     * nessa classe contem informarções que vão ser aprimoradas no Projeto 2 e que já são usadas
+     * atualmente para criação do aventureiro
      */
 
     private static int numAdventurers; //counts how many adventurers are there

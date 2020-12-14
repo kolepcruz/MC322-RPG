@@ -1,3 +1,4 @@
+import enums.Weapon;
 import model.adv_tier.Adventurer;
 import model.barbarian.FuriousBarbarian;
 import utils.CharacterCreatorUtil;
@@ -10,6 +11,7 @@ public class Main {
         NarratorUtil.greetings();
         Scanner scanner = new Scanner(System.in);
         Adventurer a  = CharacterCreatorUtil.startCharacterCreation(scanner);
+        a.getInventory().addWeapon(Weapon.TRIDENT);
         System.out.println(a);
         scanner.close();
     }

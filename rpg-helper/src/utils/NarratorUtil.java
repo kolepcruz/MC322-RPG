@@ -14,11 +14,12 @@ public class NarratorUtil {
                 "     \t- Kole \n" +
                 "     \t- Jonas \n" +
                 "     \t- Erik \n");
+        System.out.println("Temos planos de expandir este projeto e apos o final da materia sera publicado no github" +
+                " dos membros");
     }
 
     public static void classIntroduction(){
-        System.out.println("#".repeat(50));
-        System.out.println("#".repeat(50));
+        System.out.println("#".repeat(50) + "\n".repeat(3));
 
         System.out.println("BARBARIAN:\n"+
                            "\tBarbarians são famosos por sua incrível força e resistência ao dano físico");

@@ -11,7 +11,6 @@ import model.mage.FrostMage;
 import model.rogue.ArcaneTrapperRogue;
 import model.rogue.AssassinRogue;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -81,9 +80,8 @@ public class CharacterCreatorUtil {
                                 stats.get(3) + race.getCharisma());
     }
 
-
     /**
-     * Este metodo recebe as entradas do usuario e realiza a construçao do objeto person que se encontra dentro
+     * Este metodo recebe as entradas do usuario e realiza a construçao
      * da classe adventurer, recebe varios parametros, entre eles Race, que torna a chamada deste metodo uma
      * muito importante para o calculo do valor total dos parametros do aventureiro
      * Recebe os inputs e utiliza o metodo chooseTarget para receber os valores que o usuario quer para os enums
@@ -242,7 +240,6 @@ public class CharacterCreatorUtil {
         }
         return receiveAndValidateInput(EnumSet.allOf(enumClass).size(),sc);
     }
-
 
     /**
      *
