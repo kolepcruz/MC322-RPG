@@ -1,5 +1,6 @@
 package model.barbarian;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
@@ -12,12 +13,11 @@ public class Barbarian extends Adventurer {
     private int rage;
     private int countRage;
 
-    public Barbarian(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints, int rage) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints);
-        this.rage = rage;
-    }
-
-    public Barbarian() {
+    public Barbarian(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                     Skin skin, String playerName, String caracterName ) {
+        super(attributes,height,weight,hair,eyes,race,sex,skin,playerName,caracterName);
+        this.rage = 15;
+        this.countRage = 0;
     }
 
     public int getCountRage() {
@@ -34,6 +34,16 @@ public class Barbarian extends Adventurer {
         this.rage = rage;
     }
 
+
+    /**
+     * Este metodo eh usado para dar dano
+     * @param level o level necessario para usar a skill
+     * @param inter a qtd de iteraçoes
+     * @param damageDice o tipo de dado de dano
+     * @param consumeRage quanta rage consome
+     * @return o dano total feito
+     * @author Jonas
+     */
     public int doDamage(int level, int inter, int damageDice, int consumeRage){
         if(this.getLevel() >= level && this.getRage() >= consumeRage)
         {

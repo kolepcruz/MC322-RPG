@@ -3,7 +3,7 @@ package enums;
 public enum Armor {
     //ARMOR(price, armorClass, weight),
     PADDED(5, 11, 4),
-    BEATEN_LEADER(45, 12, 6.5),
+    BEATEN_LEATHER(45, 12, 6.5),
 
     MAIL_SHIRT(50, 13, 10),
     HALF_ARMOR(750, 15, 20),
@@ -13,7 +13,7 @@ public enum Armor {
 
     SHIELD(10, 2, 3),
 
-    TEMP(0, 0, 0);
+    NO_ARMOR(0, 0, 0);
 
     private int price;      //How much the armor costs to buy
     private int armorClass; //Which class the armor belongs
@@ -34,4 +34,6 @@ public enum Armor {
     public double getWeight() {
         return weight;
     }
+
+
 }

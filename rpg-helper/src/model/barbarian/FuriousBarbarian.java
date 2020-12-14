@@ -1,5 +1,6 @@
 package model.barbarian;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Attributes;
 import model.adv_tier.CombatAttributes;
@@ -7,12 +8,13 @@ import model.adv_tier.Inventory;
 
 public class FuriousBarbarian extends Barbarian{
 
-    public FuriousBarbarian(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints, int rage) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints, rage);
+    public FuriousBarbarian(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                     Skin skin, String playerName, String caracterName ) {
+
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public FuriousBarbarian() {
-    }
+    //todo colocar uma descriçao do que cada metodo faz (mais pelo roleplay,pode ser no comentario bravo memo)
 
     public int retaliation()
     {

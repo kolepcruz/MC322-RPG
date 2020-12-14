@@ -1,5 +1,6 @@
 package model.mage;
 
+import enums.*;
 import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
@@ -12,12 +13,11 @@ public class Mage extends Adventurer {
     private int mana;
     private int countMana;
 
-    public Mage(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
-        super(attributes, combatAttributes, inventory, person, level, expPoints);
-        this.mana = 10;
-    }
-
-    public Mage() {
+    public Mage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                      Skin skin, String playerName, String caracterName ) {
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
+        this.mana = 20;
+        this.countMana = 20;
     }
 
     public int getCountMana() {
@@ -34,6 +34,16 @@ public class Mage extends Adventurer {
         this.mana = mana;
     }
 
+
+    /**
+     * Este metodo eh usado para dar dano
+     * @param level o level necessario para usar a skill
+     * @param inter a qtd de iteraçoes
+     * @param damageDice o tipo de dado de dano
+     * @param consumeMana quanta mana consome
+     * @return o dano total feito
+     * @author Jonas
+     */
     public int doDamage(int level, int inter, int damageDice, int consumeMana){
         if(this.getLevel() >= level && this.getMana() >= consumeMana)
         {

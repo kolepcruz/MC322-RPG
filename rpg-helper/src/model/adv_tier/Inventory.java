@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    //todo : equip and get equipments automatically update the current weight of the inventory
-
     private ArrayList<Weapon> weapons;
     private ArrayList<Armor> armors;
     private ArrayList<Consumable> consumables;
@@ -23,27 +21,15 @@ public class Inventory {
     private double maxWeight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors, ArrayList<Consumable> consumables, int gold, int strenght) {
-        /*É preciso instanciar as listas weapons, e armors com apenas um elemento "TEMP", pois o metodo setArmors/setWeapons
-        precisa de getWeight. E não é possível usar getWeight em listas vazias.*/
-        this.weapons = new ArrayList<Weapon>();
-        this.armors = new ArrayList<Armor>();
-        this.weapons.add(Weapon.TEMP);
-        this.armors.add(Armor.TEMP);
-
-        setArmors(armors);
-        setWeapons(weapons);
-        //Removendo os elementos nulos. Para que as listas fiquem com apenas os equipamentos do construtor
-        this.weapons.remove(Weapon.TEMP);
-        this.armors.remove(Armor.TEMP);
-
-        this.consumables = consumables;
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors,int gold, int strenght) {
+        this.weapons = weapons;
+        this.armors = armors;
+        this.consumables = new ArrayList<Consumable>();
         this.gold = gold;
         maxWeight = strenght * 7.5;
     }
 
     //GETTERS E SETTERS
-
     public double getMaxWeight() {
         return maxWeight;
     }
@@ -86,31 +72,25 @@ public class Inventory {
         System.out.println("\n[Aviso]Peso máximo excedido\n");
     }
 
-    public void addArmor(Armor armor){
-        //Guarda os armors temporariamente em tempArmor
-        ArrayList tempArmor = this.armors;
-        this.armors.add(armor);
-
-        //Se o peso, após adicionado a armadura for maior que maxWeight, a lista armors retorna ao seu estado inicial
-        if(getWeight() < maxWeight){
-            System.out.println("\n[Mensagem]Adicionado armadura\n");
-            return;
+    public boolean addArmor(Armor armor){
+        if(armor.getWeight() + this.getWeight() <= this.getMaxWeight()){
+            this.armors.add(armor);
+            System.out.println("\n[Mensagem]Adicionado armadura\n "  + armor);
+            return true;
         }
-        this.armors = tempArmor;
         System.out.println("\n[Aviso]Peso máximo excedido\n");
+        return false;
     }
-    public void addWeapon(Weapon weapon){
-        //Guarda as armas temporariamente em tempWeapon
-        ArrayList tempWeapon = this.weapons;
-        this.weapons.add(weapon);
 
+    public boolean addWeapon(Weapon weapon){
         //Se o peso, após adicionado a arma for maior que maxWeight, a lista weapons retorna ao seu estado inicial
-        if(getWeight() < maxWeight){
+        if(getWeight() + weapon.getWeight() <= maxWeight){
             System.out.println("\n[Mensagem]Adicionado weapon\n");
-            return;
+            this.weapons.add(weapon);
+            return true;
         }
-        this.weapons = tempWeapon;
         System.out.println("\n[Aviso]Peso máximo excedido\n");
+        return false;
     }
 
     public ArrayList<Consumable> getConsumables()
@@ -136,19 +116,19 @@ public class Inventory {
 
     /**
      * O atributo weight é calculado somando todos as armaduras e armas que estão no inventario
-     * @return
+     * @author Erik
      */
     public double getWeight()
     {
         weight = 0;
 
         //Peso de todas as armaduras
-        for (int i = 0; i < armors.size(); i++){
-            weight += armors.get(i).getWeight();
+        for (Armor armor : armors) {
+            weight += armor.getWeight();
         }
         //Peso de todas as armas
-        for (int i = 0; i < weapons.size(); i++){
-            weight += weapons.get(i).getWeight();
+        for (Weapon weapon : weapons) {
+            weight += weapon.getWeight();
         }
         return weight;
     }
@@ -156,10 +136,10 @@ public class Inventory {
     //IMPLEMENTACAO DE METODOS
 
     /**
-     * This method receives an x amount of pos (gold equivalent) and substracts it from the Invetory
+     * This method receives an x amount of pos (gold equivalent) and subtracts it from the Inventory
      * true if the user can pay, else false
-     * todo -> multiple kinds of currencys in game, and maybe allowing going into debt
-     * @author kolepcruz
+     * todo -> multiple kinds of currencies in game, and maybe allowing going into debt
+     * @author kole
      */
     public boolean pay(int value){
         if(this.gold>=value){
@@ -170,21 +150,21 @@ public class Inventory {
     }
 
     //Equipa armadura
-    public boolean equipArmor(Armor armor_to_equip){
-        if(armors.contains(armor_to_equip)){
-            armorEquiped = armor_to_equip;
+    public boolean equipArmor(Armor armorToEquip){
+        if(armors.contains(armorToEquip)){
+            armorEquiped = armorToEquip;
             return true;
         }
-        else return false;
+        return false;
     }
 
     //Equipa arma
-    public boolean equipWeapon(Weapon weapon_to_equip){
-        if(weapons.contains(weapon_to_equip)){
-            weaponEquiped = weapon_to_equip;
+    public boolean equipWeapon(Weapon weaponToEquip){
+        if(weapons.contains(weaponToEquip)){
+            weaponEquiped = weaponToEquip;
             return true;
         }
-        else return false;
+        return false;
     }
 
     //Usa poção de mana
@@ -208,7 +188,7 @@ public class Inventory {
     }
 
     //Usa poção de adrenalina
-    public boolean useAdrenalinePotion(Adventurer adventurer){ //É pra dar setRage msm? Não achei setAdrenaline ou um método parecido
+    public boolean useAdrenalinePotion(Adventurer adventurer){
         if(adventurer instanceof Barbarian){
             ((Barbarian) adventurer).setRage(((Barbarian) adventurer).getRage() + Consumable.ADRENALINE_POTION.getVal());
             adventurer.getInventory().getConsumables().remove(Consumable.ADRENALINE_POTION);
@@ -223,7 +203,7 @@ public class Inventory {
 
     //ToString
     public String toString(){
-        String out = "-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
+        String out = "\n-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-\n";
         out += "Armors:\n";
         for(Armor i : armors){
             //Se o armor equipado for printado o caracter antes do seu nome será "->"
@@ -248,6 +228,7 @@ public class Inventory {
         }
 
         out += "\nPeso:\n" + getWeight() + "/" + getMaxWeight() + " kg";
+        out += "\nGold : \n " + getGold() + "$\n";
         return out;
     }
 }

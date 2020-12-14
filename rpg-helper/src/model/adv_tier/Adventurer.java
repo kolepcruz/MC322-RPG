@@ -1,8 +1,15 @@
 package model.adv_tier;
 
+import enums.*;
 import model.Person;
+import model.barbarian.Barbarian;
+import model.mage.Mage;
+import utils.RandomUtil;
 
-public class Adventurer {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Adventurer extends Person{
 
     private static int numAdventurers;
 
@@ -10,23 +17,49 @@ public class Adventurer {
     private int level;
     private int expPoints;
     private CombatAttributes combatAttributes;
-    private Person person;
     private Inventory inventory;
     private Attributes attributes;
 
 
-    public Adventurer(Attributes attributes, CombatAttributes combatAttributes, Inventory inventory, Person person, int level, int expPoints) {
+    public Adventurer(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                      Skin skin, String playerName, String caracterName)
+    {
+        super(height,weight,hair,eyes,race,sex,skin,playerName,caracterName);
+        this.attributes = attributes;
+
+        if(this instanceof Barbarian){
+            this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.AXE_BIG)),
+                                            new ArrayList<Armor>(Arrays.asList(Armor.BEATEN_LEATHER)),
+                                            RandomUtil.getInitialGold(2,4),
+                                            attributes.getTotalStrenght());
+            this.inventory.equipArmor(Armor.BEATEN_LEATHER);
+            this.inventory.equipWeapon(Weapon.AXE_BIG);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),12);
+        }
+        else if ( this instanceof Mage){
+            this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.NO_WEAPON)),
+                                            new ArrayList<Armor>(Arrays.asList(Armor.NO_ARMOR)),
+                                            RandomUtil.getInitialGold(4,4),
+                                            attributes.getTotalStrenght());
+            this.inventory.equipArmor(Armor.NO_ARMOR);
+            this.inventory.equipWeapon(Weapon.NO_WEAPON);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),6);
+
+        }
+        else {
+            this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.DAGGER)),
+                                            new ArrayList<Armor>(Arrays.asList(Armor.PADDED)),
+                                            RandomUtil.getInitialGold(4, 4),
+                                            attributes.getTotalStrenght());
+            this.inventory.equipArmor(Armor.PADDED);
+            this.inventory.equipWeapon(Weapon.DAGGER);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),8);
+        }
+
         ++numAdventurers;
         this.id = numAdventurers;
-        this.level = level;
-        this.expPoints = expPoints;
-        this.combatAttributes = combatAttributes;
-        this.person = person;
-        this.inventory = inventory;
-        this.attributes = attributes;
-    }
-
-    public Adventurer() {
+        this.level = 0;
+        this.expPoints = 0;
     }
 
     @Override
@@ -36,17 +69,9 @@ public class Adventurer {
                 ", level=" + level +
                 ", expPoints=" + expPoints +
                 ", combat=" + combatAttributes +
-                ", person=" + person +
                 ", inventory=" + inventory +
                 ", attributes=" + attributes +
                 '}';
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-    public void setPerson(Person person) {
-        this.person = person;
     }
 
     public static int getNumAdventurers() {
