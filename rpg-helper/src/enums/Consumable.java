@@ -1,6 +1,9 @@
 package enums;
 
 public enum Consumable {
+    /**
+     * Class Consumable armazena os possiveis consumiveis dos aventureiros que os ajudam nos combates
+     */
     //POTION(val)
     MANA_POTION(10),
     LIFE_POTION(10),

@@ -1,6 +1,9 @@
 package utils;
 
 public class NarratorUtil {
+    /**
+     * Class NarratorUtil seria o layout do programa
+     */
 
     public static void greetings(){
         System.out.println("Bem Vindos ao RPG-HELPER!!");

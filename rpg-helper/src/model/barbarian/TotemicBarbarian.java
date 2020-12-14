@@ -4,6 +4,9 @@ import enums.*;
 import model.adv_tier.Attributes;
 
 public class TotemicBarbarian extends Barbarian{
+    /**
+     * Class TotemicBarbarian é uma subtribo de Barbarian, nela possui algumas habilidades com que o Barbaro ataca
+     */
 
     public TotemicBarbarian(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                             Skin skin, String playerName, String caracterName ) {

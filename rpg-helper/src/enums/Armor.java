@@ -1,6 +1,9 @@
 package enums;
 
 public enum Armor {
+    /**
+     * Class Armor armazena todas as opções de armaduras que os aventureiro podem ter, eles começam com uma determinada
+     */
     //ARMOR(price, armorClass, weight)
     PADDED(5, 11, 4),
     BEATEN_LEATHER(45, 12, 6.5),
@@ -13,7 +16,7 @@ public enum Armor {
 
     SHIELD(10, 2, 3),
 
-    NO_ARMOR(0, 0, 0);
+    NO_ARMOR(0, 0, 0); //NO_ARMOR é usado para referenciar o aventureiro sem armadura
 
     private int price;      //How much the armor costs to buy
     private int armorClass; //Which class the armor belongs

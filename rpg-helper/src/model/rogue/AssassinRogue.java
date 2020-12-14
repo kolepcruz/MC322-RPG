@@ -4,6 +4,9 @@ import enums.*;
 import model.adv_tier.Attributes;
 
 public class AssassinRogue extends Rogue{
+    /**
+     * Class AssassinRogue é uma subtribo de Rogue, nela possui algumas habilidades com que o Ladino ataca
+     */
 
     public AssassinRogue(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                  Skin skin, String playerName, String caracterName ) {

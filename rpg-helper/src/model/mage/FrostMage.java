@@ -7,6 +7,9 @@ import model.adv_tier.CombatAttributes;
 import model.adv_tier.Inventory;
 
 public class FrostMage extends Mage{
+    /**
+     * Class FrostMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
+     */
 
     public FrostMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                     Skin skin, String playerName, String caracterName ) {
