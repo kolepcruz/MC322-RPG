@@ -1,6 +1,7 @@
 package enums;
 
 public enum Consumable {
+    //POTION(val)
     MANA_POTION(10),
     LIFE_POTION(10),
     STAMINA_POTION(10),

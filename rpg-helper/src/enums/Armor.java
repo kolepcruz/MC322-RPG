@@ -1,7 +1,7 @@
 package enums;
 
 public enum Armor {
-    //ARMOR(price, armorClass, weight),
+    //ARMOR(price, armorClass, weight)
     PADDED(5, 11, 4),
     BEATEN_LEATHER(45, 12, 6.5),
 
