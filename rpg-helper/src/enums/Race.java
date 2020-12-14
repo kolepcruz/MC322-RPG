@@ -1,7 +1,7 @@
 package enums;
 
 public enum Race {
-
+    //RACE(strenght, dexterity, constitution, intelligence, wisdom, charisma)
     DWARF(2,0,2,0,1,0),
     ELF(0,2,0,1,1,1),
     HALFLING(0,2,1,0,0,1),
