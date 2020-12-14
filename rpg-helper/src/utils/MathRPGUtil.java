@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 public class MathRPGUtil {
 
+    /**
+     * Realiza a operaçao padrao do D&d de determinar o modificador de um status
+     * @param num
+     * @return
+     */
     public static int getMod(int num){
         return (int)(Math.floor((num - 10)/2));
     }

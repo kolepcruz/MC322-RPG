@@ -13,7 +13,7 @@ public class Rogue extends Adventurer {
     public Rogue(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
                      Skin skin, String playerName, String caracterName ) {
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
-        this.stamina = 15;
+         this.stamina = 15;
         this.countStamina = 15;
     }
 

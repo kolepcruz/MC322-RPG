@@ -32,4 +32,15 @@ public class FrostMage extends Mage{
     {
         return doDamage(4,8,10,35);
     }
+
+    @Override
+    public String toString() {
+        String out = "FrostMage";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n iceBeam ";
+        out+= "\n iceStorm ";
+        out+= "\n otilukeFreezingSphere ";
+        out+= "\n frostIcicle ";
+        return out + '\n' + super.toString();
+    }
 }

@@ -19,4 +19,14 @@ public class TotemicBarbarian extends Barbarian{
     {
         return doDamage(3,5,10,15);
     }
+
+
+    @Override
+    public String toString() {
+        String out = "TotemicBarbarian";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n totemicSpirit ";
+        out+= "\n totemicHarmony ";
+        return out + '\n' + super.toString();
+    }
 }

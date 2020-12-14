@@ -23,12 +23,11 @@ public class CombatAttributes {
 
     @Override
     public String toString() {
-        return "CombatAttributes{" +
-                "armorPoints=" + armorPoints +
-                ", iniciativePoints=" + iniciativePoints +
-                ", totalHp=" + totalHP +
-                ", currentHp=" + currentHP +
-                '}';
+        return "CombatAttributes :" +
+                "\n armorPoints = " + armorPoints +
+                "\n iniciativePoints = " + iniciativePoints +
+                "\n totalHp = " + totalHP +
+                "\n currentHp = " + currentHP;
     }
 
     public int getArmorPoints() {

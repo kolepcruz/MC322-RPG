@@ -28,4 +28,15 @@ public class FireMage extends Mage {
     public int flamingSphere() {
         return doDamage(4, 8, 6, 3);
     }
+
+    @Override
+    public String toString() {
+        String out = "FireMage";
+        out+="\n" + "#".repeat(5) + "SKILLS" + "#".repeat(5);
+        out+= "\n metheorStorm ";
+        out+= "\n fireBall ";
+        out+= "\n burningBeam ";
+        out+= "\n flamingSphere ";
+        return out + '\n' + super.toString();
+    }
 }
