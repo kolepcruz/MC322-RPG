@@ -26,10 +26,8 @@ public class FuriousBarbarian extends Barbarian{
         return doDamage(2,4,6,10);
     }
 
-    public int berserker()
-    {
+    public int berserker() {
         return doDamage(3,5,10,20);
-
     }
 
     public int intimidatingPresence()
