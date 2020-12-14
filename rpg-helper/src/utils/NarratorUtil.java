@@ -6,34 +6,35 @@ public class NarratorUtil {
         System.out.println("Bem Vindos ao RPG-HELPER!!");
         System.out.println("Este trabalho foi desenvolvido por um grupo de alunos ECA-019 da Unicamp para MC322 \n" +
                 "Tem como intuito a familiarizaçao com algumas mecanicas de criar personagens em RPGs\n" +
-                "Creditos aos alunos :\n" +
-                " \n" +
-                "     - Trofino \n" +
-                "     - Kole \n" +
-                "     - Jonas \n" +
-                "     - Erik \n");
+                "Creditos aos alunos :\n\n" +
+                "     \t- Trofino \n" +
+                "     \t- Kole \n" +
+                "     \t- Jonas \n" +
+                "     \t- Erik \n");
     }
 
     public static void classIntroduction(){
         System.out.println("#".repeat(50));
+        System.out.println("#".repeat(50));
 
-        System.out.println("Barbarian :\n\tOs barbarians sao famosos pela sua incrivel força e" +
-                " resistencia ao dano fisico");
-        System.out.println("Utilizam rage para causar dano devastador apos o começo do combate, e esta aumenta quando" +
-                "o barbarian se encontra em combate com forças inimigas, diminuindo a medida que o tempo passa");
-        System.out.println("*".repeat(50));
-        System.out.println("Mage :\n\tOs mages utilizam seu conhecimento dominio do arcano para lançar feitiços" +
+        System.out.println("BARBARIAN:\n"+
+                           "\tBarbarians são famosos por sua incrível força e resistência ao dano físico");
+        System.out.println("Utilizam rage para causar dano devastador ápos o começo do combate, e esta aumenta quando" +
+                "o Barbarian se encontra em combate com forças inimigas, diminuindo a medida que o tempo passa");
+        System.out.println("\n"+"*".repeat(50)+"\n");
+        System.out.println("MAGE:\n\tMages utilizam seu conhecimento e domínio do arcano para lançar feitiços" +
                 "devastadores nas forças inimigas");
-        System.out.println("Utilizam mana, um recurso poderoso que se regenera mais lentamente, mas abre as portas" +
+        System.out.println("Utilizam mana, um recurso poderoso que se regenera lentamente, abre as portas" +
                 "para magias muito potentes");
-        System.out.println("*".repeat(50));
-        System.out.println("Rogue :\n\tOs rogues sao os reis do subterfugio, utilizam sua destreza e seu ambiente" +
+        System.out.println("\n"+"*".repeat(50)+"\n");
+        System.out.println("ROGUE:\n\tOs rogues são os reis do subterfúgio, utilizam sua destreza e seu ambiente" +
                 "para derrotar inimigos mais fortes fisicamente ou com poder destrutivo maior");
         System.out.println("Utilizam stamina para utilizar suas habilidades, e eh um recurso de alta regeneraçao" +
                 "tanto dentro quanto fora do combate, mas gasta muito rapido");
-        System.out.println("*".repeat(30));
+        System.out.println("#".repeat(50));
+        System.out.println("#".repeat(50));
 
-        System.out.println("Agora vc devera escolher entre as 3 principais Classes do RPG-Helper");
+        System.out.println("Agora escolha entre estas principais Classes do RPG-Helper");
     }
 
     public static void subclassIntroduction(int chosen)

@@ -1,10 +1,7 @@
 package model.mage;
 
 import enums.*;
-import model.Person;
 import model.adv_tier.Attributes;
-import model.adv_tier.CombatAttributes;
-import model.adv_tier.Inventory;
 
 public class FireMage extends Mage {
 

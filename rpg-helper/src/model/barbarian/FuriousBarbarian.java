@@ -1,10 +1,7 @@
 package model.barbarian;
 
 import enums.*;
-import model.Person;
 import model.adv_tier.Attributes;
-import model.adv_tier.CombatAttributes;
-import model.adv_tier.Inventory;
 
 public class FuriousBarbarian extends Barbarian{
 
@@ -26,10 +23,8 @@ public class FuriousBarbarian extends Barbarian{
         return doDamage(2,4,6,10);
     }
 
-    public int berserker()
-    {
+    public int berserker() {
         return doDamage(3,5,10,20);
-
     }
 
     public int intimidatingPresence()
