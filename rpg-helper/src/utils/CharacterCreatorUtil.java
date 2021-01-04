@@ -11,6 +11,7 @@ import model.mage.FrostMage;
 import model.rogue.ArcaneTrapperRogue;
 import model.rogue.AssassinRogue;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -259,4 +260,25 @@ public class CharacterCreatorUtil {
 
         return chosenValue-1;
     }
+
+    // /**
+    //  * 
+    //  * @param chosenInt inteiro escolhido
+    //  * @param sc scanner
+    //  * @return inteiro escolhido
+    //  */
+
+    // private static int receiveValidateInput(int chosenInt, Scanner sc){
+    //     boolean withinRange = false;
+
+    //     do {
+    //         try {
+    //             sc.nextInt();
+    //         } catch (IOException e) {
+    //             withinRange = true;
+    //         }
+    //     } while (withinRange);
+
+    //     return chosenInt;
+    // }
 }
