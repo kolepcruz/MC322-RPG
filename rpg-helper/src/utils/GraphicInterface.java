@@ -1,21 +1,23 @@
 package utils;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
 
-public class GraphicInterface extends JFrame
+public class GraphicInterface extends JFrame implements ActionListener
 {
     private static final long serialVersionUID = -2122161377842820073L;
 
     public GraphicInterface()
     {
         super("RPG Helper"); //frame name
-        setSize(1080,720); //size of frame
+        this.setSize(1080,720); //size of frame
+        this.setLayout(null); //no layout
         
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //screen size
-        setLocation((dim.width-this.getWidth())/2, (dim.height-this.getHeight())/2); //center window
+        this.setLocation((dim.width-this.getWidth())/2, (dim.height-this.getHeight())/2); //center window
 
 
         Container container = getContentPane();  //get container
@@ -28,7 +30,7 @@ public class GraphicInterface extends JFrame
         container.add(panel);
 
         Image image = new ImageIcon("RPG Git.png").getImage(); //get image
-        image = image.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it 
+        image = image.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it
 
         JLabel picture = new JLabel("");
         picture.setIcon(new ImageIcon(image)); //load image
@@ -47,7 +49,7 @@ public class GraphicInterface extends JFrame
         start.setFont(new Font("Impact", Font.BOLD, 20));
         start.setForeground(Color.BLACK);
         start.setBounds(910, 575, 100, 40);
-        getContentPane().add(start);
+        this.getContentPane().add(start);
 
         start.addActionListener(new ActionListener()
         {
@@ -58,33 +60,22 @@ public class GraphicInterface extends JFrame
             }
         });
 
+        JTextField textField = new JTextField();
+        textField.setPreferredSize(new Dimension(500, 50));
+
+        container.add(textField);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE); //close operation
         setVisible(true); //make visible
     }
 
-    int beginCode = 0;
-    public int getBeginCode()
-    {
-        return beginCode;
+    public static void main(String[] args) {
+        GraphicInterface myGraphicInterface = new GraphicInterface();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
 
-    public void startButton()
-    {
-        JButton start = new JButton("Start");
-        start.setFont(new Font("Impact", Font.BOLD, 20));
-        start.setForeground(Color.BLACK);
-        start.setBounds(910, 575, 100, 40);
-        getContentPane().add(start);
-
-        start.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                start.setText("Done");
-                beginCode = 1;
-            }
-        });
     }
 }
