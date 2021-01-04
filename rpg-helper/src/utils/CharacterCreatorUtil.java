@@ -31,7 +31,7 @@ public class CharacterCreatorUtil {
         System.out.println("Voce tera 72 pontos para distribuir, escolha sabiamente :) ");
         int pointsToDistribute = 72;
 
-        List<Integer> stats = new ArrayList<>(Arrays.asList(0,0, 0,0, 0,0));
+        List<Integer> stats = new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
         int chosenStat;
         int amount;
         while(pointsToDistribute > 0){
