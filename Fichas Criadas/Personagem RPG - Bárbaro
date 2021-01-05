@@ -1,0 +1,40 @@
+FuriousBarbarian
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ retaliation 
+ frenzy 
+ berserker 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 14
+ iniciativePoints = 2
+ totalHp = 11
+ currentHp = 11
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> BEATEN_LEATHER
+Weapons:
+-> AXE_BIG
+* TRIDENT
+Peso do equipamento:
+14.0/150.0 kg
+Gold : 
+ 20$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 17
+ dexterity = 15
+ constitution = 8
+ intelligence = 15
+ wisdom = 7
+ charisma = 15
+-=-=-=-=-=-=-=-=-|1|-=-=-=-=-=-=-=-=-
+ Personagem: 1
+ Race: DWARF
+ Sexo: MALE
+ Altura: 1.0
+ Peso: 1.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE
