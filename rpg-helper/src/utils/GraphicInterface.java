@@ -95,6 +95,8 @@ public class GraphicInterface
         JButton startButton;
         JButton restartButton;
         JLabel projectName;
+        JLabel projectPicture;
+        Image mainImage;
 
 
         JFrame myFrame = new JFrame("RPG Helper"); //frame name
@@ -105,23 +107,23 @@ public class GraphicInterface
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //screen size
         myFrame.setLocation((dim.width-myFrame.getWidth())/2, (dim.height-myFrame.getHeight())/2); //center window
 
-        // Container container = getContentPane();  //get container
-        // container.setLayout(null); //set layout
-        // container.setBackground(new Color(96, 85, 91)); //set color
+        Container myContainer = myFrame.getContentPane();  //get container
+        myContainer.setLayout(null); //set layout
+        myContainer.setBackground(new Color(96, 85, 91)); //set color
 
-        // JPanel panel = new JPanel();
-        // panel.setBounds(50, 50, 960, 479); //position and size
-        // panel.setLayout(null);
-        // container.add(panel);
+        JPanel myPanel = new JPanel();
+        myPanel.setBounds(50, 50, 960, 479); //position and size
+        myPanel.setLayout(null);
+        myContainer.add(myPanel);
 
-        Image image = new ImageIcon("/rpg-helper/src/utils/RPG Git.png").getImage(); //get image
-        image = image.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it
+        mainImage = new ImageIcon("/rpg-helper/src/utils/RPG Git.png").getImage(); //get image
+        mainImage = mainImage.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it
 
-        JLabel projectPicture = new JLabel("");
-        projectPicture.setIcon(new ImageIcon(image)); //load image
+        projectPicture = new JLabel("");
+        projectPicture.setIcon(new ImageIcon(mainImage)); //load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //set board with color
         projectPicture.setBounds(50, 50, 960, 479); //width height
-        myFrame.getContentPane().getParent().add(projectPicture);
+        myContainer.add(projectPicture);
 
         projectName = new JLabel("RPG HELPER");
         projectName.setFont(new Font("Impact", Font.BOLD, 60));
@@ -140,7 +142,8 @@ public class GraphicInterface
                 if(e.getSource() == startButton)
                 {
                     startButton.setText("Done");
-                    System.out.println("Botão Start Prescionado");
+                    System.out.println("Botão Start");
+                    myFrame.remove(projectPicture);
                     myFrame.remove(projectName);
                     myFrame.repaint();
                 }
@@ -158,17 +161,12 @@ public class GraphicInterface
                 if(e.getSource() == restartButton)
                 {
                     startButton.setText("Start");
-                    System.out.println("Botão Restart Prescionado");
+                    System.out.println("Botão Restart");
                     System.exit(0);
                 }
             }
         });
         myFrame.getContentPane().add(restartButton);
-
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(500, 50));
-
-        myFrame.add(textField);
 
         myFrame.setDefaultCloseOperation(0); //close operation
         myFrame.setVisible(true); //make visible
