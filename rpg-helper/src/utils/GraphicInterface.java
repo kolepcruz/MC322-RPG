@@ -31,7 +31,7 @@ public class GraphicInterface
 
         JButton rogueButton = new JButton("rogue");
         JButton assassinButton = new JButton("assassin");
-        JButton arcaneTrapperButton = new JButton("arcane trapper");
+        JButton trapperButton = new JButton("trapper");
 
         JFrame myFrame = new JFrame("RPG Helper"); // frame name
         myFrame.setSize(1080, 720); // size of frame
@@ -190,6 +190,34 @@ public class GraphicInterface
             }
         });
 
+        assassinButton.setFont(new Font("Impact", Font.BOLD, 20));
+        assassinButton.setForeground(Color.BLACK);
+        assassinButton.setBounds(50, 100, 150, 40);
+        assassinButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                assassinButton.setText(assassinButton.getText().toUpperCase());
+                chosenSubClass = 1;
+
+                assassinButton.setEnabled(false);
+                trapperButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        trapperButton.setFont(new Font("Impact", Font.BOLD, 20));
+        trapperButton.setForeground(Color.BLACK);
+        trapperButton.setBounds(200, 100, 150, 40);
+        trapperButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                trapperButton.setText(trapperButton.getText().toUpperCase());
+                chosenSubClass = 2;
+
+                assassinButton.setEnabled(false);
+                trapperButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
         rogueButton.setFont(new Font("Impact", Font.BOLD, 20));
         rogueButton.setForeground(Color.BLACK);
         rogueButton.setBounds(350, 50, 150, 40);
@@ -202,6 +230,14 @@ public class GraphicInterface
                 barbarianButton.setEnabled(false);
                 mageButton.setEnabled(false);
                 rogueButton.setEnabled(false);
+
+                myFrame.add(assassinButton);
+                assassinButton.setEnabled(true);
+                assassinButton.setText(assassinButton.getText().toLowerCase());
+
+                myFrame.add(trapperButton);
+                trapperButton.setEnabled(true);
+                trapperButton.setText(trapperButton.getText().toLowerCase());
                 myFrame.repaint();
             }
         });
@@ -259,6 +295,8 @@ public class GraphicInterface
                 myFrame.remove(arcaneMageButton);
 
                 myFrame.remove(rogueButton);
+                myFrame.remove(assassinButton);
+                myFrame.remove(trapperButton);
 
                 myFrame.add(myPanel);
                 myFrame.add(projectName);
