@@ -2,11 +2,13 @@ package model.mage;
 
 import enums.*;
 import model.Person;
+import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import model.adv_tier.CombatAttributes;
 import model.adv_tier.Inventory;
+import utils.Skills;
 
-public class FrostMage extends Mage{
+public class FrostMage extends Adventurer implements Skills {
     /**
      * Class FrostMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */
@@ -16,22 +18,22 @@ public class FrostMage extends Mage{
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int iceBeam()
+    public int power1()//iceBeam
     {
         return doDamage(1,3,4,5);
     }
 
-    public int iceStorm()
+    public int power2()//iceStorm
     {
         return doDamage(2,4,6,10);
     }
 
-    public int otilukeFreezingSphere()
+    public int power3()//otilukeFreezingSphere
     {
         return doDamage(3,5,10,20);
     }
 
-    public int frostIcicle()
+    public int power4()//frostIcicle
     {
         return doDamage(4,8,10,35);
     }

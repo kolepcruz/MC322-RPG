@@ -1,9 +1,11 @@
 package model.mage;
 
 import enums.*;
+import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
+import utils.Skills;
 
-public class ArcaneMage extends Mage{
+public class ArcaneMage extends Adventurer implements Skills {
     /**
      * Class ArcaneMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */
@@ -16,22 +18,22 @@ public class ArcaneMage extends Mage{
 
 
 
-    public int arcaneArmor()
+    public int power1()//arcaneArmor
     {
         return doDamage(1,4,4,8);
     }
 
-    public int magicMissiles()
+    public int power2()//magicMissiles
     {
         return doDamage(2,6,6,18);
     }
 
-    public int prismaticBarrage()
+    public int power3()//prismaticBarrage
     {
         return doDamage(3,10,10,28);
     }
 
-    public int arcanePortal()
+    public int power4()//arcanePortal
     {
         return doDamage(4,10,6,22);
     }
