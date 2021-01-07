@@ -1,7 +1,6 @@
 package utils;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,6 +11,7 @@ public class GraphicInterface extends JFrame implements ActionListener
 
     JButton startButton;
     JButton restartButton;
+    JLabel projectName;
 
     GraphicInterface()
     {
@@ -23,7 +23,6 @@ public class GraphicInterface extends JFrame implements ActionListener
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //screen size
         this.setLocation((dim.width-this.getWidth())/2, (dim.height-this.getHeight())/2); //center window
 
-
         // Container container = getContentPane();  //get container
         // container.setLayout(null); //set layout
         // container.setBackground(new Color(96, 85, 91)); //set color
@@ -33,7 +32,7 @@ public class GraphicInterface extends JFrame implements ActionListener
         // panel.setLayout(null);
         // container.add(panel);
 
-        Image image = new ImageIcon("RPG Git.png").getImage(); //get image
+        Image image = new ImageIcon("/rpg-helper/src/utils/RPG Git.png").getImage(); //get image
         image = image.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it
 
         JLabel projectPicture = new JLabel("");
@@ -42,7 +41,7 @@ public class GraphicInterface extends JFrame implements ActionListener
         projectPicture.setBounds(50, 50, 960, 479); //width height
         this.getContentPane().getParent().add(projectPicture);
 
-        JLabel projectName = new JLabel("RPG HELPER");
+        projectName = new JLabel("RPG HELPER");
         projectName.setFont(new Font("Impact", Font.BOLD, 60));
         projectName.setForeground(Color.BLACK);
         projectName.setBounds(50, 575, 500, 50);
@@ -79,6 +78,8 @@ public class GraphicInterface extends JFrame implements ActionListener
         {
             startButton.setText("Done");
             System.out.println("Botão Start Prescionado");
+            this.remove(projectName);
+            this.repaint();
         }
         if(e.getSource() == restartButton)
         {
