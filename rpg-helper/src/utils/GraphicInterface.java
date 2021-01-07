@@ -11,6 +11,7 @@ public class GraphicInterface extends JFrame implements ActionListener
     private static final long serialVersionUID = -2122161377842820073L;
 
     JButton startButton;
+    JButton restartButton;
 
     GraphicInterface()
     {
@@ -51,9 +52,16 @@ public class GraphicInterface extends JFrame implements ActionListener
         startButton = new JButton("Start");
         startButton.setFont(new Font("Impact", Font.BOLD, 20));
         startButton.setForeground(Color.BLACK);
-        startButton.setBounds(910, 575, 100, 40);
+        startButton.setBounds(810, 575, 100, 40);
         startButton.addActionListener(this);
         this.getContentPane().add(startButton);
+
+        restartButton = new JButton("Restart");
+        restartButton.setFont(new Font("Impact", Font.BOLD, 20));
+        restartButton.setForeground(Color.BLACK);
+        restartButton.setBounds(910, 575, 100, 40);
+        restartButton.addActionListener(this);
+        this.getContentPane().add(restartButton);
 
         JTextField textField = new JTextField();
         textField.setPreferredSize(new Dimension(500, 50));
@@ -70,7 +78,13 @@ public class GraphicInterface extends JFrame implements ActionListener
         if(e.getSource() == startButton)
         {
             startButton.setText("Done");
-            System.out.println("Botão Prescionado");
+            System.out.println("Botão Start Prescionado");
+        }
+        if(e.getSource() == restartButton)
+        {
+            startButton.setText("Start");
+            System.out.println("Botão Restart Prescionado");
+            System.exit(0);
         }
     }
 
@@ -78,8 +92,5 @@ public class GraphicInterface extends JFrame implements ActionListener
     public static void main(String[] args)
     {
         GraphicInterface myFrame = new GraphicInterface();
-        System.out.println(myFrame.startButton.getText());
-
-
     }
 }
