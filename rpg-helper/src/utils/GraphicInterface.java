@@ -117,6 +117,51 @@ public class GraphicInterface
             }
         });
 
+        frostMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        frostMageButton.setForeground(Color.BLACK);
+        frostMageButton.setBounds(50, 100, 150, 40);
+        frostMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frostMageButton.setText(frostMageButton.getText().toUpperCase());
+                chosenSubClass = 1;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        fireMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        fireMageButton.setForeground(Color.BLACK);
+        fireMageButton.setBounds(200, 100, 150, 40);
+        fireMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                fireMageButton.setText(fireMageButton.getText().toUpperCase());
+                chosenSubClass = 2;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        arcaneMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        arcaneMageButton.setForeground(Color.BLACK);
+        arcaneMageButton.setBounds(350, 100, 150, 40);
+        arcaneMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                arcaneMageButton.setText(arcaneMageButton.getText().toUpperCase());
+                chosenSubClass = 3;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
         mageButton.setFont(new Font("Impact", Font.BOLD, 20));
         mageButton.setForeground(Color.BLACK);
         mageButton.setBounds(200, 50, 150, 40);
@@ -129,6 +174,18 @@ public class GraphicInterface
                 barbarianButton.setEnabled(false);
                 mageButton.setEnabled(false);
                 rogueButton.setEnabled(false);
+
+                myFrame.add(frostMageButton);
+                frostMageButton.setEnabled(true);
+                frostMageButton.setText(frostMageButton.getText().toLowerCase());
+
+                myFrame.add(fireMageButton);
+                fireMageButton.setEnabled(true);
+                fireMageButton.setText(fireMageButton.getText().toLowerCase());
+
+                myFrame.add(arcaneMageButton);
+                arcaneMageButton.setEnabled(true);
+                arcaneMageButton.setText(arcaneMageButton.getText().toLowerCase());
                 myFrame.repaint();
             }
         });
@@ -197,6 +254,10 @@ public class GraphicInterface
                 myFrame.remove(totemicButton);
 
                 myFrame.remove(mageButton);
+                myFrame.remove(frostMageButton);
+                myFrame.remove(fireMageButton);
+                myFrame.remove(arcaneMageButton);
+
                 myFrame.remove(rogueButton);
 
                 myFrame.add(myPanel);
