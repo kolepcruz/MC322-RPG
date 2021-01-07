@@ -13,7 +13,7 @@ public class Arquivos {
         if(dir.exists() == false)
             dir.mkdir();
 
-        String filename =  "./Fichas Criadas/Personagem RPG - " + nome;
+        String filename =  "./Fichas Criadas/Personagem RPG - " + nome + " (" + adventurer.getPlayerName() + ")";
         String mensagem = adventurer.toString();
 
         try{
@@ -26,20 +26,14 @@ public class Arquivos {
         }
     }
 
-    public static ArrayList read(String nome){
-        ArrayList infos = new ArrayList();
-        String filename = nome;
-
+    public static void read(String nome){
         try{
-            Scanner input = new Scanner(new File(nome));
-            while(input.hasNext()){
-                infos.add(input.next());
-            }
+            Scanner input = new Scanner(new File("./Descricao/" + nome));
+            while(input.hasNext())
+                System.out.print(input.nextLine() + "\n");
         }catch (IOException ex){
             ex.printStackTrace();
-
         }
-        return infos;
     }
 
 }

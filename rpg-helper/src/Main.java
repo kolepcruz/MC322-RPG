@@ -18,5 +18,6 @@ public class Main {
         scanner.close();
 
         Arquivos.write("Ladino", a);
+        Arquivos.read("teste.txt");
     }
 }
