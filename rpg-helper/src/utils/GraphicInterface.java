@@ -39,8 +39,7 @@ public class GraphicInterface
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-        myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
-                                                                                                           // window
+        myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center window
 
         Container myContainer = myFrame.getContentPane(); // get container
         myContainer.setLayout(null); // set layout
