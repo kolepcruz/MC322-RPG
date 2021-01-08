@@ -144,16 +144,16 @@ public class GraphicInterface implements ActionListener
         buttonStyle(confirmConstitution, 200, 500, 75, buttonY, this, 10);
         sliderStylo(constitutionSlider, sliderMinor, sliderMajor, 15);
 
-        panelStylo(intelligencePanel, 200, 250, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(confirmIntelligence, 200, 500, 75, buttonY, this, 10);
+        panelStylo(intelligencePanel, 275, 250, sliderX, sliderY, intelligenceSlider);
+        buttonStyle(confirmIntelligence, 275, 500, 75, buttonY, this, 10);
         sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, 15);
 
-        panelStylo(wisdomPanel, 200, 250, sliderX, sliderY, wisdomSlider);
-        buttonStyle(confirmWisdom, 200, 500, 75, buttonY, this, 10);
+        panelStylo(wisdomPanel, 350, 250, sliderX, sliderY, wisdomSlider);
+        buttonStyle(confirmWisdom, 350, 500, 75, buttonY, this, 10);
         sliderStylo(wisdomSlider, sliderMinor, sliderMajor, 15);
 
-        panelStylo(charismaPanel, 200, 250, sliderX, sliderY, charismaSlider);
-        buttonStyle(confirmCharisma, 200, 500, 75, buttonY, this, 10);
+        panelStylo(charismaPanel, 425, 250, sliderX, sliderY, charismaSlider);
+        buttonStyle(confirmCharisma, 425, 500, 75, buttonY, this, 10);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, 15);
 
         buttonStyle(startButton, 710, 575, buttonX, buttonY, this, 20);
@@ -257,6 +257,7 @@ public class GraphicInterface implements ActionListener
         openButton(button);
         myFrame.add(panel);
         slider.setEnabled(true);
+        slider.setValue(0);
 
         myFrame.repaint();
     }
