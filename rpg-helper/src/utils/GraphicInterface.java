@@ -10,13 +10,16 @@ public class GraphicInterface implements ActionListener
 {
     private static int buttonX = 150; //size x of class buttons
     private static int buttonY = 40; //size y of class buttons
+    private static int buttonTextSmall = 10;
+    private static int buttonTextLarge = 20;
 
     private static int sliderX = 75;
-    private static int sliderY = 250;
+    private static int sliderY = 240;
     private static int sliderMin = 0;
     private static int sliderMax = 15;
-    private static int sliderMajor = 5;
+    private static int sliderMajor = 3;
     private static int sliderMinor = 1;
+    private static int sliderText = 15;
 
     private static int chosenClass = 0;
     private static int chosenSubClass = 0;
@@ -28,6 +31,9 @@ public class GraphicInterface implements ActionListener
     private static int intelligenceInt = 0;
     private static int wisdomInt = 0;
     private static int charismaInt = 0;
+
+    int marginX = 0;
+    int marginY = 0;
 
 
     private static JButton debugButton = new JButton("debug"); // debug routine button
@@ -57,35 +63,35 @@ public class GraphicInterface implements ActionListener
 
     private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(25);
-    private static JButton confirmCharacterName = new JButton("confirm");
+    private static JButton characterButton = new JButton("confirm");
     
     private static JPanel playerPanel = new JPanel();
     private static JTextField playerField = new JTextField(25);
-    private static JButton confirmPlayerName = new JButton("confirm");
+    private static JButton playerButton = new JButton("confirm");
 
     private static JPanel strengthPanel = new JPanel();
     private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmStrength = new JButton("confirm");
+    private static JButton strengthButton = new JButton("confirm");
 
     private static JPanel dexterityPanel = new JPanel();
     private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmDexterity = new JButton("confirm");
+    private static JButton dexterityButton = new JButton("confirm");
 
     private static JPanel constitutionPanel = new JPanel();
     private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmConstitution = new JButton("confirm");
+    private static JButton constitutionButton = new JButton("confirm");
 
     private static JPanel intelligencePanel = new JPanel();
     private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmIntelligence = new JButton("confirm");
+    private static JButton intelligenceButton = new JButton("confirm");
 
     private static JPanel wisdomPanel = new JPanel();
     private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmWisdom = new JButton("confirm");
+    private static JButton wisdomButton = new JButton("confirm");
 
     private static JPanel charismaPanel = new JPanel();
     private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton confirmCharisma = new JButton("confirm");
+    private static JButton charismaButton = new JButton("confirm");
 
     GraphicInterface()
     {
@@ -114,51 +120,56 @@ public class GraphicInterface implements ActionListener
         projectName.setBounds(50, 575, 500, 50);
         myFrame.add(projectName);
 
-        buttonStyle(barbarianButton, 50, 50, buttonX, buttonY, this, 20);
-        buttonStyle(mageButton, 200, 50, buttonX, buttonY, this, 20);
-        buttonStyle(rogueButton, 350, 50, buttonX, buttonY, this, 20);
+        marginX = 50;
+        marginY = 50;
+        buttonStyle(barbarianButton, marginX + 0*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(mageButton, marginX + 1*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(rogueButton, marginX + 2*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
 
-        buttonStyle(furiousButton, 50, 100, buttonX, buttonY, this, 20);
-        buttonStyle(frostMageButton, 50, 100, buttonX, buttonY, this, 20);
-        buttonStyle(assassinButton, 50, 100, buttonX, buttonY, this, 20);
-        buttonStyle(totemicButton, 200, 100, buttonX, buttonY, this, 20);
-        buttonStyle(trapperButton, 200, 100, buttonX, buttonY, this, 20);
-        buttonStyle(fireMageButton, 200, 100, buttonX, buttonY, this, 20);
-        buttonStyle(arcaneMageButton, 350, 100, buttonX, buttonY, this, 20);
+        int exSpace = 10;
+        buttonStyle(furiousButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(frostMageButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(assassinButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(totemicButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(trapperButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(fireMageButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(arcaneMageButton, marginX + 2*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
 
         panelStylo(characterPanel, 50, 150, 2*buttonX, buttonY, characterField);
-        buttonStyle(confirmCharacterName, 350, 150, buttonX, buttonY, this, 20);
+        buttonStyle(characterButton, 350, 150, buttonX, buttonY, this, buttonTextLarge);
 
         panelStylo(playerPanel, 50, 200, 2*buttonX, buttonY, playerField);
-        buttonStyle(confirmPlayerName, 350, 200, buttonX, buttonY, this, 20);
+        buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, buttonTextLarge);
 
-        panelStylo(strengthPanel, 50, 250, sliderX, sliderY, strengthSlider);
-        buttonStyle(confirmStrength, 50, 500, 75, buttonY, this, 10);
-        sliderStylo(strengthSlider, sliderMinor, sliderMajor, 15);
+        marginX = 50;
+        marginY = 250;
+        panelStylo(strengthPanel, marginX + 0*sliderX, marginY, sliderX, sliderY, strengthSlider);
+        buttonStyle(strengthButton, marginX + 0*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(dexterityPanel, 125, 250, sliderX, sliderY, dexteritySlider);
-        buttonStyle(confirmDexterity, 125, 500, 75, buttonY, this, 10);
-        sliderStylo(dexteritySlider, sliderMinor, sliderMajor, 15);
+        panelStylo(dexterityPanel, marginX + 1*sliderX, marginY, sliderX, sliderY, dexteritySlider);
+        buttonStyle(dexterityButton, marginX + 1*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(constitutionPanel, 200, 250, sliderX, sliderY, constitutionSlider);
-        buttonStyle(confirmConstitution, 200, 500, 75, buttonY, this, 10);
-        sliderStylo(constitutionSlider, sliderMinor, sliderMajor, 15);
+        panelStylo(constitutionPanel, marginX + 2*sliderX, marginY, sliderX, sliderY, constitutionSlider);
+        buttonStyle(constitutionButton, marginX + 2*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(intelligencePanel, 275, 250, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(confirmIntelligence, 275, 500, 75, buttonY, this, 10);
-        sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, 15);
+        panelStylo(intelligencePanel, marginX + 3*sliderX, marginY, sliderX, sliderY, intelligenceSlider);
+        buttonStyle(intelligenceButton, marginX + 3*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(wisdomPanel, 350, 250, sliderX, sliderY, wisdomSlider);
-        buttonStyle(confirmWisdom, 350, 500, 75, buttonY, this, 10);
-        sliderStylo(wisdomSlider, sliderMinor, sliderMajor, 15);
+        panelStylo(wisdomPanel, marginX + 4*sliderX, marginY, sliderX, sliderY, wisdomSlider);
+        buttonStyle(wisdomButton, marginX + 4*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(charismaPanel, 425, 250, sliderX, sliderY, charismaSlider);
-        buttonStyle(confirmCharisma, 425, 500, 75, buttonY, this, 10);
-        sliderStylo(charismaSlider, sliderMinor, sliderMajor, 15);
+        panelStylo(charismaPanel, marginX + 5*sliderX, marginY, sliderX, sliderY, charismaSlider);
+        buttonStyle(charismaButton, marginX + 5*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
 
-        buttonStyle(startButton, 710, 575, buttonX, buttonY, this, 20);
-        buttonStyle(restartButton, 860, 575, buttonX, buttonY, this, 20);
-        buttonStyle(debugButton, 860, 615, buttonX, buttonY, this, 20);
+        buttonStyle(startButton, 710, 575, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(restartButton, 860, 575, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(debugButton, 860, 615, buttonX, buttonY, this, buttonTextLarge);
 
         myFrame.getContentPane().add(startButton);
         myFrame.getContentPane().add(restartButton);
@@ -214,7 +225,7 @@ public class GraphicInterface implements ActionListener
         subClass1.setEnabled(false);
         subClass2.setEnabled(false);
 
-        openButton(confirmCharacterName);
+        openButton(characterButton);
 
         myFrame.add(characterPanel);
         characterField.setEditable(true);
@@ -320,35 +331,35 @@ public class GraphicInterface implements ActionListener
 
             myFrame.remove(characterPanel);
             myFrame.remove(characterField);
-            myFrame.remove(confirmCharacterName);
+            myFrame.remove(characterButton);
 
             myFrame.remove(playerPanel);
             myFrame.remove(playerField);
-            myFrame.remove(confirmPlayerName);
+            myFrame.remove(playerButton);
 
             myFrame.remove(strengthPanel);
             myFrame.remove(strengthSlider);
-            myFrame.remove(confirmStrength);
+            myFrame.remove(strengthButton);
 
             myFrame.remove(dexterityPanel);
             myFrame.remove(dexteritySlider);
-            myFrame.remove(confirmDexterity);
+            myFrame.remove(dexterityButton);
 
             myFrame.remove(constitutionPanel);
             myFrame.remove(constitutionSlider);
-            myFrame.remove(confirmConstitution);
+            myFrame.remove(constitutionButton);
 
             myFrame.remove(intelligencePanel);
             myFrame.remove(intelligenceSlider);
-            myFrame.remove(confirmIntelligence);
+            myFrame.remove(intelligenceButton);
 
             myFrame.remove(wisdomPanel);
             myFrame.remove(wisdomSlider);
-            myFrame.remove(confirmWisdom);
+            myFrame.remove(wisdomButton);
 
             myFrame.remove(charismaPanel);
             myFrame.remove(charismaSlider);
-            myFrame.remove(confirmCharisma);
+            myFrame.remove(charismaButton);
 
             myFrame.add(myPanel);
             myFrame.add(projectName);
@@ -441,59 +452,59 @@ public class GraphicInterface implements ActionListener
             closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
-        if(e.getSource() == confirmCharacterName)
+        if(e.getSource() == characterButton)
         {
             characterName = characterField.getText().toLowerCase();
-            closeField(characterField, confirmCharacterName);
-            openField(playerField, playerPanel, confirmPlayerName);
+            closeField(characterField, characterButton);
+            openField(playerField, playerPanel, playerButton);
         }
 
-        if(e.getSource() == confirmPlayerName)
+        if(e.getSource() == playerButton)
         {
             playerName = playerField.getText().toLowerCase();
-            closeField(playerField, confirmPlayerName);
-            openSlider(strengthSlider, strengthPanel, confirmStrength);
+            closeField(playerField, playerButton);
+            openSlider(strengthSlider, strengthPanel, strengthButton);
         }
 
-        if(e.getSource() == confirmStrength)
+        if(e.getSource() == strengthButton)
         {
             strengthInt = strengthSlider.getValue();
-            closeSlider(strengthSlider, confirmStrength);
-            openSlider(dexteritySlider, dexterityPanel, confirmDexterity);
+            closeSlider(strengthSlider, strengthButton);
+            openSlider(dexteritySlider, dexterityPanel, dexterityButton);
         }
 
-        if(e.getSource() == confirmDexterity)
+        if(e.getSource() == dexterityButton)
         {
             dexterityInt = dexteritySlider.getValue();
-            closeSlider(dexteritySlider, confirmDexterity);
-            openSlider(constitutionSlider, constitutionPanel, confirmConstitution);
+            closeSlider(dexteritySlider, dexterityButton);
+            openSlider(constitutionSlider, constitutionPanel, constitutionButton);
         }
 
-        if(e.getSource() == confirmConstitution)
+        if(e.getSource() == constitutionButton)
         {
             constitutionInt = constitutionSlider.getValue();
-            closeSlider(constitutionSlider, confirmConstitution);
-            openSlider(intelligenceSlider, intelligencePanel, confirmIntelligence);
+            closeSlider(constitutionSlider, constitutionButton);
+            openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
         }
 
-        if(e.getSource() == confirmIntelligence)
+        if(e.getSource() == intelligenceButton)
         {
             intelligenceInt = intelligenceSlider.getValue();
-            closeSlider(intelligenceSlider, confirmIntelligence);
-            openSlider(wisdomSlider, wisdomPanel, confirmWisdom);
+            closeSlider(intelligenceSlider, intelligenceButton);
+            openSlider(wisdomSlider, wisdomPanel, wisdomButton);
         }
 
-        if(e.getSource() == confirmWisdom)
+        if(e.getSource() == wisdomButton)
         {
             wisdomInt = wisdomSlider.getValue();
-            closeSlider(wisdomSlider, confirmWisdom);
-            openSlider(charismaSlider, charismaPanel, confirmCharisma);
+            closeSlider(wisdomSlider, wisdomButton);
+            openSlider(charismaSlider, charismaPanel, charismaButton);
         }
 
-        if(e.getSource() == confirmCharisma)
+        if(e.getSource() == charismaButton)
         {
             charismaInt = charismaSlider.getValue();
-            closeSlider(charismaSlider, confirmCharisma);
+            closeSlider(charismaSlider, charismaButton);
         }
     }
 
