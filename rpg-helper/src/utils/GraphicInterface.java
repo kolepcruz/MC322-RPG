@@ -24,6 +24,10 @@ public class GraphicInterface implements ActionListener
     private static String characterName = "default";
     private static int strengthInt = 0;
     private static int dexterityInt = 0;
+    private static int constitutionInt = 0;
+    private static int intelligenceInt = 0;
+    private static int wisdomInt = 0;
+    private static int charismaInt = 0;
 
 
     private static JButton debugButton = new JButton("debug"); // debug routine button
@@ -66,6 +70,22 @@ public class GraphicInterface implements ActionListener
     private static JPanel dexterityPanel = new JPanel();
     private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton confirmDexterity = new JButton("confirm");
+
+    private static JPanel constitutionPanel = new JPanel();
+    private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JButton confirmConstitution = new JButton("confirm");
+
+    private static JPanel intelligencePanel = new JPanel();
+    private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JButton confirmIntelligence = new JButton("confirm");
+
+    private static JPanel wisdomPanel = new JPanel();
+    private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JButton confirmWisdom = new JButton("confirm");
+
+    private static JPanel charismaPanel = new JPanel();
+    private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JButton confirmCharisma = new JButton("confirm");
 
     GraphicInterface()
     {
@@ -119,6 +139,22 @@ public class GraphicInterface implements ActionListener
         panelStylo(dexterityPanel, 125, 250, sliderX, sliderY, dexteritySlider);
         buttonStyle(confirmDexterity, 125, 500, 75, buttonY, this, 10);
         sliderStylo(dexteritySlider, sliderMinor, sliderMajor, 15);
+
+        panelStylo(constitutionPanel, 200, 250, sliderX, sliderY, constitutionSlider);
+        buttonStyle(confirmConstitution, 200, 500, 75, buttonY, this, 10);
+        sliderStylo(constitutionSlider, sliderMinor, sliderMajor, 15);
+
+        panelStylo(intelligencePanel, 200, 250, sliderX, sliderY, intelligenceSlider);
+        buttonStyle(confirmIntelligence, 200, 500, 75, buttonY, this, 10);
+        sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, 15);
+
+        panelStylo(wisdomPanel, 200, 250, sliderX, sliderY, wisdomSlider);
+        buttonStyle(confirmWisdom, 200, 500, 75, buttonY, this, 10);
+        sliderStylo(wisdomSlider, sliderMinor, sliderMajor, 15);
+
+        panelStylo(charismaPanel, 200, 250, sliderX, sliderY, charismaSlider);
+        buttonStyle(confirmCharisma, 200, 500, 75, buttonY, this, 10);
+        sliderStylo(charismaSlider, sliderMinor, sliderMajor, 15);
 
         buttonStyle(startButton, 710, 575, buttonX, buttonY, this, 20);
         buttonStyle(restartButton, 860, 575, buttonX, buttonY, this, 20);
@@ -246,6 +282,10 @@ public class GraphicInterface implements ActionListener
             System.out.println("playerName: "+playerName);
             System.out.println("strengthInt: "+strengthInt);
             System.out.println("dexterityInt: "+dexterityInt);
+            System.out.println("constitutionInt: "+constitutionInt);
+            System.out.println("intelligenceInt: "+intelligenceInt);
+            System.out.println("wisdomInt: "+wisdomInt);
+            System.out.println("charismaInt: "+charismaInt);
         }
 
         if(e.getSource() == restartButton)
@@ -259,6 +299,10 @@ public class GraphicInterface implements ActionListener
             playerName = "default";
             strengthInt = 0;
             dexterityInt = 0;
+            constitutionInt = 0;
+            intelligenceInt = 0;
+            wisdomInt = 0;
+            charismaInt = 0;
 
             myFrame.remove(barbarianButton);
             myFrame.remove(furiousButton);
@@ -288,6 +332,22 @@ public class GraphicInterface implements ActionListener
             myFrame.remove(dexterityPanel);
             myFrame.remove(dexteritySlider);
             myFrame.remove(confirmDexterity);
+
+            myFrame.remove(constitutionPanel);
+            myFrame.remove(constitutionSlider);
+            myFrame.remove(confirmConstitution);
+
+            myFrame.remove(intelligencePanel);
+            myFrame.remove(intelligenceSlider);
+            myFrame.remove(confirmIntelligence);
+
+            myFrame.remove(wisdomPanel);
+            myFrame.remove(wisdomSlider);
+            myFrame.remove(confirmWisdom);
+
+            myFrame.remove(charismaPanel);
+            myFrame.remove(charismaSlider);
+            myFrame.remove(confirmCharisma);
 
             myFrame.add(myPanel);
             myFrame.add(projectName);
@@ -405,6 +465,34 @@ public class GraphicInterface implements ActionListener
         {
             dexterityInt = dexteritySlider.getValue();
             closeSlider(dexteritySlider, confirmDexterity);
+            openSlider(constitutionSlider, constitutionPanel, confirmConstitution);
+        }
+
+        if(e.getSource() == confirmConstitution)
+        {
+            constitutionInt = constitutionSlider.getValue();
+            closeSlider(constitutionSlider, confirmConstitution);
+            openSlider(intelligenceSlider, intelligencePanel, confirmIntelligence);
+        }
+
+        if(e.getSource() == confirmIntelligence)
+        {
+            intelligenceInt = intelligenceSlider.getValue();
+            closeSlider(intelligenceSlider, confirmIntelligence);
+            openSlider(wisdomSlider, wisdomPanel, confirmWisdom);
+        }
+
+        if(e.getSource() == confirmWisdom)
+        {
+            wisdomInt = wisdomSlider.getValue();
+            closeSlider(wisdomSlider, confirmWisdom);
+            openSlider(charismaSlider, charismaPanel, confirmCharisma);
+        }
+
+        if(e.getSource() == confirmCharisma)
+        {
+            charismaInt = charismaSlider.getValue();
+            closeSlider(charismaSlider, confirmCharisma);
         }
     }
 
