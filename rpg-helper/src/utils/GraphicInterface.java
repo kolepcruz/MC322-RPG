@@ -1,6 +1,7 @@
 package utils;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,12 +13,17 @@ public class GraphicInterface implements ActionListener
 
     private static int sliderX = 75;
     private static int sliderY = 250;
+    private static int sliderMin = 0;
+    private static int sliderMax = 15;
+    private static int sliderMajor = 5;
+    private static int sliderMinor = 1;
 
     private static int chosenClass = 0;
     private static int chosenSubClass = 0;
     private static String playerName = "default";
     private static String characterName = "default";
     private static int strengthInt = 0;
+    private static int dexterityInt = 0;
 
 
     private static JButton debugButton = new JButton("debug"); // debug routine button
@@ -54,8 +60,12 @@ public class GraphicInterface implements ActionListener
     private static JButton confirmPlayerName = new JButton("confirm");
 
     private static JPanel strengthPanel = new JPanel();
-    private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, 0, 15, 0);
+    private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton confirmStrength = new JButton("confirm");
+
+    private static JPanel dexterityPanel = new JPanel();
+    private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JButton confirmDexterity = new JButton("confirm");
 
     GraphicInterface()
     {
@@ -96,29 +106,19 @@ public class GraphicInterface implements ActionListener
         buttonStyle(fireMageButton, 200, 100, buttonX, buttonY, this, 20);
         buttonStyle(arcaneMageButton, 350, 100, buttonX, buttonY, this, 20);
 
-        characterPanel.setBounds(50, 150, 2*buttonX, buttonY); // position and size
-        characterPanel.setLayout(new FlowLayout());
-        characterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        characterPanel.add(characterField);
+        panelStylo(characterPanel, 50, 150, 2*buttonX, buttonY, characterField);
         buttonStyle(confirmCharacterName, 350, 150, buttonX, buttonY, this, 20);
 
-        playerPanel.setBounds(50, 200, 2*buttonX, buttonY); // position and size
-        playerPanel.setLayout(new FlowLayout());
-        playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        playerPanel.add(playerField);
+        panelStylo(playerPanel, 50, 200, 2*buttonX, buttonY, playerField);
         buttonStyle(confirmPlayerName, 350, 200, buttonX, buttonY, this, 20);
 
-        strengthSlider.setMinorTickSpacing(1);
-        strengthSlider.setMajorTickSpacing(5);
-        strengthSlider.setPaintLabels(true);
-        strengthSlider.setPaintTicks(true);
-        strengthSlider.setFont(new Font("Impact", Font.PLAIN, 15));
-
-        strengthPanel.setBounds(50, 250, sliderX, sliderY);
-        strengthPanel.setLayout(new FlowLayout());
-        strengthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        strengthPanel.add(strengthSlider);
+        panelStylo(strengthPanel, 50, 250, sliderX, sliderY, strengthSlider);
         buttonStyle(confirmStrength, 50, 500, 75, buttonY, this, 10);
+        sliderStylo(strengthSlider, sliderMinor, sliderMajor, 15);
+
+        panelStylo(dexterityPanel, 125, 250, sliderX, sliderY, dexteritySlider);
+        buttonStyle(confirmDexterity, 125, 500, 75, buttonY, this, 10);
+        sliderStylo(dexteritySlider, sliderMinor, sliderMajor, 15);
 
         buttonStyle(startButton, 710, 575, buttonX, buttonY, this, 20);
         buttonStyle(restartButton, 860, 575, buttonX, buttonY, this, 20);
@@ -140,6 +140,23 @@ public class GraphicInterface implements ActionListener
         button.setForeground(Color.BLACK);
         button.setBounds(positionX, positionY, sizeX, sizeY);
         button.addActionListener(source);
+    }
+
+    public void panelStylo(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component)
+    {
+        panel.setBounds(positionX, positionY, sizeX, sizeY); // position and size
+        panel.setLayout(new FlowLayout());
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        panel.add(component);
+    }
+
+    public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize)
+    {
+        slider.setMinorTickSpacing(sliderMinor);
+        slider.setMajorTickSpacing(sliderMajor);
+        slider.setPaintLabels(true);
+        slider.setPaintTicks(true);
+        slider.setFont(new Font("Impact", Font.PLAIN, fontSize));
     }
 
     public void closeClassButton(JButton button)
@@ -191,6 +208,7 @@ public class GraphicInterface implements ActionListener
             System.out.println("characterName: "+characterName);
             System.out.println("playerName: "+playerName);
             System.out.println("strengthInt: "+strengthInt);
+            System.out.println("dexterityInt: "+dexterityInt);
         }
 
         if(e.getSource() == restartButton)
@@ -203,6 +221,7 @@ public class GraphicInterface implements ActionListener
             characterName = "default";
             playerName = "default";
             strengthInt = 0;
+            dexterityInt = 0;
 
             myFrame.remove(barbarianButton);
             myFrame.remove(furiousButton);
@@ -228,6 +247,10 @@ public class GraphicInterface implements ActionListener
             myFrame.remove(strengthPanel);
             myFrame.remove(strengthSlider);
             myFrame.remove(confirmStrength);
+
+            myFrame.remove(dexterityPanel);
+            myFrame.remove(dexteritySlider);
+            myFrame.remove(confirmDexterity);
 
             myFrame.add(myPanel);
             myFrame.add(projectName);
@@ -358,6 +381,21 @@ public class GraphicInterface implements ActionListener
             strengthSlider.setEnabled(false);
             confirmStrength.setEnabled(false);
             confirmStrength.setText(confirmStrength.getText().toUpperCase());
+
+            openButton(confirmDexterity);
+            myFrame.add(dexterityPanel);
+            dexteritySlider.setEnabled(true);
+
+            myFrame.repaint();
+        }
+
+        if(e.getSource() == confirmDexterity)
+        {
+            dexterityInt = dexteritySlider.getValue();
+
+            dexteritySlider.setEnabled(false);
+            confirmDexterity.setEnabled(false);
+            confirmDexterity.setText(confirmDexterity.getText().toUpperCase());
 
             myFrame.repaint();
         }
