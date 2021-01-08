@@ -9,10 +9,10 @@ import java.util.*;
 
 public class GraphicInterface
 {
-    static int chosenClass = 0;
-    static int chosenSubClass = 0;
-    static String playerName = "";
-    static String characterName = "";
+    private static int chosenClass = 0;
+    private static int chosenSubClass = 0;
+    private static String playerName = "default";
+    private static String characterName = "default";
 
     public static void main(String[] args) {
 
@@ -33,8 +33,8 @@ public class GraphicInterface
         JButton furiousButton = new JButton("furious"); //button to selection mage
         JButton totemicButton = new JButton("totemic"); //button to selection rogue
     
-        int classButtonX = 150; //size x of class buttons
-        int classButtonY = 40; //size y of class buttons
+        int buttonX = 150; //size x of class buttons
+        int buttonY = 40; //size y of class buttons
     
         JButton mageButton = new JButton("mage");
         JButton frostMageButton = new JButton("frost mage");
@@ -44,6 +44,14 @@ public class GraphicInterface
         JButton rogueButton = new JButton("rogue");
         JButton assassinButton = new JButton("assassin");
         JButton trapperButton = new JButton("trapper");
+
+        JPanel textPanel = new JPanel();
+
+        JTextField nameField = new JTextField(20);
+        JTextField characterField = new JTextField(20);
+
+        JButton confirmButton = new JButton("confirm");
+
 
 
 
@@ -89,7 +97,7 @@ public class GraphicInterface
 
         furiousButton.setFont(new Font("Impact", Font.BOLD, 20));
         furiousButton.setForeground(Color.BLACK);
-        furiousButton.setBounds(50, 100, classButtonX, classButtonY);
+        furiousButton.setBounds(50, 100, buttonX, buttonY);
         furiousButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 furiousButton.setText(furiousButton.getText().toUpperCase());
@@ -103,7 +111,7 @@ public class GraphicInterface
 
         totemicButton.setFont(new Font("Impact", Font.BOLD, 20));
         totemicButton.setForeground(Color.BLACK);
-        totemicButton.setBounds(200, 100, classButtonX, classButtonY);
+        totemicButton.setBounds(200, 100, buttonX, buttonY);
         totemicButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 totemicButton.setText(totemicButton.getText().toUpperCase());
@@ -117,7 +125,7 @@ public class GraphicInterface
 
         barbarianButton.setFont(new Font("Impact", Font.BOLD, 20));
         barbarianButton.setForeground(Color.BLACK);
-        barbarianButton.setBounds(50, 50, classButtonX, classButtonY);
+        barbarianButton.setBounds(50, 50, buttonX, buttonY);
         barbarianButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 barbarianButton.setText(barbarianButton.getText().toUpperCase());
@@ -142,7 +150,7 @@ public class GraphicInterface
 
         frostMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         frostMageButton.setForeground(Color.BLACK);
-        frostMageButton.setBounds(50, 100, classButtonX, classButtonY);
+        frostMageButton.setBounds(50, 100, buttonX, buttonY);
         frostMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frostMageButton.setText(frostMageButton.getText().toUpperCase());
@@ -157,7 +165,7 @@ public class GraphicInterface
 
         fireMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         fireMageButton.setForeground(Color.BLACK);
-        fireMageButton.setBounds(200, 100, classButtonX, classButtonY);
+        fireMageButton.setBounds(200, 100, buttonX, buttonY);
         fireMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 fireMageButton.setText(fireMageButton.getText().toUpperCase());
@@ -172,7 +180,7 @@ public class GraphicInterface
 
         arcaneMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         arcaneMageButton.setForeground(Color.BLACK);
-        arcaneMageButton.setBounds(350, 100, classButtonX, classButtonY);
+        arcaneMageButton.setBounds(350, 100, buttonX, buttonY);
         arcaneMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 arcaneMageButton.setText(arcaneMageButton.getText().toUpperCase());
@@ -187,7 +195,7 @@ public class GraphicInterface
 
         mageButton.setFont(new Font("Impact", Font.BOLD, 20));
         mageButton.setForeground(Color.BLACK);
-        mageButton.setBounds(200, 50, classButtonX, classButtonY);
+        mageButton.setBounds(200, 50, buttonX, buttonY);
         mageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -217,7 +225,7 @@ public class GraphicInterface
 
         assassinButton.setFont(new Font("Impact", Font.BOLD, 20));
         assassinButton.setForeground(Color.BLACK);
-        assassinButton.setBounds(50, 100, classButtonX, classButtonY);
+        assassinButton.setBounds(50, 100, buttonX, buttonY);
         assassinButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 assassinButton.setText(assassinButton.getText().toUpperCase());
@@ -231,7 +239,7 @@ public class GraphicInterface
 
         trapperButton.setFont(new Font("Impact", Font.BOLD, 20));
         trapperButton.setForeground(Color.BLACK);
-        trapperButton.setBounds(200, 100, classButtonX, classButtonY);
+        trapperButton.setBounds(200, 100, buttonX, buttonY);
         trapperButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 trapperButton.setText(trapperButton.getText().toUpperCase());
@@ -239,13 +247,21 @@ public class GraphicInterface
 
                 assassinButton.setEnabled(false);
                 trapperButton.setEnabled(false);
+
+                myFrame.add(confirmButton);
+                confirmButton.setEnabled(true);
+                confirmButton.setText(confirmButton.getText().toLowerCase());
+
+                myFrame.add(textPanel);
+                textPanel.setEnabled(true);;
+
                 myFrame.repaint();
             }
         });
 
         rogueButton.setFont(new Font("Impact", Font.BOLD, 20));
         rogueButton.setForeground(Color.BLACK);
-        rogueButton.setBounds(350, 50, classButtonX, classButtonY);
+        rogueButton.setBounds(350, 50, buttonX, buttonY);
         rogueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -267,7 +283,33 @@ public class GraphicInterface
             }
         });
 
-        
+
+
+        textPanel.setBounds(50, 150, 2*buttonX, buttonY); // position and size
+        textPanel.setLayout(new FlowLayout());
+        textPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        textPanel.add(nameField, 0, 0);
+
+
+        confirmButton.setFont(new Font("Impact", Font.BOLD, 20));
+        confirmButton.setForeground(Color.BLACK);
+        confirmButton.setBounds(350, 150, buttonX, buttonY);
+        confirmButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                characterName = nameField.getText().toLowerCase();
+
+                textPanel.setEnabled(false);
+                confirmButton.setEnabled(false);
+                confirmButton.setText(confirmButton.getText().toUpperCase());
+
+                myFrame.repaint();
+            }
+        });
+
+
+
+
 
         startButton = new JButton("start");
         startButton.setFont(new Font("Impact", Font.BOLD, 20));
@@ -311,6 +353,7 @@ public class GraphicInterface
 
                 chosenClass = 0;
                 chosenSubClass = 0;
+                characterName = "default";
 
                 myFrame.remove(barbarianButton);
                 myFrame.remove(furiousButton);
@@ -324,6 +367,10 @@ public class GraphicInterface
                 myFrame.remove(rogueButton);
                 myFrame.remove(assassinButton);
                 myFrame.remove(trapperButton);
+
+                myFrame.remove(textPanel);
+                myFrame.remove(nameField);
+                myFrame.remove(confirmButton);
 
                 myFrame.add(myPanel);
                 myFrame.add(projectName);
@@ -343,6 +390,7 @@ public class GraphicInterface
                 System.out.println("\n===============debug===============");
                 System.out.println("chosenClass: "+chosenClass);
                 System.out.println("chosenSubClass: "+chosenSubClass);
+                System.out.println("characterName: "+characterName);
             }
         });
         myFrame.getContentPane().add(debugButton);
