@@ -34,6 +34,7 @@ public class GraphicInterface implements ActionListener
 
     int marginX = 0;
     int marginY = 0;
+    int exSpace = 0;
 
 
     private static JButton debugButton = new JButton("debug"); // debug routine button
@@ -126,7 +127,7 @@ public class GraphicInterface implements ActionListener
         buttonStyle(mageButton, marginX + 1*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
         buttonStyle(rogueButton, marginX + 2*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
 
-        int exSpace = 10;
+        exSpace = 10;
         buttonStyle(furiousButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
         buttonStyle(frostMageButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
         buttonStyle(assassinButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
@@ -142,34 +143,39 @@ public class GraphicInterface implements ActionListener
         buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, buttonTextLarge);
 
         marginX = 50;
-        marginY = 250;
+        marginY = 350;
+        exSpace = 10;
         panelStylo(strengthPanel, marginX + 0*sliderX, marginY, sliderX, sliderY, strengthSlider);
-        buttonStyle(strengthButton, marginX + 0*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(strengthButton, marginX + 0*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
 
         panelStylo(dexterityPanel, marginX + 1*sliderX, marginY, sliderX, sliderY, dexteritySlider);
-        buttonStyle(dexterityButton, marginX + 1*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(dexterityButton, marginX + 1*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
 
         panelStylo(constitutionPanel, marginX + 2*sliderX, marginY, sliderX, sliderY, constitutionSlider);
-        buttonStyle(constitutionButton, marginX + 2*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(constitutionButton, marginX + 2*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
 
         panelStylo(intelligencePanel, marginX + 3*sliderX, marginY, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(intelligenceButton, marginX + 3*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(intelligenceButton, marginX + 3*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
 
         panelStylo(wisdomPanel, marginX + 4*sliderX, marginY, sliderX, sliderY, wisdomSlider);
-        buttonStyle(wisdomButton, marginX + 4*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(wisdomButton, marginX + 4*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
 
         panelStylo(charismaPanel, marginX + 5*sliderX, marginY, sliderX, sliderY, charismaSlider);
-        buttonStyle(charismaButton, marginX + 5*sliderX, marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
+        buttonStyle(charismaButton, marginX + 5*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, buttonTextSmall);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
 
-        buttonStyle(startButton, 710, 575, buttonX, buttonY, this, buttonTextLarge);
-        buttonStyle(restartButton, 860, 575, buttonX, buttonY, this, buttonTextLarge);
-        buttonStyle(debugButton, 860, 615, buttonX, buttonY, this, buttonTextLarge);
+        marginX = 710;
+        marginY = 600;
+        buttonStyle(startButton, marginX + 0*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(restartButton, marginX + 1*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, buttonTextLarge);
+        buttonStyle(debugButton, marginX + 1*buttonX, marginY + 1*buttonY, buttonX, buttonY, this, buttonTextLarge);
+
+        restartButton.setEnabled(false);
 
         myFrame.getContentPane().add(startButton);
         myFrame.getContentPane().add(restartButton);
@@ -303,6 +309,8 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == restartButton)
         {
             startButton.setText("start");
+            startButton.setEnabled(true);
+            restartButton.setEnabled(false);
             System.out.println("restart");
 
             chosenClass = 0;
@@ -370,6 +378,9 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == startButton)
         {
             startButton.setText("build");
+            startButton.setEnabled(false);
+
+            restartButton.setEnabled(true);
             System.out.println("start");
 
             myFrame.remove(myPanel);
