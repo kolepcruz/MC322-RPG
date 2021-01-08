@@ -24,6 +24,9 @@ public class GraphicInterface
         JButton furiousButton = new JButton("furious");
         JButton totemicButton = new JButton("totemic");
 
+        int classButtonX = 150;
+        int classButtonY = 40;
+
         JButton mageButton = new JButton("mage");
         JButton frostMageButton = new JButton("frost mage");
         JButton fireMageButton = new JButton("fire mage");
@@ -67,7 +70,7 @@ public class GraphicInterface
 
         furiousButton.setFont(new Font("Impact", Font.BOLD, 20));
         furiousButton.setForeground(Color.BLACK);
-        furiousButton.setBounds(50, 100, 150, 40);
+        furiousButton.setBounds(50, 100, classButtonX, classButtonY);
         furiousButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 furiousButton.setText(furiousButton.getText().toUpperCase());
@@ -81,7 +84,7 @@ public class GraphicInterface
 
         totemicButton.setFont(new Font("Impact", Font.BOLD, 20));
         totemicButton.setForeground(Color.BLACK);
-        totemicButton.setBounds(200, 100, 150, 40);
+        totemicButton.setBounds(200, 100, classButtonX, classButtonY);
         totemicButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 totemicButton.setText(totemicButton.getText().toUpperCase());
@@ -95,7 +98,7 @@ public class GraphicInterface
 
         barbarianButton.setFont(new Font("Impact", Font.BOLD, 20));
         barbarianButton.setForeground(Color.BLACK);
-        barbarianButton.setBounds(50, 50, 150, 40);
+        barbarianButton.setBounds(50, 50, classButtonX, classButtonY);
         barbarianButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 barbarianButton.setText(barbarianButton.getText().toUpperCase());
@@ -118,7 +121,7 @@ public class GraphicInterface
 
         frostMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         frostMageButton.setForeground(Color.BLACK);
-        frostMageButton.setBounds(50, 100, 150, 40);
+        frostMageButton.setBounds(50, 100, classButtonX, classButtonY);
         frostMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frostMageButton.setText(frostMageButton.getText().toUpperCase());
@@ -133,7 +136,7 @@ public class GraphicInterface
 
         fireMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         fireMageButton.setForeground(Color.BLACK);
-        fireMageButton.setBounds(200, 100, 150, 40);
+        fireMageButton.setBounds(200, 100, classButtonX, classButtonY);
         fireMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 fireMageButton.setText(fireMageButton.getText().toUpperCase());
@@ -148,7 +151,7 @@ public class GraphicInterface
 
         arcaneMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         arcaneMageButton.setForeground(Color.BLACK);
-        arcaneMageButton.setBounds(350, 100, 150, 40);
+        arcaneMageButton.setBounds(350, 100, classButtonX, classButtonY);
         arcaneMageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 arcaneMageButton.setText(arcaneMageButton.getText().toUpperCase());
@@ -163,7 +166,7 @@ public class GraphicInterface
 
         mageButton.setFont(new Font("Impact", Font.BOLD, 20));
         mageButton.setForeground(Color.BLACK);
-        mageButton.setBounds(200, 50, 150, 40);
+        mageButton.setBounds(200, 50, classButtonX, classButtonY);
         mageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
@@ -191,7 +194,7 @@ public class GraphicInterface
 
         assassinButton.setFont(new Font("Impact", Font.BOLD, 20));
         assassinButton.setForeground(Color.BLACK);
-        assassinButton.setBounds(50, 100, 150, 40);
+        assassinButton.setBounds(50, 100, classButtonX, classButtonY);
         assassinButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 assassinButton.setText(assassinButton.getText().toUpperCase());
@@ -205,7 +208,7 @@ public class GraphicInterface
 
         trapperButton.setFont(new Font("Impact", Font.BOLD, 20));
         trapperButton.setForeground(Color.BLACK);
-        trapperButton.setBounds(200, 100, 150, 40);
+        trapperButton.setBounds(200, 100, classButtonX, classButtonY);
         trapperButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 trapperButton.setText(trapperButton.getText().toUpperCase());
@@ -219,7 +222,7 @@ public class GraphicInterface
 
         rogueButton.setFont(new Font("Impact", Font.BOLD, 20));
         rogueButton.setForeground(Color.BLACK);
-        rogueButton.setBounds(350, 50, 150, 40);
+        rogueButton.setBounds(350, 50, classButtonX, classButtonY);
         rogueButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
             {
