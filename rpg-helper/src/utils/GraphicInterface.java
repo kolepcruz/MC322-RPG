@@ -25,28 +25,24 @@ public class GraphicInterface implements ActionListener
     Container myContainer = myFrame.getContentPane(); // get container
     JPanel myPanel = new JPanel();
 
-
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
     private static Image mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
-
 
     private static int buttonX = 150; //size x of class buttons
     private static int buttonY = 40; //size y of class buttons
 
     private static JButton barbarianButton = new JButton("barbarian"); //button to selection barbarian
+    private static JButton mageButton = new JButton("mage");
+    private static JButton rogueButton = new JButton("rogue");
+    
     private static JButton furiousButton = new JButton("furious"); //button to selection mage
     private static JButton totemicButton = new JButton("totemic"); //button to selection rogue
-
-    private static JButton mageButton = new JButton("mage");
     private static JButton frostMageButton = new JButton("frost mage");
     private static JButton fireMageButton = new JButton("fire mage");
     private static JButton arcaneMageButton = new JButton("arcane mage");
-
-    private static JButton rogueButton = new JButton("rogue");
     private static JButton assassinButton = new JButton("assassin");
     private static JButton trapperButton = new JButton("trapper");
-
 
     private static JPanel textPanel = new JPanel();
     private static JButton confirmButton = new JButton("confirm");
@@ -93,12 +89,12 @@ public class GraphicInterface implements ActionListener
         buttonStyle(fireMageButton, 200, 100, buttonX, buttonY, this);
         buttonStyle(arcaneMageButton, 350, 100, buttonX, buttonY, this);
 
-        buttonStyle(confirmButton, 350, 150, buttonX, buttonY, this);
-
         textPanel.setBounds(50, 150, 2*buttonX, buttonY); // position and size
         textPanel.setLayout(new FlowLayout());
         textPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
         textPanel.add(nameField);
+
+        buttonStyle(confirmButton, 350, 150, buttonX, buttonY, this);
 
         buttonStyle(startButton, 710, 575, buttonX, buttonY, this);
         buttonStyle(restartButton, 860, 575, buttonX, buttonY, this);
@@ -122,6 +118,22 @@ public class GraphicInterface implements ActionListener
         button.addActionListener(source);
     }
 
+    public void closeClassButton(JButton button)
+    {
+        button.setText(button.getText().toUpperCase());
+
+        barbarianButton.setEnabled(false);
+        mageButton.setEnabled(false);
+        rogueButton.setEnabled(false);
+    }
+
+    public void openButton(JButton button)
+    {
+        myFrame.add(button);
+        button.setEnabled(true);
+        button.setText(button.getText().toLowerCase());
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -131,29 +143,6 @@ public class GraphicInterface implements ActionListener
             System.out.println("chosenClass: "+chosenClass);
             System.out.println("chosenSubClass: "+chosenSubClass);
             System.out.println("characterName: "+characterName);
-        }
-
-        if(e.getSource() == startButton)
-        {
-            startButton.setText("build");
-            System.out.println("start");
-
-            myFrame.remove(myPanel);
-            myFrame.remove(projectName);
-
-            myFrame.add(barbarianButton);
-            barbarianButton.setEnabled(true);
-            barbarianButton.setText(barbarianButton.getText().toLowerCase());
-
-            myFrame.add(mageButton);
-            mageButton.setEnabled(true);
-            mageButton.setText(mageButton.getText().toLowerCase());
-
-            myFrame.add(rogueButton);
-            rogueButton.setEnabled(true);
-            rogueButton.setText(rogueButton.getText().toLowerCase());
-
-            myFrame.repaint();
         }
 
         if(e.getSource() == restartButton)
@@ -188,10 +177,59 @@ public class GraphicInterface implements ActionListener
             // System.exit(0);
         }
 
+        if(e.getSource() == startButton)
+        {
+            startButton.setText("build");
+            System.out.println("start");
+
+            myFrame.remove(myPanel);
+            myFrame.remove(projectName);
+
+            openButton(barbarianButton);
+            openButton(mageButton);
+            openButton(rogueButton);
+
+            myFrame.repaint();
+        }
+
+        if(e.getSource() == barbarianButton)
+        {
+            chosenClass = 1;
+            closeClassButton(barbarianButton);
+
+            openButton(furiousButton);
+            openButton(totemicButton);
+
+            myFrame.repaint();
+        }
+
+        if(e.getSource() == mageButton)
+        {
+            chosenClass = 2;
+            closeClassButton(mageButton);
+
+            openButton(frostMageButton);
+            openButton(fireMageButton);
+            openButton(arcaneMageButton);
+
+            myFrame.repaint();
+        }
+
+        if(e.getSource() == rogueButton)
+        {
+            chosenClass = 3;
+            closeClassButton(rogueButton);
+
+            openButton(assassinButton);
+            openButton(trapperButton);
+
+            myFrame.repaint();
+        }
+
         if(e.getSource() == furiousButton)
         {
-            furiousButton.setText(furiousButton.getText().toUpperCase());
             chosenSubClass = 1;
+            furiousButton.setText(furiousButton.getText().toUpperCase());
 
             furiousButton.setEnabled(false);
             totemicButton.setEnabled(false);
@@ -205,25 +243,6 @@ public class GraphicInterface implements ActionListener
 
             furiousButton.setEnabled(false);
             totemicButton.setEnabled(false);
-            myFrame.repaint();
-        }
-
-        if(e.getSource() == barbarianButton)
-        {
-            barbarianButton.setText(barbarianButton.getText().toUpperCase());
-            chosenClass = 1;
-
-            barbarianButton.setEnabled(false);
-            mageButton.setEnabled(false);
-            rogueButton.setEnabled(false);
-
-            myFrame.add(furiousButton);
-            furiousButton.setEnabled(true);
-            furiousButton.setText(furiousButton.getText().toLowerCase());
-
-            myFrame.add(totemicButton);
-            totemicButton.setEnabled(true);
-            totemicButton.setText(totemicButton.getText().toLowerCase());
             myFrame.repaint();
         }
 
@@ -260,29 +279,6 @@ public class GraphicInterface implements ActionListener
             myFrame.repaint();
         }
 
-        if(e.getSource() == mageButton)
-        {
-            mageButton.setText(mageButton.getText().toUpperCase());
-            chosenClass = 2;
-
-            barbarianButton.setEnabled(false);
-            mageButton.setEnabled(false);
-            rogueButton.setEnabled(false);
-
-            myFrame.add(frostMageButton);
-            frostMageButton.setEnabled(true);
-            frostMageButton.setText(frostMageButton.getText().toLowerCase());
-
-            myFrame.add(fireMageButton);
-            fireMageButton.setEnabled(true);
-            fireMageButton.setText(fireMageButton.getText().toLowerCase());
-
-            myFrame.add(arcaneMageButton);
-            arcaneMageButton.setEnabled(true);
-            arcaneMageButton.setText(arcaneMageButton.getText().toLowerCase());
-            myFrame.repaint();
-        }
-
         if(e.getSource() == assassinButton)
         {
             assassinButton.setText(assassinButton.getText().toUpperCase());
@@ -308,25 +304,6 @@ public class GraphicInterface implements ActionListener
             myFrame.add(textPanel);
             textPanel.setEnabled(true);;
 
-            myFrame.repaint();
-        }
-
-        if(e.getSource() == rogueButton)
-        {
-            rogueButton.setText(rogueButton.getText().toUpperCase());
-            chosenClass = 3;
-
-            barbarianButton.setEnabled(false);
-            mageButton.setEnabled(false);
-            rogueButton.setEnabled(false);
-
-            myFrame.add(assassinButton);
-            assassinButton.setEnabled(true);
-            assassinButton.setText(assassinButton.getText().toLowerCase());
-
-            myFrame.add(trapperButton);
-            trapperButton.setEnabled(true);
-            trapperButton.setText(trapperButton.getText().toLowerCase());
             myFrame.repaint();
         }
 
