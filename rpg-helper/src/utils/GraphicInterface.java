@@ -44,11 +44,13 @@ public class GraphicInterface implements ActionListener
     private static JButton assassinButton = new JButton("assassin");
     private static JButton trapperButton = new JButton("trapper");
 
-    private static JPanel textPanel = new JPanel();
-    private static JButton confirmButton = new JButton("confirm");
-
-    private static JTextField nameField = new JTextField(25);
+    private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(25);
+    private static JButton confirmCharacterName = new JButton("confirm");
+    
+    private static JPanel playerPanel = new JPanel();
+    private static JTextField playerField = new JTextField(25);
+    private static JButton confirmPlayerName = new JButton("confirm");
 
     GraphicInterface()
     {
@@ -89,12 +91,18 @@ public class GraphicInterface implements ActionListener
         buttonStyle(fireMageButton, 200, 100, buttonX, buttonY, this);
         buttonStyle(arcaneMageButton, 350, 100, buttonX, buttonY, this);
 
-        textPanel.setBounds(50, 150, 2*buttonX, buttonY); // position and size
-        textPanel.setLayout(new FlowLayout());
-        textPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        textPanel.add(nameField);
+        characterPanel.setBounds(50, 150, 2*buttonX, buttonY); // position and size
+        characterPanel.setLayout(new FlowLayout());
+        characterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        characterPanel.add(characterField);
+        buttonStyle(confirmCharacterName, 350, 150, buttonX, buttonY, this);
 
-        buttonStyle(confirmButton, 350, 150, buttonX, buttonY, this);
+        playerPanel.setBounds(50, 200, 2*buttonX, buttonY); // position and size
+        playerPanel.setLayout(new FlowLayout());
+        playerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        playerPanel.add(playerField);
+        buttonStyle(confirmPlayerName, 350, 200, buttonX, buttonY, this);
+
 
         buttonStyle(startButton, 710, 575, buttonX, buttonY, this);
         buttonStyle(restartButton, 860, 575, buttonX, buttonY, this);
@@ -137,10 +145,12 @@ public class GraphicInterface implements ActionListener
         subClass1.setEnabled(false);
         subClass2.setEnabled(false);
 
-        openButton(confirmButton);
+        openButton(confirmCharacterName);
 
-        myFrame.add(textPanel);
-        textPanel.setEnabled(true);
+        myFrame.add(characterPanel);
+        characterField.setEditable(true);
+        characterField.setText("");
+        characterPanel.setEnabled(true);
 
         myFrame.repaint();
     }
@@ -163,6 +173,7 @@ public class GraphicInterface implements ActionListener
             System.out.println("chosenClass: "+chosenClass);
             System.out.println("chosenSubClass: "+chosenSubClass);
             System.out.println("characterName: "+characterName);
+            System.out.println("playerName: "+playerName);
         }
 
         if(e.getSource() == restartButton)
@@ -173,6 +184,7 @@ public class GraphicInterface implements ActionListener
             chosenClass = 0;
             chosenSubClass = 0;
             characterName = "default";
+            playerName = "default";
 
             myFrame.remove(barbarianButton);
             myFrame.remove(furiousButton);
@@ -187,9 +199,13 @@ public class GraphicInterface implements ActionListener
             myFrame.remove(assassinButton);
             myFrame.remove(trapperButton);
 
-            myFrame.remove(textPanel);
-            myFrame.remove(nameField);
-            myFrame.remove(confirmButton);
+            myFrame.remove(characterPanel);
+            myFrame.remove(characterField);
+            myFrame.remove(confirmCharacterName);
+
+            myFrame.remove(playerPanel);
+            myFrame.remove(playerField);
+            myFrame.remove(confirmPlayerName);
 
             myFrame.add(myPanel);
             myFrame.add(projectName);
@@ -282,13 +298,29 @@ public class GraphicInterface implements ActionListener
             closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
-        if(e.getSource() == confirmButton)
+        if(e.getSource() == confirmCharacterName)
         {
-            characterName = nameField.getText().toLowerCase();
+            characterName = characterField.getText().toLowerCase();
 
-            textPanel.setEnabled(false);
-            confirmButton.setEnabled(false);
-            confirmButton.setText(confirmButton.getText().toUpperCase());
+            characterField.setEditable(false);
+            confirmCharacterName.setEnabled(false);
+            confirmCharacterName.setText(confirmCharacterName.getText().toUpperCase());
+
+            openButton(confirmPlayerName);
+            myFrame.add(playerPanel);
+            playerField.setEditable(true);
+            playerField.setText("");
+
+            myFrame.repaint();
+        }
+
+        if(e.getSource() == confirmPlayerName)
+        {
+            playerName = playerField.getText().toLowerCase();
+
+            playerField.setEditable(false);
+            confirmPlayerName.setEnabled(false);
+            confirmPlayerName.setText(confirmPlayerName.getText().toUpperCase());
 
             myFrame.repaint();
         }
