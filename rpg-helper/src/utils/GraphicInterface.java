@@ -4,37 +4,50 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.util.*;
+
 
 public class GraphicInterface
 {
     static int chosenClass = 0;
     static int chosenSubClass = 0;
+    static String playerName = "";
+    static String characterName = "";
 
     public static void main(String[] args) {
+
+        /**
+         * declaracao de paramentros
+         * @author tr0fin0
+         */
 
         JButton startButton; // starts routine button
         JButton restartButton; // restarts routine button
         JButton debugButton; // restarts routine button
-
+    
         JLabel projectName;
         JLabel projectPicture;
         Image mainImage;
-
-        JButton barbarianButton = new JButton("barbarian");
-        JButton furiousButton = new JButton("furious");
-        JButton totemicButton = new JButton("totemic");
-
-        int classButtonX = 150;
-        int classButtonY = 40;
-
+    
+        JButton barbarianButton = new JButton("barbarian"); //button to selection barbarian
+        JButton furiousButton = new JButton("furious"); //button to selection mage
+        JButton totemicButton = new JButton("totemic"); //button to selection rogue
+    
+        int classButtonX = 150; //size x of class buttons
+        int classButtonY = 40; //size y of class buttons
+    
         JButton mageButton = new JButton("mage");
         JButton frostMageButton = new JButton("frost mage");
         JButton fireMageButton = new JButton("fire mage");
         JButton arcaneMageButton = new JButton("arcane mage");
-
+    
         JButton rogueButton = new JButton("rogue");
         JButton assassinButton = new JButton("assassin");
         JButton trapperButton = new JButton("trapper");
+
+
+
+
 
         JFrame myFrame = new JFrame("RPG Helper"); // frame name
         myFrame.setSize(1080, 720); // size of frame
@@ -53,6 +66,9 @@ public class GraphicInterface
         myPanel.setLayout(null);
         myContainer.add(myPanel);
 
+
+
+
         mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
         mainImage = mainImage.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
 
@@ -67,6 +83,9 @@ public class GraphicInterface
         projectName.setForeground(Color.BLACK);
         projectName.setBounds(50, 575, 500, 50);
         myFrame.add(projectName);
+
+
+
 
         furiousButton.setFont(new Font("Impact", Font.BOLD, 20));
         furiousButton.setForeground(Color.BLACK);
@@ -118,6 +137,8 @@ public class GraphicInterface
                 myFrame.repaint();
             }
         });
+
+
 
         frostMageButton.setFont(new Font("Impact", Font.BOLD, 20));
         frostMageButton.setForeground(Color.BLACK);
@@ -192,6 +213,8 @@ public class GraphicInterface
             }
         });
 
+
+
         assassinButton.setFont(new Font("Impact", Font.BOLD, 20));
         assassinButton.setForeground(Color.BLACK);
         assassinButton.setBounds(50, 100, classButtonX, classButtonY);
@@ -243,6 +266,8 @@ public class GraphicInterface
                 myFrame.repaint();
             }
         });
+
+        
 
         startButton = new JButton("start");
         startButton.setFont(new Font("Impact", Font.BOLD, 20));
@@ -322,8 +347,10 @@ public class GraphicInterface
         });
         myFrame.getContentPane().add(debugButton);
 
+
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //close operation
         myFrame.dispose();
         myFrame.setVisible(true); //make visible
+
     }
 }
