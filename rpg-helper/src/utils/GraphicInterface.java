@@ -197,6 +197,43 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
+    public void openField(JTextField field, JPanel panel, JButton button)
+    {
+        openButton(button);
+        myFrame.add(panel);
+        field.setEditable(true);
+        field.setText("");
+
+        myFrame.repaint();
+    }
+
+    public void closeField(JTextField field, JButton button)
+    {
+        field.setEditable(false);
+        button.setEnabled(false);
+        button.setText(button.getText().toUpperCase());
+
+        myFrame.repaint();
+    }
+
+    public void openSlider(JSlider slider, JPanel panel, JButton button)
+    {
+        openButton(button);
+        myFrame.add(panel);
+        slider.setEnabled(true);
+
+        myFrame.repaint();
+    }
+
+    public void closeSlider(JSlider slider, JButton button)
+    {
+        slider.setEnabled(false);
+        button.setEnabled(false);
+        button.setText(button.getText().toUpperCase());
+
+        myFrame.repaint();
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -346,58 +383,28 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == confirmCharacterName)
         {
             characterName = characterField.getText().toLowerCase();
-
-            characterField.setEditable(false);
-            confirmCharacterName.setEnabled(false);
-            confirmCharacterName.setText(confirmCharacterName.getText().toUpperCase());
-
-            openButton(confirmPlayerName);
-            myFrame.add(playerPanel);
-            playerField.setEditable(true);
-            playerField.setText("");
-
-            myFrame.repaint();
+            closeField(characterField, confirmCharacterName);
+            openField(playerField, playerPanel, confirmPlayerName);
         }
 
         if(e.getSource() == confirmPlayerName)
         {
             playerName = playerField.getText().toLowerCase();
-
-            playerField.setEditable(false);
-            confirmPlayerName.setEnabled(false);
-            confirmPlayerName.setText(confirmPlayerName.getText().toUpperCase());
-
-            openButton(confirmStrength);
-            myFrame.add(strengthPanel);
-            strengthSlider.setEnabled(true);
-
-            myFrame.repaint();
+            closeField(playerField, confirmPlayerName);
+            openSlider(strengthSlider, strengthPanel, confirmStrength);
         }
 
         if(e.getSource() == confirmStrength)
         {
             strengthInt = strengthSlider.getValue();
-
-            strengthSlider.setEnabled(false);
-            confirmStrength.setEnabled(false);
-            confirmStrength.setText(confirmStrength.getText().toUpperCase());
-
-            openButton(confirmDexterity);
-            myFrame.add(dexterityPanel);
-            dexteritySlider.setEnabled(true);
-
-            myFrame.repaint();
+            closeSlider(strengthSlider, confirmStrength);
+            openSlider(dexteritySlider, dexterityPanel, confirmDexterity);
         }
 
         if(e.getSource() == confirmDexterity)
         {
             dexterityInt = dexteritySlider.getValue();
-
-            dexteritySlider.setEnabled(false);
-            confirmDexterity.setEnabled(false);
-            confirmDexterity.setText(confirmDexterity.getText().toUpperCase());
-
-            myFrame.repaint();
+            closeSlider(dexteritySlider, confirmDexterity);
         }
     }
 
