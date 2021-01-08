@@ -125,6 +125,24 @@ public class GraphicInterface implements ActionListener
         barbarianButton.setEnabled(false);
         mageButton.setEnabled(false);
         rogueButton.setEnabled(false);
+
+        myFrame.repaint();
+    }
+
+    public void closeSubClassButton(JButton subClass0, JButton subClass1, JButton subClass2)
+    {
+        subClass0.setText(subClass0.getText().toUpperCase());
+
+        subClass0.setEnabled(false);
+        subClass1.setEnabled(false);
+        subClass2.setEnabled(false);
+
+        openButton(confirmButton);
+
+        myFrame.add(textPanel);
+        textPanel.setEnabled(true);
+
+        myFrame.repaint();
     }
 
     public void openButton(JButton button)
@@ -132,6 +150,8 @@ public class GraphicInterface implements ActionListener
         myFrame.add(button);
         button.setEnabled(true);
         button.setText(button.getText().toLowerCase());
+
+        myFrame.repaint();
     }
 
 
@@ -199,8 +219,6 @@ public class GraphicInterface implements ActionListener
 
             openButton(furiousButton);
             openButton(totemicButton);
-
-            myFrame.repaint();
         }
 
         if(e.getSource() == mageButton)
@@ -211,8 +229,6 @@ public class GraphicInterface implements ActionListener
             openButton(frostMageButton);
             openButton(fireMageButton);
             openButton(arcaneMageButton);
-
-            myFrame.repaint();
         }
 
         if(e.getSource() == rogueButton)
@@ -222,89 +238,48 @@ public class GraphicInterface implements ActionListener
 
             openButton(assassinButton);
             openButton(trapperButton);
-
-            myFrame.repaint();
         }
 
         if(e.getSource() == furiousButton)
         {
             chosenSubClass = 1;
-            furiousButton.setText(furiousButton.getText().toUpperCase());
-
-            furiousButton.setEnabled(false);
-            totemicButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(furiousButton, furiousButton, totemicButton);
         }
 
         if(e.getSource() == totemicButton)
         {
-            totemicButton.setText(totemicButton.getText().toUpperCase());
             chosenSubClass = 2;
-
-            furiousButton.setEnabled(false);
-            totemicButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(totemicButton, furiousButton, totemicButton);
         }
 
         if(e.getSource() == frostMageButton)
         {
-            frostMageButton.setText(frostMageButton.getText().toUpperCase());
             chosenSubClass = 1;
-
-            frostMageButton.setEnabled(false);
-            fireMageButton.setEnabled(false);
-            arcaneMageButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(frostMageButton, fireMageButton, arcaneMageButton);
         }
 
         if(e.getSource() == fireMageButton)
         {
-            fireMageButton.setText(fireMageButton.getText().toUpperCase());
             chosenSubClass = 2;
-
-            frostMageButton.setEnabled(false);
-            fireMageButton.setEnabled(false);
-            arcaneMageButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(fireMageButton, frostMageButton, arcaneMageButton);
         }
 
         if(e.getSource() == arcaneMageButton)
         {
-            arcaneMageButton.setText(arcaneMageButton.getText().toUpperCase());
             chosenSubClass = 3;
-
-            frostMageButton.setEnabled(false);
-            fireMageButton.setEnabled(false);
-            arcaneMageButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(arcaneMageButton, frostMageButton, fireMageButton);
         }
 
         if(e.getSource() == assassinButton)
         {
-            assassinButton.setText(assassinButton.getText().toUpperCase());
             chosenSubClass = 1;
-
-            assassinButton.setEnabled(false);
-            trapperButton.setEnabled(false);
-            myFrame.repaint();
+            closeSubClassButton(assassinButton, trapperButton, assassinButton);
         }
 
         if(e.getSource() == trapperButton)
         {
-            trapperButton.setText(trapperButton.getText().toUpperCase());
             chosenSubClass = 2;
-
-            assassinButton.setEnabled(false);
-            trapperButton.setEnabled(false);
-
-            myFrame.add(confirmButton);
-            confirmButton.setEnabled(true);
-            confirmButton.setText(confirmButton.getText().toLowerCase());
-
-            myFrame.add(textPanel);
-            textPanel.setEnabled(true);;
-
-            myFrame.repaint();
+            closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
         if(e.getSource() == confirmButton)
