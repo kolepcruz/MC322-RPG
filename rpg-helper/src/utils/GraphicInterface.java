@@ -664,6 +664,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
     {
         if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
             return true;
+
+        JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
         return false;
     }
 
@@ -1089,10 +1091,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 openSlider(dexteritySlider, dexterityPanel, dexterityButton);
                 myFrame.add(dexterityCountPanel);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
-            }
         }
 
         if (e.getSource() == dexterityButton) {
@@ -1105,10 +1103,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 closeSlider(dexteritySlider, dexterityButton);
                 openSlider(constitutionSlider, constitutionPanel, constitutionButton);
                 myFrame.add(constitutionCountPanel);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
             }
         }
 
@@ -1124,10 +1118,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
                 myFrame.add(intelligenceCountPanel);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
-            }
         }
 
         if (e.getSource() == intelligenceButton) {
@@ -1142,10 +1132,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 openSlider(wisdomSlider, wisdomPanel, wisdomButton);
                 myFrame.add(wisdomCountPanel);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
-            }
         }
 
         if (e.getSource() == wisdomButton) {
@@ -1159,10 +1145,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 openSlider(charismaSlider, charismaPanel, charismaButton);
                 myFrame.add(charismaCountPanel);
             }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
-            }
         }
 
         if (e.getSource() == charismaButton) {
@@ -1174,10 +1156,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 totalAttributesLabel
                         .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
                 closeSlider(charismaSlider, charismaButton);
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
             }
         }
     }
