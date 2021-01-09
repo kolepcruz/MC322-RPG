@@ -20,6 +20,30 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static String playerName = "default";
     private static String characterName = "default";
 
+    private static String barbarianString = "barbarian";
+    private static String mageString = "mage";
+    private static String rogueString = "rogue";
+
+    private static String furiousString = "furious";
+    private static String totemicString = "totemic";
+    private static String frostString = "frost";
+    private static String fireString = "fire";
+    private static String arcaneString = "arcane";
+    private static String assassinString = "assassin";
+    private static String trapperString = "trapper";
+
+    private static int barbarianClassInt = 1;
+    private static int mageClassInt = 2;
+    private static int rogueClassInt = 3;
+
+    private static int furiousClassInt = 1;
+    private static int totemicClassInt = 2;
+    private static int frostClassInt = 1;
+    private static int fireClassInt = 2;
+    private static int arcaneClassInt = 3;
+    private static int assassinClassInt = 1;
+    private static int trapperClassInt = 2;
+
     private static int totalAttributesInt = 72;
     private static int strengthInt = 0;
     private static int dexterityInt = 0;
@@ -35,6 +59,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
      */
     private static int textFontSmall = 10;
     private static int fontLarge = 20;
+
+    private static int fieldSize = 25;
 
     private static int buttonX = 150; // size x of class buttons
     private static int buttonY = 40; // size y of class buttons
@@ -79,35 +105,34 @@ public class GraphicInterface implements ActionListener, ChangeListener
 
     /**
      * *classButtons
-     * ?declare global variables for their names?
      */
-    private static JButton barbarianButton = new JButton("barbarian"); // button to selection barbarian
-    private static JButton mageButton = new JButton("mage");
-    private static JButton rogueButton = new JButton("rogue");
+    private static JButton barbarianButton = new JButton(barbarianString); // button to selection barbarian
+    private static JButton mageButton = new JButton(mageString);
+    private static JButton rogueButton = new JButton(rogueString);
 
     /**
      * *subClassButton
      */
-    private static JButton furiousButton = new JButton("furious"); // button to selection mage
-    private static JButton totemicButton = new JButton("totemic"); // button to selection rogue
-    private static JButton frostMageButton = new JButton("frost mage");
-    private static JButton fireMageButton = new JButton("fire mage");
-    private static JButton arcaneMageButton = new JButton("arcane mage");
-    private static JButton assassinButton = new JButton("assassin");
-    private static JButton trapperButton = new JButton("trapper");
+    private static JButton furiousButton = new JButton(furiousString);
+    private static JButton totemicButton = new JButton(totemicString);
+    private static JButton frostMageButton = new JButton(frostString);
+    private static JButton fireMageButton = new JButton(fireString);
+    private static JButton arcaneMageButton = new JButton(arcaneString);
+    private static JButton assassinButton = new JButton(assassinString);
+    private static JButton trapperButton = new JButton(trapperString);
 
     /**
      * *characterName
      */
     private static JPanel characterPanel = new JPanel();
-    private static JTextField characterField = new JTextField(25);
+    private static JTextField characterField = new JTextField(fieldSize);
     private static JButton characterButton = new JButton(confirmText);
 
     /**
      * *playerName
      */
     private static JPanel playerPanel = new JPanel();
-    private static JTextField playerField = new JTextField(25);
+    private static JTextField playerField = new JTextField(fieldSize);
     private static JButton playerButton = new JButton(confirmText);
 
     /**
@@ -128,22 +153,32 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton strengthButton = new JButton(confirmText);
 
+    private static JPanel dexterityCountPanel = new JPanel();
+    private static JLabel dexterityCountLabel = new JLabel(String.valueOf(dexterityInt));
     private static JPanel dexterityPanel = new JPanel();
     private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton dexterityButton = new JButton(confirmText);
 
+    private static JPanel constitutionCountPanel = new JPanel();
+    private static JLabel constitutionCountLabel = new JLabel(String.valueOf(constitutionInt));
     private static JPanel constitutionPanel = new JPanel();
     private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton constitutionButton = new JButton(confirmText);
 
+    private static JPanel intelligenceCountPanel = new JPanel();
+    private static JLabel intelligenceCountLabel = new JLabel(String.valueOf(intelligenceInt));
     private static JPanel intelligencePanel = new JPanel();
     private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton intelligenceButton = new JButton(confirmText);
 
+    private static JPanel wisdomCountPanel = new JPanel();
+    private static JLabel wisdomCountLabel = new JLabel(String.valueOf(wisdomInt));
     private static JPanel wisdomPanel = new JPanel();
     private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton wisdomButton = new JButton(confirmText);
 
+    private static JPanel charismaCountPanel = new JPanel();
+    private static JLabel charismaCountLabel = new JLabel(String.valueOf(charismaInt));
     private static JPanel charismaPanel = new JPanel();
     private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton charismaButton = new JButton(confirmText);
@@ -193,29 +228,27 @@ public class GraphicInterface implements ActionListener, ChangeListener
          */
         marginX = 50;
         marginY = 50;
-        buttonStyle(barbarianButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(mageButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(rogueButton, marginX + 2 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(barbarianButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        marginX +=buttonX;
+        buttonStyle(mageButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        marginX +=buttonX;
+        buttonStyle(rogueButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
          * *subClassButtons
          */
         exSpace = 10;
-        buttonStyle(furiousButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(frostMageButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(assassinButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(totemicButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(trapperButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(fireMageButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
-        buttonStyle(arcaneMageButton, marginX + 2 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                fontLarge);
+        marginX = 50;
+        marginY = 100 - exSpace;
+        buttonStyle(furiousButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(frostMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(assassinButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        marginX += buttonX;
+        buttonStyle(totemicButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(trapperButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(fireMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        marginX += buttonX;
+        buttonStyle(arcaneMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
 
         /**
          * *characterPanel
@@ -248,38 +281,52 @@ public class GraphicInterface implements ActionListener, ChangeListener
         marginX = 50;
         marginY = 350;
         exSpace = 10;
-        panelStylo(strengthCountPanel, marginX, 300, sliderX, buttonY, strengthCountLabel);
-        labelStyle(strengthCountLabel, marginX, 300, sliderX, buttonY, fontLarge);
-        panelStylo(strengthPanel, marginX + 0 * sliderX, marginY, sliderX, sliderY, strengthSlider);
-        buttonStyle(strengthButton, marginX + 0 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        panelStylo(strengthCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, strengthCountLabel);
+        labelStyle(strengthCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(strengthPanel, marginX, marginY, sliderX, sliderY, strengthSlider);
+        buttonStyle(strengthButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
         strengthSlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(dexterityPanel, marginX + 1 * sliderX, marginY, sliderX, sliderY, dexteritySlider);
-        buttonStyle(dexterityButton, marginX + 1 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        marginX += sliderX;
+        panelStylo(dexterityCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, dexterityCountLabel);
+        labelStyle(dexterityCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(dexterityPanel, marginX, marginY, sliderX, sliderY, dexteritySlider);
+        buttonStyle(dexterityButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
+        dexteritySlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(constitutionPanel, marginX + 2 * sliderX, marginY, sliderX, sliderY, constitutionSlider);
-        buttonStyle(constitutionButton, marginX + 2 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        marginX += sliderX;
+        panelStylo(constitutionCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, constitutionCountLabel);
+        labelStyle(constitutionCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(constitutionPanel, marginX, marginY, sliderX, sliderY, constitutionSlider);
+        buttonStyle(constitutionButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
+        constitutionSlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(intelligencePanel, marginX + 3 * sliderX, marginY, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(intelligenceButton, marginX + 3 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        marginX += sliderX;
+        panelStylo(intelligenceCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, intelligenceCountLabel);
+        labelStyle(intelligenceCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(intelligencePanel, marginX, marginY, sliderX, sliderY, intelligenceSlider);
+        buttonStyle(intelligenceButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
+        intelligenceSlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(wisdomPanel, marginX + 4 * sliderX, marginY, sliderX, sliderY, wisdomSlider);
-        buttonStyle(wisdomButton, marginX + 4 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        marginX += sliderX;
+        panelStylo(wisdomCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, wisdomCountLabel);
+        labelStyle(wisdomCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(wisdomPanel, marginX, marginY, sliderX, sliderY, wisdomSlider);
+        buttonStyle(wisdomButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
+        wisdomSlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(charismaPanel, marginX + 5 * sliderX, marginY, sliderX, sliderY, charismaSlider);
-        buttonStyle(charismaButton, marginX + 5 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
-                textFontSmall);
+        marginX += sliderX;
+        panelStylo(charismaCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, charismaCountLabel);
+        labelStyle(charismaCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(charismaPanel, marginX, marginY, sliderX, sliderY, charismaSlider);
+        buttonStyle(charismaButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
+        charismaSlider.addChangeListener((ChangeListener) this);
 
         /**
          * *===========
@@ -288,9 +335,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
          */
         marginX = 710;
         marginY = 600;
-        buttonStyle(startButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(restartButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(debugButton, marginX + 1 * buttonX, marginY + 1 * buttonY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(startButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        marginX += buttonX;
+        buttonStyle(restartButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        marginY += buttonY;
+        buttonStyle(debugButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
          * *starting and adding mainButtons
