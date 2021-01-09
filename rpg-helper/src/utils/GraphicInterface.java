@@ -566,6 +566,26 @@ public class GraphicInterface implements ActionListener, ChangeListener
         if (e.getSource() == strengthSlider) {
             strengthCountLabel.setText(String.valueOf(strengthSlider.getValue()));
         }
+
+        if (e.getSource() == dexteritySlider) {
+            dexterityCountLabel.setText(String.valueOf(dexteritySlider.getValue()));
+        }
+
+        if (e.getSource() == constitutionSlider) {
+            constitutionCountLabel.setText(String.valueOf(constitutionSlider.getValue()));
+        }
+
+        if (e.getSource() == intelligenceSlider) {
+            intelligenceCountLabel.setText(String.valueOf(intelligenceSlider.getValue()));
+        }
+
+        if (e.getSource() == wisdomSlider) {
+            wisdomCountLabel.setText(String.valueOf(wisdomSlider.getValue()));
+        }
+
+        if (e.getSource() == charismaSlider) {
+            charismaCountLabel.setText(String.valueOf(charismaSlider.getValue()));
+        }
     }
 
     /**
@@ -639,26 +659,32 @@ public class GraphicInterface implements ActionListener, ChangeListener
 
             myFrame.remove(attributesPanel);
 
+            myFrame.remove(strengthCountPanel);
             myFrame.remove(strengthPanel);
             myFrame.remove(strengthSlider);
             myFrame.remove(strengthButton);
 
+            myFrame.remove(dexterityCountPanel);
             myFrame.remove(dexterityPanel);
             myFrame.remove(dexteritySlider);
             myFrame.remove(dexterityButton);
 
+            myFrame.remove(constitutionCountPanel);
             myFrame.remove(constitutionPanel);
             myFrame.remove(constitutionSlider);
             myFrame.remove(constitutionButton);
 
+            myFrame.remove(intelligenceCountPanel);
             myFrame.remove(intelligencePanel);
             myFrame.remove(intelligenceSlider);
             myFrame.remove(intelligenceButton);
 
+            myFrame.remove(wisdomCountPanel);
             myFrame.remove(wisdomPanel);
             myFrame.remove(wisdomSlider);
             myFrame.remove(wisdomButton);
 
+            myFrame.remove(charismaCountPanel);
             myFrame.remove(charismaPanel);
             myFrame.remove(charismaSlider);
             myFrame.remove(charismaButton);
@@ -777,9 +803,9 @@ public class GraphicInterface implements ActionListener, ChangeListener
         if (e.getSource() == playerButton) {
             playerName = playerField.getText().toLowerCase();
             closeField(playerField, playerButton);
+            openSlider(strengthSlider, strengthPanel, strengthButton);
             myFrame.add(attributesPanel);
             myFrame.add(strengthCountPanel);
-            openSlider(strengthSlider, strengthPanel, strengthButton);
         }
 
         /**
@@ -793,6 +819,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
                     .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
             closeSlider(strengthSlider, strengthButton);
             openSlider(dexteritySlider, dexterityPanel, dexterityButton);
+            myFrame.add(dexterityCountPanel);
         }
 
         if (e.getSource() == dexterityButton) {
@@ -801,6 +828,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
                     .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
             closeSlider(dexteritySlider, dexterityButton);
             openSlider(constitutionSlider, constitutionPanel, constitutionButton);
+            myFrame.add(constitutionCountPanel);
         }
 
         if (e.getSource() == constitutionButton) {
@@ -809,6 +837,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
                     .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
             closeSlider(constitutionSlider, constitutionButton);
             openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
+            myFrame.add(intelligenceCountPanel);
         }
 
         if (e.getSource() == intelligenceButton) {
@@ -817,6 +846,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
                     .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
             closeSlider(intelligenceSlider, intelligenceButton);
             openSlider(wisdomSlider, wisdomPanel, wisdomButton);
+            myFrame.add(wisdomCountPanel);
         }
 
         if (e.getSource() == wisdomButton) {
@@ -824,6 +854,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
             totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
             closeSlider(wisdomSlider, wisdomButton);
             openSlider(charismaSlider, charismaPanel, charismaButton);
+            myFrame.add(charismaCountPanel);
         }
 
         if (e.getSource() == charismaButton) {
