@@ -737,7 +737,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * TODO: remove hard code variables
          */
         if (e.getSource() == barbarianButton) {
-            chosenClass = 1;
+            chosenClass = barbarianClassInt;
             closeClassButton(barbarianButton);
 
             openButton(furiousButton);
@@ -745,7 +745,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == mageButton) {
-            chosenClass = 2;
+            chosenClass = mageClassInt;
             closeClassButton(mageButton);
 
             openButton(frostMageButton);
@@ -754,7 +754,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == rogueButton) {
-            chosenClass = 3;
+            chosenClass = rogueClassInt;
             closeClassButton(rogueButton);
 
             openButton(assassinButton);
@@ -768,37 +768,37 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * TODO: remove hard code variables
          */
         if (e.getSource() == furiousButton) {
-            chosenSubClass = 1;
+            chosenSubClass = furiousClassInt;
             closeSubClassButton(furiousButton, furiousButton, totemicButton);
         }
 
         if (e.getSource() == totemicButton) {
-            chosenSubClass = 2;
+            chosenSubClass = totemicClassInt;
             closeSubClassButton(totemicButton, furiousButton, totemicButton);
         }
 
         if (e.getSource() == frostMageButton) {
-            chosenSubClass = 1;
+            chosenSubClass = frostClassInt;
             closeSubClassButton(frostMageButton, fireMageButton, arcaneMageButton);
         }
 
         if (e.getSource() == fireMageButton) {
-            chosenSubClass = 2;
+            chosenSubClass = fireClassInt;
             closeSubClassButton(fireMageButton, frostMageButton, arcaneMageButton);
         }
 
         if (e.getSource() == arcaneMageButton) {
-            chosenSubClass = 3;
+            chosenSubClass = arcaneClassInt;
             closeSubClassButton(arcaneMageButton, frostMageButton, fireMageButton);
         }
 
         if (e.getSource() == assassinButton) {
-            chosenSubClass = 1;
+            chosenSubClass = assassinClassInt;
             closeSubClassButton(assassinButton, trapperButton, assassinButton);
         }
 
         if (e.getSource() == trapperButton) {
-            chosenSubClass = 2;
+            chosenSubClass = trapperClassInt;
             closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
