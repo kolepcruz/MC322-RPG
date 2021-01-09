@@ -25,6 +25,8 @@ public class GraphicInterface implements ActionListener
     private static int chosenSubClass = 0;
     private static String playerName = "default";
     private static String characterName = "default";
+
+    private static int totalAttributesInt = 72;
     private static int strengthInt = 0;
     private static int dexterityInt = 0;
     private static int constitutionInt = 0;
@@ -96,7 +98,7 @@ public class GraphicInterface implements ActionListener
 
     private static JPanel attributesPanel = new JPanel();
     private static JLabel attributesLabel = new JLabel("attributes total: ");
-    private static JLabel totalAttributesLabel = new JLabel("72");
+    private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
 
     GraphicInterface()
     {
@@ -314,7 +316,8 @@ public class GraphicInterface implements ActionListener
             System.out.println("chosenClass: "+chosenClass);
             System.out.println("chosenSubClass: "+chosenSubClass);
             System.out.println("characterName: "+characterName);
-            System.out.println("playerName: "+playerName);
+            System.out.println("playerName: "+playerName+"\n");
+            System.out.println("attributesInt: "+totalAttributesInt);
             System.out.println("strengthInt: "+strengthInt);
             System.out.println("dexterityInt: "+dexterityInt);
             System.out.println("constitutionInt: "+constitutionInt);
@@ -328,7 +331,7 @@ public class GraphicInterface implements ActionListener
             startButton.setText("start");
             startButton.setEnabled(true);
             restartButton.setEnabled(false);
-            System.out.println("restart");
+            System.out.println("\nrestart");
 
             chosenClass = 0;
             chosenSubClass = 0;
@@ -340,6 +343,8 @@ public class GraphicInterface implements ActionListener
             intelligenceInt = 0;
             wisdomInt = 0;
             charismaInt = 0;
+
+            attributesLabel.setText(String.valueOf(totalAttributesInt));
 
             myFrame.remove(barbarianButton);
             myFrame.remove(furiousButton);
@@ -400,7 +405,7 @@ public class GraphicInterface implements ActionListener
             startButton.setEnabled(false);
 
             restartButton.setEnabled(true);
-            System.out.println("start");
+            System.out.println("\nstart");
 
             myFrame.remove(myPanel);
             myFrame.remove(projectName);
@@ -508,6 +513,7 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == dexterityButton)
         {
             dexterityInt = dexteritySlider.getValue();
+            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
             closeSlider(dexteritySlider, dexterityButton);
             openSlider(constitutionSlider, constitutionPanel, constitutionButton);
         }
@@ -515,6 +521,7 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == constitutionButton)
         {
             constitutionInt = constitutionSlider.getValue();
+            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
             closeSlider(constitutionSlider, constitutionButton);
             openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
         }
@@ -522,6 +529,7 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == intelligenceButton)
         {
             intelligenceInt = intelligenceSlider.getValue();
+            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
             closeSlider(intelligenceSlider, intelligenceButton);
             openSlider(wisdomSlider, wisdomPanel, wisdomButton);
         }
@@ -529,6 +537,7 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == wisdomButton)
         {
             wisdomInt = wisdomSlider.getValue();
+            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
             closeSlider(wisdomSlider, wisdomButton);
             openSlider(charismaSlider, charismaPanel, charismaButton);
         }
@@ -536,6 +545,7 @@ public class GraphicInterface implements ActionListener
         if(e.getSource() == charismaButton)
         {
             charismaInt = charismaSlider.getValue();
+            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
             closeSlider(charismaSlider, charismaButton);
         }
     }
