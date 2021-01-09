@@ -634,7 +634,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
             wisdomInt = 0;
             charismaInt = 0;
 
-            attributesLabel.setText(String.valueOf(totalAttributesInt));
+            totalAttributesLabel.setText(String.valueOf(totalAttributesInt));
 
             myFrame.remove(barbarianButton);
             myFrame.remove(furiousButton);
