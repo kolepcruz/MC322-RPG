@@ -67,7 +67,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static String confirmText = "confirm";
 
     private static int sliderX = 75;
-    private static int sliderY = 240;
+    private static int sliderY = 220;
     private static int sliderMin = 0;
     private static int sliderMax = 15;
     private static int sliderMajor = 3;
@@ -224,7 +224,9 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.add(projectName);
 
         /**
-         * *classButtons
+         * *================================
+         * *classButtons and subClassButtons
+         * *================================
          */
         marginX = 50;
         marginY = 50;
@@ -234,111 +236,104 @@ public class GraphicInterface implements ActionListener, ChangeListener
         marginX +=buttonX;
         buttonStyle(rogueButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
-        /**
-         * *subClassButtons
-         */
-        exSpace = 10;
         marginX = 50;
-        marginY = 100 - exSpace;
-        buttonStyle(furiousButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(frostMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(assassinButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        marginY += buttonY;
+        buttonStyle(furiousButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(frostMageButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(assassinButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
         marginX += buttonX;
-        buttonStyle(totemicButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(trapperButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(fireMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(totemicButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(trapperButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(fireMageButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
         marginX += buttonX;
-        buttonStyle(arcaneMageButton, marginX, exSpace + marginY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(arcaneMageButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
-         * *characterPanel
-         */
-        panelStylo(characterPanel, 50, 150, 2 * buttonX, buttonY, characterField);
-        buttonStyle(characterButton, 350, 150, buttonX, buttonY, this, fontLarge);
-
-        /**
-         * *playerPanel
-         */
-        panelStylo(playerPanel, 50, 200, 2 * buttonX, buttonY, playerField);
-        buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, fontLarge);
-
-        /**
-         * *attributesTotal
+         * *=============================
+         * *characterPanel and playerName
+         * *=============================
          */
         marginX = 50;
-        marginY = 250;
+        marginY = 210;
+        panelStylo(characterPanel, marginX, marginY, 2 * buttonX, buttonY, characterField);
+        buttonStyle(characterButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
+
+        marginY += buttonY;
+        panelStylo(playerPanel, marginX, marginY, 2 * buttonX, buttonY, playerField);
+        buttonStyle(playerButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
+
+        /**
+         * *=====================================
+         * *attributesTotal and attributesSliders
+         * *=====================================
+         */
+        marginX = 50;
+        marginY = 300;
         labelStyle(attributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
         labelStyle(totalAttributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
         panelStylo(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
         attributesPanel.add(totalAttributesLabel);
 
-        /**
-         * *=================
-         * *attributesSliders
-         * *=================
-         * TODO: add counter for each attribute
-         */
-        marginX = 50;
-        marginY = 350;
-        exSpace = 10;
-        panelStylo(strengthCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, strengthCountLabel);
-        labelStyle(strengthCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        marginY += 2 * buttonY;
+        panelStylo(strengthCountPanel, marginX, marginY - buttonY, sliderX, buttonY, strengthCountLabel);
+        labelStyle(strengthCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(strengthPanel, marginX, marginY, sliderX, sliderY, strengthSlider);
-        buttonStyle(strengthButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(strengthButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
         strengthSlider.addChangeListener((ChangeListener) this);
 
         marginX += sliderX;
-        panelStylo(dexterityCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, dexterityCountLabel);
-        labelStyle(dexterityCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(dexterityCountPanel, marginX, marginY - buttonY, sliderX, buttonY, dexterityCountLabel);
+        labelStyle(dexterityCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(dexterityPanel, marginX, marginY, sliderX, sliderY, dexteritySlider);
-        buttonStyle(dexterityButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(dexterityButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
         dexteritySlider.addChangeListener((ChangeListener) this);
 
         marginX += sliderX;
-        panelStylo(constitutionCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, constitutionCountLabel);
-        labelStyle(constitutionCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(constitutionCountPanel, marginX, marginY - buttonY, sliderX, buttonY, constitutionCountLabel);
+        labelStyle(constitutionCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(constitutionPanel, marginX, marginY, sliderX, sliderY, constitutionSlider);
-        buttonStyle(constitutionButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(constitutionButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
         constitutionSlider.addChangeListener((ChangeListener) this);
 
         marginX += sliderX;
-        panelStylo(intelligenceCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, intelligenceCountLabel);
-        labelStyle(intelligenceCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(intelligenceCountPanel, marginX, marginY - buttonY, sliderX, buttonY, intelligenceCountLabel);
+        labelStyle(intelligenceCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(intelligencePanel, marginX, marginY, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(intelligenceButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(intelligenceButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
         intelligenceSlider.addChangeListener((ChangeListener) this);
 
         marginX += sliderX;
-        panelStylo(wisdomCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, wisdomCountLabel);
-        labelStyle(wisdomCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(wisdomCountPanel, marginX, marginY - buttonY, sliderX, buttonY, wisdomCountLabel);
+        labelStyle(wisdomCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(wisdomPanel, marginX, marginY, sliderX, sliderY, wisdomSlider);
-        buttonStyle(wisdomButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(wisdomButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
         wisdomSlider.addChangeListener((ChangeListener) this);
 
         marginX += sliderX;
-        panelStylo(charismaCountPanel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, charismaCountLabel);
-        labelStyle(charismaCountLabel, marginX, marginY - buttonY - exSpace, sliderX, buttonY, fontLarge);
+        panelStylo(charismaCountPanel, marginX, marginY - buttonY, sliderX, buttonY, charismaCountLabel);
+        labelStyle(charismaCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
         panelStylo(charismaPanel, marginX, marginY, sliderX, sliderY, charismaSlider);
-        buttonStyle(charismaButton, marginX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        buttonStyle(charismaButton, marginX, marginY + sliderY, sliderX, buttonY, this, textFontSmall);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
         charismaSlider.addChangeListener((ChangeListener) this);
+
 
         /**
          * *===========
          * *mainButtons
          * *===========
          */
-        marginX = 710;
+        marginX = 560;
         marginY = 600;
         buttonStyle(startButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
         marginX += buttonX;
         buttonStyle(restartButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
-        marginY += buttonY;
+        marginX += buttonX;
         buttonStyle(debugButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
