@@ -546,7 +546,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
     }
 
     /**
-     * *open a slider: make it enable, set its value to zero and add to the frame
+     * *open a slider: make it enable, set its value to zero and add to the main frame
      * @param slider
      * @param panel
      * @param button
