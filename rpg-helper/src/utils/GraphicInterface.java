@@ -112,7 +112,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
      * *================================
      */
     private static JPanel classPanel = new JPanel();
-    private static JLabel classLabel = new JLabel("class and subclass");
+    private static JLabel classLabel = new JLabel("choose class");
 
     private static JButton barbarianButton = new JButton(barbarianString); // button to selection barbarian
     private static JButton mageButton = new JButton(mageString);
@@ -132,7 +132,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
      * *============================
      */
     private static JPanel namesPanel = new JPanel();
-    private static JLabel namesLabel = new JLabel("character names");
+    private static JLabel namesLabel = new JLabel("write character name");
     private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(fieldSize);
     private static JButton characterButton = new JButton(confirmText);
@@ -148,7 +148,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
      * *=====================================
      */
     private static JPanel attributesPanel = new JPanel();
-    private static JLabel attributesLabel = new JLabel("attributes total: ");
+    private static JLabel attributesLabel = new JLabel("attributes points left");
+    private static JLabel atualAttributesLabel = new JLabel("set strength: ");
     private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
 
     private static JPanel strengthCountPanel = new JPanel();
@@ -282,10 +283,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
          */
         marginX = 50;
         marginY = 300;
-        labelStyle(attributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
-        labelStyle(totalAttributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
-        panelStyle(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
+        labelStyle(attributesLabel, marginX, marginY, labelX, labelY, fontLarge);
+        labelStyle(atualAttributesLabel, marginX, marginY, labelX, labelY, fontLarge);
+        labelStyle(totalAttributesLabel, marginX, marginY, labelX, buttonY, fontLarge);
+        attributesPanel.add(atualAttributesLabel);
         attributesPanel.add(totalAttributesLabel);
+        panelStyle(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
 
         marginY += 2 * buttonY;
         panelStyle(strengthCountPanel, marginX, marginY - buttonY, sliderX, buttonY, strengthCountLabel);
@@ -447,6 +450,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
     public void closeClassButton(JButton classButton) {
         classButton.setText(classButton.getText().toUpperCase());
 
+        classLabel.setText("choose subClass");
+
         barbarianButton.setEnabled(false);
         mageButton.setEnabled(false);
         rogueButton.setEnabled(false);
@@ -472,6 +477,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *all subClassButtons open the characterButton and characterField
          */
         openButton(characterButton);
+
+        classLabel.setText("class and subClass");
 
         myFrame.add(characterPanel);
         myFrame.add(namesPanel);
@@ -564,6 +571,13 @@ public class GraphicInterface implements ActionListener, ChangeListener
         closeButton(button);
 
         myFrame.repaint();
+    }
+
+    public boolean valideAttribute(int value)
+    {
+        if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
+            return true;
+        return false;
     }
 
     /**
@@ -734,7 +748,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *====================
          * *classButtons actions
          * *====================
-         * TODO: remove hard code variables
          */
         if (e.getSource() == barbarianButton) {
             chosenClass = barbarianClassInt;
@@ -765,7 +778,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *=======================
          * *subClassButtons actions
          * *=======================
-         * TODO: remove hard code variables
          */
         if (e.getSource() == furiousButton) {
             chosenSubClass = furiousClassInt;
@@ -809,6 +821,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
             characterName = characterField.getText().toLowerCase();
             closeField(characterField, characterButton);
             openField(playerField, playerPanel, playerButton);
+
+            namesLabel.setText("write player name");
         }
 
         /**
@@ -818,6 +832,9 @@ public class GraphicInterface implements ActionListener, ChangeListener
             playerName = playerField.getText().toLowerCase();
             closeField(playerField, playerButton);
             openSlider(strengthSlider, strengthPanel, strengthButton);
+
+            namesLabel.setText("character and player");
+
             myFrame.add(attributesPanel);
             myFrame.add(strengthCountPanel);
         }
@@ -829,53 +846,106 @@ public class GraphicInterface implements ActionListener, ChangeListener
          */
         if (e.getSource() == strengthButton) {
             strengthInt = strengthSlider.getValue();
-            totalAttributesLabel
-                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
-            closeSlider(strengthSlider, strengthButton);
-            openSlider(dexteritySlider, dexterityPanel, dexterityButton);
-            myFrame.add(dexterityCountPanel);
+
+            if(valideAttribute(strengthInt))
+            {
+                atualAttributesLabel.setText("set dexterity: ");
+                totalAttributesLabel
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
+                closeSlider(strengthSlider, strengthButton);
+                openSlider(dexteritySlider, dexterityPanel, dexterityButton);
+                myFrame.add(dexterityCountPanel);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == dexterityButton) {
             dexterityInt = dexteritySlider.getValue();
-            totalAttributesLabel
-                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
-            closeSlider(dexteritySlider, dexterityButton);
-            openSlider(constitutionSlider, constitutionPanel, constitutionButton);
-            myFrame.add(constitutionCountPanel);
+
+            if(valideAttribute(dexterityInt)){
+                atualAttributesLabel.setText("set constitution: ");
+                totalAttributesLabel
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
+                closeSlider(dexteritySlider, dexterityButton);
+                openSlider(constitutionSlider, constitutionPanel, constitutionButton);
+                myFrame.add(constitutionCountPanel);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == constitutionButton) {
             constitutionInt = constitutionSlider.getValue();
-            totalAttributesLabel
-                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
-            closeSlider(constitutionSlider, constitutionButton);
-            openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
-            myFrame.add(intelligenceCountPanel);
+
+            if(valideAttribute(constitutionInt))
+            {
+                atualAttributesLabel.setText("set intelligence: ");
+                totalAttributesLabel
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
+                closeSlider(constitutionSlider, constitutionButton);
+                openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
+                myFrame.add(intelligenceCountPanel);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == intelligenceButton) {
             intelligenceInt = intelligenceSlider.getValue();
-            totalAttributesLabel
-                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
-            closeSlider(intelligenceSlider, intelligenceButton);
-            openSlider(wisdomSlider, wisdomPanel, wisdomButton);
-            myFrame.add(wisdomCountPanel);
+
+            if(valideAttribute(intelligenceInt))
+            {
+                atualAttributesLabel.setText("set wisdom: ");
+                totalAttributesLabel
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
+                closeSlider(intelligenceSlider, intelligenceButton);
+                openSlider(wisdomSlider, wisdomPanel, wisdomButton);
+                myFrame.add(wisdomCountPanel);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == wisdomButton) {
             wisdomInt = wisdomSlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
-            closeSlider(wisdomSlider, wisdomButton);
-            openSlider(charismaSlider, charismaPanel, charismaButton);
-            myFrame.add(charismaCountPanel);
+
+            if(valideAttribute(wisdomInt))
+            {
+                atualAttributesLabel.setText("set charisma: ");
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
+                closeSlider(wisdomSlider, wisdomButton);
+                openSlider(charismaSlider, charismaPanel, charismaButton);
+                myFrame.add(charismaCountPanel);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == charismaButton) {
             charismaInt = charismaSlider.getValue();
-            totalAttributesLabel
-                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
-            closeSlider(charismaSlider, charismaButton);
+
+            if(valideAttribute(charismaInt))
+            {
+                atualAttributesLabel.setText("");
+                totalAttributesLabel
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
+                closeSlider(charismaSlider, charismaButton);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(myFrame, "insert a valide value\nbelow "+ totalAttributesLabel.getText());
+            }
         }
     }
 
