@@ -1,15 +1,15 @@
 package utils;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import java.awt.*;
 import java.awt.event.*;
 
-
-public class GraphicInterface implements ActionListener
-{
-    private static int buttonX = 150; //size x of class buttons
-    private static int buttonY = 40; //size y of class buttons
+public class GraphicInterface implements ActionListener, ChangeListener {
+    private static int buttonX = 150; // size x of class buttons
+    private static int buttonY = 40; // size y of class buttons
     private static int textFontSmall = 10;
     private static int textFontLarge = 20;
 
@@ -38,10 +38,9 @@ public class GraphicInterface implements ActionListener
     int marginY = 0;
     int exSpace = 0;
 
-
     private static JButton debugButton = new JButton("debug"); // debug routine button
     private static JButton startButton = new JButton("start"); // starts routine button
-    private static JButton restartButton  = new JButton("restart"); // restarts routine button
+    private static JButton restartButton = new JButton("restart"); // restarts routine button
 
     JFrame myFrame = new JFrame("RPG Helper"); // frame name
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
@@ -52,12 +51,12 @@ public class GraphicInterface implements ActionListener
     private static JLabel projectPicture = new JLabel("");
     private static Image mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
 
-    private static JButton barbarianButton = new JButton("barbarian"); //button to selection barbarian
+    private static JButton barbarianButton = new JButton("barbarian"); // button to selection barbarian
     private static JButton mageButton = new JButton("mage");
     private static JButton rogueButton = new JButton("rogue");
-    
-    private static JButton furiousButton = new JButton("furious"); //button to selection mage
-    private static JButton totemicButton = new JButton("totemic"); //button to selection rogue
+
+    private static JButton furiousButton = new JButton("furious"); // button to selection mage
+    private static JButton totemicButton = new JButton("totemic"); // button to selection rogue
     private static JButton frostMageButton = new JButton("frost mage");
     private static JButton fireMageButton = new JButton("fire mage");
     private static JButton arcaneMageButton = new JButton("arcane mage");
@@ -67,11 +66,13 @@ public class GraphicInterface implements ActionListener
     private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(25);
     private static JButton characterButton = new JButton("confirm");
-    
+
     private static JPanel playerPanel = new JPanel();
     private static JTextField playerField = new JTextField(25);
     private static JButton playerButton = new JButton("confirm");
 
+    private static JPanel strengthCountPanel = new JPanel();
+    private static JLabel strengthCountLabel = new JLabel(String.valueOf(strengthInt));
     private static JPanel strengthPanel = new JPanel();
     private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton strengthButton = new JButton("confirm");
@@ -100,13 +101,13 @@ public class GraphicInterface implements ActionListener
     private static JLabel attributesLabel = new JLabel("attributes total: ");
     private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
 
-    GraphicInterface()
-    {
+    GraphicInterface() {
         myFrame.setSize(1080, 720); // size of frame
         myFrame.setLayout(null); // no layout
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
 
-        myFrame.setLocation((dim.width - myFrame.getWidth())/2, (dim.height - myFrame.getHeight())/2); // center window
+        myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
+                                                                                                           // window
 
         myContainer.setLayout(null); // set layout
         myContainer.setBackground(new Color(96, 85, 91)); // set color
@@ -129,64 +130,81 @@ public class GraphicInterface implements ActionListener
 
         marginX = 50;
         marginY = 50;
-        buttonStyle(barbarianButton, marginX + 0*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(mageButton, marginX + 1*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(rogueButton, marginX + 2*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(barbarianButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(mageButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(rogueButton, marginX + 2 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
 
         exSpace = 10;
-        buttonStyle(furiousButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(frostMageButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(assassinButton, marginX + 0*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(totemicButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(trapperButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(fireMageButton, marginX + 1*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(arcaneMageButton, marginX + 2*buttonX, exSpace + marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(furiousButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(frostMageButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(assassinButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(totemicButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(trapperButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(fireMageButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
+        buttonStyle(arcaneMageButton, marginX + 2 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
+                textFontLarge);
 
-        panelStylo(characterPanel, 50, 150, 2*buttonX, buttonY, characterField);
+        panelStylo(characterPanel, 50, 150, 2 * buttonX, buttonY, characterField);
         buttonStyle(characterButton, 350, 150, buttonX, buttonY, this, textFontLarge);
 
-        panelStylo(playerPanel, 50, 200, 2*buttonX, buttonY, playerField);
+        panelStylo(playerPanel, 50, 200, 2 * buttonX, buttonY, playerField);
         buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, textFontLarge);
 
         marginX = 50;
         marginY = 350;
         exSpace = 10;
-        panelStylo(strengthPanel, marginX + 0*sliderX, marginY, sliderX, sliderY, strengthSlider);
-        buttonStyle(strengthButton, marginX + 0*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(strengthCountPanel, marginX, 300, sliderX, buttonY, strengthCountLabel);
+        labelStyle(strengthCountLabel, marginX, 300, sliderX, buttonY, textFontLarge);
+        panelStylo(strengthPanel, marginX + 0 * sliderX, marginY, sliderX, sliderY, strengthSlider);
+        buttonStyle(strengthButton, marginX + 0 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
+        strengthSlider.addChangeListener((ChangeListener) this);
 
-        panelStylo(dexterityPanel, marginX + 1*sliderX, marginY, sliderX, sliderY, dexteritySlider);
-        buttonStyle(dexterityButton, marginX + 1*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(dexterityPanel, marginX + 1 * sliderX, marginY, sliderX, sliderY, dexteritySlider);
+        buttonStyle(dexterityButton, marginX + 1 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(constitutionPanel, marginX + 2*sliderX, marginY, sliderX, sliderY, constitutionSlider);
-        buttonStyle(constitutionButton, marginX + 2*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(constitutionPanel, marginX + 2 * sliderX, marginY, sliderX, sliderY, constitutionSlider);
+        buttonStyle(constitutionButton, marginX + 2 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(intelligencePanel, marginX + 3*sliderX, marginY, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(intelligenceButton, marginX + 3*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(intelligencePanel, marginX + 3 * sliderX, marginY, sliderX, sliderY, intelligenceSlider);
+        buttonStyle(intelligenceButton, marginX + 3 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(wisdomPanel, marginX + 4*sliderX, marginY, sliderX, sliderY, wisdomSlider);
-        buttonStyle(wisdomButton, marginX + 4*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(wisdomPanel, marginX + 4 * sliderX, marginY, sliderX, sliderY, wisdomSlider);
+        buttonStyle(wisdomButton, marginX + 4 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
 
-        panelStylo(charismaPanel, marginX + 5*sliderX, marginY, sliderX, sliderY, charismaSlider);
-        buttonStyle(charismaButton, marginX + 5*sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this, textFontSmall);
+        panelStylo(charismaPanel, marginX + 5 * sliderX, marginY, sliderX, sliderY, charismaSlider);
+        buttonStyle(charismaButton, marginX + 5 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
+                textFontSmall);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
 
         marginX = 50;
         marginY = 250;
-        labelStyle(attributesLabel, marginX, marginY, 3*buttonX, buttonY, textFontLarge);
-        labelStyle(totalAttributesLabel, marginX, marginY, 3*buttonX, buttonY, textFontLarge);
-        panelStylo(attributesPanel, marginX, marginY, 3*buttonX, buttonY, attributesLabel);
+        labelStyle(attributesLabel, marginX, marginY, 3 * buttonX, buttonY, textFontLarge);
+        labelStyle(totalAttributesLabel, marginX, marginY, 3 * buttonX, buttonY, textFontLarge);
+        panelStylo(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
         attributesPanel.add(totalAttributesLabel);
 
         marginX = 710;
         marginY = 600;
-        buttonStyle(startButton, marginX + 0*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(restartButton, marginX + 1*buttonX, marginY + 0*buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(debugButton, marginX + 1*buttonX, marginY + 1*buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(startButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(restartButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(debugButton, marginX + 1 * buttonX, marginY + 1 * buttonY, buttonX, buttonY, this, textFontLarge);
 
         restartButton.setEnabled(false);
 
@@ -194,36 +212,33 @@ public class GraphicInterface implements ActionListener
         myFrame.getContentPane().add(restartButton);
         myFrame.getContentPane().add(debugButton);
 
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //close operation
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close operation
         myFrame.dispose();
-        myFrame.setVisible(true); //make visible
+        myFrame.setVisible(true); // make visible
     }
 
-    public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize)
-    {
+    public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize) {
         label.setFont(new Font("Impact", Font.BOLD, fontSize));
         label.setForeground(Color.BLACK);
         label.setBounds(positionX, positionY, sizeX, sizeY);
     }
 
-    public void buttonStyle(JButton button, int positionX, int positionY, int sizeX, int sizeY, ActionListener source, int fontSize)
-    {
+    public void buttonStyle(JButton button, int positionX, int positionY, int sizeX, int sizeY, ActionListener source,
+            int fontSize) {
         button.setFont(new Font("Impact", Font.BOLD, fontSize));
         button.setForeground(Color.BLACK);
         button.setBounds(positionX, positionY, sizeX, sizeY);
         button.addActionListener(source);
     }
 
-    public void panelStylo(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component)
-    {
+    public void panelStylo(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component) {
         panel.setBounds(positionX, positionY, sizeX, sizeY); // position and size
         panel.setLayout(new FlowLayout());
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
         panel.add(component);
     }
 
-    public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize)
-    {
+    public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize) {
         slider.setMinorTickSpacing(sliderMinor);
         slider.setMajorTickSpacing(sliderMajor);
         slider.setPaintLabels(true);
@@ -231,8 +246,7 @@ public class GraphicInterface implements ActionListener
         slider.setFont(new Font("Impact", Font.PLAIN, fontSize));
     }
 
-    public void closeClassButton(JButton button)
-    {
+    public void closeClassButton(JButton button) {
         button.setText(button.getText().toUpperCase());
 
         barbarianButton.setEnabled(false);
@@ -242,8 +256,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void closeSubClassButton(JButton subClass0, JButton subClass1, JButton subClass2)
-    {
+    public void closeSubClassButton(JButton subClass0, JButton subClass1, JButton subClass2) {
         subClass0.setText(subClass0.getText().toUpperCase());
 
         subClass0.setEnabled(false);
@@ -260,8 +273,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void openButton(JButton button)
-    {
+    public void openButton(JButton button) {
         myFrame.add(button);
         button.setEnabled(true);
         button.setText(button.getText().toLowerCase());
@@ -269,8 +281,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void openField(JTextField field, JPanel panel, JButton button)
-    {
+    public void openField(JTextField field, JPanel panel, JButton button) {
         openButton(button);
         myFrame.add(panel);
         field.setEditable(true);
@@ -279,8 +290,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void closeField(JTextField field, JButton button)
-    {
+    public void closeField(JTextField field, JButton button) {
         field.setEditable(false);
         button.setEnabled(false);
         button.setText(button.getText().toUpperCase());
@@ -288,8 +298,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void openSlider(JSlider slider, JPanel panel, JButton button)
-    {
+    public void openSlider(JSlider slider, JPanel panel, JButton button) {
         openButton(button);
         myFrame.add(panel);
         slider.setEnabled(true);
@@ -298,8 +307,7 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
-    public void closeSlider(JSlider slider, JButton button)
-    {
+    public void closeSlider(JSlider slider, JButton button) {
         slider.setEnabled(false);
         button.setEnabled(false);
         button.setText(button.getText().toUpperCase());
@@ -307,27 +315,32 @@ public class GraphicInterface implements ActionListener
         myFrame.repaint();
     }
 
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        if (e.getSource() == strengthSlider) {
+            strengthCountLabel.setText(String.valueOf(strengthSlider.getValue()));
+            System.out.println(strengthSlider.getValue());
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == debugButton)
-        {
+        if (e.getSource() == debugButton) {
             System.out.println("\n===============debug===============");
-            System.out.println("chosenClass: "+chosenClass);
-            System.out.println("chosenSubClass: "+chosenSubClass);
-            System.out.println("characterName: "+characterName);
-            System.out.println("playerName: "+playerName+"\n");
-            System.out.println("attributesInt: "+totalAttributesInt);
-            System.out.println("strengthInt: "+strengthInt);
-            System.out.println("dexterityInt: "+dexterityInt);
-            System.out.println("constitutionInt: "+constitutionInt);
-            System.out.println("intelligenceInt: "+intelligenceInt);
-            System.out.println("wisdomInt: "+wisdomInt);
-            System.out.println("charismaInt: "+charismaInt);
+            System.out.println("chosenClass: " + chosenClass);
+            System.out.println("chosenSubClass: " + chosenSubClass);
+            System.out.println("characterName: " + characterName);
+            System.out.println("playerName: " + playerName + "\n");
+            System.out.println("attributesInt: " + totalAttributesInt);
+            System.out.println("strengthInt: " + strengthInt);
+            System.out.println("dexterityInt: " + dexterityInt);
+            System.out.println("constitutionInt: " + constitutionInt);
+            System.out.println("intelligenceInt: " + intelligenceInt);
+            System.out.println("wisdomInt: " + wisdomInt);
+            System.out.println("charismaInt: " + charismaInt);
         }
 
-        if(e.getSource() == restartButton)
-        {
+        if (e.getSource() == restartButton) {
             startButton.setText("start");
             startButton.setEnabled(true);
             restartButton.setEnabled(false);
@@ -399,8 +412,7 @@ public class GraphicInterface implements ActionListener
             // System.exit(0);
         }
 
-        if(e.getSource() == startButton)
-        {
+        if (e.getSource() == startButton) {
             startButton.setText("build");
             startButton.setEnabled(false);
 
@@ -417,8 +429,7 @@ public class GraphicInterface implements ActionListener
             myFrame.repaint();
         }
 
-        if(e.getSource() == barbarianButton)
-        {
+        if (e.getSource() == barbarianButton) {
             chosenClass = 1;
             closeClassButton(barbarianButton);
 
@@ -426,8 +437,7 @@ public class GraphicInterface implements ActionListener
             openButton(totemicButton);
         }
 
-        if(e.getSource() == mageButton)
-        {
+        if (e.getSource() == mageButton) {
             chosenClass = 2;
             closeClassButton(mageButton);
 
@@ -436,8 +446,7 @@ public class GraphicInterface implements ActionListener
             openButton(arcaneMageButton);
         }
 
-        if(e.getSource() == rogueButton)
-        {
+        if (e.getSource() == rogueButton) {
             chosenClass = 3;
             closeClassButton(rogueButton);
 
@@ -445,107 +454,98 @@ public class GraphicInterface implements ActionListener
             openButton(trapperButton);
         }
 
-        if(e.getSource() == furiousButton)
-        {
+        if (e.getSource() == furiousButton) {
             chosenSubClass = 1;
             closeSubClassButton(furiousButton, furiousButton, totemicButton);
         }
 
-        if(e.getSource() == totemicButton)
-        {
+        if (e.getSource() == totemicButton) {
             chosenSubClass = 2;
             closeSubClassButton(totemicButton, furiousButton, totemicButton);
         }
 
-        if(e.getSource() == frostMageButton)
-        {
+        if (e.getSource() == frostMageButton) {
             chosenSubClass = 1;
             closeSubClassButton(frostMageButton, fireMageButton, arcaneMageButton);
         }
 
-        if(e.getSource() == fireMageButton)
-        {
+        if (e.getSource() == fireMageButton) {
             chosenSubClass = 2;
             closeSubClassButton(fireMageButton, frostMageButton, arcaneMageButton);
         }
 
-        if(e.getSource() == arcaneMageButton)
-        {
+        if (e.getSource() == arcaneMageButton) {
             chosenSubClass = 3;
             closeSubClassButton(arcaneMageButton, frostMageButton, fireMageButton);
         }
 
-        if(e.getSource() == assassinButton)
-        {
+        if (e.getSource() == assassinButton) {
             chosenSubClass = 1;
             closeSubClassButton(assassinButton, trapperButton, assassinButton);
         }
 
-        if(e.getSource() == trapperButton)
-        {
+        if (e.getSource() == trapperButton) {
             chosenSubClass = 2;
             closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
-        if(e.getSource() == characterButton)
-        {
+        if (e.getSource() == characterButton) {
             characterName = characterField.getText().toLowerCase();
             closeField(characterField, characterButton);
             openField(playerField, playerPanel, playerButton);
         }
 
-        if(e.getSource() == playerButton)
-        {
+        if (e.getSource() == playerButton) {
             playerName = playerField.getText().toLowerCase();
-            myFrame.add(attributesPanel);
             closeField(playerField, playerButton);
+            myFrame.add(attributesPanel);
+            myFrame.add(strengthCountPanel);
             openSlider(strengthSlider, strengthPanel, strengthButton);
         }
 
-        if(e.getSource() == strengthButton)
-        {
+        if (e.getSource() == strengthButton) {
             strengthInt = strengthSlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
+            totalAttributesLabel
+                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
             closeSlider(strengthSlider, strengthButton);
             openSlider(dexteritySlider, dexterityPanel, dexterityButton);
         }
 
-        if(e.getSource() == dexterityButton)
-        {
+        if (e.getSource() == dexterityButton) {
             dexterityInt = dexteritySlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
+            totalAttributesLabel
+                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
             closeSlider(dexteritySlider, dexterityButton);
             openSlider(constitutionSlider, constitutionPanel, constitutionButton);
         }
 
-        if(e.getSource() == constitutionButton)
-        {
+        if (e.getSource() == constitutionButton) {
             constitutionInt = constitutionSlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
+            totalAttributesLabel
+                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
             closeSlider(constitutionSlider, constitutionButton);
             openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
         }
 
-        if(e.getSource() == intelligenceButton)
-        {
+        if (e.getSource() == intelligenceButton) {
             intelligenceInt = intelligenceSlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
+            totalAttributesLabel
+                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
             closeSlider(intelligenceSlider, intelligenceButton);
             openSlider(wisdomSlider, wisdomPanel, wisdomButton);
         }
 
-        if(e.getSource() == wisdomButton)
-        {
+        if (e.getSource() == wisdomButton) {
             wisdomInt = wisdomSlider.getValue();
             totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
             closeSlider(wisdomSlider, wisdomButton);
             openSlider(charismaSlider, charismaPanel, charismaButton);
         }
 
-        if(e.getSource() == charismaButton)
-        {
+        if (e.getSource() == charismaButton) {
             charismaInt = charismaSlider.getValue();
-            totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
+            totalAttributesLabel
+                    .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
             closeSlider(charismaSlider, charismaButton);
         }
     }
