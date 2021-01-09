@@ -7,22 +7,14 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GraphicInterface implements ActionListener, ChangeListener {
-    private static int buttonX = 150; // size x of class buttons
-    private static int buttonY = 40; // size y of class buttons
-    private static int textFontSmall = 10;
-    private static int textFontLarge = 20;
-
-    private static int sliderX = 75;
-    private static int sliderY = 240;
-    private static int sliderMin = 0;
-    private static int sliderMax = 15;
-    private static int sliderMajor = 3;
-    private static int sliderMinor = 1;
-    private static int sliderText = 15;
-
+public class GraphicInterface implements ActionListener, ChangeListener
+{
+    /**
+     * *start variables
+     */
     private static int chosenClass = 0;
     private static int chosenSubClass = 0;
+
     private static String playerName = "default";
     private static String characterName = "default";
 
@@ -34,18 +26,35 @@ public class GraphicInterface implements ActionListener, ChangeListener {
     private static int wisdomInt = 0;
     private static int charismaInt = 0;
 
-    int marginX = 0;
-    int marginY = 0;
-    int exSpace = 0;
+    /**
+     * *interface stylo
+     */
+    private static int textFontSmall = 10;
+    private static int textFontLarge = 20;
+
+    private static int buttonX = 150; // size x of class buttons
+    private static int buttonY = 40; // size y of class buttons
+
+    private static int sliderX = 75;
+    private static int sliderY = 240;
+    private static int sliderMin = 0;
+    private static int sliderMax = 15;
+    private static int sliderMajor = 3;
+    private static int sliderMinor = 1;
+    private static int sliderText = 15;
+
+    private static int marginX = 0;
+    private static int marginY = 0;
+    private static int exSpace = 0;
 
     private static JButton debugButton = new JButton("debug"); // debug routine button
     private static JButton startButton = new JButton("start"); // starts routine button
     private static JButton restartButton = new JButton("restart"); // restarts routine button
 
-    JFrame myFrame = new JFrame("RPG Helper"); // frame name
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-    Container myContainer = myFrame.getContentPane(); // get container
-    JPanel myPanel = new JPanel();
+    private static JFrame myFrame = new JFrame("RPG Helper"); // frame name
+    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
+    private static Container myContainer = myFrame.getContentPane(); // get container
+    private static JPanel myPanel = new JPanel();
 
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
@@ -101,7 +110,8 @@ public class GraphicInterface implements ActionListener, ChangeListener {
     private static JLabel attributesLabel = new JLabel("attributes total: ");
     private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
 
-    GraphicInterface() {
+    GraphicInterface() 
+    {
         myFrame.setSize(1080, 720); // size of frame
         myFrame.setLayout(null); // no layout
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
