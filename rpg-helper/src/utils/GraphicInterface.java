@@ -10,7 +10,9 @@ import java.awt.event.*;
 public class GraphicInterface implements ActionListener, ChangeListener
 {
     /**
+     * *===============
      * *start variables
+     * *===============
      */
     private static int chosenClass = 0;
     private static int chosenSubClass = 0;
@@ -27,13 +29,16 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static int charismaInt = 0;
 
     /**
+     * *===============
      * *interface stylo
+     * *===============
      */
     private static int textFontSmall = 10;
-    private static int textFontLarge = 20;
+    private static int fontLarge = 20;
 
     private static int buttonX = 150; // size x of class buttons
     private static int buttonY = 40; // size y of class buttons
+    private static String confirmText = "confirm";
 
     private static int sliderX = 75;
     private static int sliderY = 240;
@@ -47,23 +52,42 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static int marginY = 0;
     private static int exSpace = 0;
 
+    /**
+     * *start frame
+     */
+    private static JFrame myFrame = new JFrame("RPG Helper"); // frame name
+    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
+    private static Container myContainer = myFrame.getContentPane(); // get container
+    private static JPanel picturePanel = new JPanel();
+
+    /**
+     * *primary buttons
+     * !debug button is for developers only
+     * TODO: setEnabled of debugButton to false before deploying
+     */
     private static JButton debugButton = new JButton("debug"); // debug routine button
     private static JButton startButton = new JButton("start"); // starts routine button
     private static JButton restartButton = new JButton("restart"); // restarts routine button
 
-    private static JFrame myFrame = new JFrame("RPG Helper"); // frame name
-    private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-    private static Container myContainer = myFrame.getContentPane(); // get container
-    private static JPanel myPanel = new JPanel();
-
+    /**
+     * *primary page
+     * TODO: add main photo
+     */
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
     private static Image mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
 
+    /**
+     * *classButtons
+     * ?declare global variables for their names?
+     */
     private static JButton barbarianButton = new JButton("barbarian"); // button to selection barbarian
     private static JButton mageButton = new JButton("mage");
     private static JButton rogueButton = new JButton("rogue");
 
+    /**
+     * *subClassButton
+     */
     private static JButton furiousButton = new JButton("furious"); // button to selection mage
     private static JButton totemicButton = new JButton("totemic"); // button to selection rogue
     private static JButton frostMageButton = new JButton("frost mage");
@@ -72,106 +96,160 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JButton assassinButton = new JButton("assassin");
     private static JButton trapperButton = new JButton("trapper");
 
+    /**
+     * *characterName
+     */
     private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(25);
-    private static JButton characterButton = new JButton("confirm");
+    private static JButton characterButton = new JButton(confirmText);
 
+    /**
+     * *playerName
+     */
     private static JPanel playerPanel = new JPanel();
     private static JTextField playerField = new JTextField(25);
-    private static JButton playerButton = new JButton("confirm");
+    private static JButton playerButton = new JButton(confirmText);
 
+    /**
+     * *attributesTotal
+     */
+    private static JPanel attributesPanel = new JPanel();
+    private static JLabel attributesLabel = new JLabel("attributes total: ");
+    private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
+    
+    /**
+     * *=================
+     * *attributesSliders
+     * *=================
+     */
     private static JPanel strengthCountPanel = new JPanel();
     private static JLabel strengthCountLabel = new JLabel(String.valueOf(strengthInt));
     private static JPanel strengthPanel = new JPanel();
     private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton strengthButton = new JButton("confirm");
+    private static JButton strengthButton = new JButton(confirmText);
 
     private static JPanel dexterityPanel = new JPanel();
     private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton dexterityButton = new JButton("confirm");
+    private static JButton dexterityButton = new JButton(confirmText);
 
     private static JPanel constitutionPanel = new JPanel();
     private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton constitutionButton = new JButton("confirm");
+    private static JButton constitutionButton = new JButton(confirmText);
 
     private static JPanel intelligencePanel = new JPanel();
     private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton intelligenceButton = new JButton("confirm");
+    private static JButton intelligenceButton = new JButton(confirmText);
 
     private static JPanel wisdomPanel = new JPanel();
     private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton wisdomButton = new JButton("confirm");
+    private static JButton wisdomButton = new JButton(confirmText);
 
     private static JPanel charismaPanel = new JPanel();
     private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
-    private static JButton charismaButton = new JButton("confirm");
-
-    private static JPanel attributesPanel = new JPanel();
-    private static JLabel attributesLabel = new JLabel("attributes total: ");
-    private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
+    private static JButton charismaButton = new JButton(confirmText);
 
     GraphicInterface() 
     {
+        /**
+         * *create myFrame
+         */
         myFrame.setSize(1080, 720); // size of frame
         myFrame.setLayout(null); // no layout
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
-
         myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
-                                                                                                           // window
 
+        /**
+         * *create myContainer
+         */
         myContainer.setLayout(null); // set layout
         myContainer.setBackground(new Color(96, 85, 91)); // set color
 
-        myPanel.setBounds(50, 50, 960, 479); // position and size
-        myPanel.setLayout(null);
-        myContainer.add(myPanel);
+        /**
+         * *create picturePanel
+         */
+        picturePanel.setBounds(50, 50, 960, 479); // position and size
+        picturePanel.setLayout(null);
+        myContainer.add(picturePanel);
 
+        /**
+         * *create projectImage
+         */
         mainImage = mainImage.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
-
         projectPicture.setIcon(new ImageIcon(mainImage)); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
         projectPicture.setBounds(0, 0, 960, 479); // width height
-        myPanel.add(projectPicture);
+        picturePanel.add(projectPicture);
 
+        /**
+         * *create projectName
+         */
         projectName.setFont(new Font("Impact", Font.BOLD, 60));
         projectName.setForeground(Color.BLACK);
         projectName.setBounds(50, 575, 500, 50);
         myFrame.add(projectName);
 
+        /**
+         * *classButtons
+         */
         marginX = 50;
         marginY = 50;
         buttonStyle(barbarianButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
-        buttonStyle(mageButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(rogueButton, marginX + 2 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
+                fontLarge);
+        buttonStyle(mageButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(rogueButton, marginX + 2 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
 
+        /**
+         * *subClassButtons
+         */
         exSpace = 10;
         buttonStyle(furiousButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(frostMageButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(assassinButton, marginX + 0 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(totemicButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(trapperButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(fireMageButton, marginX + 1 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
         buttonStyle(arcaneMageButton, marginX + 2 * buttonX, exSpace + marginY + 1 * buttonY, buttonX, buttonY, this,
-                textFontLarge);
+                fontLarge);
 
+        /**
+         * *characterPanel
+         */
         panelStylo(characterPanel, 50, 150, 2 * buttonX, buttonY, characterField);
-        buttonStyle(characterButton, 350, 150, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(characterButton, 350, 150, buttonX, buttonY, this, fontLarge);
 
+        /**
+         * *playerPanel
+         */
         panelStylo(playerPanel, 50, 200, 2 * buttonX, buttonY, playerField);
-        buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(playerButton, 350, 200, buttonX, buttonY, this, fontLarge);
 
+        /**
+         * *attributesTotal
+         */
+        marginX = 50;
+        marginY = 250;
+        labelStyle(attributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
+        labelStyle(totalAttributesLabel, marginX, marginY, 3 * buttonX, buttonY, fontLarge);
+        panelStylo(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
+        attributesPanel.add(totalAttributesLabel);
+
+        /**
+         * *=================
+         * *attributesSliders
+         * *=================
+         * TODO: add counter for each attribute
+         */
         marginX = 50;
         marginY = 350;
         exSpace = 10;
         panelStylo(strengthCountPanel, marginX, 300, sliderX, buttonY, strengthCountLabel);
-        labelStyle(strengthCountLabel, marginX, 300, sliderX, buttonY, textFontLarge);
+        labelStyle(strengthCountLabel, marginX, 300, sliderX, buttonY, fontLarge);
         panelStylo(strengthPanel, marginX + 0 * sliderX, marginY, sliderX, sliderY, strengthSlider);
         buttonStyle(strengthButton, marginX + 0 * sliderX, exSpace + marginY + sliderY, sliderX, buttonY, this,
                 textFontSmall);
@@ -203,36 +281,85 @@ public class GraphicInterface implements ActionListener, ChangeListener
                 textFontSmall);
         sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
 
-        marginX = 50;
-        marginY = 250;
-        labelStyle(attributesLabel, marginX, marginY, 3 * buttonX, buttonY, textFontLarge);
-        labelStyle(totalAttributesLabel, marginX, marginY, 3 * buttonX, buttonY, textFontLarge);
-        panelStylo(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
-        attributesPanel.add(totalAttributesLabel);
-
+        /**
+         * *===========
+         * *mainButtons
+         * *===========
+         */
         marginX = 710;
         marginY = 600;
-        buttonStyle(startButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(restartButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, textFontLarge);
-        buttonStyle(debugButton, marginX + 1 * buttonX, marginY + 1 * buttonY, buttonX, buttonY, this, textFontLarge);
+        buttonStyle(startButton, marginX + 0 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(restartButton, marginX + 1 * buttonX, marginY + 0 * buttonY, buttonX, buttonY, this, fontLarge);
+        buttonStyle(debugButton, marginX + 1 * buttonX, marginY + 1 * buttonY, buttonX, buttonY, this, fontLarge);
 
+        /**
+         * *starting and adding mainButtons
+         */
         restartButton.setEnabled(false);
-
         myFrame.getContentPane().add(startButton);
         myFrame.getContentPane().add(restartButton);
         myFrame.getContentPane().add(debugButton);
 
+        /**
+         * *finish myFrame
+         */
         myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close operation
         myFrame.dispose();
         myFrame.setVisible(true); // make visible
     }
 
+    /**
+     * *=================
+     * *passiveComponents
+     * *=================
+     */
+    /**
+     * *generic pattern for labels
+     * @param label 
+     * @param positionX
+     * @param positionY
+     * @param sizeX
+     * @param sizeY
+     * @param fontSize
+     */
     public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize) {
         label.setFont(new Font("Impact", Font.BOLD, fontSize));
         label.setForeground(Color.BLACK);
         label.setBounds(positionX, positionY, sizeX, sizeY);
     }
 
+    /**
+     * *generic pattern for panels anding a component
+     * ?remove add component?
+     * @param panel
+     * @param positionX
+     * @param positionY
+     * @param sizeX
+     * @param sizeY
+     * @param component
+     */
+    public void panelStylo(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component) {
+        panel.setBounds(positionX, positionY, sizeX, sizeY); // position and size
+        panel.setLayout(new FlowLayout());
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        panel.add(component);
+    }
+
+    /**
+     * *================
+     * *activeComponents
+     * *================
+     */
+    /**
+     * *generic pattern for buttons adding an ActionListener
+     * @param button
+     * @param positionX
+     * @param positionY
+     * @param sizeX
+     * @param sizeY
+     * @param source
+     * @param fontSize
+     */    
     public void buttonStyle(JButton button, int positionX, int positionY, int sizeX, int sizeY, ActionListener source,
             int fontSize) {
         button.setFont(new Font("Impact", Font.BOLD, fontSize));
@@ -241,13 +368,13 @@ public class GraphicInterface implements ActionListener, ChangeListener
         button.addActionListener(source);
     }
 
-    public void panelStylo(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component) {
-        panel.setBounds(positionX, positionY, sizeX, sizeY); // position and size
-        panel.setLayout(new FlowLayout());
-        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        panel.add(component);
-    }
-
+    /**
+     * *generic pattern for sliders
+     * @param slider
+     * @param sliderMinor
+     * @param sliderMajor
+     * @param fontSize
+     */
     public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize) {
         slider.setMinorTickSpacing(sliderMinor);
         slider.setMajorTickSpacing(sliderMajor);
@@ -256,8 +383,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
         slider.setFont(new Font("Impact", Font.PLAIN, fontSize));
     }
 
-    public void closeClassButton(JButton button) {
-        button.setText(button.getText().toUpperCase());
+    /**
+     * *closes a classButton: desired button text is upper and the other classes are disabled
+     * @param classButton
+     */
+    public void closeClassButton(JButton classButton) {
+        classButton.setText(classButton.getText().toUpperCase());
 
         barbarianButton.setEnabled(false);
         mageButton.setEnabled(false);
@@ -266,13 +397,23 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
-    public void closeSubClassButton(JButton subClass0, JButton subClass1, JButton subClass2) {
-        subClass0.setText(subClass0.getText().toUpperCase());
+    /**
+     * *closes the subClassesButtons: desired button text is upper and the other classes are disabled
+     * !when class has les than three subClass, repeat one subClass as parameter
+     * @param subClassButton
+     * @param subClass1
+     * @param subClass2
+     */
+    public void closeSubClassButton(JButton subClassButton, JButton subClass1, JButton subClass2) {
+        subClassButton.setText(subClassButton.getText().toUpperCase());
 
-        subClass0.setEnabled(false);
+        subClassButton.setEnabled(false);
         subClass1.setEnabled(false);
         subClass2.setEnabled(false);
 
+        /**
+         * *all subClassButtons open the characterButton and characterField
+         */
         openButton(characterButton);
 
         myFrame.add(characterPanel);
@@ -283,6 +424,10 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
+    /**
+     * *starts a button: make it enabled and lower its text
+     * @param button
+     */
     public void openButton(JButton button) {
         myFrame.add(button);
         button.setEnabled(true);
@@ -291,6 +436,26 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
+    /**
+     * buttons are used for confirmation. when it is pressed it is disabled
+     * *close a button: make it disable and upper its text
+     * @param button
+     */
+    public void closeButton(JButton button)
+    {
+        button.setEnabled(false);
+        button.setText(button.getText().toUpperCase());
+    }
+
+    /**
+     * text fields are associated with confirmation buttons. when the button and the text
+     * field need to be showed in the screen both will be opened
+     * *starts a field: make it editable and remove its text
+     * *starts a button: make it enable
+     * @param field
+     * @param panel
+     * @param button
+     */
     public void openField(JTextField field, JPanel panel, JButton button) {
         openButton(button);
         myFrame.add(panel);
@@ -300,14 +465,28 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
+    /**
+     * text fields are associated with confirmation buttons. when the button is pressed
+     * this method is called, then the field and the buttom will be closed
+     * *close a field: make it noneditable
+     * *close a button: make it disable and its text upper
+     * @param field
+     * @param button
+     */
     public void closeField(JTextField field, JButton button) {
         field.setEditable(false);
-        button.setEnabled(false);
-        button.setText(button.getText().toUpperCase());
+        closeButton(button);
 
         myFrame.repaint();
     }
 
+    /**
+     * *open a slider: make it enable, set its value to zero and add to the frame
+     * ?remove panel? add directly to the frame
+     * @param slider
+     * @param panel
+     * @param button
+     */
     public void openSlider(JSlider slider, JPanel panel, JButton button) {
         openButton(button);
         myFrame.add(panel);
@@ -317,24 +496,39 @@ public class GraphicInterface implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
+    /**
+     * *close a slider: mate it disable and close button
+     * @param slider
+     * @param button
+     */
     public void closeSlider(JSlider slider, JButton button) {
         slider.setEnabled(false);
-        button.setEnabled(false);
-        button.setText(button.getText().toUpperCase());
+        closeButton(button);
 
         myFrame.repaint();
     }
 
+    /**
+     * *receve changes in the frame
+     * @param e
+     */
     @Override
     public void stateChanged(ChangeEvent e) {
         if (e.getSource() == strengthSlider) {
             strengthCountLabel.setText(String.valueOf(strengthSlider.getValue()));
-            System.out.println(strengthSlider.getValue());
         }
     }
 
+    /**
+     * *receve actions in the frame
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
+        /**
+         * *shows all program variables to see if it is working
+         * !all new variables must be add here
+         */
         if (e.getSource() == debugButton) {
             System.out.println("\n===============debug===============");
             System.out.println("chosenClass: " + chosenClass);
@@ -350,6 +544,10 @@ public class GraphicInterface implements ActionListener, ChangeListener
             System.out.println("charismaInt: " + charismaInt);
         }
 
+        /**
+         * *restart all the variables and the frame
+         * !all variables and components must be add here
+         */
         if (e.getSource() == restartButton) {
             startButton.setText("start");
             startButton.setEnabled(true);
@@ -416,12 +614,16 @@ public class GraphicInterface implements ActionListener, ChangeListener
             myFrame.remove(charismaSlider);
             myFrame.remove(charismaButton);
 
-            myFrame.add(myPanel);
+            myFrame.add(picturePanel);
             myFrame.add(projectName);
             myFrame.repaint();
             // System.exit(0);
         }
 
+        /**
+         * *starts the operation
+         * !all operations are sequaciously, so when any starts the last need to be finished
+         */
         if (e.getSource() == startButton) {
             startButton.setText("build");
             startButton.setEnabled(false);
@@ -429,7 +631,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
             restartButton.setEnabled(true);
             System.out.println("\nstart");
 
-            myFrame.remove(myPanel);
+            myFrame.remove(picturePanel);
             myFrame.remove(projectName);
 
             openButton(barbarianButton);
@@ -439,6 +641,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
             myFrame.repaint();
         }
 
+        /**
+         * *====================
+         * *classButtons actions
+         * *====================
+         * TODO: remove hard code variables
+         */
         if (e.getSource() == barbarianButton) {
             chosenClass = 1;
             closeClassButton(barbarianButton);
@@ -464,6 +672,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
             openButton(trapperButton);
         }
 
+        /**
+         * *=======================
+         * *subClassButtons actions
+         * *=======================
+         * TODO: remove hard code variables
+         */
         if (e.getSource() == furiousButton) {
             chosenSubClass = 1;
             closeSubClassButton(furiousButton, furiousButton, totemicButton);
@@ -499,12 +713,18 @@ public class GraphicInterface implements ActionListener, ChangeListener
             closeSubClassButton(trapperButton, trapperButton, assassinButton);
         }
 
+        /**
+         * *characterButton action
+         */
         if (e.getSource() == characterButton) {
             characterName = characterField.getText().toLowerCase();
             closeField(characterField, characterButton);
             openField(playerField, playerPanel, playerButton);
         }
 
+        /**
+         * *playerButton action
+         */
         if (e.getSource() == playerButton) {
             playerName = playerField.getText().toLowerCase();
             closeField(playerField, playerButton);
@@ -513,6 +733,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
             openSlider(strengthSlider, strengthPanel, strengthButton);
         }
 
+        /**
+         * *=========================
+         * *attributesButtons actions
+         * *=========================
+         */
         if (e.getSource() == strengthButton) {
             strengthInt = strengthSlider.getValue();
             totalAttributesLabel
