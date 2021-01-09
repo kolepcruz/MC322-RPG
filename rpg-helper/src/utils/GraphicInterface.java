@@ -5,93 +5,323 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class GraphicInterface extends JFrame implements ActionListener
+public class GraphicInterface
 {
-    private static final long serialVersionUID = -2122161377842820073L;
+    static int chosenClass = 0;
+    static int chosenSubClass = 0;
 
-    JButton startButton;
-    JButton restartButton;
-    JLabel projectName;
+    public static void main(String[] args) {
 
-    GraphicInterface()
-    {
-        super("RPG Helper"); //frame name
-        this.setSize(1080,720); //size of frame
-        this.setLayout(null); //no layout
-        this.getContentPane().setBackground(new Color(96, 85, 91)); //set color
+        JButton startButton; // starts routine button
+        JButton restartButton; // restarts routine button
+        JButton debugButton; // restarts routine button
 
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); //screen size
-        this.setLocation((dim.width-this.getWidth())/2, (dim.height-this.getHeight())/2); //center window
+        JLabel projectName;
+        JLabel projectPicture;
+        Image mainImage;
 
-        // Container container = getContentPane();  //get container
-        // container.setLayout(null); //set layout
-        // container.setBackground(new Color(96, 85, 91)); //set color
+        JButton barbarianButton = new JButton("barbarian");
+        JButton furiousButton = new JButton("furious");
+        JButton totemicButton = new JButton("totemic");
 
-        // JPanel panel = new JPanel();
-        // panel.setBounds(50, 50, 960, 479); //position and size
-        // panel.setLayout(null);
-        // container.add(panel);
+        JButton mageButton = new JButton("mage");
+        JButton frostMageButton = new JButton("frost mage");
+        JButton fireMageButton = new JButton("fire mage");
+        JButton arcaneMageButton = new JButton("arcane mage");
 
-        Image image = new ImageIcon("/rpg-helper/src/utils/RPG Git.png").getImage(); //get image
-        image = image.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); //transform it
+        JButton rogueButton = new JButton("rogue");
+        JButton assassinButton = new JButton("assassin");
+        JButton trapperButton = new JButton("trapper");
 
-        JLabel projectPicture = new JLabel("");
-        projectPicture.setIcon(new ImageIcon(image)); //load image
-        projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); //set board with color
-        projectPicture.setBounds(50, 50, 960, 479); //width height
-        this.getContentPane().getParent().add(projectPicture);
+        JFrame myFrame = new JFrame("RPG Helper"); // frame name
+        myFrame.setSize(1080, 720); // size of frame
+        myFrame.setLayout(null); // no layout
+        myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
+
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
+        myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
+                                                                                                           // window
+
+        Container myContainer = myFrame.getContentPane(); // get container
+        myContainer.setLayout(null); // set layout
+        myContainer.setBackground(new Color(96, 85, 91)); // set color
+
+        JPanel myPanel = new JPanel();
+        myPanel.setBounds(50, 50, 960, 479); // position and size
+        myPanel.setLayout(null);
+        myContainer.add(myPanel);
+
+        mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
+        mainImage = mainImage.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
+
+        projectPicture = new JLabel("");
+        projectPicture.setIcon(new ImageIcon(mainImage)); // load image
+        projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
+        projectPicture.setBounds(0, 0, 960, 479); // width height
+        myPanel.add(projectPicture);
 
         projectName = new JLabel("RPG HELPER");
         projectName.setFont(new Font("Impact", Font.BOLD, 60));
         projectName.setForeground(Color.BLACK);
         projectName.setBounds(50, 575, 500, 50);
-        this.add(projectName);
+        myFrame.add(projectName);
 
+        furiousButton.setFont(new Font("Impact", Font.BOLD, 20));
+        furiousButton.setForeground(Color.BLACK);
+        furiousButton.setBounds(50, 100, 150, 40);
+        furiousButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                furiousButton.setText(furiousButton.getText().toUpperCase());
+                chosenSubClass = 1;
 
-        startButton = new JButton("Start");
+                furiousButton.setEnabled(false);
+                totemicButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        totemicButton.setFont(new Font("Impact", Font.BOLD, 20));
+        totemicButton.setForeground(Color.BLACK);
+        totemicButton.setBounds(200, 100, 150, 40);
+        totemicButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                totemicButton.setText(totemicButton.getText().toUpperCase());
+                chosenSubClass = 2;
+
+                furiousButton.setEnabled(false);
+                totemicButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        barbarianButton.setFont(new Font("Impact", Font.BOLD, 20));
+        barbarianButton.setForeground(Color.BLACK);
+        barbarianButton.setBounds(50, 50, 150, 40);
+        barbarianButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                barbarianButton.setText(barbarianButton.getText().toUpperCase());
+                chosenClass = 1;
+
+                barbarianButton.setEnabled(false);
+                mageButton.setEnabled(false);
+                rogueButton.setEnabled(false);
+
+                myFrame.add(furiousButton);
+                furiousButton.setEnabled(true);
+                furiousButton.setText(furiousButton.getText().toLowerCase());
+
+                myFrame.add(totemicButton);
+                totemicButton.setEnabled(true);
+                totemicButton.setText(totemicButton.getText().toLowerCase());
+                myFrame.repaint();
+            }
+        });
+
+        frostMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        frostMageButton.setForeground(Color.BLACK);
+        frostMageButton.setBounds(50, 100, 150, 40);
+        frostMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frostMageButton.setText(frostMageButton.getText().toUpperCase());
+                chosenSubClass = 1;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        fireMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        fireMageButton.setForeground(Color.BLACK);
+        fireMageButton.setBounds(200, 100, 150, 40);
+        fireMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                fireMageButton.setText(fireMageButton.getText().toUpperCase());
+                chosenSubClass = 2;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        arcaneMageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        arcaneMageButton.setForeground(Color.BLACK);
+        arcaneMageButton.setBounds(350, 100, 150, 40);
+        arcaneMageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                arcaneMageButton.setText(arcaneMageButton.getText().toUpperCase());
+                chosenSubClass = 3;
+
+                frostMageButton.setEnabled(false);
+                fireMageButton.setEnabled(false);
+                arcaneMageButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        mageButton.setFont(new Font("Impact", Font.BOLD, 20));
+        mageButton.setForeground(Color.BLACK);
+        mageButton.setBounds(200, 50, 150, 40);
+        mageButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                mageButton.setText(mageButton.getText().toUpperCase());
+                chosenClass = 2;
+
+                barbarianButton.setEnabled(false);
+                mageButton.setEnabled(false);
+                rogueButton.setEnabled(false);
+
+                myFrame.add(frostMageButton);
+                frostMageButton.setEnabled(true);
+                frostMageButton.setText(frostMageButton.getText().toLowerCase());
+
+                myFrame.add(fireMageButton);
+                fireMageButton.setEnabled(true);
+                fireMageButton.setText(fireMageButton.getText().toLowerCase());
+
+                myFrame.add(arcaneMageButton);
+                arcaneMageButton.setEnabled(true);
+                arcaneMageButton.setText(arcaneMageButton.getText().toLowerCase());
+                myFrame.repaint();
+            }
+        });
+
+        assassinButton.setFont(new Font("Impact", Font.BOLD, 20));
+        assassinButton.setForeground(Color.BLACK);
+        assassinButton.setBounds(50, 100, 150, 40);
+        assassinButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                assassinButton.setText(assassinButton.getText().toUpperCase());
+                chosenSubClass = 1;
+
+                assassinButton.setEnabled(false);
+                trapperButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        trapperButton.setFont(new Font("Impact", Font.BOLD, 20));
+        trapperButton.setForeground(Color.BLACK);
+        trapperButton.setBounds(200, 100, 150, 40);
+        trapperButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                trapperButton.setText(trapperButton.getText().toUpperCase());
+                chosenSubClass = 2;
+
+                assassinButton.setEnabled(false);
+                trapperButton.setEnabled(false);
+                myFrame.repaint();
+            }
+        });
+
+        rogueButton.setFont(new Font("Impact", Font.BOLD, 20));
+        rogueButton.setForeground(Color.BLACK);
+        rogueButton.setBounds(350, 50, 150, 40);
+        rogueButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                rogueButton.setText(rogueButton.getText().toUpperCase());
+                chosenClass = 3;
+
+                barbarianButton.setEnabled(false);
+                mageButton.setEnabled(false);
+                rogueButton.setEnabled(false);
+
+                myFrame.add(assassinButton);
+                assassinButton.setEnabled(true);
+                assassinButton.setText(assassinButton.getText().toLowerCase());
+
+                myFrame.add(trapperButton);
+                trapperButton.setEnabled(true);
+                trapperButton.setText(trapperButton.getText().toLowerCase());
+                myFrame.repaint();
+            }
+        });
+
+        startButton = new JButton("start");
         startButton.setFont(new Font("Impact", Font.BOLD, 20));
         startButton.setForeground(Color.BLACK);
         startButton.setBounds(810, 575, 100, 40);
-        startButton.addActionListener(this);
-        this.getContentPane().add(startButton);
+        startButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                startButton.setText("build");
+                System.out.println("start");
 
-        restartButton = new JButton("Restart");
+                myFrame.remove(myPanel);
+                myFrame.remove(projectName);
+
+                myFrame.add(barbarianButton);
+                barbarianButton.setEnabled(true);
+                barbarianButton.setText(barbarianButton.getText().toLowerCase());
+
+                myFrame.add(mageButton);
+                mageButton.setEnabled(true);
+                mageButton.setText(mageButton.getText().toLowerCase());
+
+                myFrame.add(rogueButton);
+                rogueButton.setEnabled(true);
+                rogueButton.setText(rogueButton.getText().toLowerCase());
+
+                myFrame.repaint();
+            }
+        });
+        myFrame.getContentPane().add(startButton);
+
+        restartButton = new JButton("restart");
         restartButton.setFont(new Font("Impact", Font.BOLD, 20));
         restartButton.setForeground(Color.BLACK);
         restartButton.setBounds(910, 575, 100, 40);
-        restartButton.addActionListener(this);
-        this.getContentPane().add(restartButton);
+        restartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                startButton.setText("start");
+                System.out.println("restart");
 
-        JTextField textField = new JTextField();
-        textField.setPreferredSize(new Dimension(500, 50));
+                chosenClass = 0;
+                chosenSubClass = 0;
 
-        this.add(textField);
+                myFrame.remove(barbarianButton);
+                myFrame.remove(furiousButton);
+                myFrame.remove(totemicButton);
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE); //close operation
-        setVisible(true); //make visible
-    }
+                myFrame.remove(mageButton);
+                myFrame.remove(frostMageButton);
+                myFrame.remove(fireMageButton);
+                myFrame.remove(arcaneMageButton);
 
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        if(e.getSource() == startButton)
-        {
-            startButton.setText("Done");
-            System.out.println("Botão Start Prescionado");
-            this.remove(projectName);
-            this.repaint();
-        }
-        if(e.getSource() == restartButton)
-        {
-            startButton.setText("Start");
-            System.out.println("Botão Restart Prescionado");
-            System.exit(0);
-        }
-    }
+                myFrame.remove(rogueButton);
+                myFrame.remove(assassinButton);
+                myFrame.remove(trapperButton);
 
+                myFrame.add(myPanel);
+                myFrame.add(projectName);
+                myFrame.repaint();
+                // System.exit(0);
+            }
+        });
+        myFrame.getContentPane().add(restartButton);
 
-    public static void main(String[] args)
-    {
-        GraphicInterface myFrame = new GraphicInterface();
+        debugButton = new JButton("debug");
+        debugButton.setFont(new Font("Impact", Font.BOLD, 20));
+        debugButton.setForeground(Color.BLACK);
+        debugButton.setBounds(910, 615, 100, 40);
+        debugButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("\n===============debug===============");
+                System.out.println("chosenClass: "+chosenClass);
+                System.out.println("chosenSubClass: "+chosenSubClass);
+            }
+        });
+        myFrame.getContentPane().add(debugButton);
+
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //close operation
+        myFrame.dispose();
+        myFrame.setVisible(true); //make visible
     }
 }
