@@ -1,11 +1,17 @@
 package utils;
 
+import enums.*;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumSet;
+
 
 public class GraphicInterface implements ActionListener, ChangeListener
 {
@@ -43,6 +49,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static int arcaneClassInt = 3;
     private static int assassinClassInt = 1;
     private static int trapperClassInt = 2;
+
+    private static int raceInt;
+    private static int eyesInt;
+    private static int hairInt;
+    private static int skinInt;
+    private static int sexInt;
 
     private static int totalAttributesInt = 72;
     private static int strengthInt = 0;
@@ -105,6 +117,8 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
     private static Image mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
+    private static ImageIcon iconImage = new ImageIcon("rpg-helper/src/images/icon.png");// get iconImage
+
 
     /**
      * *================================
@@ -125,6 +139,32 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JButton arcaneMageButton = new JButton(arcaneString);
     private static JButton assassinButton = new JButton(assassinString);
     private static JButton trapperButton = new JButton(trapperString);
+
+    /**
+     * *============================
+     * *Enums and person attributes
+     * *============================
+     */
+    private static JPanel racePanel = new JPanel();
+    private static JLabel raceLabel = new JLabel("Choose your race");
+    private static ArrayList<JButton> raceButtonArray = new ArrayList<>();
+
+    private static JPanel eyesPanel = new JPanel();
+    private static JLabel eyesLabel = new JLabel("Choose your eye color");
+    private static ArrayList<JButton> eyeButtonArray = new ArrayList<>();
+
+    private static JPanel hairPanel = new JPanel();
+    private static JLabel hairLabel = new JLabel("Choose your hair color");
+    private static ArrayList<JButton> hairButtonArray = new ArrayList<>();
+
+    private static JPanel sexPanel = new JPanel();
+    private static JLabel sexLabel = new JLabel("Choose your biological sex");
+    private static ArrayList<JButton> sexButtonArray = new ArrayList<>();
+
+    private static JPanel skinPanel = new JPanel();
+    private static JLabel skinLabel = new JLabel("Choose your skin color");
+    private static ArrayList<JButton> skinButtonArray = new ArrayList<>();
+
 
     /**
      * *============================
@@ -191,12 +231,23 @@ public class GraphicInterface implements ActionListener, ChangeListener
     GraphicInterface() 
     {
         /**
+         *  *populate static array with enum values dynamically
+         */
+        EnumSet.allOf(Race.class).forEach(race -> raceButtonArray.add(new JButton(race.name().toLowerCase())));
+        EnumSet.allOf(Hair.class).forEach(hair -> hairButtonArray.add(new JButton(hair.name().toLowerCase())));
+        EnumSet.allOf(Eyes.class).forEach(eyes -> eyeButtonArray.add(new JButton(eyes.name().toLowerCase())));
+        EnumSet.allOf(Sex.class).forEach(sex -> sexButtonArray.add(new JButton(sex.name().toLowerCase())));
+        EnumSet.allOf(Skin.class).forEach(skin -> skinButtonArray.add(new JButton(skin.name().toLowerCase())));
+
+
+        /**
          * *create myFrame
          */
-        myFrame.setSize(1080, 720); // size of frame
+        myFrame.setSize(1360, 720); // size of frame
         myFrame.setLayout(null); // no layout
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
         myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
+        myFrame.setIconImage(iconImage.getImage()); //change icon of frame
 
         /**
          * *create myContainer
@@ -207,17 +258,17 @@ public class GraphicInterface implements ActionListener, ChangeListener
         /**
          * *create picturePanel
          */
-        picturePanel.setBounds(50, 50, 960, 479); // position and size
+        picturePanel.setBounds(50, 50, 1240, 479); // position and size
         picturePanel.setLayout(null);
         myContainer.add(picturePanel);
 
         /**
          * *create projectImage
          */
-        mainImage = mainImage.getScaledInstance(960, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
+        mainImage = mainImage.getScaledInstance(1240, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
         projectPicture.setIcon(new ImageIcon(mainImage)); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        projectPicture.setBounds(0, 0, 960, 479); // width height
+        projectPicture.setBounds(0, 0, 1240, 479); // width height
         picturePanel.add(projectPicture);
 
         /**
@@ -275,6 +326,37 @@ public class GraphicInterface implements ActionListener, ChangeListener
         marginY += buttonY;
         panelStyle(playerPanel, marginX, marginY, 2 * buttonX, buttonY, playerField);
         buttonStyle(playerButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
+
+        /**
+         * *=====================================
+         * *Person attributes and enums
+         * *=====================================
+         */
+        marginX = 550;
+        marginY = 40;
+        labelStyle(raceLabel, marginX, marginY, labelX, labelY, fontLarge);
+        panelStyle(racePanel, marginX, marginY, labelX, labelY, raceLabel);
+
+        marginX = 550;
+        marginY = 240;
+        labelStyle(skinLabel, marginX, marginY, labelX, labelY, fontLarge);
+        panelStyle(skinPanel, marginX, marginY, labelX, labelY, skinLabel);
+
+        marginX = 550;
+        marginY = 320;
+        labelStyle(eyesLabel, marginX, marginY, labelX, labelY, fontLarge);
+        panelStyle(eyesPanel, marginX, marginY, labelX, labelY, eyesLabel);
+
+        marginX = 550;
+        marginY = 400;
+        labelStyle(hairLabel, marginX, marginY, labelX, labelY, fontLarge);
+        panelStyle(hairPanel, marginX, marginY, labelX, labelY, hairLabel);
+
+        marginX = 550;
+        marginY = 480;
+        labelStyle(sexLabel, marginX, marginY, labelX, labelY, fontLarge);
+        panelStyle(sexPanel, marginX, marginY, labelX, labelY, sexLabel);
+
 
         /**
          * *=====================================
@@ -344,7 +426,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *mainButtons
          * *===========
          */
-        marginX = 560;
+        marginX = 840;
         marginY = 600;
         buttonStyle(startButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
         marginX += buttonX;
@@ -579,6 +661,23 @@ public class GraphicInterface implements ActionListener, ChangeListener
         return false;
     }
 
+    public void addButtonArray(ArrayList<JButton> arrayList,int marginX,int marginY)
+    {
+        int originalMarginX = marginX;
+        int counter = 1;
+        for(JButton j : arrayList){
+            buttonStyle(j,marginX,marginY,buttonX,buttonY,this,fontLarge);
+            myFrame.add(j);
+            j.setEnabled(true);
+            marginX+=buttonX;
+            if(counter%3==0){
+                marginY+=buttonY;
+                marginX = originalMarginX;
+            }
+            counter++;
+        }
+    }
+
     /**
      * *receve changes in the frame
      * @param e
@@ -626,6 +725,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
             System.out.println("chosenSubClass: " + chosenSubClass);
             System.out.println("characterName: " + characterName);
             System.out.println("playerName: " + playerName + "\n");
+            System.out.println("raceInt: " + raceInt);
+            System.out.println("eyesInt: " + eyesInt);
+            System.out.println("sexInt: " + sexInt);
+            System.out.println("skinInt: " + skinInt);
+            System.out.println("hairInt: " + hairInt+"\n");
             System.out.println("attributesInt: " + totalAttributesInt);
             System.out.println("strengthInt: " + strengthInt);
             System.out.println("dexterityInt: " + dexterityInt);
@@ -649,6 +753,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
             chosenSubClass = 0;
             characterName = "default";
             playerName = "default";
+            raceInt = 0;
+            eyesInt =0;
+            sexInt = 0;
+            skinInt = 0;
+            hairInt = 0;
             strengthInt = 0;
             dexterityInt = 0;
             constitutionInt = 0;
@@ -689,6 +798,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
             myFrame.remove(strengthPanel);
             myFrame.remove(strengthSlider);
             myFrame.remove(strengthButton);
+
+            for (JButton j:raceButtonArray) {
+                myFrame.remove(j);
+            }
+            myFrame.remove(racePanel);
 
             myFrame.remove(dexterityCountPanel);
             myFrame.remove(dexterityPanel);
@@ -830,13 +944,72 @@ public class GraphicInterface implements ActionListener, ChangeListener
         if (e.getSource() == playerButton) {
             playerName = playerField.getText().toLowerCase();
             closeField(playerField, playerButton);
-            openSlider(strengthSlider, strengthPanel, strengthButton);
 
             namesLabel.setText("character and player");
 
-            myFrame.add(attributesPanel);
-            myFrame.add(strengthCountPanel);
+//            openSlider(strengthSlider, strengthPanel, strengthButton);
+//            myFrame.add(attributesPanel);
+//            myFrame.add(strengthCountPanel);
+
+            myFrame.add(racePanel);
+            addButtonArray(raceButtonArray,550,80);
+
         }
+        /**
+         * *=========================
+         * *raceButton actions
+         * *=========================
+         */
+        if(raceButtonArray.contains(e.getSource())){
+            int count = 0;
+            for(JButton j : raceButtonArray){
+
+                if(e.getSource() == j){
+                    raceInt = count;
+
+                }
+                count++;
+                j.setEnabled(false);
+            }
+            myFrame.add(skinPanel);
+            skinLabel.setText("Choose your skin color");
+            addButtonArray(skinButtonArray,550,280);
+            myFrame.repaint();
+        }
+        if(skinButtonArray.contains(e.getSource())){
+            int count = 0;
+            for(JButton j : skinButtonArray){
+
+                if(e.getSource() == j){
+                    skinInt = count;
+
+                }
+                count++;
+                j.setEnabled(false);
+            }
+            myFrame.add(eyesPanel);
+            eyesLabel.setText("Choose your eye color");
+            addButtonArray(eyeButtonArray,550,360);
+            myFrame.repaint();
+        }
+
+        if(eyeButtonArray.contains(e.getSource())){
+            int count = 0;
+            for(JButton j : eyeButtonArray){
+
+                if(e.getSource() == j){
+                    skinInt = count;
+
+                }
+                count++;
+                j.setEnabled(false);
+            }
+            myFrame.add(hairLabel);
+            eyesLabel.setText("Choose your hair color");
+            addButtonArray(hairButtonArray,550,280);
+
+        }
+
 
         /**
          * *=========================
@@ -949,6 +1122,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
     }
 
     public static void main(String[] args) {
+
         new GraphicInterface();
     }
 }
