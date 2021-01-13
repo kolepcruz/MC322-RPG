@@ -1025,12 +1025,12 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 {
                     raceInt = count;
                     j.setText(j.getText().toUpperCase());
-                    strengthInt += Race.values()[raceInt].getStrenght();
-                    dexterityInt += Race.values()[raceInt].getDexterity();
-                    constitutionInt += Race.values()[raceInt].getConstitution();
-                    intelligenceInt += Race.values()[raceInt].getIntelligence();
-                    wisdomInt += Race.values()[raceInt].getWisdom();
-                    charismaInt += Race.values()[raceInt].getCharisma();
+                    strengthInt = Race.values()[raceInt].getStrenght();
+                    dexterityInt = Race.values()[raceInt].getDexterity();
+                    constitutionInt = Race.values()[raceInt].getConstitution();
+                    intelligenceInt = Race.values()[raceInt].getIntelligence();
+                    wisdomInt = Race.values()[raceInt].getWisdom();
+                    charismaInt = Race.values()[raceInt].getCharisma();
                 }
                 count++;
                 j.setEnabled(false);
@@ -1107,6 +1107,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 count++;
                 j.setEnabled(false);
             }
+            atualAttributesLabel.setText("set strength: ");
             openSlider(strengthSlider, strengthPanel, strengthButton);
             myFrame.add(attributesPanel);
             myFrame.add(strengthCountPanel);
@@ -1126,7 +1127,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             {
                 atualAttributesLabel.setText("set dexterity: ");
                 totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthInt));
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthSlider.getValue()));
                 closeSlider(strengthSlider, strengthButton);
                 openSlider(dexteritySlider, dexterityPanel, dexterityButton);
                 myFrame.add(dexterityCountPanel);
@@ -1139,7 +1140,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             if(valideAttribute(dexterityInt)){
                 atualAttributesLabel.setText("set constitution: ");
                 totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexterityInt));
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexteritySlider.getValue()));
                 closeSlider(dexteritySlider, dexterityButton);
                 openSlider(constitutionSlider, constitutionPanel, constitutionButton);
                 myFrame.add(constitutionCountPanel);
@@ -1153,7 +1154,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             {
                 atualAttributesLabel.setText("set intelligence: ");
                 totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionInt));
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionSlider.getValue()));
                 closeSlider(constitutionSlider, constitutionButton);
                 openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
                 myFrame.add(intelligenceCountPanel);
@@ -1167,7 +1168,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             {
                 atualAttributesLabel.setText("set wisdom: ");
                 totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceInt));
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceSlider.getValue()));
                 closeSlider(intelligenceSlider, intelligenceButton);
                 openSlider(wisdomSlider, wisdomPanel, wisdomButton);
                 myFrame.add(wisdomCountPanel);
@@ -1180,7 +1181,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             if(valideAttribute(wisdomInt))
             {
                 atualAttributesLabel.setText("set charisma: ");
-                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomInt));
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomSlider.getValue()));
                 closeSlider(wisdomSlider, wisdomButton);
                 openSlider(charismaSlider, charismaPanel, charismaButton);
                 myFrame.add(charismaCountPanel);
@@ -1194,7 +1195,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             {
                 atualAttributesLabel.setText("");
                 totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaInt));
+                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaSlider.getValue()));
                 closeSlider(charismaSlider, charismaButton);
             }
         }
