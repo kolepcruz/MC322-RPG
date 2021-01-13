@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.EnumSet;
 
 
-public class GraphicInterface implements ActionListener, ChangeListener
+public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 {
     /**
      * *===============
@@ -258,7 +258,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton charismaButton = new JButton(confirmText);
 
-    GraphicInterface() 
+    GraphicInterfaceUtil() 
     {
         /**
          * *create myFrame
@@ -1196,6 +1196,6 @@ public class GraphicInterface implements ActionListener, ChangeListener
 
     public static void main(String[] args) {
 
-        new GraphicInterface();
+        new GraphicInterfaceUtil();
     }
 }
