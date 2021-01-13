@@ -50,11 +50,11 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static int assassinClassInt = 1;
     private static int trapperClassInt = 2;
 
-    private static int raceInt;
-    private static int eyesInt;
-    private static int hairInt;
-    private static int skinInt;
-    private static int sexInt;
+    private static int raceInt = 0;
+    private static int eyesInt = 0;
+    private static int hairInt = 0;
+    private static int skinInt = 0;
+    private static int sexInt = 0;
 
     private static int totalAttributesInt = 72;
     private static int strengthInt = 0;
@@ -64,6 +64,36 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static int wisdomInt = 0;
     private static int charismaInt = 0;
 
+    /**
+     * *================
+     * *button positions
+     * *================
+     */
+    private static String raceString = "choose race";
+    private static int racePositionX = 510;
+    private static int racePositionY = 40;
+    private static int raceColumns = 3;
+
+    private static String skinString = "choose skin";
+    private static int skinPositionX = 510;
+    private static int skinPositionY = 210;
+    private static int skinColumns = 2;
+    
+    private static String eyesString = "choose eyes";
+    private static int eyesPositionX = 510;
+    private static int eyesPositionY = 340;
+    private static int eyesColumns = 2;
+
+    private static String hairString = "choose hair";
+    private static int hairPositionX = 510;
+    private static int hairPositionY = 470;
+    private static int hairColumns = 2;
+    
+    private static String sexString = "choose sex";
+    private static int sexPositionX = 810;
+    private static int sexPositionY = 210;
+    private static int sexColumns = 1;
+    
     /**
      * *===============
      * *interface stylo
@@ -141,28 +171,28 @@ public class GraphicInterface implements ActionListener, ChangeListener
     private static JButton trapperButton = new JButton(trapperString);
 
     /**
-     * *============================
-     * *Enums and person attributes
-     * *============================
+     * *===========================
+     * *enumsAttributes and buttons
+     * *===========================
      */
     private static JPanel racePanel = new JPanel();
-    private static JLabel raceLabel = new JLabel("Choose your race");
+    private static JLabel raceLabel = new JLabel(raceString);
     private static ArrayList<JButton> raceButtonArray = new ArrayList<>();
 
     private static JPanel eyesPanel = new JPanel();
-    private static JLabel eyesLabel = new JLabel("Choose your eye color");
+    private static JLabel eyesLabel = new JLabel(eyesString);
     private static ArrayList<JButton> eyeButtonArray = new ArrayList<>();
 
     private static JPanel hairPanel = new JPanel();
-    private static JLabel hairLabel = new JLabel("Choose your hair color");
+    private static JLabel hairLabel = new JLabel(hairString);
     private static ArrayList<JButton> hairButtonArray = new ArrayList<>();
 
     private static JPanel sexPanel = new JPanel();
-    private static JLabel sexLabel = new JLabel("Choose your biological sex");
+    private static JLabel sexLabel = new JLabel(sexString);
     private static ArrayList<JButton> sexButtonArray = new ArrayList<>();
 
     private static JPanel skinPanel = new JPanel();
-    private static JLabel skinLabel = new JLabel("Choose your skin color");
+    private static JLabel skinLabel = new JLabel(skinString);
     private static ArrayList<JButton> skinButtonArray = new ArrayList<>();
 
 
@@ -231,19 +261,9 @@ public class GraphicInterface implements ActionListener, ChangeListener
     GraphicInterface() 
     {
         /**
-         *  *populate static array with enum values dynamically
-         */
-        EnumSet.allOf(Race.class).forEach(race -> raceButtonArray.add(new JButton(race.name().toLowerCase())));
-        EnumSet.allOf(Hair.class).forEach(hair -> hairButtonArray.add(new JButton(hair.name().toLowerCase())));
-        EnumSet.allOf(Eyes.class).forEach(eyes -> eyeButtonArray.add(new JButton(eyes.name().toLowerCase())));
-        EnumSet.allOf(Sex.class).forEach(sex -> sexButtonArray.add(new JButton(sex.name().toLowerCase())));
-        EnumSet.allOf(Skin.class).forEach(skin -> skinButtonArray.add(new JButton(skin.name().toLowerCase())));
-
-
-        /**
          * *create myFrame
          */
-        myFrame.setSize(1360, 720); // size of frame
+        myFrame.setSize(1080, 720); // size of frame
         myFrame.setLayout(null); // no layout
         myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
         myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
@@ -258,17 +278,17 @@ public class GraphicInterface implements ActionListener, ChangeListener
         /**
          * *create picturePanel
          */
-        picturePanel.setBounds(50, 50, 1240, 479); // position and size
+        picturePanel.setBounds(50, 50, 960, 450); // position and size
         picturePanel.setLayout(null);
         myContainer.add(picturePanel);
 
         /**
          * *create projectImage
          */
-        mainImage = mainImage.getScaledInstance(1240, 479, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
+        mainImage = mainImage.getScaledInstance(960, 450, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
         projectPicture.setIcon(new ImageIcon(mainImage)); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        projectPicture.setBounds(0, 0, 1240, 479); // width height
+        projectPicture.setBounds(0, 0, 960, 450); // width height
         picturePanel.add(projectPicture);
 
         /**
@@ -276,7 +296,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
          */
         projectName.setFont(new Font("Impact", Font.BOLD, 60));
         projectName.setForeground(Color.BLACK);
-        projectName.setBounds(50, 575, 500, 50);
+        projectName.setBounds(50, 560, 500, 50);
         myFrame.add(projectName);
 
         /**
@@ -329,38 +349,39 @@ public class GraphicInterface implements ActionListener, ChangeListener
         buttonStyle(playerButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
+         * *==================================================
+         * *populate static array with enum values dynamically
+         * *==================================================
+         */
+        EnumSet.allOf(Race.class).forEach(race -> raceButtonArray.add(new JButton(race.name().toLowerCase())));
+        EnumSet.allOf(Hair.class).forEach(hair -> hairButtonArray.add(new JButton(hair.name().toLowerCase())));
+        EnumSet.allOf(Eyes.class).forEach(eyes -> eyeButtonArray.add(new JButton(eyes.name().toLowerCase())));
+        EnumSet.allOf(Sex.class).forEach(sex -> sexButtonArray.add(new JButton(sex.name().toLowerCase())));
+        EnumSet.allOf(Skin.class).forEach(skin -> skinButtonArray.add(new JButton(skin.name().toLowerCase())));
+
+        /**
          * *=====================================
          * *Person attributes and enums
          * *=====================================
          */
-        marginX = 500;
-        marginY = 40;
-        labelStyle(raceLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(racePanel, marginX, marginY, labelX, labelY, raceLabel);
+        labelStyle(raceLabel, racePositionX, racePositionY, labelX, labelY, fontLarge);
+        panelStyle(racePanel, racePositionX, racePositionY, labelX, labelY, raceLabel);
         myFrame.revalidate();
 
-        marginX = 500;
-        marginY = 210;
-        labelStyle(skinLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(skinPanel, marginX, marginY, labelX, labelY, skinLabel);
+        labelStyle(skinLabel, skinPositionX, skinPositionY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(skinPanel, skinPositionX, skinPositionY, labelX - buttonX, labelY, skinLabel);
         myFrame.revalidate();
 
-        marginX = 500;
-        marginY = 340;
-        labelStyle(eyesLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(eyesPanel, marginX, marginY, labelX, labelY, eyesLabel);
+        labelStyle(eyesLabel, eyesPositionX, eyesPositionY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(eyesPanel, eyesPositionX, eyesPositionY, labelX - buttonX, labelY, eyesLabel);
         myFrame.revalidate();
 
-        marginX = 500;
-        marginY = 460;
-        labelStyle(hairLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(hairPanel, marginX, marginY, labelX, labelY, hairLabel);
+        labelStyle(hairLabel, hairPositionX, hairPositionY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(hairPanel, hairPositionX, hairPositionY, labelX - buttonX, labelY, hairLabel);
         myFrame.revalidate();
 
-        marginX = 1000;
-        marginY = 40;
-        labelStyle(sexLabel, marginX, marginY, 350, labelY, fontLarge);
-        panelStyle(sexPanel, marginX, marginY, 350, labelY, sexLabel);
+        labelStyle(sexLabel, sexPositionX, sexPositionY, buttonX, labelY, fontLarge);
+        panelStyle(sexPanel, sexPositionX, sexPositionY, buttonX, labelY, sexLabel);
         myFrame.revalidate();
 
 
@@ -432,12 +453,12 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *mainButtons
          * *===========
          */
-        marginX = 840;
-        marginY = 600;
+        marginX = 860;
+        marginY = 520;
         buttonStyle(startButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
-        marginX += buttonX;
+        marginY += buttonY;
         buttonStyle(restartButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
-        marginX += buttonX;
+        marginY += buttonY;
         buttonStyle(debugButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
@@ -669,17 +690,23 @@ public class GraphicInterface implements ActionListener, ChangeListener
         return false;
     }
 
-    public void addButtonArray(ArrayList<JButton> arrayList,int marginX,int marginY)
+    public void addButtonArray(ArrayList<JButton> arrayList,int marginX,int marginY, int sizeX)
     {
         int originalMarginX = marginX;
         int counter = 1;
-        for(JButton j : arrayList){
+
+        for(JButton j : arrayList)
+        {
             buttonStyle(j,marginX,marginY,buttonX,buttonY,this,fontLarge);
             myFrame.add(j);
+            j.setText(j.getText().toLowerCase());
             j.setEnabled(true);
-            marginX+=buttonX;
-            if(counter%3==0){
-                marginY+=buttonY;
+
+            marginX += buttonX;
+
+            if(counter%sizeX==0)
+            {
+                marginY+= buttonY;
                 marginX = originalMarginX;
             }
             counter++;
@@ -762,7 +789,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
             characterName = "default";
             playerName = "default";
             raceInt = 0;
-            eyesInt =0;
+            eyesInt = 0;
             sexInt = 0;
             skinInt = 0;
             hairInt = 0;
@@ -807,27 +834,32 @@ public class GraphicInterface implements ActionListener, ChangeListener
             myFrame.remove(strengthSlider);
             myFrame.remove(strengthButton);
 
-            for (JButton j:raceButtonArray) {
+            for (JButton j:raceButtonArray)
+            {
                 myFrame.remove(j);
             }
             myFrame.remove(racePanel);
 
-            for (JButton j:hairButtonArray) {
+            for (JButton j:hairButtonArray)
+            {
                 myFrame.remove(j);
             }
             myFrame.remove(hairPanel);
 
-            for (JButton j:eyeButtonArray) {
+            for (JButton j:eyeButtonArray)
+            {
                 myFrame.remove(j);
             }
             myFrame.remove(eyesPanel);
 
-            for (JButton j:skinButtonArray) {
+            for (JButton j:skinButtonArray)
+            {
                 myFrame.remove(j);
             }
             myFrame.remove(skinPanel);
 
-            for (JButton j:sexButtonArray) {
+            for (JButton j:sexButtonArray)
+            {
                 myFrame.remove(j);
             }
             myFrame.remove(sexPanel);
@@ -977,101 +1009,103 @@ public class GraphicInterface implements ActionListener, ChangeListener
 
 
             myFrame.add(racePanel);
-            addButtonArray(raceButtonArray,500,80);
+            addButtonArray(raceButtonArray, racePositionX, racePositionY + buttonY, raceColumns);
 
         }
         /**
-         * *=========================
-         * *raceButton actions
-         * *=========================
+         * *========================
+         * *enums raceButton actions
+         * *========================
          */
         if(raceButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : raceButtonArray){
-
-                if(e.getSource() == j){
+            for(JButton j : raceButtonArray)
+            {
+                if(e.getSource() == j)
+                {
                     raceInt = count;
-
+                    j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
+
             myFrame.add(skinPanel);
-            skinLabel.setText("Choose your skin color");
-            addButtonArray(skinButtonArray,500,250);
+            addButtonArray(skinButtonArray, skinPositionX, skinPositionY + buttonY, skinColumns);
             myFrame.repaint();
+            myFrame.revalidate();
         }
-        myFrame.revalidate();
+
         if(skinButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : skinButtonArray){
-                if(e.getSource() == j){
+            for(JButton j : skinButtonArray)
+            {
+                if(e.getSource() == j)
+                {
                     skinInt = count;
+                    j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(eyesPanel);
-            eyesLabel.setText("Choose your eye color");
-            addButtonArray(eyeButtonArray,500,380);
+            addButtonArray(eyeButtonArray, eyesPositionX, eyesPositionY + buttonY, eyesColumns);
             myFrame.repaint();
+            myFrame.revalidate();
         }
-        myFrame.revalidate();
+
         if(eyeButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : eyeButtonArray){
-                if(e.getSource() == j){
+            for(JButton j : eyeButtonArray)
+            {
+                if(e.getSource() == j)
+                {
                     eyesInt = count;
+                    j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
-            myFrame.revalidate();
             myFrame.add(hairPanel);
-            myFrame.revalidate();
-            hairLabel.setText("Choose your hair color");
-            addButtonArray(hairButtonArray,500,500);
+            addButtonArray(hairButtonArray, hairPositionX, hairPositionY + buttonY, hairColumns);
             myFrame.repaint();
+            myFrame.revalidate();
         }
-        myFrame.revalidate();
+
         if(hairButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : hairButtonArray){
+            for(JButton j : hairButtonArray)
+            {
                 if(e.getSource() == j)
                 {
                     hairInt = count;
+                    j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
-            myFrame.revalidate();
             myFrame.add(sexPanel);
+            addButtonArray(sexButtonArray, sexPositionX, sexPositionY + buttonY, sexColumns);
+            myFrame.repaint();
             myFrame.revalidate();
-            sexLabel.setText("Choose your biological sex");
-            addButtonArray(sexButtonArray,1000,80);
-            myFrame.repaint();
         }
-        myFrame.revalidate();
+
         if(sexButtonArray.contains(e.getSource())){
-            myFrame.repaint();
             int count = 0;
             for(JButton j : sexButtonArray){
                 if(e.getSource() == j)
                 {
                     sexInt = count;
+                    j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
+            openSlider(strengthSlider, strengthPanel, strengthButton);
+            myFrame.add(attributesPanel);
+            myFrame.add(strengthCountPanel);
             myFrame.repaint();
             myFrame.revalidate();
-            openSlider(strengthSlider, strengthPanel, strengthButton);
-            myFrame.revalidate();
-            myFrame.add(attributesPanel);
-            myFrame.revalidate();
-            myFrame.add(strengthCountPanel);
-            myFrame.revalidate();
-
         }
 
         /**
