@@ -1025,6 +1025,12 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 {
                     raceInt = count;
                     j.setText(j.getText().toUpperCase());
+                    strengthInt += Race.values()[raceInt].getStrenght();
+                    dexterityInt += Race.values()[raceInt].getDexterity();
+                    constitutionInt += Race.values()[raceInt].getConstitution();
+                    intelligenceInt += Race.values()[raceInt].getIntelligence();
+                    wisdomInt += Race.values()[raceInt].getWisdom();
+                    charismaInt += Race.values()[raceInt].getCharisma();
                 }
                 count++;
                 j.setEnabled(false);
@@ -1114,7 +1120,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *=========================
          */
         if (e.getSource() == strengthButton) {
-            strengthInt = strengthSlider.getValue();
+            strengthInt += strengthSlider.getValue();
 
             if(valideAttribute(strengthInt))
             {
@@ -1128,7 +1134,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == dexterityButton) {
-            dexterityInt = dexteritySlider.getValue();
+            dexterityInt += dexteritySlider.getValue();
 
             if(valideAttribute(dexterityInt)){
                 atualAttributesLabel.setText("set constitution: ");
@@ -1141,7 +1147,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == constitutionButton) {
-            constitutionInt = constitutionSlider.getValue();
+            constitutionInt += constitutionSlider.getValue();
 
             if(valideAttribute(constitutionInt))
             {
@@ -1155,7 +1161,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == intelligenceButton) {
-            intelligenceInt = intelligenceSlider.getValue();
+            intelligenceInt += intelligenceSlider.getValue();
 
             if(valideAttribute(intelligenceInt))
             {
@@ -1169,7 +1175,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == wisdomButton) {
-            wisdomInt = wisdomSlider.getValue();
+            wisdomInt += wisdomSlider.getValue();
 
             if(valideAttribute(wisdomInt))
             {
@@ -1182,7 +1188,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         if (e.getSource() == charismaButton) {
-            charismaInt = charismaSlider.getValue();
+            charismaInt += charismaSlider.getValue();
 
             if(valideAttribute(charismaInt))
             {
