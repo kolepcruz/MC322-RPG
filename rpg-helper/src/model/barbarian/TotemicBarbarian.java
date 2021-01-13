@@ -1,9 +1,11 @@
 package model.barbarian;
 
 import enums.*;
+import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
+import utils.Skills;
 
-public class TotemicBarbarian extends Barbarian{
+public class TotemicBarbarian extends Adventurer implements Skills {
     /**
      * Class TotemicBarbarian é uma subtribo de Barbarian, nela possui algumas habilidades com que o Barbaro ataca
      */
@@ -14,15 +16,22 @@ public class TotemicBarbarian extends Barbarian{
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int totemicSpirit()
+    public int power1()//totemicSpirit
     {
         return doDamage(2,4,6,5);
     }
-    public int totemicHarmony()
+    public int power2()//totemicHarmony
     {
         return doDamage(3,5,10,15);
     }
-
+    public int power3(){
+        System.out.println("não tem esse poder");
+        return 0;
+    }
+    public int power4(){
+        System.out.println("não tem esse poder");
+        return 0;
+    }
 
     @Override
     public String toString() {

@@ -1,9 +1,13 @@
 package model.mage;
 
 import enums.*;
+import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
+import utils.Skills;
 
-public class FireMage extends Mage {
+import java.util.zip.Adler32;
+
+public class FireMage extends Adventurer implements Skills {
     /**
      * Class FireMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */
@@ -13,22 +17,23 @@ public class FireMage extends Mage {
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int metheorStorm()
+    public int power1()//metheorStorm
     {
         return doDamage(1,3,6,10);
     }
 
-    public int fireBall()
+    public int power2()//fireBall
     {
         return doDamage(2,4,10,15);
     }
 
-    public int burningBeam()
+    public int power3()//burningBeam
     {
         return doDamage(3,5,10,20);
     }
 
-    public int flamingSphere() {
+    public int power4()// flamingSphere
+    {
         return doDamage(4, 8, 6, 3);
     }
 

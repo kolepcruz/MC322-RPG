@@ -1,9 +1,11 @@
 package model.barbarian;
 
 import enums.*;
+import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
+import utils.Skills;
 
-public class FuriousBarbarian extends Barbarian{
+public class FuriousBarbarian extends Adventurer implements Skills {
     /**
      * Class FuriousBarbarian é uma subtribo de Barbarian, nela possui algumas habilidades com que o Barbaro ataca
      */
@@ -16,21 +18,22 @@ public class FuriousBarbarian extends Barbarian{
 
     //todo colocar uma descriçao do que cada metodo faz (mais pelo roleplay,pode ser no comentario bravo memo)
 
-    public int retaliation()
+    public int power1()//retaliation
     {
         return doDamage(1,8,10,35);
     }
 
-    public int frenzy()
+    public int power2()//frenzy
     {
         return doDamage(2,4,6,10);
     }
 
-    public int berserker() {
+    public int power3()//berserker
+    {
         return doDamage(3,5,10,20);
     }
 
-    public int intimidatingPresence()
+    public int power4()//intimidatingPresence
     {
         return doDamage(4,8,10,35);
     }

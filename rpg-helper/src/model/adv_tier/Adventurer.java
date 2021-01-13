@@ -9,7 +9,7 @@ import utils.RandomUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Adventurer extends Person{
+public abstract class Adventurer extends Person{
     /**
      * Class Adventurer armazena as informações do aventureiro
      * nessa classe contem informarções que vão ser aprimoradas no Projeto 2 e que já são usadas
@@ -24,6 +24,8 @@ public class Adventurer extends Person{
     private CombatAttributes combatAttributes;
     private Inventory inventory;
     private Attributes attributes;
+    protected int power;
+    protected int countPower;
 
     //instancia cada tipo de aventureiro com seu equipamento normal
     public Adventurer(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
@@ -65,6 +67,8 @@ public class Adventurer extends Person{
         this.id = numAdventurers;
         this.level = 0;
         this.expPoints = 0;
+        this.power=15;
+        this.countPower=15;
     }
 
     @Override
@@ -77,6 +81,20 @@ public class Adventurer extends Person{
                 "\n" + inventory +
                 "\n "  + attributes +
                 super.toString();
+    }
+
+    public int getPower() {
+        return power;
+    }
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public int getCountPower() {
+        return countPower;
+    }
+    public void setCountPower(int countPower) {
+        this.countPower = countPower;
     }
 
     public static int getNumAdventurers() {
@@ -126,5 +144,19 @@ public class Adventurer extends Person{
     }
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
+    }
+
+    public int doDamage(int level, int inter, int damageDice, int consumeRage){
+        if(this.getLevel() >= level && this.getPower() >= consumeRage)
+        {
+            int damage = 0;
+            for(int i = 0;i<inter;i++)
+            {
+                damage += RandomUtil.getRandom(damageDice);
+            }
+            setCountPower(getCountPower() - consumeRage);
+            return damage;
+        }
+        return 0;
     }
 }
