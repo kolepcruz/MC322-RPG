@@ -284,6 +284,7 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *classButtons and subClassButtons
          * *================================
          */
+
         marginX = 50;
         marginY = 40;
         labelStyle(classLabel, marginX, marginY, labelX, labelY, fontLarge);
@@ -332,30 +333,35 @@ public class GraphicInterface implements ActionListener, ChangeListener
          * *Person attributes and enums
          * *=====================================
          */
-        marginX = 550;
+        marginX = 500;
         marginY = 40;
         labelStyle(raceLabel, marginX, marginY, labelX, labelY, fontLarge);
         panelStyle(racePanel, marginX, marginY, labelX, labelY, raceLabel);
+        myFrame.revalidate();
 
-        marginX = 550;
-        marginY = 240;
+        marginX = 500;
+        marginY = 210;
         labelStyle(skinLabel, marginX, marginY, labelX, labelY, fontLarge);
         panelStyle(skinPanel, marginX, marginY, labelX, labelY, skinLabel);
+        myFrame.revalidate();
 
-        marginX = 550;
-        marginY = 320;
+        marginX = 500;
+        marginY = 340;
         labelStyle(eyesLabel, marginX, marginY, labelX, labelY, fontLarge);
         panelStyle(eyesPanel, marginX, marginY, labelX, labelY, eyesLabel);
+        myFrame.revalidate();
 
-        marginX = 550;
-        marginY = 400;
+        marginX = 500;
+        marginY = 460;
         labelStyle(hairLabel, marginX, marginY, labelX, labelY, fontLarge);
         panelStyle(hairPanel, marginX, marginY, labelX, labelY, hairLabel);
+        myFrame.revalidate();
 
-        marginX = 550;
-        marginY = 480;
-        labelStyle(sexLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(sexPanel, marginX, marginY, labelX, labelY, sexLabel);
+        marginX = 1000;
+        marginY = 40;
+        labelStyle(sexLabel, marginX, marginY, 350, labelY, fontLarge);
+        panelStyle(sexPanel, marginX, marginY, 350, labelY, sexLabel);
+        myFrame.revalidate();
 
 
         /**
@@ -804,6 +810,26 @@ public class GraphicInterface implements ActionListener, ChangeListener
             }
             myFrame.remove(racePanel);
 
+            for (JButton j:hairButtonArray) {
+                myFrame.remove(j);
+            }
+            myFrame.remove(hairPanel);
+
+            for (JButton j:eyeButtonArray) {
+                myFrame.remove(j);
+            }
+            myFrame.remove(eyesPanel);
+
+            for (JButton j:skinButtonArray) {
+                myFrame.remove(j);
+            }
+            myFrame.remove(skinPanel);
+
+            for (JButton j:sexButtonArray) {
+                myFrame.remove(j);
+            }
+            myFrame.remove(sexPanel);
+
             myFrame.remove(dexterityCountPanel);
             myFrame.remove(dexterityPanel);
             myFrame.remove(dexteritySlider);
@@ -947,12 +973,9 @@ public class GraphicInterface implements ActionListener, ChangeListener
 
             namesLabel.setText("character and player");
 
-//            openSlider(strengthSlider, strengthPanel, strengthButton);
-//            myFrame.add(attributesPanel);
-//            myFrame.add(strengthCountPanel);
 
             myFrame.add(racePanel);
-            addButtonArray(raceButtonArray,550,80);
+            addButtonArray(raceButtonArray,500,80);
 
         }
         /**
@@ -973,43 +996,81 @@ public class GraphicInterface implements ActionListener, ChangeListener
             }
             myFrame.add(skinPanel);
             skinLabel.setText("Choose your skin color");
-            addButtonArray(skinButtonArray,550,280);
+            addButtonArray(skinButtonArray,500,250);
             myFrame.repaint();
         }
+        myFrame.revalidate();
         if(skinButtonArray.contains(e.getSource())){
             int count = 0;
             for(JButton j : skinButtonArray){
-
                 if(e.getSource() == j){
                     skinInt = count;
-
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(eyesPanel);
             eyesLabel.setText("Choose your eye color");
-            addButtonArray(eyeButtonArray,550,360);
+            addButtonArray(eyeButtonArray,500,380);
             myFrame.repaint();
         }
-
+        myFrame.revalidate();
         if(eyeButtonArray.contains(e.getSource())){
             int count = 0;
             for(JButton j : eyeButtonArray){
-
                 if(e.getSource() == j){
-                    skinInt = count;
-
+                    eyesInt = count;
                 }
                 count++;
                 j.setEnabled(false);
             }
-            myFrame.add(hairLabel);
-            eyesLabel.setText("Choose your hair color");
-            addButtonArray(hairButtonArray,550,280);
+            myFrame.revalidate();
+            myFrame.add(hairPanel);
+            myFrame.revalidate();
+            hairLabel.setText("Choose your hair color");
+            addButtonArray(hairButtonArray,500,500);
+            myFrame.repaint();
+        }
+        myFrame.revalidate();
+        if(hairButtonArray.contains(e.getSource())){
+            int count = 0;
+            for(JButton j : hairButtonArray){
+                if(e.getSource() == j)
+                {
+                    hairInt = count;
+                }
+                count++;
+                j.setEnabled(false);
+            }
+            myFrame.revalidate();
+            myFrame.add(sexPanel);
+            myFrame.revalidate();
+            sexLabel.setText("Choose your biological sex");
+            addButtonArray(sexButtonArray,1000,80);
+            myFrame.repaint();
+        }
+        myFrame.revalidate();
+        if(sexButtonArray.contains(e.getSource())){
+            myFrame.repaint();
+            int count = 0;
+            for(JButton j : sexButtonArray){
+                if(e.getSource() == j)
+                {
+                    sexInt = count;
+                }
+                count++;
+                j.setEnabled(false);
+            }
+            myFrame.repaint();
+            myFrame.revalidate();
+            openSlider(strengthSlider, strengthPanel, strengthButton);
+            myFrame.revalidate();
+            myFrame.add(attributesPanel);
+            myFrame.revalidate();
+            myFrame.add(strengthCountPanel);
+            myFrame.revalidate();
 
         }
-
 
         /**
          * *=========================
