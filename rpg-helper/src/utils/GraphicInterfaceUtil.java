@@ -685,6 +685,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     public boolean valideAttribute(int value)
     {
+        System.out.println("\ntryInt: " + value);
+        System.out.println("totalInt: " + totalAttributesLabel.getText());
         if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
             return true;
 
@@ -1127,7 +1129,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == strengthButton) {
             strengthInt += strengthSlider.getValue();
 
-            if(valideAttribute(strengthInt))
+            if(valideAttribute(strengthSlider.getValue()))
             {
                 atualAttributesLabel.setText("set dexterity: ");
                 totalAttributesLabel
@@ -1141,7 +1143,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == dexterityButton) {
             dexterityInt += dexteritySlider.getValue();
 
-            if(valideAttribute(dexterityInt)){
+            if(valideAttribute(dexteritySlider.getValue())){
                 atualAttributesLabel.setText("set constitution: ");
                 totalAttributesLabel
                         .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexteritySlider.getValue()));
@@ -1154,7 +1156,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == constitutionButton) {
             constitutionInt += constitutionSlider.getValue();
 
-            if(valideAttribute(constitutionInt))
+            if(valideAttribute(constitutionSlider.getValue()))
             {
                 atualAttributesLabel.setText("set intelligence: ");
                 totalAttributesLabel
@@ -1168,7 +1170,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == intelligenceButton) {
             intelligenceInt += intelligenceSlider.getValue();
 
-            if(valideAttribute(intelligenceInt))
+            if(valideAttribute(intelligenceSlider.getValue()))
             {
                 atualAttributesLabel.setText("set wisdom: ");
                 totalAttributesLabel
@@ -1182,7 +1184,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == wisdomButton) {
             wisdomInt += wisdomSlider.getValue();
 
-            if(valideAttribute(wisdomInt))
+            if(valideAttribute(wisdomSlider.getValue()))
             {
                 atualAttributesLabel.setText("set charisma: ");
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomSlider.getValue()));
@@ -1195,7 +1197,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == charismaButton) {
             charismaInt += charismaSlider.getValue();
 
-            if(valideAttribute(charismaInt))
+            if(valideAttribute(charismaSlider.getValue()))
             {
                 atualAttributesLabel.setText("");
                 totalAttributesLabel
