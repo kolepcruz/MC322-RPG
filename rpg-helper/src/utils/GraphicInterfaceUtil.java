@@ -565,6 +565,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         mageButton.setEnabled(false);
         rogueButton.setEnabled(false);
 
+        //JOptionPane.showMessageDialog(myFrame, Arquivos.readString("Subclasses.txt"));
+
         myFrame.repaint();
     }
 
@@ -914,6 +916,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             openButton(mageButton);
             openButton(rogueButton);
 
+            JOptionPane.showMessageDialog(myFrame, Arquivos.readString("Classes.txt"));
+
             myFrame.repaint();
         }
 
@@ -1198,6 +1202,10 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                         .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaSlider.getValue()));
                 closeSlider(charismaSlider, charismaButton);
             }
+
+            /**
+             * !chamada dos métodos para criar o personagem
+             */
         }
     }
 

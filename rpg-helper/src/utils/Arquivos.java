@@ -36,4 +36,16 @@ public class Arquivos {
         }
     }
 
+    public static String readString(String nome){
+        String outText = "";
+        try{
+            Scanner input = new Scanner(new File("./Descricao/" + nome));
+            while(input.hasNext())
+                outText += (input.nextLine() + "\n");
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+        return outText;
+    }
+
 }
