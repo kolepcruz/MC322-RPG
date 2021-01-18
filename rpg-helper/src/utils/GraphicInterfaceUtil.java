@@ -2,12 +2,15 @@ package utils;
 
 import enums.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -146,7 +149,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      */
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
-    private static Image mainImage = new ImageIcon("RPG Git.png").getImage(); // get image
+    private static ImageIcon mainImage = new ImageIcon("rpg-helper/src/images/rpg0.png"); // get image
     private static ImageIcon iconImage = new ImageIcon("rpg-helper/src/images/icon.png");// get iconImage
 
 
@@ -285,8 +288,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         /**
          * *create projectImage
          */
-        mainImage = mainImage.getScaledInstance(960, 450, java.awt.Image.SCALE_AREA_AVERAGING); // transform it
-        projectPicture.setIcon(new ImageIcon(mainImage)); // load image
+        projectPicture.setIcon(mainImage); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
         projectPicture.setBounds(0, 0, 960, 450); // width height
         picturePanel.add(projectPicture);
