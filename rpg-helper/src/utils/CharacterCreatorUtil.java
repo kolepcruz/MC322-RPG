@@ -25,7 +25,7 @@ public class CharacterCreatorUtil {
      * @return
      * @author kole
      */
-    private static Attributes distributeAttributePoints(Race race,Scanner sc)
+    private static Attributes distributeAttributePoints(Race race, Scanner sc)
     {
         System.out.println("A continuaçao vc escolhera como distribuir seus atributos");
         System.out.println("Devido a raça do personagem, alguns terao valores iniciais");
@@ -259,5 +259,22 @@ public class CharacterCreatorUtil {
         }while(!withinRange);
 
         return chosenValue-1;
+    }
+
+
+
+    private static void createAdventurer(
+        String characterName, 
+        String playerName,
+        int chosenClass,
+        int chosenSubClass, 
+        int chosenRace,
+        int chosenEyes,
+        int chosenSkin,
+        int chosenSex,
+        int chosenHair,
+        int chosen)
+    {
+        
     }
 }
