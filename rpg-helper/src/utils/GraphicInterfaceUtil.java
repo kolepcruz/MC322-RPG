@@ -261,7 +261,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
     private static JButton charismaButton = new JButton(confirmText);
 
-    GraphicInterfaceUtil() 
+    public GraphicInterfaceUtil() 
     {
         /**
          * *create myFrame
@@ -1215,6 +1215,16 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     public static void main(String[] args) {
 
-        new GraphicInterfaceUtil();
+        // new GraphicInterfaceUtil();
+
+        // NarratorUtil.greetings();
+        // Scanner scanner = new Scanner(System.in);
+        // Adventurer a  = CharacterCreatorUtil.startCharacterCreation(scanner);
+        // a.getInventory().addWeapon(Weapon.TRIDENT);
+        // System.out.println(a);
+        // scanner.close();
+
+        // Arquivos.write("Ladino", a);
+        // Arquivos.read("teste.txt");
     }
 }
