@@ -73,27 +73,27 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *================
      */
     private static String raceString = "choose race";
-    private static int racePositionX = 510;
+    private static int racePositionX = 560;
     private static int racePositionY = 40;
     private static int raceColumns = 3;
 
     private static String skinString = "choose skin";
-    private static int skinPositionX = 510;
+    private static int skinPositionX = 560;
     private static int skinPositionY = 210;
     private static int skinColumns = 2;
     
     private static String eyesString = "choose eyes";
-    private static int eyesPositionX = 510;
+    private static int eyesPositionX = 560;
     private static int eyesPositionY = 340;
     private static int eyesColumns = 2;
 
     private static String hairString = "choose hair";
-    private static int hairPositionX = 510;
+    private static int hairPositionX = 560;
     private static int hairPositionY = 470;
     private static int hairColumns = 2;
     
     private static String sexString = "choose sex";
-    private static int sexPositionX = 810;
+    private static int sexPositionX = 860;
     private static int sexPositionY = 210;
     private static int sexColumns = 1;
     
@@ -1015,6 +1015,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
             myFrame.add(racePanel);
+            raceLabel.setText(raceString);
             addButtonArray(raceButtonArray, racePositionX, racePositionY + buttonY, raceColumns);
 
         }
@@ -1030,6 +1031,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     raceInt = count;
+                    raceLabel.setText("race");
                     j.setText(j.getText().toUpperCase());
                     strengthInt = Race.values()[raceInt].getStrenght();
                     dexterityInt = Race.values()[raceInt].getDexterity();
@@ -1043,6 +1045,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             }
 
             myFrame.add(skinPanel);
+            skinLabel.setText(skinString);
             addButtonArray(skinButtonArray, skinPositionX, skinPositionY + buttonY, skinColumns);
             myFrame.repaint();
             myFrame.revalidate();
@@ -1055,12 +1058,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     skinInt = count;
+                    skinLabel.setText("skin");
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(eyesPanel);
+            eyesLabel.setText(eyesString);
             addButtonArray(eyeButtonArray, eyesPositionX, eyesPositionY + buttonY, eyesColumns);
             myFrame.repaint();
             myFrame.revalidate();
@@ -1073,12 +1078,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     eyesInt = count;
+                    eyesLabel.setText("eyes");
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(hairPanel);
+            hairLabel.setText(hairString);
             addButtonArray(hairButtonArray, hairPositionX, hairPositionY + buttonY, hairColumns);
             myFrame.repaint();
             myFrame.revalidate();
@@ -1091,12 +1098,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     hairInt = count;
+                    hairLabel.setText("hair");
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(sexPanel);
+            sexLabel.setText(sexString);
             addButtonArray(sexButtonArray, sexPositionX, sexPositionY + buttonY, sexColumns);
             myFrame.repaint();
             myFrame.revalidate();
@@ -1108,6 +1117,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     sexInt = count;
+                    sexLabel.setText("sex");
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
