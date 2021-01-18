@@ -70,36 +70,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int wisdomInt = 0;
     private static int charismaInt = 0;
 
-    /**
-     * *================
-     * *button positions
-     * *================
-     */
-    private static String raceString = "choose race";
-    private static int racePositionX = 560;
-    private static int racePositionY = 40;
-    private static int raceColumns = 3;
 
-    private static String skinString = "choose skin";
-    private static int skinPositionX = 560;
-    private static int skinPositionY = 210;
-    private static int skinColumns = 2;
-    
-    private static String eyesString = "choose eyes";
-    private static int eyesPositionX = 560;
-    private static int eyesPositionY = 340;
-    private static int eyesColumns = 2;
-
-    private static String hairString = "choose hair";
-    private static int hairPositionX = 560;
-    private static int hairPositionY = 470;
-    private static int hairColumns = 2;
-    
-    private static String sexString = "choose sex";
-    private static int sexPositionX = 860;
-    private static int sexPositionY = 210;
-    private static int sexColumns = 1;
-    
     /**
      * *===============
      * *interface stylo
@@ -128,6 +99,59 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int marginX = 0;
     private static int marginY = 0;
     private static int exSpace = 0;
+    
+    
+    /**
+     * *================
+     * *button positions
+     * *================
+     */
+    private static String strengthString = "set strength: ";
+    private static String dexterityString = "set dexterity: ";
+    private static String constitutionString = "set constitution: ";
+    private static String intelligenceString = "set intelligence: ";
+    private static String wisdomString = "set wisdom: ";
+    private static String charismaString = "set charisma: ";
+
+
+    private static String raceStartString = "choose race";
+    private static String raceCloseString = "race";
+    private static int racePositionX = 560;
+    private static int racePositionY = 40;
+    private static int raceColumns = 3;
+
+    private static String skinStartString = "choose skin";
+    private static String skinCloseString = "skin";
+    private static int skinLabelX = 560;
+    private static int skinLabelY = 210;
+    private static int skinButtonX = skinLabelX;
+    private static int skinButtonY = skinLabelY + buttonY;
+    private static int skinColumns = 2;
+    
+    private static String eyesStartString = "choose eyes";
+    private static String eyesCloseString = "eyes";
+    private static int eyesLabelX = 560;
+    private static int eyesLabelY = 340;
+    private static int eyesButtonX = eyesLabelX;
+    private static int eyesButtonY = eyesLabelY + buttonY;
+    private static int eyesColumns = 2;
+
+    private static String hairStartString = "choose hair";
+    private static String hairCloseString = "hair";
+    private static int hairLabelX = 560;
+    private static int hairLabelY = 470;
+    private static int hairButtonX = hairLabelX;
+    private static int hairButtonY = hairLabelY + buttonY;
+    private static int hairColumns = 2;
+    
+    private static String sexStartString = "choose sex";
+    private static String sexCloseString = "sex";
+    private static int sexLabelX = 860;
+    private static int sexLabelY = 210;
+    private static int sexButtonX = sexLabelX;
+    private static int sexButtonY = sexLabelY + buttonY;
+    private static int sexColumns = 1;
+    
 
     /**
      * *start frame
@@ -180,23 +204,23 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *===========================
      */
     private static JPanel racePanel = new JPanel();
-    private static JLabel raceLabel = new JLabel(raceString);
+    private static JLabel raceLabel = new JLabel(raceStartString);
     private static ArrayList<JButton> raceButtonArray = new ArrayList<>();
 
     private static JPanel eyesPanel = new JPanel();
-    private static JLabel eyesLabel = new JLabel(eyesString);
+    private static JLabel eyesLabel = new JLabel(eyesStartString);
     private static ArrayList<JButton> eyeButtonArray = new ArrayList<>();
 
     private static JPanel hairPanel = new JPanel();
-    private static JLabel hairLabel = new JLabel(hairString);
+    private static JLabel hairLabel = new JLabel(hairStartString);
     private static ArrayList<JButton> hairButtonArray = new ArrayList<>();
 
     private static JPanel sexPanel = new JPanel();
-    private static JLabel sexLabel = new JLabel(sexString);
+    private static JLabel sexLabel = new JLabel(sexStartString);
     private static ArrayList<JButton> sexButtonArray = new ArrayList<>();
 
     private static JPanel skinPanel = new JPanel();
-    private static JLabel skinLabel = new JLabel(skinString);
+    private static JLabel skinLabel = new JLabel(skinStartString);
     private static ArrayList<JButton> skinButtonArray = new ArrayList<>();
 
 
@@ -379,20 +403,20 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         panelStyle(racePanel, racePositionX, racePositionY, labelX, labelY, raceLabel);
         myFrame.revalidate();
 
-        labelStyle(skinLabel, skinPositionX, skinPositionY, labelX - buttonX, labelY, fontLarge);
-        panelStyle(skinPanel, skinPositionX, skinPositionY, labelX - buttonX, labelY, skinLabel);
+        labelStyle(skinLabel, skinLabelX, skinLabelY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(skinPanel, skinLabelX, skinLabelY, labelX - buttonX, labelY, skinLabel);
         myFrame.revalidate();
 
-        labelStyle(eyesLabel, eyesPositionX, eyesPositionY, labelX - buttonX, labelY, fontLarge);
-        panelStyle(eyesPanel, eyesPositionX, eyesPositionY, labelX - buttonX, labelY, eyesLabel);
+        labelStyle(eyesLabel, eyesLabelX, eyesLabelY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(eyesPanel, eyesLabelX, eyesLabelY, labelX - buttonX, labelY, eyesLabel);
         myFrame.revalidate();
 
-        labelStyle(hairLabel, hairPositionX, hairPositionY, labelX - buttonX, labelY, fontLarge);
-        panelStyle(hairPanel, hairPositionX, hairPositionY, labelX - buttonX, labelY, hairLabel);
+        labelStyle(hairLabel, hairLabelX, hairLabelY, labelX - buttonX, labelY, fontLarge);
+        panelStyle(hairPanel, hairLabelX, hairLabelY, labelX - buttonX, labelY, hairLabel);
         myFrame.revalidate();
 
-        labelStyle(sexLabel, sexPositionX, sexPositionY, buttonX, labelY, fontLarge);
-        panelStyle(sexPanel, sexPositionX, sexPositionY, buttonX, labelY, sexLabel);
+        labelStyle(sexLabel, sexLabelX, sexLabelY, buttonX, labelY, fontLarge);
+        panelStyle(sexPanel, sexLabelX, sexLabelY, buttonX, labelY, sexLabel);
         myFrame.revalidate();
 
 
@@ -735,6 +759,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
     }
 
+
     /**
      * *receve changes in the frame
      * @param e
@@ -1037,7 +1062,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
             myFrame.add(racePanel);
-            raceLabel.setText(raceString);
+            raceLabel.setText(raceStartString);
             addButtonArray(raceButtonArray, racePositionX, racePositionY + buttonY, raceColumns);
 
         }
@@ -1048,13 +1073,13 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          */
         if(raceButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : raceButtonArray)
+            for(JButton button : raceButtonArray)
             {
-                if(e.getSource() == j)
+                if(e.getSource() == button)
                 {
                     raceInt = count;
-                    raceLabel.setText("race");
-                    j.setText(j.getText().toUpperCase());
+                    raceLabel.setText(raceCloseString);
+                    button.setText(button.getText().toUpperCase());
                     strengthInt = Race.values()[raceInt].getStrenght();
                     dexterityInt = Race.values()[raceInt].getDexterity();
                     constitutionInt = Race.values()[raceInt].getConstitution();
@@ -1063,12 +1088,12 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                     charismaInt = Race.values()[raceInt].getCharisma();
                 }
                 count++;
-                j.setEnabled(false);
+                button.setEnabled(false);
             }
 
             myFrame.add(skinPanel);
-            skinLabel.setText(skinString);
-            addButtonArray(skinButtonArray, skinPositionX, skinPositionY + buttonY, skinColumns);
+            skinLabel.setText(skinStartString);
+            addButtonArray(skinButtonArray, skinButtonX, skinButtonY, skinColumns);
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1080,15 +1105,15 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     skinInt = count;
-                    skinLabel.setText("skin");
+                    skinLabel.setText(skinCloseString);
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(eyesPanel);
-            eyesLabel.setText(eyesString);
-            addButtonArray(eyeButtonArray, eyesPositionX, eyesPositionY + buttonY, eyesColumns);
+            eyesLabel.setText(eyesStartString);
+            addButtonArray(eyeButtonArray, eyesButtonX, eyesButtonY, eyesColumns);
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1100,52 +1125,52 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 if(e.getSource() == j)
                 {
                     eyesInt = count;
-                    eyesLabel.setText("eyes");
+                    eyesLabel.setText(eyesCloseString);
                     j.setText(j.getText().toUpperCase());
                 }
                 count++;
                 j.setEnabled(false);
             }
             myFrame.add(hairPanel);
-            hairLabel.setText(hairString);
-            addButtonArray(hairButtonArray, hairPositionX, hairPositionY + buttonY, hairColumns);
+            hairLabel.setText(hairStartString);
+            addButtonArray(hairButtonArray, hairButtonX, hairButtonY, hairColumns);
             myFrame.repaint();
             myFrame.revalidate();
         }
 
         if(hairButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : hairButtonArray)
+            for(JButton button : hairButtonArray)
             {
-                if(e.getSource() == j)
+                if(e.getSource() == button)
                 {
                     hairInt = count;
-                    hairLabel.setText("hair");
-                    j.setText(j.getText().toUpperCase());
+                    hairLabel.setText(hairCloseString);
+                    button.setText(button.getText().toUpperCase());
                 }
                 count++;
-                j.setEnabled(false);
+                button.setEnabled(false);
             }
             myFrame.add(sexPanel);
-            sexLabel.setText(sexString);
-            addButtonArray(sexButtonArray, sexPositionX, sexPositionY + buttonY, sexColumns);
+            sexLabel.setText(sexStartString);
+            addButtonArray(sexButtonArray, sexButtonX, sexButtonY, sexColumns);
             myFrame.repaint();
             myFrame.revalidate();
         }
 
         if(sexButtonArray.contains(e.getSource())){
             int count = 0;
-            for(JButton j : sexButtonArray){
-                if(e.getSource() == j)
+            for(JButton button : sexButtonArray){
+                if(e.getSource() == button)
                 {
                     sexInt = count;
-                    sexLabel.setText("sex");
-                    j.setText(j.getText().toUpperCase());
+                    sexLabel.setText(sexCloseString);
+                    button.setText(button.getText().toUpperCase());
                 }
                 count++;
-                j.setEnabled(false);
+                button.setEnabled(false);
             }
-            atualAttributesLabel.setText("set strength: ");
+            atualAttributesLabel.setText(strengthString);
             openSlider(strengthSlider, strengthPanel, strengthButton);
             myFrame.add(attributesPanel);
             myFrame.add(strengthCountPanel);
@@ -1164,9 +1189,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
             if(valideAttribute(strengthSlider.getValue()))
             {
-                atualAttributesLabel.setText("set dexterity: ");
-                totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthSlider.getValue()));
+                atualAttributesLabel.setText(dexterityString);
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthSlider.getValue()));
                 closeSlider(strengthSlider, strengthButton);
                 openSlider(dexteritySlider, dexterityPanel, dexterityButton);
                 myFrame.add(dexterityCountPanel);
@@ -1176,10 +1200,10 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if (e.getSource() == dexterityButton) {
             dexterityInt += dexteritySlider.getValue();
 
-            if(valideAttribute(dexteritySlider.getValue())){
-                atualAttributesLabel.setText("set constitution: ");
-                totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexteritySlider.getValue()));
+            if(valideAttribute(dexteritySlider.getValue()))
+            {
+                atualAttributesLabel.setText(constitutionString);
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexteritySlider.getValue()));
                 closeSlider(dexteritySlider, dexterityButton);
                 openSlider(constitutionSlider, constitutionPanel, constitutionButton);
                 myFrame.add(constitutionCountPanel);
@@ -1191,9 +1215,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
             if(valideAttribute(constitutionSlider.getValue()))
             {
-                atualAttributesLabel.setText("set intelligence: ");
-                totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionSlider.getValue()));
+                atualAttributesLabel.setText(intelligenceString);
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionSlider.getValue()));
                 closeSlider(constitutionSlider, constitutionButton);
                 openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
                 myFrame.add(intelligenceCountPanel);
@@ -1205,9 +1228,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
             if(valideAttribute(intelligenceSlider.getValue()))
             {
-                atualAttributesLabel.setText("set wisdom: ");
-                totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceSlider.getValue()));
+                atualAttributesLabel.setText(wisdomString);
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceSlider.getValue()));
                 closeSlider(intelligenceSlider, intelligenceButton);
                 openSlider(wisdomSlider, wisdomPanel, wisdomButton);
                 myFrame.add(wisdomCountPanel);
@@ -1219,7 +1241,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
             if(valideAttribute(wisdomSlider.getValue()))
             {
-                atualAttributesLabel.setText("set charisma: ");
+                atualAttributesLabel.setText(charismaString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomSlider.getValue()));
                 closeSlider(wisdomSlider, wisdomButton);
                 openSlider(charismaSlider, charismaPanel, charismaButton);
@@ -1233,8 +1255,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             if(valideAttribute(charismaSlider.getValue()))
             {
                 atualAttributesLabel.setText("");
-                totalAttributesLabel
-                        .setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaSlider.getValue()));
+                totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaSlider.getValue()));
                 closeSlider(charismaSlider, charismaButton);
             }
 
