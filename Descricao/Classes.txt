@@ -1,21 +1,19 @@
-#########################################################################################
+=========================================================================================
 BARBARIAN:
-	Barbarians são famosos por sua incrível força e resistência ao dano físico.
-Utilizam rage para causar dano devastador ápos o começo do combate, e esta aumenta quando o Barbarian se encontra 
-em combate com forças inimigas, diminuindo a medida que o tempo passa.
+Famosos por sua incrível força e resistência ao dano físico, utilizando RAGE para causar dano devastador ápos
+o começo do combate. Aumentando durante os encontros com os inimigas, diminuindo ao longo do tempo.
 
-*****************************************************************************************
+=========================================================================================
 MAGE:
-	Mages utilizam seu conhecimento e domínio do arcano para lançar feitiços devastadores nas forças inimigas.
-Utilizam mana, um recurso poderoso que se regenera lentamente, abre as portas para magias muito potentes.
+Conhecidos por seu vasto domínio do arcano para feitiços devastadores conjurados com MANA. Este poderoso
+recurso se regenera lentamente, abrindo as portas para incríveis magias.
 
-*****************************************************************************************
+=========================================================================================
 ROGUE:
-	Os rogues são os reis do subterfúgio, utilizam sua destreza e seu ambiente para derrotar inimigos mais 
-fortes fisicamente ou com poder destrutivo maior.
-Utilizam stamina para utilizar suas habilidades, e eh um recurso de alta regeneraçao tanto dentro quanto fora 
-do combate, mas gasta muito rapido.
+Reis do subterfúgio, utilizam sua destreza e seu ambiente para derrotar inimigos fisicamente mais fortes ou 
+destrutivos. Suas habilidades dependem da STAMINA que, apesar de seu rápido esgotamento, se regenera
+tanto dentro quanto fora do combate.
 
-#########################################################################################
-#########################################################################################
-Agora escolha entre estas principais Classes do RPG-Helper.
+=========================================================================================
+
+Desta maneira, selecione sua Classe do RPG-HELPER
