@@ -59,6 +59,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int skinInt = 0;
     private static int sexInt = 0;
 
+    private static int heightInt = 0;
+    private static int weightInt = 0;
+
     private static int totalAttributesInt = 72;
     private static int strengthInt = 0;
     private static int dexterityInt = 0;
@@ -114,13 +117,13 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int buttonY = 40;
     private static String confirmText = "confirm";
 
-    private static int sliderX = 75;
-    private static int sliderY = 220;
-    private static int sliderMin = 0;
-    private static int sliderMax = 15;
-    private static int sliderMajor = 3;
-    private static int sliderMinor = 1;
-    private static int sliderText = 15;
+    private static int attributeSliderX = 75;
+    private static int attributeSliderY = 220;
+    private static int attributeSliderMin = 0;
+    private static int attributeSliderMax = 15;
+    private static int attributeSliderMajor = 3;
+    private static int attributeSliderMinor = 1;
+    private static int attributeSliderText = 15;
 
     private static int marginX = 0;
     private static int marginY = 0;
@@ -137,7 +140,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     /**
      * *primary buttons
      * !debug button is for developers only
-     * TODO: setEnabled of debugButton to false before deploying
      */
     private static JButton debugButton = new JButton("debug"); // debug routine button
     private static JButton startButton = new JButton("start"); // starts routine button
@@ -145,7 +147,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     /**
      * *primary page
-     * TODO: add main photo
      */
     private static JLabel projectName = new JLabel("RPG HELPER");
     private static JLabel projectPicture = new JLabel("");
@@ -216,6 +217,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
     /**
+     * *=======================
+     * *heightInt and weightInt
+     * *=======================
+     */
+
+
+
+    /**
      * *=====================================
      * *attributesTotal and attributesSliders
      * *=====================================
@@ -228,37 +237,37 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JPanel strengthCountPanel = new JPanel();
     private static JLabel strengthCountLabel = new JLabel(String.valueOf(strengthInt));
     private static JPanel strengthPanel = new JPanel();
-    private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider strengthSlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton strengthButton = new JButton(confirmText);
 
     private static JPanel dexterityCountPanel = new JPanel();
     private static JLabel dexterityCountLabel = new JLabel(String.valueOf(dexterityInt));
     private static JPanel dexterityPanel = new JPanel();
-    private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider dexteritySlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton dexterityButton = new JButton(confirmText);
 
     private static JPanel constitutionCountPanel = new JPanel();
     private static JLabel constitutionCountLabel = new JLabel(String.valueOf(constitutionInt));
     private static JPanel constitutionPanel = new JPanel();
-    private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider constitutionSlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton constitutionButton = new JButton(confirmText);
 
     private static JPanel intelligenceCountPanel = new JPanel();
     private static JLabel intelligenceCountLabel = new JLabel(String.valueOf(intelligenceInt));
     private static JPanel intelligencePanel = new JPanel();
-    private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider intelligenceSlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton intelligenceButton = new JButton(confirmText);
 
     private static JPanel wisdomCountPanel = new JPanel();
     private static JLabel wisdomCountLabel = new JLabel(String.valueOf(wisdomInt));
     private static JPanel wisdomPanel = new JPanel();
-    private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider wisdomSlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton wisdomButton = new JButton(confirmText);
 
     private static JPanel charismaCountPanel = new JPanel();
     private static JLabel charismaCountLabel = new JLabel(String.valueOf(charismaInt));
     private static JPanel charismaPanel = new JPanel();
-    private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, sliderMin, sliderMax, sliderMin);
+    private static JSlider charismaSlider = new JSlider(JSlider.VERTICAL, attributeSliderMin, attributeSliderMax, attributeSliderMin);
     private static JButton charismaButton = new JButton(confirmText);
 
     public GraphicInterfaceUtil() 
@@ -388,6 +397,15 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
         /**
+         * *=======================
+         * *heightInt and weightInt
+         * *=======================
+         */
+
+
+
+
+        /**
          * *=====================================
          * *attributesTotal and attributesSliders
          * *=====================================
@@ -402,51 +420,51 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         panelStyle(attributesPanel, marginX, marginY, 3 * buttonX, buttonY, attributesLabel);
 
         marginY += 2 * buttonY;
-        panelStyle(strengthCountPanel, marginX, marginY - buttonY, sliderX, buttonY, strengthCountLabel);
-        labelStyle(strengthCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(strengthPanel, marginX, marginY, sliderX, sliderY, strengthSlider);
-        buttonStyle(strengthButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(strengthSlider, sliderMinor, sliderMajor, sliderText);
+        panelStyle(strengthCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, strengthCountLabel);
+        labelStyle(strengthCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(strengthPanel, marginX, marginY, attributeSliderX, attributeSliderY, strengthSlider);
+        buttonStyle(strengthButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(strengthSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         strengthSlider.addChangeListener((ChangeListener) this);
 
-        marginX += sliderX;
-        panelStyle(dexterityCountPanel, marginX, marginY - buttonY, sliderX, buttonY, dexterityCountLabel);
-        labelStyle(dexterityCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(dexterityPanel, marginX, marginY, sliderX, sliderY, dexteritySlider);
-        buttonStyle(dexterityButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(dexteritySlider, sliderMinor, sliderMajor, sliderText);
+        marginX += attributeSliderX;
+        panelStyle(dexterityCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, dexterityCountLabel);
+        labelStyle(dexterityCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(dexterityPanel, marginX, marginY, attributeSliderX, attributeSliderY, dexteritySlider);
+        buttonStyle(dexterityButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(dexteritySlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         dexteritySlider.addChangeListener((ChangeListener) this);
 
-        marginX += sliderX;
-        panelStyle(constitutionCountPanel, marginX, marginY - buttonY, sliderX, buttonY, constitutionCountLabel);
-        labelStyle(constitutionCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(constitutionPanel, marginX, marginY, sliderX, sliderY, constitutionSlider);
-        buttonStyle(constitutionButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(constitutionSlider, sliderMinor, sliderMajor, sliderText);
+        marginX += attributeSliderX;
+        panelStyle(constitutionCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, constitutionCountLabel);
+        labelStyle(constitutionCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(constitutionPanel, marginX, marginY, attributeSliderX, attributeSliderY, constitutionSlider);
+        buttonStyle(constitutionButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(constitutionSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         constitutionSlider.addChangeListener((ChangeListener) this);
 
-        marginX += sliderX;
-        panelStyle(intelligenceCountPanel, marginX, marginY - buttonY, sliderX, buttonY, intelligenceCountLabel);
-        labelStyle(intelligenceCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(intelligencePanel, marginX, marginY, sliderX, sliderY, intelligenceSlider);
-        buttonStyle(intelligenceButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(intelligenceSlider, sliderMinor, sliderMajor, sliderText);
+        marginX += attributeSliderX;
+        panelStyle(intelligenceCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, intelligenceCountLabel);
+        labelStyle(intelligenceCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(intelligencePanel, marginX, marginY, attributeSliderX, attributeSliderY, intelligenceSlider);
+        buttonStyle(intelligenceButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(intelligenceSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         intelligenceSlider.addChangeListener((ChangeListener) this);
 
-        marginX += sliderX;
-        panelStyle(wisdomCountPanel, marginX, marginY - buttonY, sliderX, buttonY, wisdomCountLabel);
-        labelStyle(wisdomCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(wisdomPanel, marginX, marginY, sliderX, sliderY, wisdomSlider);
-        buttonStyle(wisdomButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(wisdomSlider, sliderMinor, sliderMajor, sliderText);
+        marginX += attributeSliderX;
+        panelStyle(wisdomCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, wisdomCountLabel);
+        labelStyle(wisdomCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(wisdomPanel, marginX, marginY, attributeSliderX, attributeSliderY, wisdomSlider);
+        buttonStyle(wisdomButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(wisdomSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         wisdomSlider.addChangeListener((ChangeListener) this);
 
-        marginX += sliderX;
-        panelStyle(charismaCountPanel, marginX, marginY - buttonY, sliderX, buttonY, charismaCountLabel);
-        labelStyle(charismaCountLabel, marginX, marginY - buttonY, sliderX, buttonY, fontLarge);
-        panelStyle(charismaPanel, marginX, marginY, sliderX, sliderY, charismaSlider);
-        buttonStyle(charismaButton, marginX, marginY + sliderY, sliderX, buttonY, this, fontSmall);
-        sliderStylo(charismaSlider, sliderMinor, sliderMajor, sliderText);
+        marginX += attributeSliderX;
+        panelStyle(charismaCountPanel, marginX, marginY - buttonY, attributeSliderX, buttonY, charismaCountLabel);
+        labelStyle(charismaCountLabel, marginX, marginY - buttonY, attributeSliderX, buttonY, fontLarge);
+        panelStyle(charismaPanel, marginX, marginY, attributeSliderX, attributeSliderY, charismaSlider);
+        buttonStyle(charismaButton, marginX, marginY + attributeSliderY, attributeSliderX, buttonY, this, fontSmall);
+        sliderStylo(charismaSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         charismaSlider.addChangeListener((ChangeListener) this);
 
 
@@ -764,6 +782,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             System.out.println("chosenSubClass: " + chosenSubClass);
             System.out.println("characterName: " + characterName);
             System.out.println("playerName: " + playerName + "\n");
+            System.out.println("heightInt: " + heightInt);
+            System.out.println("weightInt: " + weightInt + "\n");
             System.out.println("raceInt: " + raceInt);
             System.out.println("eyesInt: " + eyesInt);
             System.out.println("sexInt: " + sexInt);
@@ -792,6 +812,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             chosenSubClass = 0;
             characterName = "default";
             playerName = "default";
+            heightInt = 0;
+            weightInt = 0;
             raceInt = 0;
             eyesInt = 0;
             sexInt = 0;
@@ -1127,6 +1149,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             openSlider(strengthSlider, strengthPanel, strengthButton);
             myFrame.add(attributesPanel);
             myFrame.add(strengthCountPanel);
+
             myFrame.repaint();
             myFrame.revalidate();
         }
