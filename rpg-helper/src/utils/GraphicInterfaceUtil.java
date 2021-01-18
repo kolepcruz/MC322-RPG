@@ -455,12 +455,12 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *mainButtons
          * *===========
          */
-        marginX = 860;
-        marginY = 520;
+        marginX = 560;
+        marginY = 600;
         buttonStyle(startButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
-        marginY += buttonY;
+        marginX += buttonX;
         buttonStyle(restartButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
-        marginY += buttonY;
+        marginX += buttonX;
         buttonStyle(debugButton, marginX, marginY, buttonX, buttonY, this, fontLarge);
 
         /**
@@ -687,8 +687,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     public boolean valideAttribute(int value)
     {
-        System.out.println("\ntryInt: " + value);
-        System.out.println("totalInt: " + totalAttributesLabel.getText());
         if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
             return true;
 
@@ -1215,7 +1213,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     public static void main(String[] args) {
 
-        // new GraphicInterfaceUtil();
+        new GraphicInterfaceUtil();
 
         // NarratorUtil.greetings();
         // Scanner scanner = new Scanner(System.in);
