@@ -44,7 +44,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int barbarianClassInt = 1;
     private static int mageClassInt = 2;
     private static int rogueClassInt = 3;
-
+    
     private static int furiousClassInt = 1;
     private static int totemicClassInt = 2;
     private static int frostClassInt = 1;
@@ -52,7 +52,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int arcaneClassInt = 3;
     private static int assassinClassInt = 1;
     private static int trapperClassInt = 2;
-
+    
     private static int raceInt = 0;
     private static int eyesInt = 0;
     private static int hairInt = 0;
@@ -76,9 +76,29 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *interface stylo
      * *===============
      */
+    private static String projectNameString = "RPG HELPER";
+    private static String mainImageString = "rpg-helper/src/images/rpg0.png";
+    private static String iconImageString = "rpg-helper/src/images/icon.png";
+
+    private static Color backgroundColor = new Color(96, 85, 91);
+    private static int myFrameWidth = 1080;
+    private static int myFrameHeight = 720;
+
+    private static int mainPictureWidth = 960;
+    private static int mainPictureHeight = 450;
+    private static int picturePanelX = 50;
+    private static int picturePanelY = 50;
+
+    private static int projectNameWidth = 500;
+    private static int projectNameHeight = 50;
+    private static int projectNameX = 50;
+    private static int projectNameY = 560;
+
     private static String defaultFont = "Impact";
     private static int fontSmall = 10;
     private static int fontLarge = 20;
+    private static int fontHuge = 60;
+    private static int fontStyle = Font.BOLD;
 
     private static int fieldSize = 25;
 
@@ -100,52 +120,46 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int attributeSliderMinor = 1;
     private static int attributeSliderText = 15;
 
-    private static int marginX = 0;
-    private static int marginY = 0;
-    private static int exSpace = 0;
-    
-    
-    /**
-     * *=============
-     * *default texts
-     * *=============
-     */
-    private static String subClassString = "choose subClass";
-    private static String classString = "class and subClass";
-    
-    private static String nameString = "character and player";
-    private static String playerString = "write player name";
-    
-    private static String strengthString = "set strength: ";
-    private static String dexterityString = "set dexterity: ";
-    private static String constitutionString = "set constitution: ";
-    private static String intelligenceString = "set intelligence: ";
-    private static String wisdomString = "set wisdom: ";
-    private static String charismaString = "set charisma: ";
-    
-    private static String attributesErroString = "insert a valide value\nbelow ";
-    
-    
+    private static int doublesSliderX = 75;
+    private static int doublesSliderY = 220;
+    private static int doublesSliderMin = 0;
+    private static int doublesSliderMax = 15;
+    private static int doublesSliderMajor = 3;
+    private static int doublesSliderMinor = 1;
+    private static int doublesSliderText = 15;
+
+
+
     /**
      * *================
      * *button positions
      * *================
      */
-    private static String buildString = "build";
+    
+    private static String startButtonString = "start";
+    private static String buildButtonString = "build";
     private static int startButtonX = 710;
     private static int startButtonY = 600;
-
+    
+    private static String restartButtonString = "restart";
     private static int restartButtonX = startButtonX + buttonX;
     private static int restartButtonY = startButtonY;
-
+    
+    private static String debugButtonString = "debug";
     private static int debugButtonX = restartButtonX;
     private static int debugButtonY = restartButtonY + buttonY;
 
+    private static String doublesString = "set height";
+    private static int doublesPanelX = 560;
+    private static int doublesPanelY = 340;
+
+    private static String classChooseString = "choose class";
     private static int classPanelX = 50;
     private static int classPanelY = 40;
     private static int classesPanelY = classPanelY + buttonY;
     private static int subClassesPanelY = classesPanelY + buttonY;
 
+    private static String classCloseString = "class and subClass";
     private static int barbarianButtonX = classPanelX;
     private static int barbarianButtonY = classesPanelY;
     private static int mageButtonX = barbarianButtonX + buttonX;
@@ -153,6 +167,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int rogueButtonX = mageButtonX + buttonX;
     private static int rogueButtonY = classesPanelY;
 
+    private static String subClassString = "choose subClass";
     private static int furiousButtonX = classPanelX;
     private static int furiousButtonY = subClassesPanelY;
     private static int totemicButtonX = furiousButtonX + buttonX;
@@ -170,44 +185,64 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int trapperButtonX = assassinButtonX + buttonX;
     private static int trapperButtonY = subClassesPanelY;
 
+    private static String nameCloseString = "character and player";
+    private static int namesPanelX = 50;
+    private static int namesPanelY = 170;
+
+    private static String playerString = "write player name";
+    private static int characterPanelX = namesPanelX;
+    private static int characterPanelY = namesPanelY + labelY;
+
+    private static String characterString = "write character name";
+    private static int playerPanelX = namesPanelX;
+    private static int playerPanelY = characterPanelY + labelY;
+
+    private static String attributesString = "attributes points left: ";
+    private static String attributesErroString = "insert a valide value\nbelow ";
     private static int attributesPanelX = 50; 
     private static int attributesPanelY = 300; 
-
+    
+    private static String strengthString = " [ set strength ]";
     private static int strengthCountPanelX = attributesPanelX;
     private static int strengthCountPanelY = attributesPanelY + labelY;
     private static int strengthPanelX = strengthCountPanelX;
     private static int strengthPanelY = strengthCountPanelY + labelY;
     private static int strengthButtonX = strengthPanelX;
     private static int strengthButtonY = strengthPanelY + attributeSliderY;
-
+    
+    private static String dexterityString = " [ set dexterity ]";
     private static int dexterityCountPanelX = strengthPanelX + attributeSliderX;
     private static int dexterityCountPanelY = attributesPanelY + labelY;
     private static int dexterityPanelX = dexterityCountPanelX;
     private static int dexterityPanelY = dexterityCountPanelY + labelY;
     private static int dexterityButtonX = dexterityPanelX;
     private static int dexterityButtonY = dexterityPanelY + attributeSliderY;
-
+    
+    private static String constitutionString = " [ set constitution ]";
     private static int constitutionCountPanelX = dexterityPanelX + attributeSliderX;
     private static int constitutionCountPanelY = attributesPanelY + labelY;
     private static int constitutionPanelX = constitutionCountPanelX;
     private static int constitutionPanelY = constitutionCountPanelY + labelY;
     private static int constitutionButtonX = constitutionPanelX;
     private static int constitutionButtonY = constitutionPanelY + attributeSliderY;
-
+    
+    private static String intelligenceString = " [ set intelligence ]";
     private static int intelligenceCountPanelX = constitutionPanelX + attributeSliderX;
     private static int intelligenceCountPanelY = attributesPanelY + labelY;
     private static int intelligencePanelX = intelligenceCountPanelX;
     private static int intelligencePanelY = intelligenceCountPanelY + labelY;
     private static int intelligenceButtonX = intelligencePanelX;
     private static int intelligenceButtonY = intelligencePanelY + attributeSliderY;
-
+    
+    private static String wisdomString = " [ set wisdom ]";
     private static int wisdomCountPanelX = intelligencePanelX + attributeSliderX;
     private static int wisdomCountPanelY = attributesPanelY + labelY;
     private static int wisdomPanelX = wisdomCountPanelX;
     private static int wisdomPanelY = wisdomCountPanelY + labelY;
     private static int wisdomButtonX = wisdomPanelX;
     private static int wisdomButtonY = wisdomPanelY + attributeSliderY;
-
+    
+    private static String charismaString = " [ set charisma ]";
     private static int charismaCountPanelX = wisdomPanelX + attributeSliderX;
     private static int charismaCountPanelY = attributesPanelY + labelY;
     private static int charismaPanelX = charismaCountPanelX;
@@ -248,7 +283,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int hairColumns = 2;
     
     private static String sexStartString = "choose sex";
-    private static String sexCloseString = "sex";
+    private static String sexCloseString = "chosen sex";
     private static int sexLabelX = 560;
     private static int sexLabelY = 210;
     private static int sexButtonX = sexLabelX;
@@ -259,26 +294,25 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     /**
      * *start frame
      */
-    private static JFrame myFrame = new JFrame("RPG Helper"); // frame name
+    private static JFrame myFrame = new JFrame(projectNameString); // frame name
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-    private static Container myContainer = myFrame.getContentPane(); // get container
     private static JPanel picturePanel = new JPanel();
 
     /**
      * *primary buttons
      * !debug button is for developers only
      */
-    private static JButton debugButton = new JButton("debug"); // debug routine button
-    private static JButton startButton = new JButton("start"); // starts routine button
-    private static JButton restartButton = new JButton("restart"); // restarts routine button
+    private static JButton startButton = new JButton(startButtonString); // starts routine button
+    private static JButton restartButton = new JButton(restartButtonString); // restarts routine button
+    private static JButton debugButton = new JButton(debugButtonString); // debug routine button
 
     /**
      * *primary page
      */
-    private static JLabel projectName = new JLabel("RPG HELPER");
+    private static JLabel projectName = new JLabel(projectNameString);
     private static JLabel projectPicture = new JLabel("");
-    private static ImageIcon mainImage = new ImageIcon("rpg-helper/src/images/rpg0.png"); // get image
-    private static ImageIcon iconImage = new ImageIcon("rpg-helper/src/images/icon.png");// get iconImage
+    private static ImageIcon mainImage = new ImageIcon(mainImageString); // get image
+    private static ImageIcon iconImage = new ImageIcon(iconImageString);// get iconImage
 
 
     /**
@@ -287,7 +321,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *================================
      */
     private static JPanel classPanel = new JPanel();
-    private static JLabel classLabel = new JLabel("choose class");
+    private static JLabel classLabel = new JLabel(classChooseString);
 
     private static JButton barbarianButton = new JButton(barbarianString); // button to selection barbarian
     private static JButton mageButton = new JButton(mageString);
@@ -333,7 +367,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *============================
      */
     private static JPanel namesPanel = new JPanel();
-    private static JLabel namesLabel = new JLabel("write character name");
+    private static JLabel namesLabel = new JLabel(characterString);
     private static JPanel characterPanel = new JPanel();
     private static JTextField characterField = new JTextField(fieldSize);
     private static JButton characterButton = new JButton(confirmText);
@@ -348,7 +382,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *heightInt and weightInt
      * *=======================
      */
+    private static JPanel doublesPanel = new JPanel();
+    private static JLabel doublesLabel = new JLabel(doublesString);
 
+    private static JPanel heightCountPanel = new JPanel();
+    private static JLabel heightCountLabel = new JLabel(String.valueOf(0));
+    private static JPanel heightPanel = new JPanel();
+    private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, 0, 250, 0);
+    private static JButton heightButton = new JButton(confirmText);
 
 
     /**
@@ -357,8 +398,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *=====================================
      */
     private static JPanel attributesPanel = new JPanel();
-    private static JLabel attributesLabel = new JLabel("attributes points left");
-    private static JLabel atualAttributesLabel = new JLabel("set strength: ");
+    private static JLabel attributesLabel = new JLabel(attributesString);
+    private static JLabel atualAttributesLabel = new JLabel();
     private static JLabel totalAttributesLabel = new JLabel(String.valueOf(totalAttributesInt));
 
     private static JPanel strengthCountPanel = new JPanel();
@@ -402,39 +443,33 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         /**
          * *create myFrame
          */
-        myFrame.setSize(1080, 720); // size of frame
+        myFrame.setSize(myFrameWidth, myFrameHeight); // size of frame
         myFrame.setLayout(null); // no layout
-        myFrame.getContentPane().setBackground(new Color(96, 85, 91)); // set color
+        myFrame.getContentPane().setBackground(backgroundColor); // set color
         myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
         myFrame.setIconImage(iconImage.getImage()); //change icon of frame
 
         /**
-         * *create myContainer
-         */
-        myContainer.setLayout(null); // set layout
-        myContainer.setBackground(new Color(96, 85, 91)); // set color
-
-        /**
          * *create picturePanel
          */
-        picturePanel.setBounds(50, 50, 960, 450); // position and size
+        picturePanel.setBounds(picturePanelX, picturePanelY, mainPictureWidth, mainPictureHeight); // position and size
         picturePanel.setLayout(null);
-        myContainer.add(picturePanel);
+        myFrame.getContentPane().add(picturePanel);
 
         /**
          * *create projectImage
          */
         projectPicture.setIcon(mainImage); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
-        projectPicture.setBounds(0, 0, 960, 450); // width height
+        projectPicture.setSize(mainPictureWidth, mainPictureHeight); // width height
         picturePanel.add(projectPicture);
 
         /**
          * *create projectName
          */
-        projectName.setFont(new Font(defaultFont, Font.BOLD, 60));
+        projectName.setFont(new Font(defaultFont, fontStyle, fontHuge));
         projectName.setForeground(Color.BLACK);
-        projectName.setBounds(50, 560, 500, 50);
+        projectName.setBounds(projectNameX, projectNameY, projectNameWidth, projectNameHeight);
         myFrame.add(projectName);
 
         /**
@@ -462,18 +497,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *characterPanel and playerName
          * *=============================
          */
-        marginX = 50;
-        marginY = 170;
-        labelStyle(namesLabel, marginX, marginY, labelX, labelY, fontLarge);
-        panelStyle(namesPanel, marginX, marginY, labelX, labelY, namesLabel);
+        labelStyle(namesLabel, namesPanelX, namesPanelY, labelX, labelY, fontLarge);
+        panelStyle(namesPanel, namesPanelX, namesPanelY, labelX, labelY, namesLabel);
 
-        marginY += labelY;
-        panelStyle(characterPanel, marginX, marginY, 2 * buttonX, buttonY, characterField);
-        buttonStyle(characterButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
+        panelStyle(characterPanel, characterPanelX, characterPanelY, 2 * buttonX, buttonY, characterField);
+        buttonStyle(characterButton, characterPanelX + 2 * buttonX, characterPanelY, buttonX, buttonY, this, fontLarge);
 
-        marginY += buttonY;
-        panelStyle(playerPanel, marginX, marginY, 2 * buttonX, buttonY, playerField);
-        buttonStyle(playerButton, marginX + 2 * buttonX, marginY, buttonX, buttonY, this, fontLarge);
+        panelStyle(playerPanel, playerPanelX, playerPanelY, 2 * buttonX, buttonY, playerField);
+        buttonStyle(playerButton, playerPanelX + 2 * buttonX, playerPanelY, buttonX, buttonY, this, fontLarge);
 
         /**
          * *==================================================
@@ -488,7 +519,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
         /**
          * *=====================================
-         * *Person attributes and enums
+         * *person attributes and enums
          * *=====================================
          */
         labelStyle(raceLabel, raceLabelX, raceLabelY, labelX, labelY, fontLarge);
@@ -512,8 +543,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *heightInt and weightInt
          * *=======================
          */
-
-
+        labelStyle(doublesLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontLarge);
+        panelStyle(doublesPanel, doublesPanelX, doublesPanelY, buttonX, panelY, doublesLabel);
+        myFrame.add(doublesPanel);
 
 
         /**
@@ -525,8 +557,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         labelStyle(atualAttributesLabel, attributesPanelX, attributesPanelY, labelX, labelY, fontLarge);
         labelStyle(totalAttributesLabel, attributesPanelX, attributesPanelY, labelX, labelY, fontLarge);
         panelStyle(attributesPanel, attributesPanelX, attributesPanelY, panelX, panelY, attributesLabel);
-        attributesPanel.add(atualAttributesLabel);
         attributesPanel.add(totalAttributesLabel);
+        attributesPanel.add(atualAttributesLabel);
 
         labelStyle(strengthCountLabel, strengthCountPanelX, strengthCountPanelY, attributeSliderX, labelY, fontLarge);
         panelStyle(strengthCountPanel, strengthCountPanelX, strengthCountPanelY, attributeSliderX, labelY, strengthCountLabel);
@@ -610,7 +642,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param fontSize
      */
     public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize) {
-        label.setFont(new Font(defaultFont, Font.BOLD, fontSize));
+        label.setFont(new Font(defaultFont, fontStyle, fontSize));
         label.setForeground(Color.BLACK);
         label.setBounds(positionX, positionY, sizeX, sizeY);
     }
@@ -649,7 +681,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      */    
     public void buttonStyle(JButton button, int positionX, int positionY, int sizeX, int sizeY, ActionListener source,
             int fontSize) {
-        button.setFont(new Font(defaultFont, Font.BOLD, fontSize));
+        button.setFont(new Font(defaultFont, fontStyle, fontSize));
         button.setForeground(Color.BLACK);
         button.setBounds(positionX, positionY, sizeX, sizeY);
         button.addActionListener(source);
@@ -707,7 +739,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          */
         openButton(characterButton);
 
-        classLabel.setText(classString);
+        classLabel.setText(classCloseString);
 
         myFrame.add(characterPanel);
         myFrame.add(namesPanel);
@@ -1025,7 +1057,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * !all operations are sequaciously, so when any starts the last need to be finished
          */
         if (e.getSource() == startButton) {
-            startButton.setText(buildString);
+            startButton.setText(buildButtonString);
             startButton.setEnabled(false);
 
             restartButton.setEnabled(true);
@@ -1132,7 +1164,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             playerName = playerField.getText().toLowerCase();
             closeField(playerField, playerButton);
 
-            namesLabel.setText(nameString);
+            namesLabel.setText(nameCloseString);
 
 
             myFrame.add(racePanel);
