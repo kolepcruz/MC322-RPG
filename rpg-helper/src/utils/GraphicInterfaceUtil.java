@@ -96,6 +96,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     private static String defaultFont = "Impact";
     private static int fontSmall = 10;
+    private static int fontMedium = 15;
     private static int fontLarge = 20;
     private static int fontHuge = 60;
     private static int fontStyle = Font.BOLD;
@@ -111,23 +112,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int buttonX = 150;
     private static int buttonY = 40;
     private static String confirmText = "confirm";
-
-    private static int attributeSliderX = 75;
-    private static int attributeSliderY = 220;
-    private static int attributeSliderMin = 0;
-    private static int attributeSliderMax = 15;
-    private static int attributeSliderMajor = 3;
-    private static int attributeSliderMinor = 1;
-    private static int attributeSliderText = 15;
-
-    private static int doublesSliderX = 75;
-    private static int doublesSliderY = 220;
-    private static int doublesSliderMin = 0;
-    private static int doublesSliderMax = 15;
-    private static int doublesSliderMajor = 3;
-    private static int doublesSliderMinor = 1;
-    private static int doublesSliderText = 15;
-
 
 
     /**
@@ -149,9 +133,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int debugButtonX = restartButtonX;
     private static int debugButtonY = restartButtonY + buttonY;
 
-    private static String doublesString = "set height";
-    private static int doublesPanelX = 560;
-    private static int doublesPanelY = 340;
 
     private static String classChooseString = "choose class";
     private static int classPanelX = 50;
@@ -185,6 +166,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int trapperButtonX = assassinButtonX + buttonX;
     private static int trapperButtonY = subClassesPanelY;
 
+
     private static String nameCloseString = "character and player";
     private static int namesPanelX = 50;
     private static int namesPanelY = 170;
@@ -196,6 +178,73 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static String characterString = "write character name";
     private static int playerPanelX = namesPanelX;
     private static int playerPanelY = characterPanelY + labelY;
+
+
+    private static String raceStartString = "choose race";
+    private static String raceCloseString = "chosen race";
+    private static int raceLabelX = 560;
+    private static int raceLabelY = 40;
+    private static int raceButtonX = raceLabelX;
+    private static int raceButtonY = raceLabelY + buttonY;
+    private static int raceColumns = 3;
+
+    private static String skinStartString = "choose skin";
+    private static String skinCloseString = "chosen skin";
+    private static int skinLabelX = 710;
+    private static int skinLabelY = 210;
+    private static int skinButtonX = skinLabelX;
+    private static int skinButtonY = skinLabelY + buttonY;
+    private static int skinColumns = 2;
+    
+    private static String eyesStartString = "choose eyes";
+    private static String eyesCloseString = "chosen eyes";
+    private static int eyesLabelX = 710;
+    private static int eyesLabelY = 340;
+    private static int eyesButtonX = eyesLabelX;
+    private static int eyesButtonY = eyesLabelY + buttonY;
+    private static int eyesColumns = 2;
+
+    private static String hairStartString = "choose hair";
+    private static String hairCloseString = "chosen hair";
+    private static int hairLabelX = 710;
+    private static int hairLabelY = 470;
+    private static int hairButtonX = hairLabelX;
+    private static int hairButtonY = hairLabelY + buttonY;
+    private static int hairColumns = 2;
+    
+    private static String sexStartString = "choose sex";
+    private static String sexCloseString = "chosen sex";
+    private static int sexLabelX = 560;
+    private static int sexLabelY = 210;
+    private static int sexButtonX = sexLabelX;
+    private static int sexButtonY = sexLabelY + buttonY;
+    private static int sexColumns = 1;
+    
+
+    private static int doubleSliderX = 75;
+    private static int doubleSliderY = 220;
+    private static int doubleSliderMin = 0;
+    private static int doubleSliderMax = 250;
+    private static int doubleSliderMajor = 50;
+    private static int doubleSliderMinor = 10;
+    private static int doubleSliderText = 15;
+
+    private static String doubleString = "height [cm]: ";
+    private static int doublesPanelX = 560;
+    private static int doublesPanelY = 340;
+    private static int heightPanelX = doublesPanelX;
+    private static int heightPanelY = doublesPanelY + labelY;
+    private static int heightButtonX = heightPanelX;
+    private static int heightButtonY = heightPanelY + doubleSliderY;
+
+
+    private static int attributeSliderX = 75;
+    private static int attributeSliderY = 220;
+    private static int attributeSliderMin = 0;
+    private static int attributeSliderMax = 15;
+    private static int attributeSliderMajor = 3;
+    private static int attributeSliderMinor = 1;
+    private static int attributeSliderText = 15;
 
     private static String attributesString = "attributes points left: ";
     private static String attributesErroString = "insert a valide value\nbelow ";
@@ -250,46 +299,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int charismaButtonX = charismaPanelX;
     private static int charismaButtonY = charismaPanelY + attributeSliderY;
 
-    private static String raceStartString = "choose race";
-    private static String raceCloseString = "chosen race";
-    private static int raceLabelX = 560;
-    private static int raceLabelY = 40;
-    private static int raceButtonX = raceLabelX;
-    private static int raceButtonY = raceLabelY + buttonY;
-    private static int raceColumns = 3;
-
-    private static String skinStartString = "choose skin";
-    private static String skinCloseString = "chosen skin";
-    private static int skinLabelX = 710;
-    private static int skinLabelY = 210;
-    private static int skinButtonX = skinLabelX;
-    private static int skinButtonY = skinLabelY + buttonY;
-    private static int skinColumns = 2;
-    
-    private static String eyesStartString = "choose eyes";
-    private static String eyesCloseString = "chosen eyes";
-    private static int eyesLabelX = 710;
-    private static int eyesLabelY = 340;
-    private static int eyesButtonX = eyesLabelX;
-    private static int eyesButtonY = eyesLabelY + buttonY;
-    private static int eyesColumns = 2;
-
-    private static String hairStartString = "choose hair";
-    private static String hairCloseString = "chosen hair";
-    private static int hairLabelX = 710;
-    private static int hairLabelY = 470;
-    private static int hairButtonX = hairLabelX;
-    private static int hairButtonY = hairLabelY + buttonY;
-    private static int hairColumns = 2;
-    
-    private static String sexStartString = "choose sex";
-    private static String sexCloseString = "chosen sex";
-    private static int sexLabelX = 560;
-    private static int sexLabelY = 210;
-    private static int sexButtonX = sexLabelX;
-    private static int sexButtonY = sexLabelY + buttonY;
-    private static int sexColumns = 1;
-    
 
     /**
      * *start frame
@@ -382,13 +391,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *heightInt and weightInt
      * *=======================
      */
-    private static JPanel doublesPanel = new JPanel();
-    private static JLabel doublesLabel = new JLabel(doublesString);
+    private static JPanel doublePanel = new JPanel();
+    private static JLabel doubleLabel = new JLabel(doubleString);
+    private static JLabel doubleTotalLabel = new JLabel(String.valueOf(heightInt));
 
     private static JPanel heightCountPanel = new JPanel();
-    private static JLabel heightCountLabel = new JLabel(String.valueOf(0));
+    private static JLabel heightCountLabel = new JLabel(String.valueOf(heightInt));
     private static JPanel heightPanel = new JPanel();
-    private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, 0, 250, 0);
+    private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, doubleSliderMin, doubleSliderMax, doubleSliderMin);
     private static JButton heightButton = new JButton(confirmText);
 
 
@@ -543,9 +553,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *heightInt and weightInt
          * *=======================
          */
-        labelStyle(doublesLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontLarge);
-        panelStyle(doublesPanel, doublesPanelX, doublesPanelY, buttonX, panelY, doublesLabel);
-        myFrame.add(doublesPanel);
+        labelStyle(doubleTotalLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontLarge);
+        labelStyle(doubleLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontMedium);
+        panelStyle(doublePanel, doublesPanelX, doublesPanelY, buttonX, panelY, doubleLabel);
+        panelStyle(heightPanel, heightPanelX, heightPanelY, doubleSliderX, doubleSliderY, heightSlider);
+        sliderStylo(heightSlider, doubleSliderMinor, doubleSliderMajor, doubleSliderText);
+        buttonStyle(heightButton, heightButtonX, heightButtonY, doubleSliderX, buttonY, this, fontSmall);
+        doublePanel.add(doubleTotalLabel);
+        heightSlider.addChangeListener((ChangeListener) this);
 
 
         /**
@@ -872,28 +887,39 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      */
     @Override
     public void stateChanged(ChangeEvent e) {
-        if (e.getSource() == strengthSlider) {
+        if (e.getSource() == strengthSlider)
+        {
             strengthCountLabel.setText(String.valueOf(strengthSlider.getValue()));
         }
 
-        if (e.getSource() == dexteritySlider) {
+        if (e.getSource() == dexteritySlider)
+        {
             dexterityCountLabel.setText(String.valueOf(dexteritySlider.getValue()));
         }
 
-        if (e.getSource() == constitutionSlider) {
+        if (e.getSource() == constitutionSlider)
+        {
             constitutionCountLabel.setText(String.valueOf(constitutionSlider.getValue()));
         }
 
-        if (e.getSource() == intelligenceSlider) {
+        if (e.getSource() == intelligenceSlider)
+        {
             intelligenceCountLabel.setText(String.valueOf(intelligenceSlider.getValue()));
         }
 
-        if (e.getSource() == wisdomSlider) {
+        if (e.getSource() == wisdomSlider)
+        {
             wisdomCountLabel.setText(String.valueOf(wisdomSlider.getValue()));
         }
 
-        if (e.getSource() == charismaSlider) {
+        if (e.getSource() == charismaSlider)
+        {
             charismaCountLabel.setText(String.valueOf(charismaSlider.getValue()));
+        }
+
+        if (e.getSource() == heightSlider)
+        {
+            doubleTotalLabel.setText(String.valueOf(heightSlider.getValue()));
         }
     }
 
@@ -984,13 +1010,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.remove(playerField);
             myFrame.remove(playerButton);
 
-            myFrame.remove(attributesPanel);
-
-            myFrame.remove(strengthCountPanel);
-            myFrame.remove(strengthPanel);
-            myFrame.remove(strengthSlider);
-            myFrame.remove(strengthButton);
-
             for (JButton j:raceButtonArray)
             {
                 myFrame.remove(j);
@@ -1020,6 +1039,17 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 myFrame.remove(j);
             }
             myFrame.remove(sexPanel);
+            
+            myFrame.remove(doublePanel);
+            myFrame.remove(heightPanel);
+            myFrame.remove(heightButton);
+
+            myFrame.remove(attributesPanel);
+
+            myFrame.remove(strengthCountPanel);
+            myFrame.remove(strengthPanel);
+            myFrame.remove(strengthSlider);
+            myFrame.remove(strengthButton);
 
             myFrame.remove(dexterityCountPanel);
             myFrame.remove(dexterityPanel);
@@ -1276,6 +1306,21 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 count++;
                 button.setEnabled(false);
             }
+            myFrame.add(doublePanel);
+            myFrame.add(heightPanel);
+            myFrame.add(heightButton);
+
+            myFrame.repaint();
+            myFrame.revalidate();
+        }
+
+        if(e.getSource() == heightButton)
+        {
+            heightInt += heightSlider.getValue();
+
+            doubleTotalLabel.setText(String.valueOf(heightSlider.getValue()));
+            closeSlider(heightSlider, heightButton);
+
             atualAttributesLabel.setText(strengthString);
             openSlider(strengthSlider, strengthPanel, strengthButton);
             myFrame.add(attributesPanel);
