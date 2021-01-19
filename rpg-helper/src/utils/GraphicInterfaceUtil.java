@@ -1,6 +1,8 @@
 package utils;
 
 import enums.*;
+import model.adv_tier.Adventurer;
+import model.adv_tier.Attributes;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -11,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.security.KeyStore.Entry.Attribute;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -23,6 +26,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *start variables
      * *===============
      */
+    private static int totalAdventurersInt = 0; 
     private static int chosenClass = 0;
     private static int chosenSubClass = 0;
 
@@ -1475,6 +1479,32 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             /**
              * !chamada dos métodos para criar o personagem
              */
+            Attributes attributes = CharacterCreatorUtil.getAttributesPoints(
+                raceInt,
+                strengthInt,
+                dexterityInt,
+                constitutionInt,
+                intelligenceInt,
+                wisdomInt,
+                charismaInt
+            );
+
+            Adventurer adventurer = CharacterCreatorUtil.createAdventurer(
+                attributes,
+                characterName,
+                playerName,
+                chosenClass,
+                chosenSubClass,
+                heightInt,
+                weightInt,
+                raceInt,
+                eyesInt,
+                skinInt,
+                sexInt,
+                hairInt);
+
+            adventurer.getInventory().addWeapon(Weapon.TRIDENT);
+            Arquivos.write("Adventurer [" + (++totalAdventurersInt) + "]", adventurer);
         }
     }
 

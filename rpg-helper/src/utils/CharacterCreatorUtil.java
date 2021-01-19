@@ -263,8 +263,8 @@ public class CharacterCreatorUtil {
 
 
 
-    private static Attributes getAttributesPoints(
-        Race race,
+    public static Attributes getAttributesPoints(
+        int chosenRace,
         int strength,
         int dexterity,
         int constitution,
@@ -273,16 +273,16 @@ public class CharacterCreatorUtil {
         int charisma)
     {
         return new Attributes(
-            strength + race.getStrenght(),
-            dexterity + race.getDexterity(),
-            constitution + race.getConstitution(),
-            intelligence + race.getIntelligence(),
-            wisdom + race.getWisdom(),
-            charisma + race.getCharisma()
+            strength + Race.values()[chosenRace].getStrenght(),
+            dexterity + Race.values()[chosenRace].getDexterity(),
+            constitution + Race.values()[chosenRace].getConstitution(),
+            intelligence + Race.values()[chosenRace].getIntelligence(),
+            wisdom + Race.values()[chosenRace].getWisdom(),
+            charisma + Race.values()[chosenRace].getCharisma()
         );
     }
 
-    private static Adventurer createAdventurer(
+    public static Adventurer createAdventurer(
         Attributes attributes,
         String characterName, 
         String playerName,
@@ -294,8 +294,8 @@ public class CharacterCreatorUtil {
         int chosenEyes,
         int chosenSkin,
         int chosenSex,
-        int chosenHair,
-        int chosen)
+        int chosenHair
+        )
     {
         if(chosenClass == 0 && chosenSubClass == 0)
         {
