@@ -263,11 +263,26 @@ public class CharacterCreatorUtil {
 
 
 
-    private static void createAdventurer(
+    private static Attributes getAttributesPoints(Race race, int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
+    {
+        return new Attributes(
+            strenght + race.getStrenght(),
+            dexterity + race.getDexterity(),
+            constitution + race.getConstitution(),
+            intelligence + race.getIntelligence(),
+            wisdom + race.getWisdom(),
+            charisma + race.getCharisma()
+        );
+    }
+
+    private static Adventurer createAdventurer(
+        Attributes attributes,
         String characterName, 
         String playerName,
         int chosenClass,
-        int chosenSubClass, 
+        int chosenSubClass,
+        int chosenHeight,
+        int chosenWeight,
         int chosenRace,
         int chosenEyes,
         int chosenSkin,
@@ -275,6 +290,103 @@ public class CharacterCreatorUtil {
         int chosenHair,
         int chosen)
     {
-        
+        if(chosenClass == 0 && chosenSubClass == 0)
+        {
+            return new FuriousBarbarian(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else if(chosenClass == 0 && chosenSubClass == 1)
+        {
+            return new TotemicBarbarian(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else if(chosenClass == 1 && chosenSubClass == 0)
+        {
+            return new FrostMage(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else if(chosenClass == 1 && chosenSubClass == 1)
+        {
+            return new FireMage(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else if(chosenClass == 1 && chosenSubClass == 2)
+        {
+            return new ArcaneMage(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else if(chosenClass == 2 && chosenSubClass == 0)
+        {
+            return new AssassinRogue(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
+        else
+        {
+            return new ArcaneTrapperRogue(
+                attributes,
+                chosenHeight,
+                chosenWeight,
+                Hair.values()[chosenHair],
+                Eyes.values()[chosenEyes],
+                Race.values()[chosenRace],
+                Sex.values()[chosenSex],
+                Skin.values()[chosenSkin],
+                playerName,
+                characterName);
+        }
     }
 }
