@@ -221,28 +221,36 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int sexColumns = 1;
     
 
-    private static int doubleSliderX = 75;
-    private static int doubleSliderY = 220;
-    private static int doubleSliderMin = 0;
-    private static int doubleSliderMax = 250;
-    private static int doubleSliderMajor = 50;
-    private static int doubleSliderMinor = 10;
-    private static int doubleSliderText = 15;
-
     private static String doubleString = "height weight";
     private static int doublesPanelX = 560;
     private static int doublesPanelY = 340;
+
+    private static int heightSliderX = 75;
+    private static int heightSliderY = 220;
+    private static int heightSliderMin = 0;
+    private static int heightSliderMax = 250;
+    private static int heightSliderMajor = 50;
+    private static int heightSliderMinor = 10;
+    private static int heightSliderText = 15;
 
     private static String heightString = "height [cm]: ";
     private static int heightPanelX = doublesPanelX;
     private static int heightPanelY = doublesPanelY + labelY;
     private static int heightButtonX = heightPanelX;
-    private static int heightButtonY = heightPanelY + doubleSliderY;
+    private static int heightButtonY = heightPanelY + heightSliderY;
+
+    private static int weightSliderX = 75;
+    private static int weightSliderY = 220;
+    private static int weightSliderMin = 0;
+    private static int weightSliderMax = 200;
+    private static int weightSliderMajor = 25;
+    private static int weightSliderMinor = 5;
+    private static int weightSliderText = 15;
 
     private static String weightString = "weight [kg]: ";
-    private static int weightPanelX = heightPanelX + doubleSliderX;
+    private static int weightPanelX = heightPanelX + heightSliderX;
     private static int weightPanelY = heightPanelY;
-    private static int weightButtonX = heightButtonX + doubleSliderX;
+    private static int weightButtonX = heightButtonX + heightSliderX;
     private static int weightButtonY = heightButtonY;
 
 
@@ -404,11 +412,11 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JLabel doubleTotalLabel = new JLabel(String.valueOf(heightInt));
 
     private static JPanel heightPanel = new JPanel();
-    private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, doubleSliderMin, doubleSliderMax, doubleSliderMin);
+    private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, heightSliderMin, heightSliderMax, heightSliderMin);
     private static JButton heightButton = new JButton(confirmText);
 
     private static JPanel weightPanel = new JPanel();
-    private static JSlider weightSlider = new JSlider(JSlider.VERTICAL, doubleSliderMin, doubleSliderMax, doubleSliderMin);
+    private static JSlider weightSlider = new JSlider(JSlider.VERTICAL, weightSliderMin, weightSliderMax, weightSliderMin);
     private static JButton weightButton = new JButton(confirmText);
 
 
@@ -568,14 +576,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         panelStyle(doublePanel, doublesPanelX, doublesPanelY, buttonX, panelY, doubleLabel);
         doublePanel.add(doubleTotalLabel);
 
-        panelStyle(heightPanel, heightPanelX, heightPanelY, doubleSliderX, doubleSliderY, heightSlider);
-        sliderStylo(heightSlider, doubleSliderMinor, doubleSliderMajor, doubleSliderText);
-        buttonStyle(heightButton, heightButtonX, heightButtonY, doubleSliderX, buttonY, this, fontSmall);
+        panelStyle(heightPanel, heightPanelX, heightPanelY, heightSliderX, heightSliderY, heightSlider);
+        sliderStylo(heightSlider, heightSliderMinor, heightSliderMajor, heightSliderText);
+        buttonStyle(heightButton, heightButtonX, heightButtonY, heightSliderX, buttonY, this, fontSmall);
         heightSlider.addChangeListener((ChangeListener) this);
 
-        panelStyle(weightPanel, weightPanelX, weightPanelY, doubleSliderX, doubleSliderY, weightSlider);
-        sliderStylo(weightSlider, doubleSliderMinor, doubleSliderMajor, doubleSliderText);
-        buttonStyle(weightButton, weightButtonX, weightButtonY, doubleSliderX, buttonY, this, fontSmall);
+        panelStyle(weightPanel, weightPanelX, weightPanelY, weightSliderX, weightSliderY, weightSlider);
+        sliderStylo(weightSlider, weightSliderMinor, weightSliderMajor, weightSliderText);
+        buttonStyle(weightButton, weightButtonX, weightButtonY, weightSliderX, buttonY, this, fontSmall);
         weightSlider.addChangeListener((ChangeListener) this);
 
 
