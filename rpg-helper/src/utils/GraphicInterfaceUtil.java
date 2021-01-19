@@ -229,13 +229,21 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int doubleSliderMinor = 10;
     private static int doubleSliderText = 15;
 
-    private static String doubleString = "height [cm]: ";
+    private static String doubleString = "height weight";
     private static int doublesPanelX = 560;
     private static int doublesPanelY = 340;
+
+    private static String heightString = "height [cm]: ";
     private static int heightPanelX = doublesPanelX;
     private static int heightPanelY = doublesPanelY + labelY;
     private static int heightButtonX = heightPanelX;
     private static int heightButtonY = heightPanelY + doubleSliderY;
+
+    private static String weightString = "weight [kg]: ";
+    private static int weightPanelX = heightPanelX + doubleSliderX;
+    private static int weightPanelY = heightPanelY;
+    private static int weightButtonX = heightButtonX + doubleSliderX;
+    private static int weightButtonY = heightButtonY;
 
 
     private static int attributeSliderX = 75;
@@ -392,14 +400,16 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * *=======================
      */
     private static JPanel doublePanel = new JPanel();
-    private static JLabel doubleLabel = new JLabel(doubleString);
+    private static JLabel doubleLabel = new JLabel(heightString);
     private static JLabel doubleTotalLabel = new JLabel(String.valueOf(heightInt));
 
-    private static JPanel heightCountPanel = new JPanel();
-    private static JLabel heightCountLabel = new JLabel(String.valueOf(heightInt));
     private static JPanel heightPanel = new JPanel();
     private static JSlider heightSlider = new JSlider(JSlider.VERTICAL, doubleSliderMin, doubleSliderMax, doubleSliderMin);
     private static JButton heightButton = new JButton(confirmText);
+
+    private static JPanel weightPanel = new JPanel();
+    private static JSlider weightSlider = new JSlider(JSlider.VERTICAL, doubleSliderMin, doubleSliderMax, doubleSliderMin);
+    private static JButton weightButton = new JButton(confirmText);
 
 
     /**
@@ -556,11 +566,17 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         labelStyle(doubleTotalLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontLarge);
         labelStyle(doubleLabel, doublesPanelX, doublesPanelY, buttonX, labelY, fontMedium);
         panelStyle(doublePanel, doublesPanelX, doublesPanelY, buttonX, panelY, doubleLabel);
+        doublePanel.add(doubleTotalLabel);
+
         panelStyle(heightPanel, heightPanelX, heightPanelY, doubleSliderX, doubleSliderY, heightSlider);
         sliderStylo(heightSlider, doubleSliderMinor, doubleSliderMajor, doubleSliderText);
         buttonStyle(heightButton, heightButtonX, heightButtonY, doubleSliderX, buttonY, this, fontSmall);
-        doublePanel.add(doubleTotalLabel);
         heightSlider.addChangeListener((ChangeListener) this);
+
+        panelStyle(weightPanel, weightPanelX, weightPanelY, doubleSliderX, doubleSliderY, weightSlider);
+        sliderStylo(weightSlider, doubleSliderMinor, doubleSliderMajor, doubleSliderText);
+        buttonStyle(weightButton, weightButtonX, weightButtonY, doubleSliderX, buttonY, this, fontSmall);
+        weightSlider.addChangeListener((ChangeListener) this);
 
 
         /**
@@ -921,6 +937,11 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         {
             doubleTotalLabel.setText(String.valueOf(heightSlider.getValue()));
         }
+
+        if (e.getSource() == weightSlider)
+        {
+            doubleTotalLabel.setText(String.valueOf(weightSlider.getValue()));
+        }
     }
 
     /**
@@ -1043,6 +1064,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.remove(doublePanel);
             myFrame.remove(heightPanel);
             myFrame.remove(heightButton);
+            myFrame.remove(weightPanel);
+            myFrame.remove(weightButton);
 
             myFrame.remove(attributesPanel);
 
@@ -1309,6 +1332,14 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(doublePanel);
             myFrame.add(heightPanel);
             myFrame.add(heightButton);
+            doubleLabel.setText(heightString);
+            doubleLabel.setFont(new Font(defaultFont, fontStyle, fontMedium));
+            doublePanel.add(doubleTotalLabel);
+            heightPanel.setEnabled(true);
+            heightButton.setEnabled(true);
+            heightSlider.setEnabled(true);
+            heightSlider.setValue(0);
+
 
             myFrame.repaint();
             myFrame.revalidate();
@@ -1317,9 +1348,31 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         if(e.getSource() == heightButton)
         {
             heightInt += heightSlider.getValue();
+            doubleLabel.setText(weightString);
 
-            doubleTotalLabel.setText(String.valueOf(heightSlider.getValue()));
+            doubleTotalLabel.setText(String.valueOf(0));
             closeSlider(heightSlider, heightButton);
+
+            myFrame.add(weightPanel);
+            myFrame.add(weightButton);
+            weightPanel.setEnabled(true);
+            weightButton.setEnabled(true);
+            weightSlider.setEnabled(true);
+            weightSlider.setValue(0);
+
+            myFrame.repaint();
+            myFrame.revalidate();
+        }
+
+        if(e.getSource() == weightButton)
+        {
+            weightInt += weightSlider.getValue();
+            doubleLabel.setText(doubleString);
+            doubleLabel.setFont(new Font(defaultFont, fontStyle, fontLarge));
+            doublePanel.remove(doubleTotalLabel);
+
+            doubleTotalLabel.setText(String.valueOf(0));
+            closeSlider(weightSlider, weightButton);
 
             atualAttributesLabel.setText(strengthString);
             openSlider(strengthSlider, strengthPanel, strengthButton);
@@ -1329,6 +1382,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.repaint();
             myFrame.revalidate();
         }
+
 
         /**
          * *=========================
