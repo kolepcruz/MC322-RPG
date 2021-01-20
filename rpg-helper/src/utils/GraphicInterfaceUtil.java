@@ -901,13 +901,16 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param value
      * @return
      */
-    public boolean valideAttribute(int value)
+    public boolean valideAttribute(int value) throws AttributesException
     {
         if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
+        {
             return true;
-
-        JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
-        return false;
+        }
+        else
+        {
+            throw new AttributesException("invalid attribute value");
+        }
     }
 
     /**
@@ -1434,78 +1437,114 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
          * *=========================
          */
         if (e.getSource() == strengthButton) {
-            strengthInt += strengthSlider.getValue();
-
-            if(valideAttribute(strengthSlider.getValue()))
+            try
             {
+                valideAttribute(strengthSlider.getValue());
+
+                strengthInt += strengthSlider.getValue();
+
                 atualAttributesLabel.setText(dexterityString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - strengthSlider.getValue()));
                 closeSlider(strengthSlider, strengthButton);
                 openSlider(dexteritySlider, dexterityPanel, dexterityButton);
                 myFrame.add(dexterityCountPanel);
             }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == dexterityButton) {
-            dexterityInt += dexteritySlider.getValue();
-
-            if(valideAttribute(dexteritySlider.getValue()))
+            try
             {
+                valideAttribute(dexteritySlider.getValue());
+
+                dexterityInt += dexteritySlider.getValue();
+
                 atualAttributesLabel.setText(constitutionString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - dexteritySlider.getValue()));
                 closeSlider(dexteritySlider, dexterityButton);
                 openSlider(constitutionSlider, constitutionPanel, constitutionButton);
                 myFrame.add(constitutionCountPanel);
             }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == constitutionButton) {
-            constitutionInt += constitutionSlider.getValue();
-
-            if(valideAttribute(constitutionSlider.getValue()))
+            try
             {
+                valideAttribute(constitutionSlider.getValue());
+
+                constitutionInt += constitutionSlider.getValue();
+
                 atualAttributesLabel.setText(intelligenceString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - constitutionSlider.getValue()));
                 closeSlider(constitutionSlider, constitutionButton);
                 openSlider(intelligenceSlider, intelligencePanel, intelligenceButton);
                 myFrame.add(intelligenceCountPanel);
             }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == intelligenceButton) {
-            intelligenceInt += intelligenceSlider.getValue();
-
-            if(valideAttribute(intelligenceSlider.getValue()))
+            try
             {
+                valideAttribute(intelligenceSlider.getValue());
+
+                intelligenceInt += intelligenceSlider.getValue();
+
                 atualAttributesLabel.setText(wisdomString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - intelligenceSlider.getValue()));
                 closeSlider(intelligenceSlider, intelligenceButton);
                 openSlider(wisdomSlider, wisdomPanel, wisdomButton);
                 myFrame.add(wisdomCountPanel);
             }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == wisdomButton) {
-            wisdomInt += wisdomSlider.getValue();
-
-            if(valideAttribute(wisdomSlider.getValue()))
+            try
             {
+                valideAttribute(wisdomSlider.getValue());
+
+                wisdomInt += wisdomSlider.getValue();
+
                 atualAttributesLabel.setText(charismaString);
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - wisdomSlider.getValue()));
                 closeSlider(wisdomSlider, wisdomButton);
                 openSlider(charismaSlider, charismaPanel, charismaButton);
                 myFrame.add(charismaCountPanel);
             }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+            }
         }
 
         if (e.getSource() == charismaButton) {
-            charismaInt += charismaSlider.getValue();
-
-            if(valideAttribute(charismaSlider.getValue()))
+            try
             {
+                valideAttribute(charismaSlider.getValue());
+
+                charismaInt += charismaSlider.getValue();
+
                 atualAttributesLabel.setText("");
                 totalAttributesLabel.setText(String.valueOf(Integer.parseInt(totalAttributesLabel.getText()) - charismaSlider.getValue()));
                 closeSlider(charismaSlider, charismaButton);
+            }
+            catch(AttributesException ex)
+            {
+                JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
             }
 
             /**
