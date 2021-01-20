@@ -16,7 +16,7 @@ public class FireMage extends Adventurer implements SkillsUtil {
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int power1()//metheorStorm
+    public int power1()//meteorStorm
     {
         return doDamage(1,3,6,10);
     }
@@ -40,7 +40,7 @@ public class FireMage extends Adventurer implements SkillsUtil {
     public String toString() {
         String out = "FireMage";
         out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
-        out+= "\n metheorStorm ";
+        out+= "\n meteorStorm ";
         out+= "\n fireBall ";
         out+= "\n burningBeam ";
         out+= "\n flamingSphere ";
