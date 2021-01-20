@@ -42,7 +42,7 @@ public abstract class Adventurer extends Person{
                                             attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.BEATEN_LEATHER);
             this.inventory.equipWeapon(Weapon.AXE_BIG);
-            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),12);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquipped(),12);
         }
         else if ( this instanceof Mage){
             this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.NO_WEAPON)),
@@ -51,7 +51,7 @@ public abstract class Adventurer extends Person{
                                             attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.NO_ARMOR);
             this.inventory.equipWeapon(Weapon.NO_WEAPON);
-            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),6);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquipped(),6);
 
         }
         else {
@@ -61,7 +61,7 @@ public abstract class Adventurer extends Person{
                                             attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.PADDED);
             this.inventory.equipWeapon(Weapon.DAGGER);
-            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),8);
+            this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquipped(),8);
         }
 
         ++numAdventurers;
