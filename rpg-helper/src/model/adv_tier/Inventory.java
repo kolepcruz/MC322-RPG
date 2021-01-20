@@ -18,21 +18,24 @@ public class Inventory {
     private ArrayList<Weapon> weapons;
     private ArrayList<Armor> armors;
     private ArrayList<Consumable> consumables;
-    private Armor armorEquiped;
-    private Weapon weaponEquiped;
+    private Armor armorEquipped;
+    private Weapon weaponEquipped;
     private int gold; // pecas de ouro
     private double weight;
     private double maxWeight;
 
     //CONSTRUTORES
-    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors,int gold, int strenght) {
+    public Inventory(ArrayList<Weapon> weapons, ArrayList<Armor> armors,int gold, int strength) {
         this.weapons = weapons;
         this.armors = armors;
         this.consumables = new ArrayList<Consumable>();
         this.gold = gold;
-        if (strenght>=1){
-            maxWeight = strenght * 7.5;
-        }else if(strenght<=0){
+
+        if (strength>=1)
+        {
+            maxWeight = strength * 7.5;
+        } else if(strength<=0)
+        {
             maxWeight = 7.5;
         }
 
@@ -116,11 +119,11 @@ public class Inventory {
         return gold;
     }
 
-    public Armor getArmorEquiped() {
-        return armorEquiped;
+    public Armor getArmorEquipped() {
+        return armorEquipped;
     }
-    public Weapon getWeaponEquiped() {
-        return weaponEquiped;
+    public Weapon getWeaponEquipped() {
+        return weaponEquipped;
     }
 
     /**
@@ -142,7 +145,7 @@ public class Inventory {
         return weight;
     }
 
-    //IMPLEMENTACAO DE METODOS
+    //IMPLEMENTAÇÃO DE METODOS
 
     /**
      * This method receives an x amount of pos (gold equivalent) and subtracts it from the Inventory
@@ -161,7 +164,7 @@ public class Inventory {
     //Equipa armadura
     public boolean equipArmor(Armor armorToEquip){
         if(armors.contains(armorToEquip)){
-            armorEquiped = armorToEquip;
+            armorEquipped = armorToEquip;
             return true;
         }
         return false;
@@ -170,7 +173,7 @@ public class Inventory {
     //Equipa arma
     public boolean equipWeapon(Weapon weaponToEquip){
         if(weapons.contains(weaponToEquip)){
-            weaponEquiped = weaponToEquip;
+            weaponEquipped = weaponToEquip;
             return true;
         }
         return false;
@@ -212,7 +215,7 @@ public class Inventory {
         out += "Armors:\n";
         for(Armor i : armors){
             //Se o armor equipado for printado o caracter antes do seu nome será "->"
-            if(i == armorEquiped)
+            if(i == armorEquipped)
                 out += "-> " + i + "\n";
             else
                 out += "* " + i + "\n";
@@ -220,7 +223,7 @@ public class Inventory {
 
         out += "Weapons:\n";
         for(Weapon i : weapons){
-            if(i == weaponEquiped)
+            if(i == weaponEquipped)
                 //Se o weapon equipado for printado o caracter antes do seu nome será "->"
                 out += "-> " + i + "\n";
             else
