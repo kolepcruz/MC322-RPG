@@ -35,8 +35,8 @@ public class Mage extends Adventurer {
 
 
     /**
-     * Este metodo eh usado para dar dano
-     * @param level o level necessario para usar a skill
+     * Este método eh usado para dar dano
+     * @param level o level necessário para usar a skill
      * @param inter a qtd de iteraçoes
      * @param damageDice o tipo de dado de dano
      * @param consumeMana quanta mana consome
