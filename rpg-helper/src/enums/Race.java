@@ -3,9 +3,9 @@ package enums;
 public enum Race {
     /**
      * Class Race armazena as opções de raças dos aventureiros
-     * cada raça modifica de forma unica os atributos e modificadores
+     * cada raça modifica de forma única os atributos e modificadores
      */
-    //RACE(strenght, dexterity, constitution, intelligence, wisdom, charisma)
+    //RACE(strength, dexterity, constitution, intelligence, wisdom, charisma)
     DWARF(2,0,2,0,1,0),
     ELF(0,2,0,1,1,1),
     HALFLING(0,2,1,0,0,1),
@@ -17,15 +17,15 @@ public enum Race {
     TIEFLING(0,0,0,1,0,2);
 
 
-    private final int strenght;
+    private final int strength;
     private final int dexterity;
     private final int constitution;
     private final int intelligence;
     private final int wisdom;
     private final int charisma;
 
-    Race(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
-        this.strenght = strenght;
+    Race(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+        this.strength = strength;
         this.dexterity = dexterity;
         this.constitution = constitution;
         this.intelligence = intelligence;
@@ -33,8 +33,8 @@ public enum Race {
         this.charisma = charisma;
     }
 
-    public int getStrenght() {
-        return strenght;
+    public int getStrength() {
+        return strength;
     }
     public int getDexterity() {
         return dexterity;

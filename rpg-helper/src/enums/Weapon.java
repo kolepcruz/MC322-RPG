@@ -2,7 +2,7 @@ package enums;
 
 public enum Weapon {
     /**
-     * Class Weapon armazena o possivel arsenal dos aventureiros
+     * Class Weapon armazena o possível arsenal dos aventureiros
      */
     //WEAPON(price, damage, weight),
     DAGGER(2, "1d4", 0.5),

@@ -1278,7 +1278,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                     raceInt = count;
                     raceLabel.setText(raceCloseString);
                     button.setText(button.getText().toUpperCase());
-                    strengthInt = Race.values()[raceInt].getStrenght();
+                    strengthInt = Race.values()[raceInt].getStrength();
                     dexterityInt = Race.values()[raceInt].getDexterity();
                     constitutionInt = Race.values()[raceInt].getConstitution();
                     intelligenceInt = Race.values()[raceInt].getIntelligence();

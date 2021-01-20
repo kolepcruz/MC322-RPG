@@ -24,8 +24,9 @@ public abstract class Adventurer extends Person{
     private CombatAttributes combatAttributes;
     private Inventory inventory;
     private Attributes attributes;
-    protected int power;
-    protected int countPower;
+
+    private int power;
+    private int countPower;
 
     //instancia cada tipo de aventureiro com seu equipamento normal
     public Adventurer(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
@@ -67,8 +68,8 @@ public abstract class Adventurer extends Person{
         this.id = numAdventurers;
         this.level = 0;
         this.expPoints = 0;
-        this.power=15;
-        this.countPower=15;
+        this.power = 15;
+        this.countPower = 15;
     }
 
     @Override
@@ -79,7 +80,7 @@ public abstract class Adventurer extends Person{
                 "\n expPoints = " + expPoints +
                 "\n" + combatAttributes +
                 "\n" + inventory +
-                "\n "  + attributes +
+                "\n " + attributes +
                 super.toString();
     }
 
