@@ -16,7 +16,6 @@ public class FuriousBarbarian extends Adventurer implements SkillsUtil {
         super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    //todo colocar uma descriçao do que cada metodo faz (mais pelo roleplay,pode ser no comentario bravo memo)
 
     public int power1()//retaliation
     {
