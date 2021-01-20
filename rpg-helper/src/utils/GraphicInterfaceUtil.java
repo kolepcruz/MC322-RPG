@@ -1160,7 +1160,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             openButton(mageButton);
             openButton(rogueButton);
 
-            JOptionPane.showMessageDialog(myFrame, Arquivos.readString("Classes.txt"));
+            JOptionPane.showMessageDialog(myFrame, ArquivosUtil.readString("Classes.txt"));
 
             myFrame.repaint();
         }
@@ -1536,7 +1536,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
                 hairInt);
 
             adventurer.getInventory().addWeapon(Weapon.TRIDENT);
-            Arquivos.write("Adventurer [" + (++totalAdventurersInt) + "]", adventurer);
+            ArquivosUtil.write("Adventurer [" + (++totalAdventurersInt) + "]", adventurer);
         }
     }
 }

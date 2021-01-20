@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Formatter;
 import java.util.Scanner;
 
-public class Arquivos {
+public class ArquivosUtil {
     public static void write(String nome, Adventurer adventurer){
         File dir = new File("fichas criadas");
         if(dir.exists() == false)

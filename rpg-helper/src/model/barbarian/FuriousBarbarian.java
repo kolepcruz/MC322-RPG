@@ -3,9 +3,9 @@ package model.barbarian;
 import enums.*;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
-import utils.Skills;
+import utils.SkillsUtil;
 
-public class FuriousBarbarian extends Adventurer implements Skills {
+public class FuriousBarbarian extends Adventurer implements SkillsUtil {
     /**
      * Class FuriousBarbarian é uma subtribo de Barbarian, nela possui algumas habilidades com que o Barbaro ataca
      */

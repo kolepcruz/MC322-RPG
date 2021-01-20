@@ -3,9 +3,9 @@ package model.mage;
 import enums.*;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
-import utils.Skills;
+import utils.SkillsUtil;
 
-public class ArcaneMage extends Adventurer implements Skills {
+public class ArcaneMage extends Adventurer implements SkillsUtil {
     /**
      * Class ArcaneMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */

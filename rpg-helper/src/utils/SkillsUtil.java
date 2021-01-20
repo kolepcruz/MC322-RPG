@@ -1,6 +1,6 @@
 package utils;
 
-public interface Skills {
+public interface SkillsUtil {
     int power1();
     int power2();
     int power3();

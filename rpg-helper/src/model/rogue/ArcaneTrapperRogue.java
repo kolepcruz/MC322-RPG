@@ -2,9 +2,9 @@ package model.rogue;
 
 import enums.*;
 import model.adv_tier.Attributes;
-import utils.Skills;
+import utils.SkillsUtil;
 
-public class ArcaneTrapperRogue extends Rogue implements Skills {
+public class ArcaneTrapperRogue extends Rogue implements SkillsUtil {
     /**
      * Class ArcaneTrapperRogue é uma subtribo de Rogue, nela possui algumas habilidades com que o Ladino ataca
      */
