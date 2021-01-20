@@ -39,7 +39,7 @@ public abstract class Adventurer extends Person{
             this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.AXE_BIG)),
                                             new ArrayList<Armor>(Arrays.asList(Armor.BEATEN_LEATHER)),
                                             RandomUtil.getInitialGold(2,4),
-                                            attributes.getTotalStrenght());
+                                            attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.BEATEN_LEATHER);
             this.inventory.equipWeapon(Weapon.AXE_BIG);
             this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),12);
@@ -48,7 +48,7 @@ public abstract class Adventurer extends Person{
             this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.NO_WEAPON)),
                                             new ArrayList<Armor>(Arrays.asList(Armor.NO_ARMOR)),
                                             RandomUtil.getInitialGold(4,4),
-                                            attributes.getTotalStrenght());
+                                            attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.NO_ARMOR);
             this.inventory.equipWeapon(Weapon.NO_WEAPON);
             this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),6);
@@ -58,7 +58,7 @@ public abstract class Adventurer extends Person{
             this.inventory = new Inventory( new ArrayList<Weapon>(Arrays.asList(Weapon.DAGGER)),
                                             new ArrayList<Armor>(Arrays.asList(Armor.PADDED)),
                                             RandomUtil.getInitialGold(4, 4),
-                                            attributes.getTotalStrenght());
+                                            attributes.getTotalStrength());
             this.inventory.equipArmor(Armor.PADDED);
             this.inventory.equipWeapon(Weapon.DAGGER);
             this.combatAttributes = new CombatAttributes(attributes,this.inventory.getArmorEquiped(),8);
