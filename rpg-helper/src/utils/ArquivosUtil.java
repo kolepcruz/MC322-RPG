@@ -20,7 +20,7 @@ public class ArquivosUtil {
             output.format("%s", mensagem);
             output.flush();
             output.close();
-        }catch(IOException ex){
+        } catch(IOException ex) {
             ex.printStackTrace();
         }
     }
