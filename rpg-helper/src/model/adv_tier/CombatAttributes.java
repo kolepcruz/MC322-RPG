@@ -9,7 +9,7 @@ public class CombatAttributes {
 
 
     /**
-     * Nesta classe temos os atributos que serao usados principalmente no combate
+     * Nesta classe temos os atributos que serão usados principalmente no combate
      */
     private int armorPoints;
     private int iniciativePoints;
