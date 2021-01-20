@@ -26,11 +26,11 @@ public class ArquivosUtil {
     }
 
     public static void read(String nome){
-        try{
+        try {
             Scanner input = new Scanner(new File("./descricao/" + nome));
             while(input.hasNext())
                 System.out.print(input.nextLine() + "\n");
-        }catch (IOException ex){
+        } catch (IOException ex){
             ex.printStackTrace();
         }
     }
