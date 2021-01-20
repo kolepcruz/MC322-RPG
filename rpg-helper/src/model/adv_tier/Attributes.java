@@ -6,11 +6,10 @@ public class Attributes {
     /**
     * Class Attributes armazena os atributos de um personagem.
     *   Cada Atributos possue um modificador utilizado para cálculos de dano.
-    *
     */
 
-    private int strenght;    //Força
-    private int modStrenght; //Modificador de Força
+    private int strength;    //Força
+    private int modStrength; //Modificador de Força
 
     private int dexterity;    //Destreza
     private int modDexterity; //Modificador de Destreza
@@ -27,16 +26,16 @@ public class Attributes {
     private int charisma;
     private int modCharisma;
 
-    public Attributes(int strenght, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
+    public Attributes(int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma)
     {
-        this.strenght = strenght;
+        this.strength = strength;
         this.dexterity = dexterity;
         this.constitution = constitution;
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
 
-        this.modStrenght = MathRPGUtil.getMod(strenght);
+        this.modStrength = MathRPGUtil.getMod(strength);
         this.modDexterity = MathRPGUtil.getMod(dexterity);
         this.modConstitution = MathRPGUtil.getMod(constitution);
         this.modIntelligence = MathRPGUtil.getMod(intelligence);
@@ -50,7 +49,7 @@ public class Attributes {
     @Override
     public String toString() {
         return "-=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-" +
-                "\n strenght = " + strenght +
+                "\n strenght = " + strength +
                 "\n dexterity = " + dexterity +
                 "\n constitution = "  + constitution +
                 "\n intelligence = " + intelligence +
@@ -58,18 +57,18 @@ public class Attributes {
                 "\n charisma = " + charisma + "\n";
     }
 
-    public int getStrenght() {
-        return strenght;
+    public int getStrength() {
+        return strength;
     }
-    public void setStrenght(int strenght) {
-        this.strenght = strenght;
+    public void setStrenght(int strength) {
+        this.strength = strength;
     }
 
-    public int getModStrenght() {
-        return modStrenght;
+    public int getModStrength() {
+        return modStrength;
     }
-    public void setModStrenght(int modStrenght) {
-        this.modStrenght = modStrenght;
+    public void setModStrength(int modStrength) {
+        this.modStrength = modStrength;
     }
 
     public int getDexterity() {
@@ -146,8 +145,8 @@ public class Attributes {
      * metodos utilizados para obter o valor total de determinado atributo
      * @return a soma do valor base + o modificador
      */
-    public int getTotalStrenght(){
-        return this.getStrenght() + this.getModStrenght();
+    public int getTotalStrength(){
+        return this.getStrength() + this.getModStrength();
     }
     public int getTotalDexterity(){
         return this.getDexterity() + this.getModDexterity();
