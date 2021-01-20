@@ -4,27 +4,22 @@ import enums.*;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.security.KeyStore.Entry.Attribute;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.EnumSet;
 
 
 public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 {
     /**
-     * *===============
-     * *start variables
-     * *===============
+     * *======================
+     * *start variables of RPG
+     * *======================
      */
     private static int totalAdventurersInt = 0; 
     private static int chosenClass = 0;
@@ -76,23 +71,22 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
     /**
-     * *===============
-     * *interface stylo
-     * *===============
+     * *=============================
+     * *interface stylo and positions
+     * *=============================
      */
-    private static String projectNameString = "RPG HELPER";
-    private static String mainImageString = "rpg-helper/src/images/rpg0.png";
     private static String iconImageString = "rpg-helper/src/images/icon.png";
-
     private static Color backgroundColor = new Color(96, 85, 91);
     private static int myFrameWidth = 1080;
     private static int myFrameHeight = 720;
-
+    
+    private static String mainImageString = "rpg-helper/src/images/rpg0.png";
     private static int mainPictureWidth = 960;
     private static int mainPictureHeight = 450;
     private static int picturePanelX = 50;
     private static int picturePanelY = 50;
-
+    
+    private static String projectNameString = "RPG HELPER";
     private static int projectNameWidth = 500;
     private static int projectNameHeight = 50;
     private static int projectNameX = 50;
@@ -105,7 +99,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int fontHuge = 60;
     private static int fontStyle = Font.BOLD;
 
-    private static int fieldSize = 25;
+    private static int textFieldSize = 25;
 
     private static int panelX = 450;
     private static int panelY = 40;
@@ -113,29 +107,32 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int labelX = panelX;
     private static int labelY = panelY;
 
+    private static String confirmText = "confirm";
     private static int buttonX = 150;
     private static int buttonY = 40;
-    private static String confirmText = "confirm";
+
+    private static int mainButtonX = 150;
+    private static int mainButtonY = 40;
 
 
     /**
-     * *================
-     * *button positions
-     * *================
+     * *==========================
+     * *button positions and texts
+     * *==========================
      */
-    
     private static String startButtonString = "start";
     private static String buildButtonString = "build";
     private static int startButtonX = 710;
     private static int startButtonY = 600;
     
     private static String restartButtonString = "restart";
-    private static int restartButtonX = startButtonX + buttonX;
+    private static int restartButtonX = startButtonX + mainButtonX;
     private static int restartButtonY = startButtonY;
     
     private static String debugButtonString = "debug";
+    private static boolean isDebugEnabled = false;
     private static int debugButtonX = restartButtonX;
-    private static int debugButtonY = restartButtonY + buttonY;
+    private static int debugButtonY = restartButtonY + mainButtonY;
 
 
     private static String classChooseString = "choose class";
@@ -225,7 +222,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static int sexColumns = 1;
     
 
-    private static String doubleString = "height weight";
+    private static String doubleString = "height     weight";
     private static int doublesPanelX = 560;
     private static int doublesPanelY = 340;
 
@@ -321,22 +318,28 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
 
     /**
+     * *===========
      * *start frame
+     * *===========
      */
     private static JFrame myFrame = new JFrame(projectNameString); // frame name
     private static Dimension dim = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
     private static JPanel picturePanel = new JPanel();
 
     /**
+     * *===================================
      * *primary buttons
      * !debug button is for developers only
+     * *===================================
      */
     private static JButton startButton = new JButton(startButtonString); // starts routine button
     private static JButton restartButton = new JButton(restartButtonString); // restarts routine button
     private static JButton debugButton = new JButton(debugButtonString); // debug routine button
 
     /**
+     * *============
      * *primary page
+     * *============
      */
     private static JLabel projectName = new JLabel(projectNameString);
     private static JLabel projectPicture = new JLabel("");
@@ -352,7 +355,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JPanel classPanel = new JPanel();
     private static JLabel classLabel = new JLabel(classChooseString);
 
-    private static JButton barbarianButton = new JButton(barbarianString); // button to selection barbarian
+    private static JButton barbarianButton = new JButton(barbarianString);
     private static JButton mageButton = new JButton(mageString);
     private static JButton rogueButton = new JButton(rogueString);
 
@@ -363,6 +366,23 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JButton arcaneMageButton = new JButton(arcaneString);
     private static JButton assassinButton = new JButton(assassinString);
     private static JButton trapperButton = new JButton(trapperString);
+
+
+    /**
+     * *============================
+     * *characterName and playerName
+     * *============================
+     */
+    private static JPanel namesPanel = new JPanel();
+    private static JLabel namesLabel = new JLabel(characterString);
+    private static JPanel characterPanel = new JPanel();
+    private static JTextField characterField = new JTextField(textFieldSize);
+    private static JButton characterButton = new JButton(confirmText);
+
+    private static JPanel playerPanel = new JPanel();
+    private static JTextField playerField = new JTextField(textFieldSize);
+    private static JButton playerButton = new JButton(confirmText);
+
 
     /**
      * *===========================
@@ -388,22 +408,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static JPanel skinPanel = new JPanel();
     private static JLabel skinLabel = new JLabel(skinStartString);
     private static ArrayList<JButton> skinButtonArray = new ArrayList<>();
-
-
-    /**
-     * *============================
-     * *characterName and playerName
-     * *============================
-     */
-    private static JPanel namesPanel = new JPanel();
-    private static JLabel namesLabel = new JLabel(characterString);
-    private static JPanel characterPanel = new JPanel();
-    private static JTextField characterField = new JTextField(fieldSize);
-    private static JButton characterButton = new JButton(confirmText);
-
-    private static JPanel playerPanel = new JPanel();
-    private static JTextField playerField = new JTextField(fieldSize);
-    private static JButton playerButton = new JButton(confirmText);
 
 
     /**
@@ -473,7 +477,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     public GraphicInterfaceUtil() 
     {
         /**
+         * *==============
          * *create myFrame
+         * *==============
          */
         myFrame.setSize(myFrameWidth, myFrameHeight); // size of frame
         myFrame.setLayout(null); // no layout
@@ -481,15 +487,24 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         myFrame.setLocation((dim.width - myFrame.getWidth()) / 2, (dim.height - myFrame.getHeight()) / 2); // center
         myFrame.setIconImage(iconImage.getImage()); //change icon of frame
 
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close operation
+        myFrame.dispose();
+        myFrame.setVisible(true); // make visible
+
+
         /**
+         * *===================
          * *create picturePanel
+         * *===================
          */
         picturePanel.setBounds(picturePanelX, picturePanelY, mainPictureWidth, mainPictureHeight); // position and size
         picturePanel.setLayout(null);
         myFrame.getContentPane().add(picturePanel);
 
         /**
+         * *===================
          * *create projectImage
+         * *===================
          */
         projectPicture.setIcon(mainImage); // load image
         projectPicture.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
@@ -497,12 +512,36 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         picturePanel.add(projectPicture);
 
         /**
+         * *==================
          * *create projectName
+         * *==================
          */
         projectName.setFont(new Font(defaultFont, fontStyle, fontHuge));
         projectName.setForeground(Color.BLACK);
         projectName.setBounds(projectNameX, projectNameY, projectNameWidth, projectNameHeight);
         myFrame.add(projectName);
+
+        /**
+         * *===========
+         * *mainButtons
+         * *===========
+         */
+        buttonStyle(startButton, startButtonX, startButtonY, mainButtonX, mainButtonY, this, fontLarge);
+        buttonStyle(restartButton, restartButtonX, restartButtonY, mainButtonX, mainButtonY, this, fontLarge);
+        buttonStyle(debugButton, debugButtonX, debugButtonY, mainButtonX, mainButtonY, this, fontLarge);
+
+        /**
+         * *===============================
+         * *starting and adding mainButtons
+         * *===============================
+         */
+        restartButton.setEnabled(false);
+        myFrame.getContentPane().add(startButton);
+        myFrame.getContentPane().add(restartButton);
+        if(isDebugEnabled){
+            myFrame.getContentPane().add(debugButton);
+        }
+
 
         /**
          * *================================
@@ -524,6 +563,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         buttonStyle(assassinButton, assassinButtonX, assassinButtonY, buttonX, buttonY, this, fontLarge);
         buttonStyle(trapperButton, trapperButtonX, trapperButtonY, buttonX, buttonY, this, fontLarge);
 
+
         /**
          * *=============================
          * *characterPanel and playerName
@@ -538,6 +578,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         panelStyle(playerPanel, playerPanelX, playerPanelY, 2 * buttonX, buttonY, playerField);
         buttonStyle(playerButton, playerPanelX + 2 * buttonX, playerPanelY, buttonX, buttonY, this, fontLarge);
 
+
         /**
          * *==================================================
          * *populate static array with enum values dynamically
@@ -549,11 +590,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         EnumSet.allOf(Sex.class).forEach(sex -> sexButtonArray.add(new JButton(sex.name().toLowerCase())));
         EnumSet.allOf(Skin.class).forEach(skin -> skinButtonArray.add(new JButton(skin.name().toLowerCase())));
 
-        /**
-         * *=====================================
-         * *person attributes and enums
-         * *=====================================
-         */
         labelStyle(raceLabel, raceLabelX, raceLabelY, labelX, labelY, fontLarge);
         panelStyle(racePanel, raceLabelX, raceLabelY, labelX, labelY, raceLabel);
 
@@ -644,30 +680,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         sliderStylo(charismaSlider, attributeSliderMinor, attributeSliderMajor, attributeSliderText);
         buttonStyle(charismaButton, charismaButtonX, charismaButtonY, attributeSliderX, buttonY, this, fontSmall);
         charismaSlider.addChangeListener((ChangeListener) this);
-
-        /**
-         * *===========
-         * *mainButtons
-         * *===========
-         */
-        buttonStyle(startButton, startButtonX, startButtonY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(restartButton, restartButtonX, restartButtonY, buttonX, buttonY, this, fontLarge);
-        buttonStyle(debugButton, debugButtonX, debugButtonY, buttonX, buttonY, this, fontLarge);
-
-        /**
-         * *starting and adding mainButtons
-         */
-        restartButton.setEnabled(false);
-        myFrame.getContentPane().add(startButton);
-        myFrame.getContentPane().add(restartButton);
-        myFrame.getContentPane().add(debugButton);
-
-        /**
-         * *finish myFrame
-         */
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close operation
-        myFrame.dispose();
-        myFrame.setVisible(true); // make visible
     }
 
     /**
@@ -684,7 +696,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param sizeY
      * @param fontSize
      */
-    public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize) {
+    public void labelStyle(JLabel label, int positionX, int positionY, int sizeX, int sizeY, int fontSize)
+    {
         label.setFont(new Font(defaultFont, fontStyle, fontSize));
         label.setForeground(Color.BLACK);
         label.setBounds(positionX, positionY, sizeX, sizeY);
@@ -692,7 +705,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
     /**
      * *generic pattern for panels anding a component
-     * ?remove add component?
      * @param panel
      * @param positionX
      * @param positionY
@@ -700,7 +712,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param sizeY
      * @param component
      */
-    public void panelStyle(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component) {
+    public void panelStyle(JPanel panel, int positionX, int positionY, int sizeX, int sizeY, Component component)
+    {
         panel.setBounds(positionX, positionY, sizeX, sizeY); // position and size
         panel.setLayout(new FlowLayout());
         panel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // set board with color
@@ -722,8 +735,15 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param source
      * @param fontSize
      */    
-    public void buttonStyle(JButton button, int positionX, int positionY, int sizeX, int sizeY, ActionListener source,
-            int fontSize) {
+    public void buttonStyle(
+        JButton button,
+        int positionX,
+        int positionY,
+        int sizeX,
+        int sizeY,
+        ActionListener source,
+        int fontSize)
+    {
         button.setFont(new Font(defaultFont, fontStyle, fontSize));
         button.setForeground(Color.BLACK);
         button.setBounds(positionX, positionY, sizeX, sizeY);
@@ -737,7 +757,8 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
      * @param sliderMajor
      * @param fontSize
      */
-    public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize) {
+    public void sliderStylo(JSlider slider, int sliderMinor, int sliderMajor, int fontSize)
+    {
         slider.setMinorTickSpacing(sliderMinor);
         slider.setMajorTickSpacing(sliderMajor);
         slider.setPaintLabels(true);
@@ -757,8 +778,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         barbarianButton.setEnabled(false);
         mageButton.setEnabled(false);
         rogueButton.setEnabled(false);
-
-        //JOptionPane.showMessageDialog(myFrame, Arquivos.readString("Subclasses.txt"));
 
         myFrame.repaint();
     }
@@ -876,6 +895,12 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         myFrame.repaint();
     }
 
+    /**
+     * method shows a message if the value is not possible
+     * *validate if the chosen attribute value is possible
+     * @param value
+     * @return
+     */
     public boolean valideAttribute(int value)
     {
         if(Integer.parseInt(totalAttributesLabel.getText()) >= value)
@@ -885,26 +910,42 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         return false;
     }
 
+    /**
+     * *get a button array and display it on the screen on the desired position and number of coluns
+     * @param arrayList
+     * @param marginX
+     * @param marginY
+     * @param sizeX
+     */
     public void addButtonArray(ArrayList<JButton> arrayList,int marginX,int marginY, int sizeX)
     {
         int originalMarginX = marginX;
         int counter = 1;
 
-        for(JButton j : arrayList)
+        for(JButton button : arrayList)
         {
-            buttonStyle(j,marginX,marginY,buttonX,buttonY,this,fontLarge);
-            myFrame.add(j);
-            j.setText(j.getText().toLowerCase());
-            j.setEnabled(true);
+            buttonStyle(button,marginX,marginY,buttonX,buttonY,this,fontLarge);
+            myFrame.add(button);
+            button.setText(button.getText().toLowerCase());
+            button.setEnabled(true);
 
             marginX += buttonX;
 
-            if(counter%sizeX==0)
+            if(counter % sizeX==0)
             {
-                marginY+= buttonY;
-                marginX = originalMarginX;
+                marginY += buttonY;
+                marginX  = originalMarginX;
             }
             counter++;
+        }
+    }
+
+
+    public void removeButtonArray(ArrayList<JButton> arrayList)
+    {
+        for (JButton button : arrayList)
+        {
+            myFrame.remove(button);
         }
     }
 
@@ -1043,34 +1084,15 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.remove(playerField);
             myFrame.remove(playerButton);
 
-            for (JButton j:raceButtonArray)
-            {
-                myFrame.remove(j);
-            }
+            removeButtonArray(raceButtonArray);
             myFrame.remove(racePanel);
-
-            for (JButton j:hairButtonArray)
-            {
-                myFrame.remove(j);
-            }
+            removeButtonArray(hairButtonArray);
             myFrame.remove(hairPanel);
-
-            for (JButton j:eyeButtonArray)
-            {
-                myFrame.remove(j);
-            }
+            removeButtonArray(eyeButtonArray);
             myFrame.remove(eyesPanel);
-
-            for (JButton j:skinButtonArray)
-            {
-                myFrame.remove(j);
-            }
+            removeButtonArray(skinButtonArray);
             myFrame.remove(skinPanel);
-
-            for (JButton j:sexButtonArray)
-            {
-                myFrame.remove(j);
-            }
+            removeButtonArray(sexButtonArray);
             myFrame.remove(sexPanel);
             
             myFrame.remove(doublePanel);
@@ -1118,7 +1140,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         /**
+         * *====================
          * *starts the operation
+         * *====================
          * !all operations are sequaciously, so when any starts the last need to be finished
          */
         if (e.getSource() == startButton) {
@@ -1212,7 +1236,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         /**
+         * *======================
          * *characterButton action
+         * *======================
          */
         if (e.getSource() == characterButton) {
             characterName = characterField.getText().toLowerCase();
@@ -1223,7 +1249,9 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
 
         /**
+         * *===================
          * *playerButton action
+         * *===================
          */
         if (e.getSource() == playerButton) {
             playerName = playerField.getText().toLowerCase();
@@ -1231,12 +1259,11 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
 
             namesLabel.setText(nameCloseString);
 
-
             myFrame.add(racePanel);
             raceLabel.setText(raceStartString);
             addButtonArray(raceButtonArray, raceButtonX, raceButtonY, raceColumns);
-
         }
+
         /**
          * *========================
          * *enums raceButton actions
@@ -1265,6 +1292,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(skinPanel);
             skinLabel.setText(skinStartString);
             addButtonArray(skinButtonArray, skinButtonX, skinButtonY, skinColumns);
+
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1285,6 +1313,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(eyesPanel);
             eyesLabel.setText(eyesStartString);
             addButtonArray(eyeButtonArray, eyesButtonX, eyesButtonY, eyesColumns);
+
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1305,6 +1334,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(hairPanel);
             hairLabel.setText(hairStartString);
             addButtonArray(hairButtonArray, hairButtonX, hairButtonY, hairColumns);
+
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1325,6 +1355,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(sexPanel);
             sexLabel.setText(sexStartString);
             addButtonArray(sexButtonArray, sexButtonX, sexButtonY, sexColumns);
+
             myFrame.repaint();
             myFrame.revalidate();
         }
@@ -1344,14 +1375,15 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             myFrame.add(doublePanel);
             myFrame.add(heightPanel);
             myFrame.add(heightButton);
+
             doubleLabel.setText(heightString);
             doubleLabel.setFont(new Font(defaultFont, fontStyle, fontMedium));
             doublePanel.add(doubleTotalLabel);
+
             heightPanel.setEnabled(true);
             heightButton.setEnabled(true);
             heightSlider.setEnabled(true);
             heightSlider.setValue(0);
-
 
             myFrame.repaint();
             myFrame.revalidate();
@@ -1506,20 +1538,5 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             adventurer.getInventory().addWeapon(Weapon.TRIDENT);
             Arquivos.write("Adventurer [" + (++totalAdventurersInt) + "]", adventurer);
         }
-    }
-
-    public static void main(String[] args) {
-
-        new GraphicInterfaceUtil();
-
-        // NarratorUtil.greetings();
-        // Scanner scanner = new Scanner(System.in);
-        // Adventurer a  = CharacterCreatorUtil.startCharacterCreation(scanner);
-        // a.getInventory().addWeapon(Weapon.TRIDENT);
-        // System.out.println(a);
-        // scanner.close();
-
-        // Arquivos.write("Ladino", a);
-        // Arquivos.read("teste.txt");
     }
 }

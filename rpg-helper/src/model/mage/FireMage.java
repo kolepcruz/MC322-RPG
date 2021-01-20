@@ -5,7 +5,6 @@ import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import utils.Skills;
 
-import java.util.zip.Adler32;
 
 public class FireMage extends Adventurer implements Skills {
     /**

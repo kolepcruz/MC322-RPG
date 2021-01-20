@@ -1,11 +1,8 @@
 package model.mage;
 
 import enums.*;
-import model.Person;
 import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
-import model.adv_tier.CombatAttributes;
-import model.adv_tier.Inventory;
 import utils.Skills;
 
 public class FrostMage extends Adventurer implements Skills {
