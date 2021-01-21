@@ -1551,7 +1551,6 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
              * !chamada dos métodos para criar o personagem
              */
             Attributes attributes = CharacterCreatorUtil.getAttributesPoints(
-                raceInt,
                 strengthInt,
                 dexterityInt,
                 constitutionInt,
