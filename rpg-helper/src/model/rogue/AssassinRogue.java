@@ -5,7 +5,7 @@ import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import utils.SkillsUtil;
 
-public class AssassinRogue extends Adventurer implements SkillsUtil {
+public class AssassinRogue extends Rogue implements SkillsUtil {
     /**
      * Class AssassinRogue é uma subtribo de Rogue, nela possui algumas habilidades com que o Ladino ataca
      */

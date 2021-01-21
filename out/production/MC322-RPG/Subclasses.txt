@@ -1,0 +1,39 @@
+Furious: Para alguns bárbaros, a fúria é um meio para um fim, esse fim é a 
+violência.
+O Furioso é um caminho de fúria livre, entumecido em sangue. A medida que você entra na 
+fúria de um furioso, você vibra no caos da batalha, despreocupado com a sua própria saúde 
+ou bem-estar.
+
+*****************************************************************************************
+Totemic: O Caminho Totêmico é uma jornada espiritual, à partir do momento que o bárbaro 
+aceita um espirito animal como seu guia, protetor e inspiração. Em batalha, seu espirito 
+totêmico preenche você com força sobrenatural, adicionando combustível mágico a sua fúria 
+bárbara.
+
+*****************************************************************************************
+FrostMage: Como um Mago do Gelo, você prefere magias que produzam efeito retardante nos alvos. 
+Você pode conjurar mágias como Tempestade de Gelo e a medida de que seu domínio aumentar, você 
+pode fazer uso de magias como Ciclo de Gelo.
+
+*****************************************************************************************
+FireMage: Você foca seu estudo para criar poderosos efeitos elementais do fogo, alguns evocadores 
+encontram emprego nas forças militares, servindo como artilharia para explodir fileiras 
+inimigas de longe.
+
+*****************************************************************************************
+ArcaneMage: Você é um estudante de magias que modificam energia e matéria. Para você, o mundo 
+não é uma coisa fixa, mas sim eminentemente mutável e você se deleita em ser um agente da mudança. 
+Você empunha a matéria-prima da criação e aprendeu tanto formas físicas quanto qualidades mentais.
+Sua magia lhe dá as ferramentas para se tornar um verdadeiro arcano.
+
+*****************************************************************************************
+Assassin: Você focou seu treinamento na macabra arte da morte. Aqueles que devotam-se a esse 
+arquétipo são diversos: assassinos de aluguel, espiões, caçadores de recompensa e, até mesmo, 
+padres especialmente treinados em exterminar os inimigos das suas divindades. Subterfúgio, 
+veneno e disfarces ajudam você a eliminar seus oponentes com eficiência mortífera.
+
+*****************************************************************************************
+ArcaneTrapper: Alguns ladinos aprimoram suas finas perícias de furtividade e agilidade com
+magia, aprendendo truques de encantamento e ilusão. Esses ladinos incluem não somente batedores 
+de carteira e assaltantes, mas também trapaceiros, enganadores e um número significativo de 
+aventureiros.

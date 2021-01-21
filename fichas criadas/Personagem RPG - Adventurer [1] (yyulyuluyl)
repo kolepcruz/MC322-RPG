@@ -1,0 +1,41 @@
+FireMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ meteorStorm 
+ fireBall 
+ burningBeam 
+ flamingSphere 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 13
+ iniciativePoints = 2
+ totalHp = 11
+ currentHp = 11
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> PADDED
+Weapons:
+-> DAGGER
+* TRIDENT
+Peso do equipamento:
+8.5/150.0 kg
+Gold : 
+ 20$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 17
+ dexterity = 15
+ constitution = 17
+ intelligence = 15
+ wisdom = 12
+ charisma = 1
+-=-=-=-=-=-=-=-=-|yyulyuluyl|-=-=-=-=-=-=-=-=-
+ Personagem: tyktykt
+ Race: DWARF
+ Sexo: MALE
+ Altura: 250.0
+ Peso: 200.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE

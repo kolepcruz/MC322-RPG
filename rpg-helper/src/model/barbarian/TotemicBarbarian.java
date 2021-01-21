@@ -5,7 +5,7 @@ import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import utils.SkillsUtil;
 
-public class TotemicBarbarian extends Adventurer implements SkillsUtil {
+public class TotemicBarbarian extends Barbarian implements SkillsUtil {
     /**
      * Class TotemicBarbarian é uma subtribo de Barbarian, nela possui algumas habilidades com que o Barbaro ataca
      */

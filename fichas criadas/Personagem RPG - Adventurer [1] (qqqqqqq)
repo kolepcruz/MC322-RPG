@@ -1,0 +1,41 @@
+FireMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ meteorStorm 
+ fireBall 
+ burningBeam 
+ flamingSphere 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 1
+ iniciativePoints = 1
+ totalHp = 7
+ currentHp = 7
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> NO_ARMOR
+Weapons:
+-> NO_WEAPON
+* TRIDENT
+Peso do equipamento:
+4.0/127.5 kg
+Gold : 
+ 100$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 15
+ dexterity = 12
+ constitution = 13
+ intelligence = 12
+ wisdom = 12
+ charisma = 11
+-=-=-=-=-=-=-=-=-|qqqqqqq|-=-=-=-=-=-=-=-=-
+ Personagem: gdssgdsd
+ Race: DRAGONBORN
+ Sexo: MALE
+ Altura: 3.0
+ Peso: 161.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE

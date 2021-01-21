@@ -1,0 +1,41 @@
+FireMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ meteorStorm 
+ fireBall 
+ burningBeam 
+ flamingSphere 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 0
+ iniciativePoints = 0
+ totalHp = 6
+ currentHp = 6
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> NO_ARMOR
+Weapons:
+-> NO_WEAPON
+* TRIDENT
+Peso do equipamento:
+4.0/82.5 kg
+Gold : 
+ 60$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 11
+ dexterity = 11
+ constitution = 11
+ intelligence = 16
+ wisdom = 16
+ charisma = 11
+-=-=-=-=-=-=-=-=-|bnvvbnb|-=-=-=-=-=-=-=-=-
+ Personagem: fchdfhfd
+ Race: HALF_ELF
+ Sexo: MALE
+ Altura: 174.0
+ Peso: 113.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE
