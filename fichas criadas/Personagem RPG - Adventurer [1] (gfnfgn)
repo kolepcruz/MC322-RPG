@@ -1,0 +1,41 @@
+ArcaneMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ arcaneArmor 
+ magicMissiles 
+ prismaticBarrage 
+ arcanePortal 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 12
+ iniciativePoints = 1
+ totalHp = 10
+ currentHp = 10
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> PADDED
+Weapons:
+-> DAGGER
+* TRIDENT
+Peso do equipamento:
+8.5/97.5 kg
+Gold : 
+ 40$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 12
+ dexterity = 12
+ constitution = 15
+ intelligence = 15
+ wisdom = 10
+ charisma = 11
+-=-=-=-=-=-=-=-=-|gfnfgn|-=-=-=-=-=-=-=-=-
+ Personagem: vgnfg
+ Race: DRAGONBORN
+ Sexo: FEMALE
+ Altura: 157.0
+ Peso: 121.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE

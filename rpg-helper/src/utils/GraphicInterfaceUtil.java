@@ -909,7 +909,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
         }
         else
         {
-            throw new AttributesException("invalid attribute value");
+            throw new AttributesException("invalid attribute value",404);
         }
     }
 
@@ -1452,6 +1452,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
         }
 
@@ -1471,6 +1472,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
         }
 
@@ -1490,6 +1492,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
         }
 
@@ -1509,6 +1512,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
         }
 
@@ -1528,6 +1532,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
         }
 
@@ -1545,6 +1550,7 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
             catch(AttributesException ex)
             {
                 JOptionPane.showMessageDialog(myFrame, attributesErroString + totalAttributesLabel.getText());
+                ex.printStackTrace();
             }
 
             /**

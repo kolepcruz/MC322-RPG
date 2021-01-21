@@ -27,7 +27,7 @@ public class ArquivosUtil {
 
     public static void read(String nome){
         try {
-            Scanner input = new Scanner(new File("./descricao/" + nome));
+            Scanner input = new Scanner(new File("Descricao" + nome));
             while(input.hasNext())
                 System.out.print(input.nextLine() + "\n");
         } catch (IOException ex){
@@ -38,7 +38,7 @@ public class ArquivosUtil {
     public static String readString(String nome){
         String outText = "";
         try{
-            Scanner input = new Scanner(new File("./descricao/" + nome));
+            Scanner input = new Scanner(new File("./Descricao/" + nome));
             while(input.hasNext())
                 outText += (input.nextLine() + "\n");
         }catch (IOException ex){

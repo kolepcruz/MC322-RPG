@@ -1,0 +1,41 @@
+FireMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ meteorStorm 
+ fireBall 
+ burningBeam 
+ flamingSphere 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 2
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 1
+ iniciativePoints = 1
+ totalHp = 9
+ currentHp = 9
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> NO_ARMOR
+Weapons:
+-> NO_WEAPON
+* TRIDENT
+Peso do equipamento:
+4.0/150.0 kg
+Gold : 
+ 70$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 17
+ dexterity = 13
+ constitution = 16
+ intelligence = 13
+ wisdom = 13
+ charisma = 5
+-=-=-=-=-=-=-=-=-|enr|-=-=-=-=-=-=-=-=-
+ Personagem: enr
+ Race: DWARF
+ Sexo: MALE
+ Altura: 176.0
+ Peso: 161.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE
