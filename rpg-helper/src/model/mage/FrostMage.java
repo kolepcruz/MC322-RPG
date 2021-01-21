@@ -5,7 +5,7 @@ import model.adv_tier.Adventurer;
 import model.adv_tier.Attributes;
 import utils.SkillsUtil;
 
-public class FrostMage extends Adventurer implements SkillsUtil {
+public class FrostMage extends Mage implements SkillsUtil {
     /**
      * Class FrostMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */

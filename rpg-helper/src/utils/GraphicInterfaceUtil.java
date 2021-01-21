@@ -40,17 +40,17 @@ public class GraphicInterfaceUtil implements ActionListener, ChangeListener
     private static String assassinString = "assassin";
     private static String trapperString = "trapper";
 
-    private static int barbarianClassInt = 1;
-    private static int mageClassInt = 2;
-    private static int rogueClassInt = 3;
+    private static int barbarianClassInt = 0;
+    private static int mageClassInt = 1;
+    private static int rogueClassInt = 2;
     
-    private static int furiousClassInt = 1;
-    private static int totemicClassInt = 2;
-    private static int frostClassInt = 1;
-    private static int fireClassInt = 2;
-    private static int arcaneClassInt = 3;
-    private static int assassinClassInt = 1;
-    private static int trapperClassInt = 2;
+    private static int furiousClassInt = 0;
+    private static int totemicClassInt = 1;
+    private static int frostClassInt = 0;
+    private static int fireClassInt = 1;
+    private static int arcaneClassInt = 2;
+    private static int assassinClassInt = 0;
+    private static int trapperClassInt = 1;
     
     private static int raceInt = 0;
     private static int eyesInt = 0;

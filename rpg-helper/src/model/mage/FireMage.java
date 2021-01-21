@@ -6,7 +6,7 @@ import model.adv_tier.Attributes;
 import utils.SkillsUtil;
 
 
-public class FireMage extends Adventurer implements SkillsUtil {
+public class FireMage extends Mage implements SkillsUtil {
     /**
      * Class FireMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
      */
