@@ -16,7 +16,6 @@ public class CharacterCreatorUtil {
 
 
     public static Attributes getAttributesPoints(
-        int chosenRace,
         int strength,
         int dexterity,
         int constitution,
@@ -25,12 +24,12 @@ public class CharacterCreatorUtil {
         int charisma)
     {
         return new Attributes(
-            strength + Race.values()[chosenRace].getStrength(),
-            dexterity + Race.values()[chosenRace].getDexterity(),
-            constitution + Race.values()[chosenRace].getConstitution(),
-            intelligence + Race.values()[chosenRace].getIntelligence(),
-            wisdom + Race.values()[chosenRace].getWisdom(),
-            charisma + Race.values()[chosenRace].getCharisma()
+            strength,
+            dexterity,
+            constitution,
+            intelligence,
+            wisdom,
+            charisma
         );
     }
 
