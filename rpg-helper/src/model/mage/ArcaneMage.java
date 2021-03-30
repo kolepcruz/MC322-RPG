@@ -1,53 +1,51 @@
-public class ArcaneMage extends Mage {
-    public int armaduraArcana(){
-        if(this.getNivel()==1){
-            int dano=0;
-            for(int i=0;i<4;i++){
-                dano+=Random1.fazRandom(4);
-            }
-            this.setContMana(this.getContMana()-8);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+package model.mage;
+
+import enums.*;
+import model.adv_tier.Adventurer;
+import model.adv_tier.Attributes;
+import utils.SkillsUtil;
+
+public class ArcaneMage extends Mage implements SkillsUtil {
+    /**
+     * Class ArcaneMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
+     */
+
+    public ArcaneMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                            Skin skin, String playerName, String caracterName ) {
+
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int misseisMagicos(){
-        if(this.getNivel()==2){
-            int dano=0;
-            for(int i=0;i<6;i++){
-                dano+=Random1.fazRandom(6);
-            }
-            this.setContMana(this.getContMana()-18);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+
+
+    public int power1()//arcaneArmor
+    {
+        return doDamage(1,4,4,8);
     }
 
-    public int rajadaPrismatica(){
-        if(this.getNivel()==3){
-            int dano=0;
-            for(int i=0;i<10;i++){
-                dano+=Random1.fazRandom(10);
-            }
-            this.setContMana(this.getContMana()-28);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power2()//magicMissiles
+    {
+        return doDamage(2,6,6,18);
     }
 
-    public int portlArcano(){
-        if(this.getNivel()==4){
-        int dano=0;
-        for(int i=0;i<10;i++){
-        dano+=Random1.fazRandom(6);
-        }
-        this.setContMana(this.getContMana()-22);
-        return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-        return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power3()//prismaticBarrage
+    {
+        return doDamage(3,10,10,28);
+    }
+
+    public int power4()//arcanePortal
+    {
+        return doDamage(4,10,6,22);
+    }
+
+    @Override
+    public String toString() {
+        String out = "ArcaneMage";
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
+        out+= "\n arcaneArmor ";
+        out+= "\n magicMissiles ";
+        out+= "\n prismaticBarrage ";
+        out+= "\n arcanePortal ";
+        return out + '\n' + super.toString();
     }
 }

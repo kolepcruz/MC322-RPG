@@ -1,0 +1,38 @@
+TotemicBarbarian
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ totemicSpirit 
+ totemicHarmony 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 2
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 7
+ iniciativePoints = -5
+ totalHp = 7
+ currentHp = 7
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> BEATEN_LEATHER
+Weapons:
+-> AXE_BIG
+Peso do equipamento:
+10.0/7.5 kg
+Gold : 
+ 40$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 2
+ dexterity = 0
+ constitution = 0
+ intelligence = 0
+ wisdom = 0
+ charisma = 1
+-=-=-=-=-=-=-=-=-|aaaa|-=-=-=-=-=-=-=-=-
+ Personagem: dgf
+ Race: DRAGONBORN
+ Sexo: MALE
+ Altura: 0.0
+ Peso: 0.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: REDHEAD

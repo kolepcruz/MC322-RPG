@@ -1,0 +1,19 @@
+=========================================================================================
+BARBARIAN:
+Famosos por sua incrível força e resistência ao dano físico, utilizando RAGE para causar dano devastador ápos
+o começo do combate. Aumentando durante os encontros com os inimigas, diminuindo ao longo do tempo.
+
+=========================================================================================
+MAGE:
+Conhecidos por seu vasto domínio do arcano para feitiços devastadores conjurados com MANA. Este poderoso
+recurso se regenera lentamente, abrindo as portas para incríveis magias.
+
+=========================================================================================
+ROGUE:
+Reis do subterfúgio, utilizam sua destreza e seu ambiente para derrotar inimigos fisicamente mais fortes ou 
+destrutivos. Suas habilidades dependem da STAMINA que, apesar de seu rápido esgotamento, se regenera
+tanto dentro quanto fora do combate.
+
+=========================================================================================
+
+Desta maneira, selecione sua Classe do RPG-HELPER

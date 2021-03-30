@@ -1,0 +1,38 @@
+TotemicBarbarian
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ totemicSpirit 
+ totemicHarmony 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 1
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = 7
+ iniciativePoints = -5
+ totalHp = 8
+ currentHp = 8
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> BEATEN_LEATHER
+Weapons:
+-> AXE_BIG
+Peso do equipamento:
+10.0/7.5 kg
+Gold : 
+ 0$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 2
+ dexterity = 0
+ constitution = 1
+ intelligence = 0
+ wisdom = 0
+ charisma = 0
+-=-=-=-=-=-=-=-=-|gdssdg|-=-=-=-=-=-=-=-=-
+ Personagem: asfasf
+ Race: HALF_ORC
+ Sexo: FEMALE
+ Altura: 0.0
+ Peso: 0.0
+ Pele: WHITE
+ Olhos: BROWN
+ Cabelo: WHITE

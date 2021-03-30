@@ -1,0 +1,9 @@
+Bem Vindos ao RPG-HELPER!!
+Este trabalho foi desenvolvido por um grupo de alunos ECA-019 da Unicamp para MC322      
+Tem como intuito a familiarizaçao com algumas mecanicas de criar personagens em RPGs
+Creditos aos alunos:
+        - Trofino;
+        - Kole;
+        - Jonas;
+        - Erik.
+Temos planos de expandir este projeto e apos o final da materia sera publicado no github dos membros

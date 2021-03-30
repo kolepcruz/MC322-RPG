@@ -1,53 +1,48 @@
-public class FrostMage extends Mage {
-    public int raioDeGelo(){
-        if(this.getNivel()==1){
-            int dano=0;
-            for(int i=0;i<3;i++){
-                dano+=Random1.fazRandom(4);
-            }
-            this.setContMana(this.getContMana()-5);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+package model.mage;
+
+import enums.*;
+import model.adv_tier.Adventurer;
+import model.adv_tier.Attributes;
+import utils.SkillsUtil;
+
+public class FrostMage extends Mage implements SkillsUtil {
+    /**
+     * Class FrostMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
+     */
+
+    public FrostMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                    Skin skin, String playerName, String caracterName ) {
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int tempestadeDeGelo(){
-        if(this.getNivel()==2){
-            int dano=0;
-            for(int i=0;i<4;i++){
-                dano+=Random1.fazRandom(6);
-            }
-            this.setContMana(this.getContMana()-10);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power1()//iceBeam
+    {
+        return doDamage(1,3,4,5);
     }
 
-    public int esferaCongelanteDeOtiluke(){
-        if(this.getNivel()==3){
-            int dano=0;
-            for(int i=0;i<5;i++){
-                dano+=Random1.fazRandom(10);
-            }
-            this.setContMana(this.getContMana()-20);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power2()//iceStorm
+    {
+        return doDamage(2,4,6,10);
     }
 
-    public int coneDeFrio(){
-        if(this.getNivel()==4){
-            int dano=0;
-            for(int i=0;i<8;i++){
-                dano+=Random1.fazRandom(10);
-            }
-            this.setContMana(this.getContMana()-35);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power3()//otilukeFreezingSphere
+    {
+        return doDamage(3,5,10,20);
+    }
+
+    public int power4()//frostIcicle
+    {
+        return doDamage(4,8,10,35);
+    }
+
+    @Override
+    public String toString() {
+        String out = "FrostMage";
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
+        out+= "\n iceBeam ";
+        out+= "\n iceStorm ";
+        out+= "\n otilukeFreezingSphere ";
+        out+= "\n frostIcicle ";
+        return out + '\n' + super.toString();
     }
 }

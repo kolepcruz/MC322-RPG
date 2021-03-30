@@ -1,53 +1,49 @@
-public class FireMage extends Mage {
-    public int chuvaDeMeteoro(){
-        if(this.getNivel()==1){
-            int dano=0;
-            for(int i=0;i<3;i++){
-                dano+=Random1.fazRandom(6);
-            }
-            this.setContMana(this.getContMana()-10);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+package model.mage;
+
+import enums.*;
+import model.adv_tier.Adventurer;
+import model.adv_tier.Attributes;
+import utils.SkillsUtil;
+
+
+public class FireMage extends Mage implements SkillsUtil {
+    /**
+     * Class FireMage é uma subtribo de Mage, nela possui algumas magias com que o Mago ataca
+     */
+
+    public FireMage(Attributes attributes, double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                Skin skin, String playerName, String caracterName ) {
+        super(attributes, height, weight, hair, eyes, race, sex, skin, playerName, caracterName);
     }
 
-    public int bolaDeFogo(){
-        if(this.getNivel()==2){
-            int dano=0;
-            for(int i=0;i<4;i++){
-                dano+=Random1.fazRandom(10);
-            }
-            this.setContMana(this.getContMana()-15);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power1()//meteorStorm
+    {
+        return doDamage(1,3,6,10);
     }
 
-    public int raioArdente(){
-        if(this.getNivel()==3){
-            int dano=0;
-            for(int i=0;i<5;i++){
-                dano+=Random1.fazRandom(10);
-            }
-            this.setContMana(this.getContMana()-20);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power2()//fireBall
+    {
+        return doDamage(2,4,10,15);
     }
 
-    public int esferaFlamejanta(){
-        if(this.getNivel()==4){
-            int dano=0;
-            for(int i=0;i<8;i++){
-                dano+=Random1.fazRandom(6);
-            }
-            this.setContMana(this.getContMana()-3);
-            return dano;//o aventureiro pode usar essa magia e rolará o segundo valor, multiplicará pelo primeiro e perderá o terceiro em pontos de mana.
-        }else{
-            return 0;//o aventureiro nao possui nivel para usar essa magia, ele deve escolher outra.
-        }
+    public int power3()//burningBeam
+    {
+        return doDamage(3,5,10,20);
+    }
+
+    public int power4()// flamingSphere
+    {
+        return doDamage(4, 8, 6, 3);
+    }
+
+    @Override
+    public String toString() {
+        String out = "FireMage";
+        out+="\n" + "-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-" ;
+        out+= "\n meteorStorm ";
+        out+= "\n fireBall ";
+        out+= "\n burningBeam ";
+        out+= "\n flamingSphere ";
+        return out + '\n' + super.toString();
     }
 }

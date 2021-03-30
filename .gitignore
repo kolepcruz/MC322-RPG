@@ -1,5 +1,3 @@
-.idea
-rpg-helper/out/*
-rpg-helper/.idea/*
-rpg-helper/rpg-helper.iml/*
+rpg-helper/out/**
 *.class
+MC322-RPG.iml

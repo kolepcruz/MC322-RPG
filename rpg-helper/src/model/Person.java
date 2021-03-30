@@ -4,97 +4,92 @@ import enums.*;
 
 public class Person {
 
-    private final int altura;
-    private final int peso;
-    private Pele pele;
-    private Cabelo cabelo;
-    private Olhos olhos;
-    private Race race;
-    private Sexo sexo;
-    private final String playerName; //nome do jogador
-    private final String name; //nome da personagem
+    private double height;//Altura do Personagem
+    private double weight;//Peso do Personagem
+    private Skin skin;//Pele do Personagem
+    private Hair hair;//Cabelo do Personagem
+    private Eyes eyes;//Olhos do Personagem
+    private Race race;//Raça do Personagem
+    private Sex sex;//Sexo do Personagem
+    private final String playerName; //Nome do Jogador
+    private final String caracterName; //Nome do Personagem
 
-    public Person(int altura, int peso, Cabelo cabelo, Olhos olhos, Race race, Sexo sexo, String playerName, String name)
+    public Person(double height, double weight, Hair hair, Eyes eyes, Race race, Sex sex,
+                  Skin skin, String playerName, String caracterName)
     {
-        this.altura = altura;
-        this.peso = peso;
-        this.cabelo = cabelo;
-        this.olhos = olhos;
+        this.skin = skin;
+        this.height = height;
+        this.weight = weight;
+        this.hair = hair;
+        this.eyes = eyes;
         this.race = race;
-        this.sexo = sexo;
+        this.sex = sex;
         this.playerName = playerName;
-        this.name = name;
+        this.caracterName = caracterName;
     }
 
     @Override
     public String toString() {
-        String out = "[Personagem: "+getPlayerName()+"]\n";
+        String out = "-=-=-=-=-=-=-=-=-|"+getPlayerName()+"|-=-=-=-=-=-=-=-=-\n";
 
-        out = out + "\tJogador: "+getName()+"\n";
-        out = out + "\t\tRace: "+getRace()+"\n";
-        out = out + "\t\tSexo: "+getSexo()+"\n";
-        out = out + "\t\tAltura: "+getAltura()+"\n";
-        out = out + "\t\tPeso: "+getPeso()+"\n";
-        out = out + "\t\tPele: "+getPele()+"\n";
-        out = out + "\t\tOlhos: "+getOlhos()+"\n";
-        out = out + "\t\tCanelo: "+getCabelo()+"\n";
-
+        out = out + " Personagem: "+getCaracterName()+"\n";
+        out = out + " Race: "+getRace()+"\n";
+        out = out + " Sexo: "+ getSex()+"\n";
+        out = out + " Altura: "+ getHeight()+"\n";
+        out = out + " Peso: "+ getWeight()+"\n";
+        out = out + " Pele: "+ getSkin()+"\n";
+        out = out + " Olhos: "+getEyes()+"\n";
+        out = out + " Cabelo: "+getHair()+"\n";
         return out;
     }
 
 
-    public int getAltura() {
-        return altura;
+    public double getHeight() {
+        return height;
     }
-    public int getPeso() {
-        return peso;
-    }
-
-    public Pele getPele() {
-        return pele;
-    }
-    public void setPele(Pele pele) {
-        this.pele = pele;
+    public double getWeight() {
+        return weight;
     }
 
-    public Cabelo getCabelo() {
-        return cabelo;
+    public Skin getSkin() {
+        return skin;
+    }
+    public void setSkin(Skin skin) {
+        this.skin = skin;
     }
 
-    public void setCabelo(Cabelo cabelo) {
-        this.cabelo = cabelo;
+    public Hair getHair() {
+        return hair;
+    }
+    public void setHair(Hair hair) {
+        this.hair = hair;
     }
 
-    public Olhos getOlhos() {
-        return olhos;
+    public Eyes getEyes() {
+        return eyes;
     }
-
-    public void setOlhos(Olhos olhos) {
-        this.olhos = olhos;
+    public void setEyes(Eyes eyes) {
+        this.eyes = eyes;
     }
 
     public Race getRace() {
         return race;
     }
-
     public void setRace(Race race) {
         this.race = race;
     }
 
-    public Sexo getSexo() {
-        return sexo;
+    public Sex getSex() {
+        return sex;
     }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 
     public String getPlayerName() {
         return playerName;
     }
-
-
-    public String getName() {
-        return name;
+    public String getCaracterName() {
+        return caracterName;
     }
 }

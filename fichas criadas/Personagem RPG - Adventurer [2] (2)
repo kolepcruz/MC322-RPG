@@ -1,0 +1,41 @@
+ArcaneMage
+-=-=-=-=-=-=-=-=-SKILLS=-=-=-=-=-=-=-=-
+ arcaneArmor 
+ magicMissiles 
+ prismaticBarrage 
+ arcanePortal 
+-=-=-=-=-=-=-=-=-ADVENTURER-=-=-=-=-=-=-=-=-
+ id = 2
+ level = 0
+ expPoints = 0
+-=-=-=-=-=-=-=-=-COMBAT-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ armorPoints = -5
+ iniciativePoints = -5
+ totalHp = 1
+ currentHp = 1
+-=-=-=-=-=-=-=-=-INVENTORY-=-=-=-=-=-=-=-=-
+Armors:
+-> NO_ARMOR
+Weapons:
+-> NO_WEAPON
+* TRIDENT
+Peso do equipamento:
+4.0/7.5 kg
+Gold : 
+ 100$
+ -=-=-=-=-=-=-=-=-ATTRIBUTES-=-=-=-=-=-=-=-=-
+ strenght = 2
+ dexterity = 0
+ constitution = 0
+ intelligence = 0
+ wisdom = 0
+ charisma = 1
+-=-=-=-=-=-=-=-=-|2|-=-=-=-=-=-=-=-=-
+ Personagem: zxbxcb
+ Race: DRAGONBORN
+ Sexo: MALE
+ Altura: 0.0
+ Peso: 0.0
+ Pele: BROWN
+ Olhos: BROWN
+ Cabelo: BRUNNETE
